@@ -10,6 +10,10 @@
         "tests"
     ],
     "dependencies": {
-        "jquery": "2.0"
+        "jquery": "*",
+        "bootstrap": "*",
+        "angular": "*",
+        "angular-route": "*",
+        "angular-bootstrap": "*"
     }
 }

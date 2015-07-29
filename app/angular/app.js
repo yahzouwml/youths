@@ -1,6 +1,6 @@
-var app = angular.module('global', []);
+var app = angular.module('global', ['ngRoute']);
 
-app.run('name', ['$routeProvider', function($routeProvider) {
+app.config(['', function($locationProvider) {
     $routeProvider.when('/', {
         templateUrl: '/views/home/main.html',
         controller: 'mainCtrl'
@@ -10,6 +10,4 @@ app.run('name', ['$routeProvider', function($routeProvider) {
     }).otherWise({
         redirecTo: '/'
     });
-}]).config(['', function() {
-
 }]);
