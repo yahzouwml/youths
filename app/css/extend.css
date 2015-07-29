@@ -1,0 +1,59 @@
+/*
+sx
+*/
+.required:after {
+  content: "*";
+  color: #a94442;
+}
+.uTool {
+  position: fixed;
+  right: 10px;
+  bottom: 50px;
+}
+.uTool > li {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background-color: #479c18;
+  border-radius: 50%;
+  list-style: none;
+  margin: 5px  0;
+  text-align: center;
+  line-height: 50px;
+}
+.uTool > li:hover {
+  background-color: #51b21b;
+}
+.uTool > li a {
+  color: #fff;
+}
+.uTool > li a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.weixin {
+  width: 150px;
+  height: 150px;
+}
+.tc {
+  text-align: center;
+}
+.ITNav .items:hover {
+  background-color: #479c18;
+  opacity: 0.5;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.ITNav .items:hover h4,
+.ITNav .items:hover p {
+  color: #ffffff;
+}
+.ITNav .items h4 {
+  text-align: center;
+  color: #479c18;
+  margin: 15px 0;
+}
+.ITNav .items img {
+  margin: 10px 0;
+}
+/*# sourceMappingURL=extend.css.map */

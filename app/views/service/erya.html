@@ -1,0 +1,89 @@
+{% extends "../layout.html" %} 
+
+{% block body %}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="~/Home/Index"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li><a href="~/Service/Index">产品服务</a></li>
+                    <li class="active">尔雅通识题库在线查询</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="widget">
+                    <form class="validateform" action="/Service/Erya" method="post">
+                        <div class="row">
+                            <div class="col-lg-10 field">
+                                <input id="key" class="form-control" name="Key" type="text" placeholder="请输入搜索题目.." data-rule="required" data-msg="请输入关键字">
+                                <div class="validation">
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <button class="btn btn-green" type="submit">搜索</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="result">
+                                    <p>因服务器资源限制,本站将关闭，谢谢,请关注我们的官方平台留意后续消息。</p>
+                                    <a href="~/Home/Blogdetail">如何尔雅答题？</a>
+                                    <!-- 多说评论框 start -->
+                                    <hr />
+                                    <div class="ds-thread" data-thread-key="1001" data-title="联系我们" data-url="http://youths.cc/service/erya"></div>
+                                    <!-- 多说评论框 end -->
+                                    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+                                    <script type="text/javascript">
+                                    var duoshuoQuery = {short_name:"youths"};
+                                        (function() {
+                                            var ds = document.createElement('script');
+                                            ds.type = 'text/javascript';ds.async = true;
+                                            ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                                            ds.charset = 'UTF-8';
+                                            (document.getElementsByTagName('head')[0] 
+                                             || document.getElementsByTagName('body')[0]).appendChild(ds);
+                                        })();
+                                        </script>
+                                    <!-- 多说公共JS代码 end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="right-sidebar">
+                    <div class="widget">
+                        <h5 class="widgetheading">广告位出租</h5>
+                        <ul class="cat">
+                            <li>请与我们的官方微博,微信公众平台联系！</li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">题库容量</h5>
+                        <ul class="cat">
+                            <li><i class="icon-angle-right"></i><a href="#">题目总数</a><span> 120,356</span></li>
+                            <li><i class="icon-angle-right"></i><a href="#">选择题数</a><span> 60,865</span></li>
+                            <li><i class="icon-angle-right"></i><a href="#">填空题数</a><span> 59,491</span></li>
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">贡献Youths</h5>
+                        <ul class="cat">
+                            <li>扫描二维码贡献Youths</li>
+                        </ul>
+                        <img src="/img/zhi.png" alt="贡献Youths CC" />
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

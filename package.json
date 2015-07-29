@@ -1,0 +1,17 @@
+{
+  "name": "youths",
+  "author":"likely",
+  "version":"0.1.0",
+  "description":"",
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-htmlmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-sass": "*",
+    "gulp-minify-css": "*",
+    "gulp-minify-html": "*",
+    "gulp-connect": "*",
+    "gulp-sourcemaps": "*",
+    "gulp": "*"
+  }
+}

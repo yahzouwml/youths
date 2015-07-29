@@ -1,0 +1,81 @@
+{% extends "../layout.html" %} 
+
+{% block body %}
+<section id="inner-headline">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="~/Home/Index"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                    <li><a href="~/Service/Index">产品服务</a></li>
+                    <li class="active">网站代挂</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="widget">
+                    <h5 class="widgetheading">客户案例</h5>
+                    <div class="row">
+                        <section id="projects">
+                            <ul id="thumbs" class="portfolio">
+                                <!-- Item Project and Filter Name -->
+                                <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="web">
+                                    <img src="/img/anli1.jpg" alt="">
+                                </li>
+                                <!-- End Item Project -->
+                                @*<!-- Item Project and Filter Name -->
+                                <li class="item-thumbs col-lg-3 design" data-id="id-1" data-type="icon">
+                                    <img src="/img/works/2.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                </li>
+                                <!-- End Item Project -->
+                                <!-- Item Project and Filter Name -->
+                                <li class="item-thumbs col-lg-3 photography" data-id="id-2" data-type="graphic">
+                                    <img src="/img/works/3.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                </li>
+                                <!-- End Item Project -->
+                                <!-- Item Project and Filter Name -->
+                                <li class="item-thumbs col-lg-3 photography" data-id="id-5" data-type="icon">
+                                    <img src="/img/works/6.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                </li>
+                                <!-- Item Project and Filter Name -->
+                                <li class="item-thumbs col-lg-3 design" data-id="id-0" data-type="graphic">
+                                    <img src="/img/works/8.jpg" alt="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.">
+                                </li>
+                                <!-- End Item Project -->*@
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <aside class="right-sidebar">
+                    <div class="widget">
+                        <h5 class="widgetheading">服务介绍</h5>
+                        <ul class="cat">
+                            <li><i class="icon-angle-right"></i>将你的网站程序挂在我们的服务器上!</li>
+                            @*<li><i class="icon-angle-right"></i><a href="#">选择题数</a><span> 60,865</span></li>
+                            <li><i class="icon-angle-right"></i><a href="#">填空题数</a><span> 59,491</span></li>*@
+                        </ul>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">为什么使用网站代挂?</h5>
+                        <p>你不需要购买域名！</p>
+                        <p>你不需要购买服务器！</p>
+                        <p>你不需要域名备案！</p>
+                        <p>你只需要将网站邮件给我们,我们会给你一个完美的网站！</p>
+                    </div>
+                    <div class="widget">
+                        <h5 class="widgetheading">申请流程</h5>
+                        <P>请在微信公众平台或新浪微博资讯我们!</P>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
