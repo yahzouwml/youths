@@ -10,10 +10,11 @@
         "tests"
     ],
     "dependencies": {
-        "jquery": "*",
-        "bootstrap": "*",
-        "angular": "*",
-        "angular-route": "*",
-        "angular-bootstrap": "*"
+        "jquery": "~2.1.4",
+        "angular": "~1.4.0",
+        "angular-cookies": "~1.4.0",
+        "angular-route": "~1.4.0",
+        "angular-resource":"*",
+        "angular-bootstrap": "~0.13.0"
     }
 }

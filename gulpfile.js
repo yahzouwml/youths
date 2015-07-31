@@ -6,14 +6,20 @@ var sass = require('gulp-sass');
 gulp.task('serve', ['sass'], function() {
 
     browserSync.init({
-        server: "./app",
-        routes: {
-            "/bower_components": "bower_components"
+        notify: false,
+        open: "local",
+        host:"youths.com",
+        port:7000,
+        server: {
+            baseDir: ['app'],
+            routes: {
+                '/bower_components': 'bower_components'
+            }
         }
     });
 
     gulp.watch("app/scss/*.scss", ['sass']);
-    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch(['app/**/*.html','app/angular/**/*.js']).on('change', browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
