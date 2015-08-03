@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute']);
+var app = angular.module('global', ['ngRoute','lbServices']);
 
 app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
     
