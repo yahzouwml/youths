@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="global">
+
 <head>
     <meta charset="utf-8">
     <title>Youths,活力web倡导者</title>
@@ -17,6 +18,7 @@
     <link href="/import/skins/default.css" rel="stylesheet" />
     <link rel="stylesheet" href="/import/css/extend.css?v=1.0.0">
 </head>
+
 <body>
     <div id="wrapper">
         <!-- start header -->
@@ -59,7 +61,6 @@
         </header>
         <!-- end header -->
         <div ng-view>
-            
         </div>
         <footer>
             <div class="container">
@@ -100,11 +101,9 @@
                         <div class="widget">
                             <h5 class="widgetheading">支付宝捐助</h5>
                             <img src="/import/img/zhi.png" class="weixin" />
-
                             </p>
                         </div>
                     </div>
-
                 </div>
             </div>
             <div id="sub-footer">
@@ -141,73 +140,70 @@
         </li>
         <li><a href="###" data-toggle="modal" data-target="#modal-register">注册</a></li>
     </ul>
-
     <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center" id="exampleModalLabel">登录</h4>
-          </div>
-          <div class="modal-body">
-            <form id="fLogin" class="validate-Form form-horizontal" method="post" action="/login">
-              <div class="form-group">
-                <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="PhoneAndEmail">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">登录</h4>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" name="password">
+                <div class="modal-body">
+                    <form id="fLogin" class="validate-Form form-horizontal" method="post" action="/login">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="PhoneAndEmail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-green btn-submit">登录</button>
+                        </div>
+                    </form>
                 </div>
-              </div>
-              <div class="form-group text-center">
-                    <button class="btn btn-green btn-submit">登录</button>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-    
-     <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title text-center" id="exampleModalLabel">注册</h4>
-          </div>
-          <div class="modal-body">
-            <form id="fRegister" class="validate-Form form-horizontal" method="post" action="/register">
-              <div class="form-group">
-                <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
-                <div class="col-sm-9">
-                    <input type="text" class="form-control" name="PhoneAndEmail">
+    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="exampleModalLabel">注册</h4>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
-                <div class="col-sm-9">
-                    <input id="password" type="password" class="form-control" name="password">
+                <div class="modal-body">
+                    <form id="fRegister" class="validate-Form form-horizontal" method="post" action="/register">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" name="PhoneAndEmail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
+                            <div class="col-sm-9">
+                                <input id="password" type="password" class="form-control" name="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 required">重复密码:</label>
+                            <div class="col-sm-9">
+                                <input type="password" class="form-control" name="password_again">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-green btn-submit">注册</button>
+                        </div>
+                    </form>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="recipient-name" class="control-label col-sm-3 required">重复密码:</label>
-                <div class="col-sm-9">
-                    <input type="password" class="form-control" name="password_again">
-                </div>
-              </div>
-              <div class="form-group text-center">
-                    <button class="btn btn-green btn-submit">注册</button>
-              </div>
-            </form>
-          </div>
+            </div>
         </div>
-      </div>
     </div>
-
     <!-- javascript
         ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -229,5 +225,8 @@
     <script src="/js/app.js"></script>
     <script src="/js/controller/home/main.js"></script>
     <script src="/js/controller/home/blog.js"></script>
+    <!-- service -->
+    <script src="/js/services/lb-services.js"></script>
 </body>
+
 </html>
