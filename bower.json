@@ -1,20 +1,20 @@
 {
-    "name": "youths",
-    "version": "0.0.0",
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "dependencies": {
-        "jquery": "~2.1.4",
-        "angular": "~1.4.0",
-        "angular-cookies": "~1.4.0",
-        "angular-route": "~1.4.0",
-        "angular-resource":"*",
-        "angular-bootstrap": "~0.13.0"
-    }
+  "name": "youths",
+  "version": "0.0.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.0",
+    "angular-cookies": "~1.4.0",
+    "angular-resource": "*",
+    "angular-bootstrap": "~0.13.0",
+    "angular-route": "~1.4.3"
+  }
 }
