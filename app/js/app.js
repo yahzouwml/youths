@@ -1,9 +1,9 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute','lbServices']);
+var app = angular.module('global', ['ngRoute', 'lbServices']);
 
 app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
-    
+
 }]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
     // $locationProvider.html5Mode({
@@ -15,6 +15,12 @@ app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log
 
     $routeProvider.when('/', {
         templateUrl: '/views/home/main.html',
+        controller: 'mainCtrl'
+    }).when('/login', {
+        templateUrl: '/views/login.html',
+        controller: 'mainCtrl'
+    }).when('/register', {
+        templateUrl: '/views/register.html',
         controller: 'mainCtrl'
     }).when('/home/blog', {
         templateUrl: '/views/home/blog.html',
@@ -43,5 +49,20 @@ app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log
         templateUrl: '/views/service/itnav.html'
     }).otherwise({
         redirecTo: '/'
+    });
+
+    $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
+        return {
+            responseError: function(rejection) {
+                if (rejection.status == 401) {
+                    //Now clearing the loopback values from client browser for safe logout...
+                    LoopBackAuth.clearUser();
+                    LoopBackAuth.clearStorage();
+                    $location.nextAfterLogin = $location.path();
+                    $location.path('/login');
+                }
+                return $q.reject(rejection);
+            }
+        };
     });
 }]);
