@@ -1,16 +1,14 @@
 {
   "name": "youths",
-  "author":"likely",
-  "version":"0.1.0",
-  "description":"",
-  "devDependencies": {
-    "gulp": "*",
-    "gulp-htmlmin": "*",
-    "gulp-imagemin": "*",
-    "gulp-sass": "*",
-    "gulp-minify-css": "*",
-    "gulp-minify-html": "*",
-    "gulp-sourcemaps": "*",
-    "browser-sync": "*"
+  "author": "likely",
+  "version": "0.1.0",
+  "description": "",
+  "dependencies": {
+    "browser-sync": "^2.8.2",
+    "gulp": "^3.9.0",
+    "gulp-htmlmin": "^1.1.3",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-sourcemaps": "^1.5.2"
   }
 }
