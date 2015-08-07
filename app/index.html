@@ -31,37 +31,53 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/#/"><span>Y</span>ouths</a>
+                        <a class="navbar-brand" href="/"><span>Y</span>ouths</a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
-                            <li class="active"><a href="/#/">首页</a></li>
+                            <li class="active"><a href="#/">首页</a></li>
                             <li class="dropdown">
-                                <a href="/#/service/index" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">产品服务 <b class=" icon-angle-down"></b></a>
+                                <a href="#/service/index" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">产品服务 <b class=" icon-angle-down"></b></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="/#/service/itnav">IT网站导航</a></li>
+                                    <li><a href="#/service/itnav">IT网站导航</a></li>
                                     <!-- <hr />
                                     <li><a href="">网站建设</a></li>
                                     <li><a href="">网页设计</a></li>
                                     <li><a href="">平面设计</a></li>
                                     <hr />
-                                    <li><a href="/#/service/hangweb">网站代挂</a></li>
+                                    <li><a href="#/service/hangweb">网站代挂</a></li>
                                     <hr />
-                                    <li><a href="/#/service/erya">尔雅通识</a></li> -->
+                                    <li><a href="#/service/erya">尔雅通识</a></li> -->
                                 </ul>
                             </li>
-                            <!-- <li><a href="/#/home/portfolio">投资组合</a></li> -->
-                            <li><a href="/#/home/blog">博客</a></li>
-                            <li><a href="/#/home/recruit">招聘</a></li>
-                            <li><a href="/#/home/contact">联系我们</a></li>
+                            <!-- <li><a href="#/home/portfolio">投资组合</a></li> -->
+                            <li><a href="#/home/blog">博客</a></li>
+                            <li><a href="#/home/recruit">招聘</a></li>
+                            <li><a href="#/home/contact">联系我们</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </header>
         <!-- end header -->
-        <div ng-view>
-        </div>
+        <section id="inner-headline">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <ul class="breadcrumb">
+                            <li><a href="#/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
+                            <li class="active">{{current}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="content">
+            <div class="container">
+                <div class="row" ng-view>
+                </div>
+            </div>
+        </section>
         <footer>
             <div class="container">
                 <div class="row">
@@ -71,7 +87,7 @@
                             <ul class="link-list">
                                 <li>正在更新中</li>
                                 <!-- <li><a href="http://sns.youths.cc">Youths SNS社区</a></li>
-                                <li><a href="http://youths.cc/#/service/ITNav">Youths IT网站导航</a></li>
+                                <li><a href="http://youths.cc#/service/ITNav">Youths IT网站导航</a></li>
                                 <li><a href="http://erya.youths.cc">Youths 尔雅答题器</a></li>
                                 <li><a href="http://shop.youths.cc">乐享优果 每日新鲜购</a></li> -->
                             </ul>
