@@ -4,7 +4,7 @@ var app = angular.module('global', ['ngRoute', 'lbServices']);
 
 app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
 
-}]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+}]).config(['$routeProvider', '$locationProvider','$httpProvider', function($routeProvider, $locationProvider,$httpProvider) {
 
     // $locationProvider.html5Mode({
     //     enabled: true,
@@ -65,4 +65,10 @@ app.run(['$rootScope', '$location', '$log', function($rootScope, $location, $log
             }
         };
     });
-}]);
+}]).factory('$exceptionHandler', function() {
+    return function(exception, cause) {
+        exception.message += ' (caused by "' + cause + '")';
+        console.log(exception.message);
+        throw exception;
+    };
+});
