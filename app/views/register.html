@@ -1,0 +1,25 @@
+<div class="col-md-8 col-md-offset-2" ng-controller="registerCtrl">
+    <form class="form-horizontal" ng-submit="register()">
+        <div class="form-group">
+            <label for="recipient-name" class="control-label col-sm-3">邮箱:</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="user.email" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="control-label col-sm-3 ">密码:</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" ng-model="user.password" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="recipient-name" class="control-label col-sm-3">重复密码:</label>
+            <div class="col-sm-9">
+                <input type="password" class="form-control" name="password_again">
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-green btn-submit">注册</button>
+        </div>
+    </form>
+</div>
