@@ -1,6 +1,6 @@
 npm-debug.log
 /bower_components
-/.idea
-/dist
 /node_modules
+/dist
+/.idea
 /app/styles/css
