@@ -1,8 +1,14 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute', 'lbServices'])
-    .run(['$rootScope', '$location', '$log', function($rootScope, $location, $log) {
-
+var app = angular.module('global', ['ngRoute', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar'])
+    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
+        bootstrap3ElementModifier.enableValidationStateIcons(true);
+        defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
+            errorMessages['required'] = '不能为空';
+            errorMessages['email'] = '请输入有效的邮箱地址 ';
+            errorMessages['minlength'] = '请至少输入{0}个字符';
+            errorMessages['maxlength'] = '请至多输入{0}个字符';
+        });
     }])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
 
