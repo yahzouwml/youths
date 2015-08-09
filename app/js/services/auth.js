@@ -1,4 +1,4 @@
-app.factory('AuthService', ['$q', '$rootScope', function(User, $q,
+app.factory('AuthService', ['User','$q', '$rootScope', function(User, $q,
       $rootScope) {
     function login(email, password) {
       return User
