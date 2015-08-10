@@ -22,11 +22,14 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch("app/scss/*.scss", ['sass']);
-    gulp.watch(['app/*.html', 'app/js/**/*.js']).on('change',$.browserSync.reload);
+    gulp.watch(['app/*.html', 'app/js/**/*.js']).on('change', $.browserSync.reload);
 });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
+    $.del(['app/styles/css/**/*'], function(err, paths) {
+        console.log('delete css floder success');
+    })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
         .pipe($.sass())
