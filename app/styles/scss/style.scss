@@ -39,12 +39,6 @@ $font_1: Arial;
 $font_2: sans-serif;
 $font_3: Noto Serif;
 $font_4: serif;
-//urls
-$url_0: url(../../plugin/google-code-prettify/prettify.css);
-$url_1: url(font-awesome.css);
-$url_2: url(custom-fonts.css);
-$url_3: url(overwrite.css);
-$url_4: url(animate.css);
 //@extend-elements
 //original selectors
 //h1, h2, h3, h4, h5, h6
@@ -134,13 +128,8 @@ $url_4: url(animate.css);
     padding: 20px 0;
 }
 
-// @import $url_0;
-// @import $url_1;
-// @import $url_2;
-// @import $url_3;
-// @import $url_4;
-@import url(../../plugin/google-code-prettify/prettify.css);
-@import url(font-awesome.css);
+@import url(/plugin/google-code-prettify/prettify.css);
+@import url(/bower_components/font-awesome/css/font-awesome.css);
 @import url(custom-fonts.css);
 @import url(overwrite.css);
 @import url(animate.css);
