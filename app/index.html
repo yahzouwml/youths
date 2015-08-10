@@ -7,19 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Youths,活力web倡导者，南京youths网络科技有限公司" />
     <meta name="keywords" content="Youths,活力web倡导者，网页设计、平面设计、网站建站、网站代挂、尔雅通识、尔雅通识题库、尔雅通识题库在线查询、尔雅一键答题器、Youths SNS寻找志同道合的年青人、Youths SNS 社区、Youths 社区" />
-    <link href="/import/img/Youths.ico" rel="shortcut icon" />
-    <base href="/#/" />
+    <link href="/img/Youths.ico" rel="shortcut icon" />
     <!-- import css -->
     <!-- css -->
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
     <link href='/plugin/lobibox/css/lobibox.css' rel="stylesheet" />
-    <link href="/import/css/fancybox/jquery.fancybox.css" rel="stylesheet">
-    <link href="/import/css/flexslider.css" rel="stylesheet" />
-    <link href="/import/css/style.css" rel="stylesheet" />
+    <link href="/plugin/fancybox/jquery.fancybox.css" rel="stylesheet">
+    <link href="/plugin/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="/styles/css/style.css" rel="stylesheet" />
     <!-- Theme skin -->
-    <link href="/import/skins/default.css" rel="stylesheet" />
-    <link href="/import/css/extend.css" rel="stylesheet">
+    <link href="/styles/css/default.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -55,8 +53,10 @@
                             </li>
                             <!-- <li><a href="#/home/portfolio">投资组合</a></li> -->
                             <li><a href="#/home/blog">博客</a></li>
-                            <li><a href="#/home/recruit">招聘</a></li>
-                            <li><a href="#/home/contact">联系我们</a></li>
+                            <!--                             <li><a href="#/home/contact">联系我们</a></li>
+ -->
+                            <li><a href="#/register">注册</a></li>
+                            <li><a href="#/login">登录</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
                             <h5 class="widgetheading">微信公众平台</h5>
                             <div class="flickr_badge">
                             </div>
-                            <img src="/import/img/weixin.jpg" class="weixin" />
+                            <img src="/img/weixin.jpg" class="weixin" />
                             <div class="clear">
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                             <h5 class="widgetheading">新浪微博</h5>
                             <div class="flickr_badge">
                             </div>
-                            <img src="/import/img/weibo.png" class="weixin" />
+                            <img src="/img/weibo.png" class="weixin" />
                             <div class="clear">
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                     <div class="col-lg-3">
                         <div class="widget">
                             <h5 class="widgetheading">支付宝捐助</h5>
-                            <img src="/import/img/zhi.png" class="weixin" />
+                            <img src="/img/zhi.png" class="weixin" />
                             </p>
                         </div>
                     </div>
@@ -152,91 +152,18 @@
             </div>
         </footer>
     </div>
-    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-    <ul class="uTool">
-        <li>
-            <a href="###" data-toggle="modal" data-target="#modal-login">登录</a>
-        </li>
-        <li><a href="###" data-toggle="modal" data-target="#modal-register">注册</a></li>
-    </ul>
-    <div class="modal fade" id="modal-login" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center" id="exampleModalLabel">登录</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="fLogin" class="validate-Form form-horizontal" method="post" action="/login">
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="PhoneAndEmail">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" name="password">
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-green btn-submit">登录</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="modal-register" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title text-center" id="exampleModalLabel">注册</h4>
-                </div>
-                <div class="modal-body">
-                    <form id="fRegister" class="validate-Form form-horizontal" method="post" action="/register">
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label col-sm-3 required">邮箱/手机:</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="PhoneAndEmail">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label col-sm-3 required">密码:</label>
-                            <div class="col-sm-9">
-                                <input id="password" type="password" class="form-control" name="password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="control-label col-sm-3 required">重复密码:</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" name="password_again">
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <button class="btn btn-green btn-submit">注册</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- importjs -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/import/js/jquery.easing.1.3.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/import/js/jquery.fancybox.pack.js"></script>
-    <script src="/import/js/jquery.fancybox-media.js"></script>
-    <script src="/import/js/google-code-prettify/prettify.js"></script>
-    <script src="/import/js/portfolio/jquery.quicksand.js"></script>
-    <script src="/import/js/portfolio/setting.js"></script>
-    <script src="/import/js/jquery.flexslider.js"></script>
-    <script src="/import/js/animate.js"></script>
-    <script src="/import/js/custom.js"></script>
-    <script src="/import/js/jquery.validate.min.js"></script>
-    <script src="/import/js/validate-Form.js"></script>
+    <script src="/plugin/jquery.easing.1.3.js"></script>
+    <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
+    <script src="/plugin/fancybox/jquery.fancybox-media.js"></script>
+    <script src="/plugin/google-code-prettify/prettify.js"></script>
+    <script src="/plugin/portfolio/jquery.quicksand.js"></script>
+    <script src="/plugin/portfolio/setting.js"></script>
+    <script src="/plugin/flexslider/jquery.flexslider.js"></script>
+    <script src="/plugin/animate.js"></script>
+    <script src="/plugin/custom.js"></script>
     <script src="/plugin/lobibox/js/notifications.js"></script>
     <!-- build:js js/bower.min.js -->
     <script src="/bower_components/angular/angular.js"></script>
