@@ -20,7 +20,7 @@
     <link href="/styles/css/default.css" rel="stylesheet" />
 </head>
 
-<body>
+<body ng-controller="mainCtrl">
     <div id="wrapper">
         <!-- start header -->
         <header>
@@ -55,8 +55,13 @@
                             <li><a href="#/home/blog">博客</a></li>
                             <!--                             <li><a href="#/home/contact">联系我们</a></li>
  -->
-                            <li><a href="#/register">注册</a></li>
-                            <li><a href="#/login">登录</a></li>
+                            <li ng-if='currentUser == null'><a href="#/register">注册</a></li>
+                            <li ng-if='currentUser == null'><a href="#/login">登录</a></li>
+                            <li ng-if='currentUser != null'><a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">{{currentUser.email}}<b class=" icon-angle-down"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="" ng-click="logout()">登出</a></li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -182,8 +187,6 @@
     <!-- controller  -->
     <script src="/js/controller/home/main.js"></script>
     <script src="/js/controller/home/blog.js"></script>
-    <script src="/js/controller/login.js"></script>
-    <script src="/js/controller/register.js"></script>
     <!-- service -->
     <script src="/js/services/lb-services.js"></script>
     <script src="/js/services/auth.js"></script>
