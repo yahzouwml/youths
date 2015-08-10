@@ -12,7 +12,6 @@
   "dependencies": {
     "jquery": "2.1.4",
     "angular": "~1.4.0",
-    "angular-cookies": "~1.4.0",
     "angular-resource": "~1.4.3",
     "angular-bootstrap": "~0.13.0",
     "angular-route": "~1.4.3",
@@ -20,6 +19,7 @@
     "angular-auto-validate": "~1.18.10",
     "bootstrap": "~3.3.5",
     "angular-loading-bar": "~0.8.0",
-    "font-awesome": "~4.4.0"
+    "font-awesome": "~4.4.0",
+    "angular-cookie": "~4.0.9"
   }
 }
