@@ -52,7 +52,8 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
         }).when('/service/hangweb', {
             templateUrl: '/views/service/hangweb.html'
         }).when('/service/itnav', {
-            templateUrl: '/views/service/itnav.html'
+            templateUrl: '/views/service/itnav.html',
+            controller:"itNavCtrl"
         }).otherwise({
             redirecTo: '/'
         });
