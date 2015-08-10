@@ -103,8 +103,8 @@ gulp.task('useref', function() {
 });
 
 gulp.task('import', function() {
-    return gulp.src('app/import/**/*')
-        .pipe(gulp.dest('dist/import'));
+    return gulp.src('app/styles/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('del', function() {
