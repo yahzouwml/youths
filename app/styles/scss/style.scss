@@ -1,0 +1,2030 @@
+//colors
+$white: #fff;
+$color_wild_sand_approx: #f5f5f5;
+$black_15: rgba(0, 0, 0, .15);
+$black_175: rgba(0, 0, 0, .175);
+$color_gray_nurse_approx: #e9e9e9;
+$color_mercury_approx: #e6e6e6;
+$color_storm_dust_approx: #656565;
+$color_mine_shaft_approx: #333;
+$color_log_cabin_approx: #222;
+$color_woodsmoke_approx: #111;
+$color_alabaster_approx: #fcfcfc;
+$black_80: rgba(0, 0, 0, 0.8);
+$color_desert_storm_approx: #f8f8f8;
+$color_gallery_approx: #eee;
+$color_shark_approx: #252525;
+$color_romance_approx: #fefefe;
+$color_alto_approx: #dedede;
+$color_black_haze_approx: #f6f6f6;
+$color_gunsmoke_approx: #7f8289;
+$color_roman_approx: #de5e60;
+$black: #000;
+$color_tuatara_approx: #353535;
+$color_delta_approx: #a2a2a2;
+$color_fuscous_gray_approx: #555;
+$color_suva_gray_approx: #888;
+$color_red_approx: #fd0000;
+$black_3: rgba(0, 0, 0, 0.03);
+$color_mountain_mist_approx: #999;
+$color_quill_gray_approx: #d5d5d5;
+$color_shady_lady_approx: #a9a9a9;
+$black_1: rgba(0, 0, 0, .01);
+$gallery: #efefef;
+$color_bunker_approx: #121214;
+$color_pumice_approx: #c7c7c7;
+//fonts
+$font_0: Microsoft yahei;
+$font_1: Arial;
+$font_2: sans-serif;
+$font_3: Noto Serif;
+$font_4: serif;
+//urls
+$url_0: url(../../plugin/google-code-prettify/prettify.css);
+$url_1: url(font-awesome.css);
+$url_2: url(custom-fonts.css);
+$url_3: url(overwrite.css);
+$url_4: url(animate.css);
+//@extend-elements
+//original selectors
+//h1, h2, h3, h4, h5, h6
+%extend_1 {
+    font-family: $font_0, $font_1, $font_2;
+    font-weight: 700;
+    line-height: 1.1em;
+    color: $color_mine_shaft_approx;
+    margin-bottom: 20px;
+}
+
+//original selectors
+//.video-container, .map-container, .embed-container
+%extend_2 {
+    position: relative;
+    margin: 0 0 15px 0;
+    padding-bottom: 51%;
+    padding-top: 30px;
+    height: 0;
+    overflow: hidden;
+    border: none;
+}
+
+//original selectors
+//.embed-container iframe, .embed-container object, .embed-container embed, .video-container iframe, .map-container iframe, .map-container object, .map-container embed, .video-container object, .video-container embed
+%extend_3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+//original selectors
+//.navbar .nav > .active > a:active, .navbar .nav > .active > a:focus
+%extend_4 {
+    background: none;
+    outline: 0;
+    font-weight: 700;
+}
+
+//original selectors
+//.item-thumbs:hover .hover-wrap, .item-thumbs.active .hover-wrap
+%extend_5 {
+    opacity: 1;
+    filter: alpha(opacity=100);
+    //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+    transform: rotateY(0deg) scale(1, 1);
+}
+
+//original selectors
+//#bottom .widget .widgetheading span, aside .widget .widgetheading span, footer .widget .widgetheading span
+%extend_6 {
+    position: absolute;
+    width: 60px;
+    height: 1px;
+    bottom: -1px;
+    right: 0;
+}
+
+//original selectors
+//#pagination a, #pagination span
+%extend_7 {
+    display: block;
+    float: left;
+    margin: 0 7px 0 0;
+    padding: 7px 10px 6px;
+    font-size: 12px;
+    line-height: 12px;
+    color: $color_suva_gray_approx;
+    font-weight: 600;
+}
+
+//original selectors
+//ul.cat, ul.recent, ul.folio-detail, ul.contact-info
+%extend_8 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+//original selectors
+//section.demogrid .col-lg-1, section.demogrid .col-lg-2, section.demogrid .col-lg-3, section.demogrid .col-lg-4, section.demogrid .col-lg-5, section.demogrid .col-lg-6, section.demogrid .col-lg-7, section.demogrid .col-lg-8, section.demogrid .col-lg-9, section.demogrid .col-lg-10, section.demogrid .col-lg-11
+%extend_9 {
+    background: $color_black_haze_approx;
+    text-align: center;
+    padding: 20px 0;
+}
+
+// @import $url_0;
+// @import $url_1;
+// @import $url_2;
+// @import $url_3;
+// @import $url_4;
+@import url(../../plugin/google-code-prettify/prettify.css);
+@import url(font-awesome.css);
+@import url(custom-fonts.css);
+@import url(overwrite.css);
+@import url(animate.css);
+body {
+    font-family: $font_0, $font_1, $font_2;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6em;
+    color: $color_storm_dust_approx;
+}
+
+a {
+    &:active {
+        outline: 0;
+    }
+    &.scrollup {
+        outline: 0;
+        text-align: center;
+        &:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+        &:active {
+            opacity: 1;
+            text-decoration: none;
+        }
+        &:focus {
+            opacity: 1;
+            text-decoration: none;
+        }
+        i {
+            margin-top: 10px;
+            color: $white;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+h1 {
+    @extend %extend_1;
+}
+
+h2 {
+    @extend %extend_1;
+}
+
+h3 {
+    @extend %extend_1;
+}
+
+h4 {
+    @extend %extend_1;
+    &.heading {
+        font-weight: 700;
+    }
+}
+
+h5 {
+    @extend %extend_1;
+}
+
+h6 {
+    @extend %extend_1;
+}
+
+.container {
+    padding: 0 20px;
+    position: relative;
+}
+
+#wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    margin-bottom: 30px;
+    .row {
+        margin-bottom: 30px;
+    }
+    &.nomargin {
+        margin-bottom: 0;
+    }
+}
+
+.row-fluid {
+    margin-bottom: 30px;
+    .row-fluid {
+        margin-bottom: 30px;
+    }
+    &.nomargin {
+        margin-bottom: 0;
+    }
+}
+
+.video-container {
+    @extend %extend_2;
+    iframe {
+        @extend %extend_3;
+    }
+    object {
+        @extend %extend_3;
+    }
+    embed {
+        @extend %extend_3;
+    }
+}
+
+.map-container {
+    @extend %extend_2;
+    iframe {
+        @extend %extend_3;
+    }
+    object {
+        @extend %extend_3;
+    }
+    embed {
+        @extend %extend_3;
+    }
+}
+
+.embed-container {
+    @extend %extend_2;
+    iframe {
+        @extend %extend_3;
+    }
+    object {
+        @extend %extend_3;
+    }
+    embed {
+        @extend %extend_3;
+    }
+}
+
+iframe {
+    border: none;
+}
+
+img {
+    &.img-polaroid {
+        margin: 0 0 20px 0;
+    }
+    &.pull-left {
+        float: left;
+        margin: 0 15px 15px 0;
+    }
+    &.pull-right {
+        float: right;
+        margin: 0 0 15px 15px;
+    }
+}
+
+.img-box {
+    max-width: 100%;
+}
+
+header {
+    .navbar {
+        margin-bottom: 0;
+        min-height: 100px;
+    }
+    .navbar-default {
+        background-color: $white;
+        .navbar-nav > .open > a {
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: all .3s ease;
+            &:hover {
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                transition: all .3s ease;
+            }
+            &:focus {
+                //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                transition: all .3s ease;
+            }
+        }
+    }
+    .nav {
+        li {
+            a {
+                &:hover {
+                    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                    transition: all .3s ease;
+                }
+                &:focus {
+                    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                    transition: all .3s ease;
+                }
+                &.dropdown-toggle {
+                    &:hover {
+                        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                        transition: all .3s ease;
+                    }
+                    &:focus {
+                        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                        transition: all .3s ease;
+                    }
+                }
+            }
+            &.active {
+                a {
+                    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                    transition: all .3s ease;
+                    &:hover {
+                        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                        transition: all .3s ease;
+                    }
+                }
+                ul.dropdown-menu li {
+                    a:hover {
+                        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                        transition: all .3s ease;
+                    }
+                    &.active a {
+                        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+                        transition: all .3s ease;
+                    }
+                }
+            }
+            .dropdown-menu {
+                padding: 0;
+                li a {
+                    line-height: 28px;
+                    padding: 3px 12px;
+                }
+            }
+        }
+        .caret {
+            border-bottom-color: $color_wild_sand_approx;
+            border-top-color: $color_wild_sand_approx;
+        }
+    }
+    .navigation {
+        float: right;
+    }
+    .navbar-collapse ul.navbar-nav {
+        float: right;
+        margin-right: 0;
+    }
+    .navbar-nav > li {
+        padding-bottom: 30px;
+        padding-top: 30px;
+        > a {
+            padding-bottom: 6px;
+            padding-top: 5px;
+            margin-left: 2px;
+            line-height: 30px;
+            font-weight: 700;
+            //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+            transition: all .3s ease;
+        }
+    }
+    ul.nav li {
+        border: none;
+        margin: 0;
+        a {
+            font-size: 12px;
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        ul {
+            margin-top: 1px;
+            li {
+                a {
+                    font-size: 12px;
+                    border: none;
+                    font-weight: 300;
+                    text-transform: uppercase;
+                }
+                ul {
+                    margin: 1px 0 0 1px;
+                }
+            }
+        }
+    }
+}
+
+.navbar-default {
+    border: none;
+    .navbar-nav > {
+        .active > a {
+            background-color: $white;
+            &:hover {
+                background-color: $white;
+            }
+            &:focus {
+                background-color: $white;
+            }
+        }
+        .open > a {
+            background-color: $white;
+            &:hover {
+                background-color: $white;
+            }
+            &:focus {
+                background-color: $white;
+            }
+        }
+    }
+}
+
+.navbar-brand {
+    color: $color_log_cabin_approx;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: -1px;
+    margin-top: 30px;
+    padding: 0 0 0 15px;
+}
+
+.dropdown-menu {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: none;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 0;
+    border: none;
+    li {
+        &:last-child {
+            padding-bottom: 0 !important;
+            margin-bottom: 0;
+        }
+        a:hover {
+            color: $white !important;
+        }
+    }
+    .dropdown i {
+        position: absolute;
+        right: 0;
+        margin-top: 3px;
+        padding-left: 20px;
+    }
+}
+
+ul {
+    &.portfolio-categ {
+        margin: 10px 0 30px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        li {
+            margin: 0;
+            padding: 0 20px 0 0;
+            float: left;
+            list-style: none;
+            font-size: 13px;
+            font-weight: 600;
+            a {
+                display: block;
+                padding: 35x 0 35x 0;
+                color: $color_tuatara_approx;
+                &:hover {
+                    text-decoration: none;
+                    outline: 0;
+                }
+                &:focus {
+                    text-decoration: none;
+                    outline: 0;
+                }
+                &:active {
+                    text-decoration: none;
+                    outline: 0;
+                }
+            }
+            &.active a:hover {
+                text-decoration: none;
+                outline: 0;
+            }
+        }
+    }
+    &.general {
+        list-style: none;
+        margin-left: 0;
+    }
+    &.link-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            margin: 0;
+            padding: 2px 0;
+            list-style: none;
+        }
+    }
+    &.team-detail {
+        margin: -10px 0 0;
+        padding: 0;
+        list-style: none;
+        li {
+            border-bottom: 1px dotted $color_gray_nurse_approx;
+            margin: 0 0 15px 0;
+            padding: 0 0 15px 0;
+            list-style: none;
+            label {
+                font-size: 13px;
+                margin-bottom: 0;
+            }
+            h4 {
+                margin-bottom: 0;
+            }
+            ul.social-network {
+                border: none;
+                margin: 0;
+                padding: 0;
+                li {
+                    border: none;
+                    margin: 0;
+                    i {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.meta-post {
+        float: left;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+            float: left;
+            margin: 0 10px 0 0;
+            padding: 0;
+            list-style: none;
+            border-right: 1px dotted $color_gray_nurse_approx;
+            padding-right: 10px;
+            i {
+                float: left;
+                font-size: 12px;
+                margin: 2px 5px 0 0;
+            }
+            a {
+                color: $color_mountain_mist_approx;
+                float: left;
+                font-size: 12px;
+                font-weight: 600;
+            }
+        }
+    }
+    &.cat {
+        @extend %extend_8;
+        li {
+            margin: 0 0 15px 0;
+            list-style: none;
+            a {
+                color: $color_storm_dust_approx;
+            }
+        }
+    }
+    &.recent {
+        @extend %extend_8;
+        li {
+            margin: 0 0 15px 0;
+            list-style: none;
+            h6 {
+                margin: 0 0 10px 0;
+                a {
+                    color: $color_tuatara_approx;
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    &.folio-detail {
+        @extend %extend_8;
+        li {
+            margin: 0 0 15px 0;
+            list-style: none;
+            a {
+                color: $color_storm_dust_approx;
+            }
+            label {
+                display: inline;
+                cursor: default;
+                color: $color_tuatara_approx;
+                font-weight: bold;
+            }
+        }
+    }
+    &.contact-info {
+        @extend %extend_8;
+        li {
+            margin: 0 0 15px 0;
+            list-style: none;
+        }
+    }
+    &.time-post {
+        float: left;
+        width: 120px;
+        padding: 0;
+        list-style: none;
+        margin: 0 20px 0 0;
+        text-align: center;
+        color: $color_woodsmoke_approx;
+        li {
+            float: none;
+            background: $color_desert_storm_approx;
+            list-style: none;
+            margin: 0 0 2px 0;
+            padding: 0;
+            &.time {
+                float: none;
+                padding: 5px 0;
+                //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+                text-shadow: none;
+            }
+            a img:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    &.social-network {
+        list-style: none;
+        margin: 0;
+        li {
+            display: inline;
+            margin: 0 5px;
+        }
+    }
+    &.nav li.dropdown a {
+        z-index: 1000;
+        display: block;
+    }
+    &.breadcrumb li a:hover {
+        text-decoration: none;
+    }
+}
+
+.copyrights {
+    text-indent: -9999px;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    overflow: hidden;
+}
+
+#featured {
+    width: 100%;
+    background: $color_alabaster_approx;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    .flexslider {
+        padding: 0;
+        margin: 50px 0 30px;
+        background: $white;
+        position: relative;
+        zoom: 1;
+    }
+}
+
+.flex-caption {
+    background: none;
+    zoom: 1;
+    bottom: 35px;
+    background-color: $black_80;
+    color: $white;
+    margin: 0;
+    padding: 25px 25px 25px 30px;
+    position: absolute;
+    right: 0;
+    width: 295px;
+    h3 {
+        color: $white;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    p {
+        margin: 0 0 15px;
+    }
+}
+
+section {
+    &.callaction {
+        background: $color_alabaster_approx;
+        padding: 50px 0 0;
+    }
+    &.demogrid {
+        .col-lg-1 {
+            @extend %extend_9;
+        }
+        .col-lg-2 {
+            @extend %extend_9;
+        }
+        .col-lg-3 {
+            @extend %extend_9;
+        }
+        .col-lg-4 {
+            @extend %extend_9;
+        }
+        .col-lg-5 {
+            @extend %extend_9;
+        }
+        .col-lg-6 {
+            @extend %extend_9;
+        }
+        .col-lg-7 {
+            @extend %extend_9;
+        }
+        .col-lg-8 {
+            @extend %extend_9;
+        }
+        .col-lg-9 {
+            @extend %extend_9;
+        }
+        .col-lg-10 {
+            @extend %extend_9;
+        }
+        .col-lg-11 {
+            @extend %extend_9;
+        }
+        .show-grid {
+            .row {
+                margin-bottom: 0;
+            }
+            .row-fluid {
+                margin-bottom: 0;
+            }
+            .nest {
+                background: $color_alto_approx;
+                text-align: center;
+                padding: 20px 0;
+            }
+        }
+        .col-lg-12.nest {
+            background: $color_black_haze_approx;
+            text-align: center;
+            padding: 20px 0 0;
+        }
+    }
+}
+
+#content {
+    position: relative;
+    background: $white;
+    padding: 50px 0 40px;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.cta-text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.box {
+    width: 100%;
+}
+
+.box-gray {
+    background: $color_desert_storm_approx;
+    padding: 20px 20px 30px;
+    h4 {
+        margin-bottom: 20px;
+    }
+    i {
+        margin-bottom: 20px;
+    }
+}
+
+.box-bottom {
+    padding: 20px 0;
+    text-align: center;
+    a {
+        color: $white;
+        font-weight: 700;
+        &:hover {
+            color: $color_gallery_approx;
+            text-decoration: none;
+        }
+    }
+}
+
+#bottom {
+    background: $color_alabaster_approx;
+    padding: 50px 0 0;
+    .widgetheading {
+        position: relative;
+        border-bottom: $color_mercury_approx 1px solid;
+        padding-bottom: 9px;
+    }
+    .widget .widgetheading span {
+        @extend %extend_6;
+    }
+}
+
+#twitter-wrapper {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#twitter {
+    em {
+        font-style: normal;
+        font-size: 13px;
+        &.twitterTime a {
+            font-weight: 600;
+        }
+    }
+    ul {
+        padding: 0;
+        list-style: none;
+        li {
+            font-size: 20px;
+            line-height: 1.6em;
+            font-weight: 300;
+            margin-bottom: 20px;
+            position: relative;
+            //Instead of the line below you could use @include word-break($value)
+            word-break: break-word;
+        }
+    }
+}
+
+#inner-headline {
+    background: $color_shark_approx;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: $color_romance_approx;
+    .inner-heading h2 {
+        color: $white;
+        margin: 20px 0 0;
+    }
+    ul.breadcrumb {
+        margin: 30px 0 0;
+        float: left;
+        li {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            font-size: 13px;
+            color: $white;
+            i {
+                color: $color_alto_approx;
+            }
+            a {
+                color: $white;
+            }
+        }
+    }
+    form.input-append {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+form {
+    &#contactform {
+        input[type="text"] {
+            width: 100%;
+            border: 1px solid $color_wild_sand_approx;
+            min-height: 40px;
+            padding-left: 20px;
+            font-size: 13px;
+            padding-right: 20px;
+            //Instead of the line below you could use @include box-sizing($bs)
+            box-sizing: border-box;
+        }
+        textarea {
+            border: 1px solid $color_wild_sand_approx;
+            width: 100%;
+            padding-left: 20px;
+            padding-top: 10px;
+            font-size: 13px;
+            padding-right: 20px;
+            //Instead of the line below you could use @include box-sizing($bs)
+            box-sizing: border-box;
+        }
+        .validation {
+            font-size: 11px;
+        }
+    }
+    &#commentform {
+        input[type="text"] {
+            width: 100%;
+            min-height: 40px;
+            padding-left: 20px;
+            font-size: 13px;
+            padding-right: 20px;
+            //Instead of the line below you could use @include box-sizing($bs)
+            box-sizing: border-box;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 2px 2px 2px 2px;
+        }
+        textarea {
+            width: 100%;
+            padding-left: 20px;
+            padding-top: 10px;
+            font-size: 13px;
+            padding-right: 20px;
+            //Instead of the line below you could use @include box-sizing($bs)
+            box-sizing: border-box;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 2px 2px 2px 2px;
+        }
+    }
+}
+
+#sendmessage {
+    border: 1px solid $color_mercury_approx;
+    background: $color_black_haze_approx;
+    display: none;
+    text-align: center;
+    padding: 15px 12px 15px 65px;
+    margin: 10px 0;
+    font-weight: 600;
+    margin-bottom: 30px;
+    &.show {
+        display: block;
+    }
+}
+
+.show {
+    display: block;
+}
+
+.search {
+    float: right;
+    margin: 35px 0 0;
+    padding-bottom: 0;
+}
+
+#thumbs {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style-type: none;
+    }
+}
+
+.item-thumbs {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 30px;
+    cursor: pointer;
+    .hover-wrap {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        filter: alpha(opacity=0);
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all 450ms ease-out 0s;
+        //Instead of the line below you could use @include transform($scale, $rotate, $transx, $transy, $skewx, $skewy, $originx, $originy)
+        transform: rotateY(180deg) scale(0.5, 0.5);
+        .overlay-img {
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            opacity: 0.80;
+            filter: alpha(opacity=80);
+            background: $black;
+        }
+        .overlay-img-thumb {
+            position: absolute;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 60px;
+            top: 50%;
+            left: 50%;
+            margin: -16px 0 0 -16px;
+            color: $white;
+            font-size: 32px;
+            line-height: 1em;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+    }
+    a + img {
+        width: 100%;
+    }
+    &:hover .hover-wrap {
+        @extend %extend_5;
+    }
+    &.active .hover-wrap {
+        @extend %extend_5;
+    }
+}
+
+.top-wrapper {
+    margin-bottom: 20px;
+}
+
+blockquote {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: $font_3, $font_4;
+    font-style: italic;
+    padding-left: 0;
+    color: $color_delta_approx;
+    line-height: 1.6em;
+    border: none;
+    cite {
+        display: block;
+        font-size: 12px;
+        color: $color_storm_dust_approx;
+        margin-top: 10px;
+        &:before {
+            content: "\2014 \0020";
+        }
+        a {
+            color: $color_fuscous_gray_approx;
+            &:visited {
+                color: $color_fuscous_gray_approx;
+                color: $color_fuscous_gray_approx;
+            }
+        }
+    }
+}
+
+.pullquote-left {
+    display: block;
+    color: $color_delta_approx;
+    font-family: $font_3, $font_4;
+    font-size: 14px;
+    line-height: 1.6em;
+    padding-left: 20px;
+}
+
+.pullquote-right {
+    display: block;
+    color: $color_delta_approx;
+    font-family: $font_3, $font_4;
+    font-size: 14px;
+    line-height: 1.6em;
+    padding-right: 20px;
+}
+
+.btn-theme {
+    color: $white;
+    &:hover {
+        color: $color_gallery_approx;
+    }
+}
+
+footer {
+    padding: 50px 0 0;
+    color: $color_desert_storm_approx;
+    .widgetheading {
+        position: relative;
+    }
+    .widget {
+        .social-network {
+            position: relative;
+        }
+        .flickr_badge {
+            width: 100%;
+            img {
+                margin: 0 9px 20px 0;
+            }
+        }
+        .widgetheading span {
+            @extend %extend_6;
+        }
+    }
+    a {
+        color: $white;
+        &:hover {
+            color: $color_gallery_approx;
+            text-decoration: none;
+        }
+    }
+    h1 {
+        color: $white;
+    }
+    h2 {
+        color: $white;
+    }
+    h3 {
+        color: $white;
+    }
+    h4 {
+        color: $white;
+    }
+    h5 {
+        color: $white;
+        a:hover {
+            text-decoration: none;
+        }
+    }
+    h6 {
+        color: $white;
+    }
+    address {
+        line-height: 1.6em;
+    }
+    ul.link-list li a {
+        color: $white;
+        &:hover {
+            color: $color_gallery_approx;
+        }
+    }
+}
+
+.heading {
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.widgetheading {
+    width: 100%;
+    padding: 0;
+}
+
+aside {
+    position: relative;
+    margin-bottom: 40px;
+    .widgetheading {
+        position: relative;
+        border-bottom: $color_gray_nurse_approx 1px solid;
+        padding-bottom: 9px;
+    }
+    .widget {
+        margin-bottom: 40px;
+        .widgetheading span {
+            @extend %extend_6;
+        }
+    }
+}
+
+.map {
+    position: relative;
+    margin-top: -50px;
+    margin-bottom: 40px;
+    iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+    }
+}
+
+.pricing-title {
+    background: $white;
+    text-align: center;
+    padding: 10px 0;
+    h3 {
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+}
+
+.pricing-offer {
+    background: $color_alabaster_approx;
+    text-align: center;
+    padding: 40px 0;
+    font-size: 18px;
+    border-top: 1px solid $color_mercury_approx;
+    border-bottom: 1px solid $color_mercury_approx;
+    strong {
+        font-size: 78px;
+        line-height: 89px;
+    }
+    sup {
+        font-size: 28px;
+    }
+}
+
+.pricing-content {
+    background: $white;
+    text-align: center;
+    font-size: 14px;
+    strong {
+        color: $color_tuatara_approx;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
+            border-bottom: 1px solid $color_gray_nurse_approx;
+            list-style: none;
+            padding: 15px 0;
+            margin: 0;
+            color: $color_suva_gray_approx;
+        }
+    }
+}
+
+.pricing-action {
+    margin: 0;
+    background: $color_alabaster_approx;
+    text-align: center;
+    padding: 20px 0 30px;
+}
+
+.pricing-wrapp {
+    margin: 0 auto;
+    width: 100%;
+    background: $color_red_approx;
+}
+
+.pricing-box-alt {
+    border: 1px solid $color_mercury_approx;
+    background: $color_alabaster_approx;
+    position: relative;
+    margin: 0 0 20px 0;
+    padding: 0;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 2px 0 $black_3;
+    //Instead of the line below you could use @include box-sizing($bs)
+    box-sizing: border-box;
+    .pricing-heading {
+        background: $color_alabaster_approx;
+        text-align: center;
+        padding: 40px 0 0;
+        display: block;
+        h3 {
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            strong {
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: -1px;
+            }
+        }
+    }
+    .pricing-terms {
+        text-align: center;
+        background: $color_mine_shaft_approx;
+        display: block;
+        overflow: hidden;
+        padding: 30px 0 20px;
+        h6 {
+            font-style: italic;
+            margin-top: 10px;
+            color: $white;
+            font-family: $font_3, $font_4;
+        }
+    }
+    .pricing-action {
+        margin: 0;
+        text-align: center;
+        padding: 30px 0;
+    }
+    &.special .pricing-heading {
+        background: $color_alabaster_approx;
+        text-align: center;
+        padding: 40px 0 1px;
+        border-bottom: none;
+        display: block;
+        color: $white;
+        h3 {
+            color: $white;
+        }
+    }
+    .icon .price-circled {
+        margin: 10px 10px 10px 0;
+        display: inline-block !important;
+        text-align: center !important;
+        color: $white;
+        width: 68px;
+        height: 68px;
+        padding: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 68px;
+        //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        text-shadow: none;
+        cursor: pointer;
+        background-color: $color_suva_gray_approx;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 64px;
+    }
+}
+
+article {
+    margin-bottom: 40px;
+    img {
+        &.pull-left {
+            float: left;
+            margin: 5px 15px 15px 0;
+        }
+        &.pull-right {
+            float: right;
+            margin: 5px 0 15px 15px;
+        }
+    }
+    .align-left {
+        float: left;
+        margin: 5px 15px 15px 0;
+    }
+    .align-right {
+        float: right;
+        margin: 5px 0 15px 15px;
+    }
+    .post-heading h3 {
+        margin-bottom: 20px;
+        a {
+            font-weight: 700;
+            color: $color_tuatara_approx;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.post-meta {
+    background: $color_alabaster_approx;
+    border: 1px solid $color_mercury_approx;
+    border-top: none;
+    text-align: center;
+    margin-bottom: 20px;
+    .format {
+        border-bottom: 1px solid $color_mercury_approx;
+        padding: 10px 0;
+    }
+    i {
+        margin: 0;
+    }
+    .date {
+        border-bottom: 1px solid $color_mercury_approx;
+        padding: 10px 0;
+        span {
+            text-align: center;
+            color: $color_mountain_mist_approx;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    }
+    .comments {
+        padding: 10px 0;
+        a {
+            color: $color_mountain_mist_approx;
+            font-size: 12px;
+            font-weight: 700;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    span {
+        padding: 0 10px;
+        margin-bottom: 10px;
+        a {
+            color: $color_mountain_mist_approx;
+        }
+    }
+    strong {
+        font-weight: 200px;
+        color: $color_pumice_approx;
+    }
+}
+
+.post-image {
+    margin-bottom: 20px;
+    img:hover {
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 0 2px $color_mountain_mist_approx;
+        //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+        transition: all 1s ease-in-out;
+    }
+}
+
+.post-quote {
+    margin-bottom: 20px;
+    blockquote {
+        font-size: 16px;
+        color: $color_mountain_mist_approx;
+        font-family: $font_3, $font_4;
+        font-style: italic;
+        line-height: 1.6em;
+    }
+}
+
+.post-video {
+    margin-bottom: 20px;
+}
+
+.post-audio {
+    margin-bottom: 20px;
+}
+
+.post-link {
+    margin-bottom: 20px;
+}
+
+.post-slider {
+    margin-bottom: 20px;
+}
+
+.bottom-article {
+    overflow: hidden;
+    border-top: 1px solid $color_wild_sand_approx;
+    border-bottom: 1px solid $color_wild_sand_approx;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.about-author {
+    border: 1px solid $color_wild_sand_approx;
+    padding: 20px;
+    float: left;
+    margin-bottom: 5px;
+    h5 {
+        margin-bottom: 10px;
+    }
+}
+
+.comment-area {
+    float: left;
+    width: 100%;
+    margin-top: 30px;
+    .thumbnail > img {
+        display: block;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.media-content {
+    overflow: hidden;
+    margin-left: 12px;
+    border-bottom: 1px dotted $color_quill_gray_approx;
+    padding-bottom: 20px;
+    h6 {
+        font-size: 14px;
+        font-weight: 700;
+    }
+    span {
+        color: $color_shady_lady_approx;
+        font-size: 14px;
+        font-weight: 300;
+    }
+}
+
+.filter-list {
+    margin-top: 20px;
+}
+
+#pagination {
+    a {
+        @extend %extend_7;
+        &:hover {
+            color: $white;
+            text-decoration: none;
+        }
+    }
+    span {
+        @extend %extend_7;
+        &.current {
+            background: $color_mine_shaft_approx;
+            color: $white;
+            font-weight: bold;
+        }
+    }
+}
+
+.sidebar-nav {
+    float: left;
+    width: 100%;
+}
+
+.right-sidebar {
+    border-left: 1px solid $color_wild_sand_approx;
+    padding: 0 0 0 30px;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: inset 1px 0 0 0 $black_1;
+}
+
+.left-sidebar {
+    border-right: 1px solid $color_wild_sand_approx;
+    padding: 0 30px 0 0;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: inset 1px 0 0 0 $black_1;
+    .widget {
+        h3 {
+            padding-right: 20px;
+        }
+        .widget-content {
+            padding-right: 20px;
+        }
+    }
+}
+
+.widget {
+    ul {
+        &.tags {
+            list-style: none;
+            margin: 0;
+            margin-left: 0;
+            padding-left: 0;
+            li {
+                margin: 0 5px 15px 0;
+                display: inline-block;
+                a {
+                    background: $color_mercury_approx;
+                    color: $color_mine_shaft_approx;
+                    padding: 5px 10px;
+                    &:hover {
+                        text-decoration: none;
+                        color: $white;
+                    }
+                }
+            }
+        }
+        &.recent li {
+            margin-bottom: 20px;
+        }
+    }
+    .flickr_badge {
+        width: 100%;
+        img {
+            margin: 0 9px 20px 0;
+        }
+    }
+    img.pull-left {
+        float: left;
+        margin: 0 15px 15px 0;
+    }
+}
+
+.twitter {
+    ul {
+        margin-left: 0;
+        list-style: none;
+    }
+    img {
+        float: left;
+        margin-right: 15px;
+    }
+    li {
+        border-bottom: 1px dashed $gallery;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        list-style: none;
+        &:last-child {
+            border: none;
+        }
+    }
+    span.tweet_time {
+        display: block;
+        padding-bottom: 5px;
+    }
+}
+
+.recent-post {
+    margin: 20px 0 0;
+    padding: 0;
+    line-height: 18px;
+    h5 a:hover {
+        text-decoration: none;
+    }
+    .text h5 a {
+        color: $color_tuatara_approx;
+    }
+    ul.time-post li.time {
+        color: $color_bunker_approx;
+    }
+}
+
+#sub-footer {
+    //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    text-shadow: none;
+    color: $color_wild_sand_approx;
+    padding: 0;
+    padding-top: 30px;
+    margin: 20px 0 0;
+    p {
+        margin: 0;
+        padding: 0;
+    }
+    span {
+        color: $color_wild_sand_approx;
+    }
+    ul.social-network {
+        float: right;
+    }
+}
+
+.copyright {
+    text-align: left;
+    font-size: 12px;
+}
+
+.bs-docs-example {
+    margin: 0 0 10px 0;
+}
+
+.solidline {
+    border-top: 1px solid $color_wild_sand_approx;
+    margin: 0 0 30px;
+}
+
+.dottedline {
+    border-top: 1px dotted $color_wild_sand_approx;
+    margin: 0 0 30px;
+}
+
+.dashedline {
+    border-top: 1px dashed $color_wild_sand_approx;
+    margin: 0 0 30px;
+}
+
+.blankline {
+    height: 1px;
+    margin: 0 0 30px;
+}
+
+.scrollup {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    bottom: 0;
+    right: 20px;
+    background: $color_log_cabin_approx;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
+}
+
+.aligncenter {
+    text-align: center;
+    span {
+        margin-left: 0;
+    }
+}
+
+.floatright {
+    float: right;
+}
+
+.floatleft {
+    float: left;
+}
+
+.floatnone {
+    float: none;
+}
+
+.align-left {
+    float: left;
+    margin: 0 15px 15px 0;
+}
+
+.align-right {
+    float: right;
+    margin: 0 0 15px 15px;
+}
+
+.clear-marginbot {
+    margin-bottom: 0;
+}
+
+.marginbot10 {
+    margin-bottom: 10px;
+}
+
+.marginbot20 {
+    margin-bottom: 20px;
+}
+
+.marginbot30 {
+    margin-bottom: 30px;
+}
+
+.marginbot40 {
+    margin-bottom: 40px;
+}
+
+.clear-margintop {
+    margin-top: 0;
+}
+
+.margintop10 {
+    margin-top: 10px;
+}
+
+.margintop20 {
+    margin-top: 20px;
+}
+
+.margintop30 {
+    margin-top: 30px;
+}
+
+.margintop40 {
+    margin-top: 40px;
+}
+
+@media(min-width: 768px) and(max-width: 979px) {
+    a.detail {
+        background: none;
+        width: 100%;
+    }
+    footer .widget form {
+        input#appendedInputButton {
+            display: block;
+            width: 91%;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 4px 4px 4px 4px;
+        }
+        .input-append .btn {
+            display: block;
+            width: 100%;
+            padding-right: 0;
+            padding-left: 0;
+            //Instead of the line below you could use @include box-sizing($bs)
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+    }
+    ul.related-folio li {
+        width: 156px;
+        margin: 0 20px 0 0;
+    }
+}
+
+@media(max-width: 767px) {
+    body {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .navbar-brand {
+        margin-top: 10px;
+        border-bottom: none;
+    }
+    .navbar-header {
+        margin-top: 20px;
+        border-bottom: none;
+    }
+    .navbar-nav {
+        border-top: none;
+        float: none;
+        width: 100%;
+    }
+    header {
+        .navbar-nav > li {
+            padding-bottom: 0;
+            padding-top: 0;
+        }
+        .nav li .dropdown-menu {
+            margin-top: 0;
+        }
+    }
+    .dropdown-menu {
+        position: absolute;
+        top: 0;
+        left: 40px;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 160px;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        font-size: 13px;
+        list-style: none;
+        background-color: $white;
+        //Instead of the line below you could use @include background-clip($clip)
+        background-clip: padding-box;
+        border: 1px solid $color_wild_sand_approx;
+        border: 1px solid $black_15;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 0;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 6px 12px $black_175;
+    }
+    .box {
+        border-bottom: 1px solid $color_gray_nurse_approx;
+        padding-bottom: 20px;
+    }
+    .left-sidebar {
+        border-right: none;
+        padding: 0;
+        border-bottom: 1px dotted $color_mercury_approx;
+        padding-bottom: 10px;
+        margin-bottom: 40px;
+    }
+    .right-sidebar {
+        margin-top: 30px;
+        border-left: none;
+        padding: 0;
+    }
+    footer {
+        .col-lg-1 {
+            margin-bottom: 20px;
+        }
+        .col-lg-2 {
+            margin-bottom: 20px;
+        }
+        .col-lg-3 {
+            margin-bottom: 20px;
+        }
+        .col-lg-4 {
+            margin-bottom: 20px;
+        }
+        .col-lg-5 {
+            margin-bottom: 20px;
+        }
+        .col-lg-6 {
+            margin-bottom: 20px;
+        }
+        .col-lg-7 {
+            margin-bottom: 20px;
+        }
+        .col-lg-8 {
+            margin-bottom: 20px;
+        }
+        .col-lg-9 {
+            margin-bottom: 20px;
+        }
+        .col-lg-10 {
+            margin-bottom: 20px;
+        }
+        .col-lg-11 {
+            margin-bottom: 20px;
+        }
+        .col-lg-12 {
+            margin-bottom: 20px;
+        }
+    }
+    [class*="span"] {
+        margin-bottom: 20px;
+    }
+    .navbar-collapse.collapse {
+        border: none;
+        overflow: hidden;
+    }
+    #featured .flexslider .slide-caption {
+        width: 90%;
+        padding: 2%;
+        position: absolute;
+        left: 0;
+        bottom: -40px;
+    }
+    #inner-headline .breadcrumb {
+        float: left;
+        clear: both;
+        width: 100%;
+    }
+    .breadcrumb > li {
+        font-size: 13px;
+    }
+    ul.portfolio li article a i.icon-48 {
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+    #sub-footer ul.social-network {
+        float: left;
+    }
+}
+
+@media(max-width: 480px) {
+    .search {
+        float: left;
+    }
+    .cta-text {
+        margin: 0 auto;
+        text-align: center;
+    }
+    .bottom-article a.pull-right {
+        float: left;
+        margin-top: 20px;
+    }
+    .flexslider .flex-caption {
+        display: none;
+    }
+    ul.portfolio li article a i {
+        width: 20px;
+        height: 20px;
+        font-size: 14px;
+    }
+}
+
+@media(max-width: 360px) {}
+
+.navbar .nav {
+    > {
+        li > {
+            a {
+                color: $color_woodsmoke_approx;
+                //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+                text-shadow: none;
+            }
+            .dropdown-menu:before {
+                display: inline-block;
+                border-right: none;
+                border-bottom: none;
+                border-left: none;
+                border-bottom-color: none;
+                content: none;
+            }
+        }
+        .active > a {
+            background: none;
+            font-weight: 700;
+            &:hover {
+                background: none;
+                font-weight: 700;
+            }
+            &:active {
+                @extend %extend_4;
+            }
+            &:focus {
+                @extend %extend_4;
+            }
+        }
+    }
+    a:hover {
+        background: none;
+    }
+    li .dropdown-menu {
+        z-index: 2000;
+    }
+}
+
+select.selectmenu {
+    display: none;
+}
+
+.big-cta .cta {
+    margin-top: 10px;
+}
+
+.work-nav #filters {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    li {
+        margin: 0 10px 30px 0;
+        padding: 0;
+        float: left;
+        a {
+            color: $color_gunsmoke_approx;
+            font-size: 16px;
+            display: block;
+            &:hover {}
+            &.selected {
+                color: $color_roman_approx;
+            }
+        }
+    }
+}
+
+.map-grid iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+    margin: 0 0 -5px 0;
+    padding: 0;
+}
+
+.pricing-box.special .pricing-offer {
+    color: $white;
+}
+
+.flickr_badge img {
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin: 0 9px 20px 0;
+}
+
+.item .text {
+    margin-left: 140px;
+    margin-bottom: 20px;
+}
+
+.demobtn a.btn {
+    margin: 0 10px 10px 0;
+}
+
+.demoinline p {
+    display: inline;
+    margin-right: 20px;
+}

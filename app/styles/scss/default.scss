@@ -1,0 +1,446 @@
+//colors
+$color_danube_approx: #68a4c4;
+a {
+    color: $color_danube_approx;
+    &:hover {
+        color: $color_danube_approx;
+    }
+    &:focus {
+        color: $color_danube_approx;
+    }
+    &:active {
+        color: $color_danube_approx;
+    }
+    &.thumbnail:hover {
+        border: 1px solid $color_danube_approx;
+    }
+}
+
+footer {
+    background: $color_danube_approx;
+    a.text-link {
+        color: $color_danube_approx;
+        &:hover {
+            color: $color_danube_approx;
+        }
+    }
+}
+
+strike {
+    color: $color_danube_approx;
+}
+
+.post-meta {
+    border-top: 4px solid $color_danube_approx;
+    span a:hover {
+        color: $color_danube_approx;
+    }
+    .comments a:hover {
+        color: $color_danube_approx;
+    }
+}
+
+ul {
+    &.meta-post li a:hover {
+        color: $color_danube_approx;
+    }
+    &.cat li a:hover {
+        color: $color_danube_approx;
+    }
+    &.recent li h6 a:hover {
+        color: $color_danube_approx;
+    }
+    &.portfolio-categ li {
+        &.active a {
+            color: $color_danube_approx;
+            &:hover {
+                color: $color_danube_approx;
+            }
+        }
+        a:hover {
+            color: $color_danube_approx;
+        }
+    }
+    &.related-post li h4 a:hover {
+        color: $color_danube_approx;
+    }
+    &.clients li:hover {
+        border: 4px solid $color_danube_approx;
+    }
+}
+
+.validation {
+    color: $color_danube_approx;
+}
+
+.dropdown-menu {
+    li {
+        &:hover {
+            background-color: $color_danube_approx;
+        }
+        a:hover {
+            background-color: $color_danube_approx;
+        }
+        > a:focus {
+            background-color: $color_danube_approx;
+        }
+    }
+    > .active > a {
+        color: $color_danube_approx;
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+    }
+    .active > a {
+        background-color: $color_danube_approx;
+        &:hover {
+            background-color: $color_danube_approx;
+        }
+    }
+}
+
+.custom-carousel-nav {
+    &.right:hover {
+        background-color: $color_danube_approx;
+    }
+    &.left:hover {
+        background-color: $color_danube_approx;
+    }
+}
+
+.breadcrumb {
+    background-color: $color_danube_approx;
+}
+
+input[type="text"] {
+    &:focus {
+        border-color: $color_danube_approx;
+    }
+    &.search-form:focus {
+        border: 1px solid $color_danube_approx;
+    }
+}
+
+#sendmessage {
+    color: $color_danube_approx;
+}
+
+.pullquote-left {
+    border-left: 5px solid $color_danube_approx;
+}
+
+.pullquote-right {
+    border-right: 5px solid $color_danube_approx;
+}
+
+.box-bottom {
+    background: $color_danube_approx;
+}
+
+.btn-dark {
+    &:hover {
+        background: $color_danube_approx;
+        border: 1px solid $color_danube_approx;
+    }
+    &:focus {
+        background: $color_danube_approx;
+        border: 1px solid $color_danube_approx;
+    }
+    &:active {
+        background: $color_danube_approx;
+        border: 1px solid $color_danube_approx;
+    }
+}
+
+.btn-theme {
+    border: 1px solid $color_danube_approx;
+    background: $color_danube_approx;
+}
+
+.nivo-caption {
+    border-bottom: $color_danube_approx 5px solid;
+}
+
+.caption {
+    border-bottom: $color_danube_approx 5px solid;
+}
+
+#sub-footer {
+    background: $color_danube_approx;
+}
+
+.weixin {
+    width: 150px;
+    height: 150px;
+}
+
+.tc {
+    text-align: center;
+}
+
+span.highlight {
+    color: $color_danube_approx;
+}
+
+article .post-heading h3 a:hover {
+    color: $color_danube_approx;
+}
+
+.navbar .nav > {
+    .active > a {
+        color: $color_danube_approx;
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+    }
+    li > a {
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+    }
+}
+
+.navbar-brand span {
+    color: $color_danube_approx;
+}
+
+header .nav li {
+    a {
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+        &.dropdown-toggle {
+            &:hover {
+                color: $color_danube_approx;
+            }
+            &:focus {
+                color: $color_danube_approx;
+            }
+        }
+    }
+    &.active {
+        a {
+            color: $color_danube_approx;
+            &:hover {
+                color: $color_danube_approx;
+            }
+        }
+        ul.dropdown-menu li {
+            a:hover {
+                color: $color_danube_approx;
+            }
+            &.active a {
+                color: $color_danube_approx;
+            }
+        }
+    }
+}
+
+.navbar-default .navbar-nav > {
+    .active > a {
+        color: $color_danube_approx;
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+    }
+    .open > a {
+        color: $color_danube_approx;
+        &:hover {
+            color: $color_danube_approx;
+        }
+        &:focus {
+            color: $color_danube_approx;
+        }
+    }
+}
+
+.dropdown-submenu:hover > a {
+    background-color: $color_danube_approx;
+}
+
+.pagination ul > {
+    .active > {
+        a {
+            background-color: $color_danube_approx;
+            &:hover {
+                background-color: $color_danube_approx;
+            }
+        }
+        span {
+            background-color: $color_danube_approx;
+        }
+    }
+    li.active > {
+        a {
+            border: 1px solid $color_danube_approx;
+        }
+        span {
+            border: 1px solid $color_danube_approx;
+        }
+    }
+}
+
+.flex-control-nav li a {
+    &:hover {
+        background-color: $color_danube_approx;
+    }
+    &.active {
+        background-color: $color_danube_approx;
+    }
+}
+
+textarea:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="password"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="datetime"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="datetime-local"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="date"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="month"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="time"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="week"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="number"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="email"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="url"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="search"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="tel"]:focus {
+    border-color: $color_danube_approx;
+}
+
+input[type="color"]:focus {
+    border-color: $color_danube_approx;
+}
+
+.uneditable-input:focus {
+    border-color: $color_danube_approx;
+}
+
+input:focus {
+    border-color: $color_danube_approx;
+}
+
+.cta-text h2 span {
+    color: $color_danube_approx;
+}
+
+.modal.styled .modal-header {
+    background-color: $color_danube_approx;
+}
+
+.widget ul.tags li a:hover {
+    background: $color_danube_approx;
+}
+
+.recent-post .text h5 a:hover {
+    color: $color_danube_approx;
+}
+
+.pricing-box-alt.special .pricing-heading {
+    background: $color_danube_approx;
+}
+
+.item-thumbs .hover-wrap .overlay-img-thumb {
+    background: $color_danube_approx;
+}
+
+#pagination a:hover {
+    background: $color_danube_approx;
+}
+
+.pricing-box.special .pricing-offer {
+    background: $color_danube_approx;
+}
+
+.icon-square:hover {
+    background-color: $color_danube_approx;
+}
+
+.icon-rounded:hover {
+    background-color: $color_danube_approx;
+}
+
+.icon-circled:hover {
+    background-color: $color_danube_approx;
+}
+
+[class^="icon-"].active {
+    background-color: $color_danube_approx;
+}
+
+[class*=" icon-"].active {
+    background-color: $color_danube_approx;
+}
+
+.fancybox-close:hover {
+    background-color: $color_danube_approx;
+}
+
+.fancybox-nav:hover span {
+    background-color: $color_danube_approx;
+}
+
+.da-slide .da-link:hover {
+    background: $color_danube_approx;
+    border: 4px solid $color_danube_approx;
+}
+
+.da-dots span {
+    background: $color_danube_approx;
+}
+
+#featured .flexslider .slide-caption {
+    border-left: 5px solid $color_danube_approx;
+}
+
+.nivo-directionNav a:hover {
+    background-color: $color_danube_approx;
+}
