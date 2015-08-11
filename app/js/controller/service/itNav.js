@@ -7,6 +7,11 @@ app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', fun
         $scope.NavType = response
         $scope.nav.navType = angular.fromJson(response)[0]
     })
+    
+    Nav.find().$promise.then(function(response) {
+        console.log(response)
+        $scope.Nav = response
+    })
 
     $scope.addNav = function() {
         Nav.create({
