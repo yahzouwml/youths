@@ -8,6 +8,7 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
             errorMessages['email'] = '请输入有效的邮箱地址 ';
             errorMessages['minlength'] = '请至少输入{0}个字符';
             errorMessages['maxlength'] = '请至多输入{0}个字符';
+            errorMessages['url'] ='请输入一个有效的网址，例如：http(s)://www.google.com'
         });
     }])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
