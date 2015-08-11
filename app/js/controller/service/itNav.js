@@ -2,16 +2,20 @@ app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', fun
     $scope.nav = {}
     $scope.form = {}
 
-    NavType.find().$promise.then(function(response) {
-        console.log(response)
-        $scope.NavType = response
-        $scope.nav.navType = angular.fromJson(response)[0]
-    })
-    
-    Nav.find().$promise.then(function(response) {
-        console.log(response)
-        $scope.Nav = response
-    })
+    $scope.getNavType = function() {
+        NavType.find().$promise.then(function(response) {
+            console.log(response)
+            $scope.NavType = response
+            $scope.nav.navType = angular.fromJson(response)[0]
+        })
+    }
+
+    $scope.getNav = function() {
+        Nav.find().$promise.then(function(response) {
+            console.log(response)
+            $scope.Nav = response
+        })
+    }
 
     $scope.addNav = function() {
         Nav.create({
@@ -26,6 +30,7 @@ app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', fun
                 $scope.nav = {}
                 $scope.form.form1.$setPristine()
                 $scope.notify('success', '添加网址成功')
+                $scope.getNav()
             },
             function(err) {
                 console.log(err)
@@ -33,5 +38,9 @@ app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', fun
 
             }
         )
+    }
+
+    $scope.change = function(id) {
+        $scope.id = id
     }
 }]);
