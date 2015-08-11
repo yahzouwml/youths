@@ -8,16 +8,11 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
             errorMessages['email'] = '请输入有效的邮箱地址 ';
             errorMessages['minlength'] = '请至少输入{0}个字符';
             errorMessages['maxlength'] = '请至多输入{0}个字符';
-            errorMessages['url'] ='请输入一个有效的网址，例如：http(s)://www.google.com'
+            errorMessages['url'] = '请输入一个有效的网址，例如：http(s)://www.google.com'
         });
     }])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
-
-        // $locationProvider.html5Mode({
-        //     enabled: true,
-        //     requireBase: false,
-        //     rewriteLinks:true
-        // });
+        
         $locationProvider.html5Mode(false);
 
         $routeProvider.when('/', {
@@ -54,11 +49,12 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
             templateUrl: '/views/service/hangweb.html'
         }).when('/service/itnav', {
             templateUrl: '/views/service/itnav.html',
-            controller:"itNavCtrl"
+            controller: "itNavCtrl"
         }).otherwise({
             redirecTo: '/'
         });
-
+    }])
+    .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
         $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
             return {
                 responseError: function(rejection) {
@@ -71,13 +67,6 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
                     }
                     return $q.reject(rejection);
                 }
-            };
-        });
+            }
+        })
     }])
-    // .factory('$exceptionHandler', function() {
-    //     return function(exception, cause) {
-    //         exception.message += ' (caused by "' + cause + '")';
-    //         console.log(exception.message);
-    //         throw exception;
-    //     };
-    // });
