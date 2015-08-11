@@ -444,3 +444,17 @@ input:focus {
 .nivo-directionNav a:hover {
     background-color: $color_danube_approx;
 }
+
+//colors
+$color_vida_loca_approx: #479c18;
+$white: #ffffff;
+.ITNav .items {
+    h4 {
+        text-align: center;
+        color: $color_vida_loca_approx;
+        margin: 15px 0;
+    }
+    img {
+        margin: 10px 0;
+    }
+}
