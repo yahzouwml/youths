@@ -1,5 +1,7 @@
 app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', function($rootScope, $scope, $q, NavType, Nav) {
     $scope.nav = {}
+    $scope.form = {}
+
     NavType.find().$promise.then(function(response) {
         console.log(response)
         $scope.NavType = response
@@ -17,7 +19,7 @@ app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', fun
             function(response) {
                 console.log(response)
                 $scope.nav = {}
-                $scope.form.$setPristine();
+                $scope.form.form1.$setPristine()
                 $scope.notify('success', '添加网址成功')
             },
             function(err) {
