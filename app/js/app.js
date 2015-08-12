@@ -12,7 +12,7 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
         });
     }])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
-        
+
         $locationProvider.html5Mode(false);
 
         $routeProvider.when('/', {
@@ -63,6 +63,9 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
                         LoopBackAuth.clearUser();
                         LoopBackAuth.clearStorage();
                         $location.nextAfterLogin = $location.path();
+                        // Lobibox.notify('error', {
+                        //     msg: '您尚未登陆，请立即登陆'
+                        // })
                         $location.path('/login');
                     }
                     return $q.reject(rejection);
