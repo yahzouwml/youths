@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar'])
+var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar','textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
