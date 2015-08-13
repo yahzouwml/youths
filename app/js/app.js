@@ -74,3 +74,11 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }])
+    .config(function(LoopBackResourceProvider) {
+
+        // Use a custom auth header instead of the default 'Authorization'
+        LoopBackResourceProvider.setAuthHeader('X-Access-Token');
+
+        // Change the URL where to access the LoopBack REST API server
+        LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
+    })
