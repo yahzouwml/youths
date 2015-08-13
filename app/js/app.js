@@ -12,7 +12,7 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
         });
     }])
     .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
-        
+
         $locationProvider.html5Mode(false);
 
         $routeProvider.when('/', {
@@ -69,4 +69,8 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
                 }
             }
         })
+    }])
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }])
