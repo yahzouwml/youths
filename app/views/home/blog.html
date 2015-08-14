@@ -27,6 +27,26 @@
     </div>
 </div>
 <div class="col-lg-8">
+    <article ng-repeat="i in Blog">
+        <div class="post-quote">
+            <div class="post-heading">
+                <h3><a href="#/home/blogDetail/{{i.id}}">{{i.title}}</a></h3>
+            </div>
+            <blockquote>
+                <i class="icon-quote-left"></i>{{i.content | limitTo : 200}}
+            </blockquote>
+        </div>
+        <div class="bottom-article">
+            <ul class="meta-post">
+                <li><i class="icon-calendar"></i><a href="javascipt:void(0)"> 3 23, 2013</a></li>
+                <li><i class="icon-user"></i><a href="javascipt:void(0)"> Admin</a></li>
+                <li><i class="icon-folder-open"></i><a href="javascipt:void(0)"> 日志</a></li>
+                <li><i class="icon-comments"></i><a href="javascipt:void(0)">4 评论</a></li>
+            </ul>
+            <a href="#/home/blogDetail/{{i.id}}" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>
+        </div>
+    </article>
+
     <article>
         <div class="post-image">
             <div class="post-heading">

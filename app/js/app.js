@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar','textAngular'])
+var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -27,8 +27,9 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
         }).when('/home/blog', {
             templateUrl: '/views/home/blog.html',
             controller: 'blogCtrl'
-        }).when('/home/blogdetail', {
-            templateUrl: '/views/home/blogdetail.html'
+        }).when('/home/blogDetail/:id', {
+            templateUrl: '/views/home/blogDetail.html',
+            controller: 'blogDetailCtrl'
         }).when('/home/compenents', {
             templateUrl: '/views/home/compenents.html'
         }).when('/home/contact', {
