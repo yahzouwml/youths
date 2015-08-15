@@ -1,0 +1,60 @@
+<div class="col-lg-4">
+    <aside class="right-sidebar">
+        <div class="widget">
+            <form class="form-search">
+                <button class="btn btn-green" ng-click="show=!show">添加博客</button>
+                <hr />
+                <input class="form-control" type="text" placeholder="Search.." ng-model="blogSearch">
+            </form>
+        </div>
+        <div class="widget">
+            <h5 class="widgetheading">类别</h5>
+            <ul class="cat">
+                <li ng-repeat="i in BlogType">
+                    <i class="icon-angle-right"></i><a href="#">{{i.name}}</a><span> ({{i.blogs.length}})</span>
+                </li>
+                <!-- <li><i class="icon-angle-right"></i><a href="#">网页设计</a><span> (20)</span></li>
+                <li><i class="icon-angle-right"></i><a href="#">电子商务</a><span> (11)</span></li>
+                <li><i class="icon-angle-right"></i><a href="#">市场营销</a><span> (9)</span></li>
+                <li><i class="icon-angle-right"></i><a href="#">技术</a><span> (12)</span></li>
+                <li><i class="icon-angle-right"></i><a href="#">关于经济</a><span> (18)</span></li> -->
+            </ul>
+        </div>
+        <div class="widget">
+            <h5 class="widgetheading">过去的报道</h5>
+            <ul class="recent">
+                <li>
+                    <img src="/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
+                    <h6><a href="#">这是一个例子</a></h6>
+                    <p>
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                    </p>
+                </li>
+                <li>
+                    <a href="#"><img src="/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
+                    <h6><a href="#">这是一个例子</a></h6>
+                    <p>
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                    </p>
+                </li>
+                <li>
+                    <a href="#"><img src="/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
+                    <h6><a href="#">这是一个例子</a></h6>
+                    <p>
+                        这是一个例子这是一个例子这是一个例子这是一个例子
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <div class="widget">
+            <h5 class="widgetheading">流行标签</h5>
+            <ul class="tags">
+                <li><a href="#">网页设计</a></li>
+                <li><a href="#">技术</a></li>
+                <li><a href="#">网络</a></li>
+                <li><a href="#">旅行</a></li>
+                <li><a href="#">开发</a></li>
+            </ul>
+        </div>
+    </aside>
+</div>

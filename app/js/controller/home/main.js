@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', function($rootScope, $scope, ipCookie, AuthService) {
+app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService','User', function($rootScope, $scope, ipCookie, AuthService,User) {
     if ($rootScope.currentUser == null) {
         console.log(ipCookie('currentUser'))
         $rootScope.currentUser = ipCookie('currentUser')
@@ -10,9 +10,9 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', f
             .then(
                 function(response) {
                     console.log(response);
-                    $scope.notify('success', "注册成功");
+                    $scope.notify('success', "注册成功,请登录邮箱验证");
                     $scope.user = {};
-                    $scope.form.$setPristine();
+                    $scope.form.register.$setPristine();
                 },
                 function(err) {
                     console.log(err)
@@ -32,7 +32,7 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', f
                     console.log(response);
                     $scope.notify('success', "登录成功");
                     $scope.user = {};
-                    $scope.form.$setPristine();
+                    $scope.form.login.$setPristine();
                     $rootScope.currentUser = {
                         id: response.user.id,
                         tokenId: response.id,
@@ -44,9 +44,7 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', f
                 },
                 function(err) {
                     console.log(err)
-                    if (err.status == '401') {
-                        $scope.notify('error', "邮箱或密码错误")
-                    } else {
+                    if (err.status != '401') {
                         $scope.notify('error', "登陆失败")
                     }
                 }
@@ -57,6 +55,12 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', f
         AuthService.logout().then(function(response) {
             $rootScope.currentUser = null
             ipCookie.remove('currentUser')
+        })
+    }
+
+    $scope.forgetPassword = function() {
+        User.resetPassword({email:$scope.email}).$promise.then(function(response){
+            console.log(response)
         })
     }
 }])

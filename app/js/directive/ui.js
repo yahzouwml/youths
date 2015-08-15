@@ -2,6 +2,7 @@ app.directive('ui', function() {
     // Runs during compile
     return {
         restrict: 'E',
+        templateUrl: '/views/layout/modal.html',
         link: function($scope, iElm, iAttrs, controller) {
             Lobibox.notify.DEFAULTS = $.extend({}, Lobibox.notify.DEFAULTS, {
                 soundPath: '/plugin/lobibox/sounds/'
@@ -37,6 +38,22 @@ app.directive('ui', function() {
                     msg: message
                 })
             }
+
+            $scope.closeModal = function(aim) {
+                if (!!aim) {
+                    $(aim).modal('hide')
+                } else {
+                    $(".modal:visible").modal('hide')
+
+                }
+            }
+
+            $scope.showModal = function(aim) {
+                $scope.closeModal()
+                $(aim).modal()
+            }
+
+
         }
     };
 });
