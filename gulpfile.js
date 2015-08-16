@@ -32,7 +32,7 @@ gulp.task('sass', function() {
     })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
-        .pipe($.sass())
+        .pipe($.sass().on('error', $.sass.logError))
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest("app/styles/css"))
         .pipe($.browserSync.stream());

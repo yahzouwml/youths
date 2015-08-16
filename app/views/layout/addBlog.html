@@ -1,0 +1,28 @@
+<div class="row" ng-init="show=false;">
+    <div class="col-lg-12" ng-if="show">
+        <form name="form.form1" class="form-horizontal" novalidate="novalidate" ng-submit="addBlog()">
+            <div class="form-group">
+                <label for="recipient-name" class="control-label col-sm-2">标题:</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" ng-model="blog.title" required maxlength="20">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="control-label col-sm-2">分类:</label>
+                <div class="col-sm-10">
+                    <select ng-model='blog.blogType' ng-options="i.name for i in BlogType track by i.id">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="recipient-name" class="control-label col-sm-2 ">内容:</label>
+                <div class="col-sm-10">
+                    <div text-angular ng-model="blog.content"></div>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button class="btn btn-green btn-submit">提交</button>
+            </div>
+        </form>
+    </div>
+</div>

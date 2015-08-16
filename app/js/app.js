@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -11,46 +11,35 @@ var app = angular.module('global', ['ngRoute', 'ipCookie', 'lbServices', 'jcs-au
             errorMessages['url'] = '请输入一个有效的网址，例如：http(s)://www.google.com'
         });
     }])
-    .config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider) {
+    .config(['$stateProvider','$urlRouterProvider','$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
         $locationProvider.html5Mode(false);
-
-        $routeProvider.when('/', {
-            templateUrl: '/views/home/main.html',
-            controller: 'mainCtrl'
-        }).when('/home/blog', {
-            templateUrl: '/views/home/blog.html',
-            controller: 'blogCtrl'
-        }).when('/home/blogDetail/:id', {
-            templateUrl: '/views/home/blogDetail.html',
-            controller: 'blogDetailCtrl'
-        }).when('/home/compenents', {
-            templateUrl: '/views/home/compenents.html'
-        }).when('/home/contact', {
-            templateUrl: '/views/home/contact.html'
-        }).when('/home/portfolio', {
-            templateUrl: '/views/home/portfolio.html'
-        }).when('/home/pricingbox', {
-            templateUrl: '/views/home/pricingbox.html'
-        }).when('/home/recruit', {
-            templateUrl: '/views/home/recruit.html'
-        }).when('/home/typography', {
-            templateUrl: '/views/home/typography.html'
-        }).when('/service/index', {
-            templateUrl: '/views/service/index.html'
-        }).when('/service/erya', {
-            templateUrl: '/views/service/erya.html'
-        }).when('/service/hangweb', {
-            templateUrl: '/views/service/hangweb.html'
-        }).when('/service/itnav', {
-            templateUrl: '/views/service/itnav.html',
-            controller: "itNavCtrl"
-        }).when('/account', {
-            templateUrl: '/views/account/center.html',
-            controller: "accountCenterCtrl"
-        }).otherwise({
-            redirecTo: '/'
-        });
+        $stateProvider
+            .state('index', {
+                url: "/",
+                templateUrl: "/views/home/main.html",
+                controller: "mainCtrl"
+            })
+            .state('blog', {
+                url: "/home/blog",
+                templateUrl: "/views/home/blog.html",
+                controller: "blogCtrl"
+            })
+            .state('blogDetail', {
+                url: "/home/blogDetail/:id",
+                templateUrl: "/views/home/blogDetail.html",
+                controller: "blogDetailCtrl"
+            })
+            .state('itNav', {
+                url: "/service/itnav",
+                templateUrl: "/views/service/itnav.html",
+                controller: "itNavCtrl"
+            })
+            .state('account', {
+                url: "/account",
+                templateUrl: "/views/account/center.html",
+                controller: "accountCenterCtrl"
+            });
     }])
     .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
         $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {

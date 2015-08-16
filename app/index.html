@@ -57,25 +57,9 @@
                 </div>
             </div>
         </header>
-        <!-- end header -->
-        <section id="inner-headline">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul class="breadcrumb">
-                            <li><a href="#/"><i class="fa fa-home"></i></a><i class="icon-angle-right"></i></li>
-                            <li class="active">{{current}}</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="content">
-            <div class="container">
-                <div class="row" ng-view>
-                </div>
-            </div>
-        </section>
+        <div class="content" ui-view>
+            
+        </div>
         <footer>
             <div class="container">
                 <div class="row">
@@ -161,7 +145,7 @@
     <script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
     <script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
     <script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
-    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/socket.io-client/socket.io.js"></script>
     <script src="/bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
@@ -182,6 +166,7 @@
     <script src="/js/controller/home/blogDetail.js"></script>
     <script src="/js/controller/service/itNav.js"></script>
     <script src="/js/controller/account/center.js"></script>
+    <script src="/js/controller/layout/blogSlider.js"></script>
     <!-- service -->
     <script src="/js/services/lb-services.js"></script>
     <script src="/js/services/auth.js"></script>

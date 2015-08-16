@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService','User', function($rootScope, $scope, ipCookie, AuthService,User) {
+app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', 'User', function($rootScope, $scope, ipCookie, AuthService, User) {
     if ($rootScope.currentUser == null) {
         console.log(ipCookie('currentUser'))
         $rootScope.currentUser = ipCookie('currentUser')
@@ -6,13 +6,12 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService','U
 
 
     $scope.register = function() {
-        AuthService.register($scope.user.email, $scope.user.password)
+        AuthService.register($scope.userR.email, $scope.userR.password)
             .then(
                 function(response) {
                     console.log(response);
-                    $scope.notify('success', "注册成功,请登录邮箱验证");
-                    $scope.user = {};
-                    $scope.form.register.$setPristine();
+                    $scope.userR = {};
+                    $scope.successAfter($scope.form.register,"注册成功,请登录邮箱验证")
                 },
                 function(err) {
                     console.log(err)
@@ -26,13 +25,14 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService','U
     }
 
     $scope.login = function() {
-        AuthService.login($scope.user.email, $scope.user.password)
+        AuthService.login($scope.userL.email, $scope.userL.password)
             .then(
                 function(response) {
                     console.log(response);
                     $scope.notify('success', "登录成功");
-                    $scope.user = {};
+                    $scope.userL = {};
                     $scope.form.login.$setPristine();
+                    $scope.closeModal()
                     $rootScope.currentUser = {
                         id: response.user.id,
                         tokenId: response.id,
@@ -59,8 +59,24 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService','U
     }
 
     $scope.forgetPassword = function() {
-        User.resetPassword({email:$scope.email}).$promise.then(function(response){
+        User.resetPassword({
+            email: $scope.email
+        }).$promise.then(function(response) {
             console.log(response)
         })
+    }
+
+    $scope.checkLogin = function() {
+        if (!$rootScope.currentUser) {
+            $scope.notify('error', '请先登录')
+            $scope.showModal('#loginRegister')
+            return false;
+        }
+        return true
+    }
+
+    $scope.successAfter = function(form, message) {
+        form.$setPristine()
+        $scope.notify('success', message)
     }
 }])

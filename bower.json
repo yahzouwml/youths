@@ -21,6 +21,7 @@
     "angular-loading-bar": "~0.8.0",
     "font-awesome": "~4.4.0",
     "angular-cookie": "~4.0.9",
-    "textAngular": "~1.4.3"
+    "textAngular": "~1.4.3",
+    "angular-ui-router": "~0.2.15"
   }
 }
