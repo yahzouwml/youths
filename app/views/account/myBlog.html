@@ -1,0 +1,7 @@
+<ul ng-init="getMyBlog()">
+    <li ng-repeat="i in myBlog">
+        <span class="label label-success">{{i.blogType.name}}</span><a href="#/home/blogDetail/{{i.id}}">{{i.title | limitTo:30}}</a>
+        <a href=""><img src="{{i.user.avator}}"></a><span class="pull-right">{{i.created | date:""}}</span>
+    </li>
+</ul>
+<pagination boundary-links="true" total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="上一页" next-text="下一页" first-text="首页" last-text="尾页"></pagination>

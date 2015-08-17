@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -11,7 +11,7 @@ var app = angular.module('global', ['ui.router', 'ipCookie', 'lbServices', 'jcs-
             errorMessages['url'] = '请输入一个有效的网址，例如：http(s)://www.google.com'
         });
     }])
-    .config(['$stateProvider','$urlRouterProvider','$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
         $locationProvider.html5Mode(false);
         $stateProvider
@@ -39,6 +39,11 @@ var app = angular.module('global', ['ui.router', 'ipCookie', 'lbServices', 'jcs-
                 url: "/account",
                 templateUrl: "/views/account/center.html",
                 controller: "accountCenterCtrl"
+            })
+            .state('account.myBlog', {
+                url: "/myBlog",
+                controller: "myBlogCtrl",
+                templateUrl: "/views/account/myBlog.html"
             });
     }])
     .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
@@ -53,13 +58,15 @@ var app = angular.module('global', ['ui.router', 'ipCookie', 'lbServices', 'jcs-
                         $location.nextAfterLogin = $location.path();
                         $location.path('/login');
                     }
-                    switch (rejection.data.error.code) {
-                        case 'LOGIN_FAILED_EMAIL_NOT_VERIFIED':
-                            message = '邮箱尚未验证'
-                            break;
-                        case 'LOGIN_FAILED':
-                            message = '邮箱尚未验证'
-                            break;
+                    if (rejection.data) {
+                        switch (rejection.data.error.code) {
+                            case 'LOGIN_FAILED_EMAIL_NOT_VERIFIED':
+                                message = '邮箱尚未验证'
+                                break;
+                            case 'LOGIN_FAILED':
+                                message = '邮箱或密码错误'
+                                break;
+                        }
                     }
                     if (message != '') {
                         Lobibox.notify('error', {
