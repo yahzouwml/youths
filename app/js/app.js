@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ui.bootstrap','ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -44,6 +44,11 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ipCookie', 'lb
                 url: "/myBlog",
                 controller: "myBlogCtrl",
                 templateUrl: "/views/account/myBlog.html"
+            })
+            .state('account.settings', {
+                url: "/settings",
+                controller: "settingsCtrl",
+                templateUrl: "/views/account/settings.html"
             });
     }])
     .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
