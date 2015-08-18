@@ -7,7 +7,7 @@ app.controller('myBlogCtrl', ['$rootScope', '$scope', '$q', 'Blog', function($ro
                 where: {
                     userId: $rootScope.currentUser.id
                 },
-                include: ['blogType', 'user']
+                include: ['blogType', 'user','comments']
             }
         }).$promise.then(function(response) {
         	console.log(response)
