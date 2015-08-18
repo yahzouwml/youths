@@ -21,6 +21,7 @@
     "font-awesome": "~4.4.0",
     "angular-cookie": "~4.0.9",
     "textAngular": "~1.4.3",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "ngImgCrop": "~0.3.2"
   }
 }
