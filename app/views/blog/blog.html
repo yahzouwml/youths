@@ -16,7 +16,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="recipient-name" class="control-label col-sm-2 ">内容:</label>
+                    <label for="recipient-name" class="control-labl col-sm-2 ">内容:</label>
                     <div class="col-sm-10">
                         <div text-angular ng-model="blog.content"></div>
                     </div>
@@ -26,89 +26,89 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-8" ui-view>
-            <article ng-repeat="i in Blog">
-                <div class="post-quote">
-                    <div class="post-heading">
-                        <h3><a href="#/home/blogDetail/{{i.id}}">{{i.title}}</a></h3>
-                    </div>
-                    <blockquote ng-bind-html="i.content | htmlToPlaintext:50">
-                        <i class="icon-quote-left"></i>
-                    </blockquote>
+</div>
+<div class="row">
+    <div class="col-lg-8" ui-view>
+        <article ng-repeat="i in Blog">
+            <div class="post-quote">
+                <div class="post-heading">
+                    <h3><a href="#/home/blogDetail/{{i.id}}">{{i.title}}</a></h3>
                 </div>
-                <div class="bottom-article">
-                    <ul class="meta-post">
-                        <li><i class="icon-calendar"></i>{{i.created | date:'medium'}}</li>
-                        <li><i class="icon-user"></i>{{!!i.user.username ? i.user.username:i.user.email}}</li>
-                        <li><i class="icon-folder-open"></i><a href="javascipt:void(0)">{{i.blogType.name}}</a></li>
-                        <li><i class="icon-comments"></i><a href="javascipt:void(0)">{{i.comments.length}}评论</a></li>
-                    </ul>
-                    <a href="#/blog/detail/{{i.id}}" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>
-                </div>
-            </article>
-            <div id="pagination">
-                <span class="all">页数 1 / 3</span>
-                <span class="current">1</span>
-                <a href="#" class="inactive">2</a>
-                <a href="#" class="inactive">3</a>
+                <blockquote ng-bind-html="i.content | htmlToPlaintext:50">
+                    <i class="icon-quote-left"></i>
+                </blockquote>
             </div>
-        </div>
-        <div class="col-lg-4" ng-init="getBlogType();getBlog()">
-            <aside class="right-sidebar">
-                <div class="widget">
-                    <form class="form-search">
-                        <button class="btn btn-green" ng-click="show=!show">添加博客</button>
-                        <hr />
-                        <input class="form-control" type="text" placeholder="Search.." ng-model="blogSearch">
-                    </form>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">类别</h5>
-                    <ul class="cat">
-                        <li ng-repeat="i in BlogType">
-                            <i class="icon-angle-right"></i><a href="#">{{i.name}}</a><span> ({{i.blogs.length}})</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">过去的报道</h5>
-                    <ul class="recent">
-                        <li>
-                            <img src="/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
-                            <h6><a href="#">这是一个例子</a></h6>
-                            <p>
-                                这是一个例子这是一个例子这是一个例子这是一个例子
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
-                            <h6><a href="#">这是一个例子</a></h6>
-                            <p>
-                                这是一个例子这是一个例子这是一个例子这是一个例子
-                            </p>
-                        </li>
-                        <li>
-                            <a href="#"><img src="/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
-                            <h6><a href="#">这是一个例子</a></h6>
-                            <p>
-                                这是一个例子这是一个例子这是一个例子这是一个例子
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget">
-                    <h5 class="widgetheading">流行标签</h5>
-                    <ul class="tags">
-                        <li><a href="#">网页设计</a></li>
-                        <li><a href="#">技术</a></li>
-                        <li><a href="#">网络</a></li>
-                        <li><a href="#">旅行</a></li>
-                        <li><a href="#">开发</a></li>
-                    </ul>
-                </div>
-            </aside>
+            <div class="bottom-article">
+                <ul class="meta-post">
+                    <li><i class="icon-calendar"></i>{{i.created | date:'medium'}}</li>
+                    <li><i class="icon-user"></i>{{!!i.user.username ? i.user.username:i.user.email}}</li>
+                    <li><i class="icon-folder-open"></i><a href="javascipt:void(0)">{{i.blogType.name}}</a></li>
+                    <li><i class="icon-comments"></i><a href="javascipt:void(0)">{{i.comments.length}}评论</a></li>
+                </ul>
+                <a href="#/blog/detail/{{i.id}}" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>
+            </div>
+        </article>
+        <div id="pagination">
+            <span class="all">页数 1 / 3</span>
+            <span class="current">1</span>
+            <a href="#" class="inactive">2</a>
+            <a href="#" class="inactive">3</a>
         </div>
     </div>
+    <div class="col-lg-4" ng-init="getBlogType();getBlog()">
+        <aside class="right-sidebar">
+            <div class="widget">
+                <form class="form-search">
+                    <button class="btn btn-green animated infinite bounce" ng-click="show=!show">添加博客</button>
+                    <hr />
+                    <input class="form-control" type="text" placeholder="Search.." ng-model="blogSearch">
+                </form>
+            </div>
+            <div class="widget">
+                <h5 class="widgetheading">类别</h5>
+                <ul class="cat">
+                    <li ng-repeat="i in BlogType">
+                        <i class="icon-angle-right"></i><a href="#">{{i.name}}</a><span> ({{i.blogs.length}})</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h5 class="widgetheading">过去的报道</h5>
+                <ul class="recent">
+                    <li>
+                        <img src="/img/dummies/blog/65x65/thumb1.jpg" class="pull-left" alt="" />
+                        <h6><a href="#">这是一个例子</a></h6>
+                        <p>
+                            这是一个例子这是一个例子这是一个例子这是一个例子
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/img/dummies/blog/65x65/thumb2.jpg" class="pull-left" alt="" /></a>
+                        <h6><a href="#">这是一个例子</a></h6>
+                        <p>
+                            这是一个例子这是一个例子这是一个例子这是一个例子
+                        </p>
+                    </li>
+                    <li>
+                        <a href="#"><img src="/img/dummies/blog/65x65/thumb3.jpg" class="pull-left" alt="" /></a>
+                        <h6><a href="#">这是一个例子</a></h6>
+                        <p>
+                            这是一个例子这是一个例子这是一个例子这是一个例子
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h5 class="widgetheading">流行标签</h5>
+                <ul class="tags">
+                    <li><a href="#">网页设计</a></li>
+                    <li><a href="#">技术</a></li>
+                    <li><a href="#">网络</a></li>
+                    <li><a href="#">旅行</a></li>
+                    <li><a href="#">开发</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
 </div>

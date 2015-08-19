@@ -1,8 +1,14 @@
-<div class="container">
+<div class="container" ng-init="getUser()">
     <div class="row">
         <div class="col-md-3">
             <article>
-                
+                <img src="/img/weibo.png" alt="" class="avatar">
+                <hr />
+                <ul class="fa-ul">
+                     <li><i class="fa-li fa fa-user-md"></i>{{User.userName}}</li>
+                    <li><i class="fa-li fa fa-envelope-o"></i>{{User.email}}</li>
+                    <li><i class="fa-li fa fa-registered"></i>{{User.created | date:'longDate'}}</li>
+                </ul>
             </article>
         </div>
         <div class="col-md-9">
@@ -17,7 +23,7 @@
                     </ul>
                 </div>
                 <div ui-view class="clear">
-                aas
+                    aas
                 </div>
             </article>
         </div>
