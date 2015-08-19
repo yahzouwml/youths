@@ -93,5 +93,5 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap','ngImgCrop', 'ip
         LoopBackResourceProvider.setAuthHeader('X-Access-Token');
 
         // Change the URL where to access the LoopBack REST API server
-        LoopBackResourceProvider.setUrlBase('http://localhost:3000/api');
+        LoopBackResourceProvider.setUrlBase('http://localhost:6000/api');
     })
