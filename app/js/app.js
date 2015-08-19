@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ui.bootstrap','ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -50,6 +50,8 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap','ngImgCrop', 'ip
                 controller: "settingsCtrl",
                 templateUrl: "/views/account/settings.html"
             });
+
+        $urlRouterProvider.otherwise('/');
     }])
     .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
         $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
