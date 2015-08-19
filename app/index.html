@@ -33,16 +33,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/"><span>Y</span>ouths</a>
+                        <a class="navbar-brand" href="#/"><span>Y</span>ouths</a>
                     </div>
                     <div class="navbar-collapse collapse ">
                         <ul class="nav navbar-nav">
                             <li class="active"><a href="#/">首页</a></li>
                             <li>
-                                <a href="#/service/itnav">任意门</a>
+                                <a href="#/nav">任意门</a>
                             </li>
                             <!-- <li><a href="#/home/portfolio">投资组合</a></li> -->
-                            <li><a href="#/home/blog">博客</a></li>
+                            <li><a href="#/blog">博客</a></li>
                             <!--                             <li><a href="#/home/contact">联系我们</a></li>
  -->
                             <li ng-if='currentUser == null'><a ng-click="showModal('#loginRegister')">注册/登录</a></li>
@@ -58,7 +58,6 @@
             </div>
         </header>
         <div class="content" ui-view>
-            
         </div>
         <footer>
             <div class="container">
@@ -163,14 +162,13 @@
     <script src="/js/directive/ui.js"></script>
     <script src="/js/directive/layout.js"></script>
     <!-- controller  -->
-    <script src="/js/controller/home/main.js"></script>
-    <script src="/js/controller/home/blog.js"></script>
-    <script src="/js/controller/home/blogDetail.js"></script>
-    <script src="/js/controller/service/itNav.js"></script>
+    <script src="/js/controller/main.js"></script>
+    <script src="/js/controller/blog/blog.js"></script>
+    <script src="/js/controller/blog/detail.js"></script>
+    <script src="/js/controller/nav/nav.js"></script>
     <script src="/js/controller/account/center.js"></script>
     <script src="/js/controller/account/myBlog.js"></script>
     <script src="/js/controller/account/settings.js"></script>
-    <script src="/js/controller/layout/blogSlider.js"></script>
     <!-- service -->
     <script src="/js/services/lb-services.js"></script>
     <script src="/js/services/auth.js"></script>

@@ -1,0 +1,50 @@
+<article>
+    <div class="post-image">
+        <div class="post-heading">
+            <h3><a href="#">{{blog.title}}</a></h3>
+            <hr/>
+            <div ng-bind-html="blog.content"></div>
+        </div>
+    </div>
+    <div class="comment">
+        <h5>评论</h5>
+        <hr/>
+        <div class="comment-content">
+            <div ng-repeat="i in blog.comments" class="comment-item">
+                <div class="top">{{!!i.user.userName ? i.user.userName:i.user.email}}<span class="pull-right">{{i.created | date:'medium'}}</span></div>
+                <div class="middle">{{i.content}}</div>
+                <div class="bottom text-right">
+                    <a ng-click="showReplyInput($event,i.id)"><i class="fa fa-comments"></i>&nbsp;({{i.replies.length}})</a>&nbsp;&nbsp;&nbsp;<a href=""><i class="fa fa-heart"></i>({{i.commentLikes.length}})</a>&nbsp;&nbsp;&nbsp;<a ng-click="displayReply($event)">收起/关闭回复</a>
+                </div>
+                <hr/>
+                <div class="reply" style="display: none;">
+                    <div class="reply-content">
+                        <div ng-repeat="ir in i.replies" class="reply-item">
+                            <div class="top">{{ir.created | date:'medium'}}<span class="pull-right">{{!!ir.user.userName ? ir.user.userName:ir.user.email}}</span></div>
+                            <div class="middle">{{ir.content}}</div>
+                            <div class="bottom">
+                                <a><i class="fa fa-heart"></i>({{ir.replyLikes.length}})</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form name="form.addComment" class="form-horizontal" novalidate="novalidate" ng-submit="addComment()">
+            <div class="form-group">
+                <textarea name="" id="" width="100%" ng-model="commentContent" required></textarea>
+            </div>
+            <div class="form-group text-right">
+                <button class="btn btn-green">评论</button>
+            </div>
+        </form>
+        <form name="form.addReply" class="form-horizontal hidden" novalidate="novalidate" ng-submit="addReply($event)">
+            <div class="form-group">
+                <textarea name="" id="" width="100%" ng-model="ReplyContent" required></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-green">回复</button>
+            </div>
+        </form>
+    </div>
+</article>

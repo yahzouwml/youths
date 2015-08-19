@@ -15,25 +15,25 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap','ngImgCrop', 'ip
 
         $locationProvider.html5Mode(false);
         $stateProvider
-            .state('index', {
+            .state('main', {
                 url: "/",
-                templateUrl: "/views/home/main.html",
+                templateUrl: "/views/main.html",
                 controller: "mainCtrl"
             })
             .state('blog', {
-                url: "/home/blog",
-                templateUrl: "/views/home/blog.html",
+                url: "/blog",
+                templateUrl: "/views/blog/blog.html",
                 controller: "blogCtrl"
             })
-            .state('blogDetail', {
-                url: "/home/blogDetail/:id",
-                templateUrl: "/views/home/blogDetail.html",
+            .state('blog.Detail', {
+                url: "/detail/:id",
+                templateUrl: "/views/blog/detail.html",
                 controller: "blogDetailCtrl"
             })
-            .state('itNav', {
-                url: "/service/itnav",
-                templateUrl: "/views/service/itnav.html",
-                controller: "itNavCtrl"
+            .state('nav', {
+                url: "/nav",
+                templateUrl: "/views/nav/nav.html",
+                controller: "navCtrl"
             })
             .state('account', {
                 url: "/account",

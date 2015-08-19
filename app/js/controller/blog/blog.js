@@ -1,4 +1,4 @@
-app.controller('blogSliderCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog', function($rootScope, $scope, $q, BlogType, Blog) {
+app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog', function($rootScope, $scope, $q, BlogType, Blog) {
     $scope.blog = {}
     $scope.form = {}
 
@@ -25,7 +25,7 @@ app.controller('blogSliderCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
             function(response) {
                 console.log(response)
                 $scope.blog = {}
-                $scope.successAfter($scope.form.form1,'添加博客成功')
+                $scope.successAfter($scope.form.form1, '添加博客成功')
                 $scope.getBlog()
             },
             function(err) {
@@ -34,4 +34,16 @@ app.controller('blogSliderCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
             }
         )
     }
+    $scope.getBlog = function() {
+        Blog.find({
+            filter: {
+                include: ['blogType', 'comments', 'user'],
+                order: 'created DESC'
+            }
+        }).$promise.then(function(response) {
+            console.log(response)
+            $scope.Blog = response
+        })
+    }
+
 }])

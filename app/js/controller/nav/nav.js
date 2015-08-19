@@ -1,4 +1,4 @@
-app.controller('itNavCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', function($rootScope, $scope, $q, NavType, Nav) {
+app.controller('navCtrl', ['$rootScope', '$scope', '$q', 'NavType', 'Nav', function($rootScope, $scope, $q, NavType, Nav) {
     $scope.nav = {}
     $scope.form = {}
 
