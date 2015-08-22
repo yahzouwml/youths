@@ -18,10 +18,19 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'File', fu
         console.log($scope.myCroppedImage)
         File.upload({
             url: $scope.myCroppedImage,
-            fileDir: 'storage/',
+            fileDir: 'client/storage/',
             fileName: $rootScope.currentUser.id + ".png"
         }).$promise.then(function(response) {
             console.log(response)
+            $scope.$parent.User.avatar = 'storage/'+$rootScope.currentUser.id + ".png"
+            User.prototype$updateAttributes({
+                id: $rootScope.currentUser.id
+            }, $scope.$parent.User).$promise.then(function(response) {
+                console.log(response)
+                $scope.notify('success', '头像上传成功')
+            }, function(err) {
+                console.log(err)
+            })
         }, function(err) {
             console.log(err)
         })

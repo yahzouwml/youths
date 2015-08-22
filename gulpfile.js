@@ -22,7 +22,9 @@ gulp.task('serve', ['sass'], function() {
     });
 
     gulp.watch("app/styles/scss/*.scss", ['sass']);
-    gulp.watch(['app/*.html', 'app/styles/css/**/*.css','app/js/**/*.js']).on('change', $.browserSync.reload);
+    gulp.watch(['app/*.html']).on('change', $.browserSync.reload('app/*.html'));
+    gulp.watch(['app/styles/css/**/*.css']).on('change', $.browserSync.reload('app/styles/css/**/*.css'));
+    gulp.watch(['app/js/**/*.js']).on('change', $.browserSync.reload('app/js/**/*.js'));
 });
 
 // Compile sass into CSS & auto-inject into browsers

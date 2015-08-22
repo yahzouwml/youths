@@ -1079,7 +1079,7 @@ blockquote {
 }
 
 footer {
-    padding: 50px 0 0;
+    padding: 10px 0 0;
     color: $color_desert_storm_approx;
     .widgetheading {
         position: relative;
@@ -1530,10 +1530,14 @@ article {
                 margin: 0 5px 15px 0;
                 display: inline-block;
                 a {
-                    background: $color_mercury_approx;
-                    color: $color_mine_shaft_approx;
+                    transition:0.5s;
+                    background: transparent;
+                    color: #fff;
+                    border: 1px solid;
                     padding: 5px 10px;
+                    border-radius: 5px;
                     &:hover {
+                        background: #fff;
                         text-decoration: none;
                         color: $white;
                     }
@@ -1595,13 +1599,16 @@ article {
     }
 }
 
+#first-footer {
+    margin-bottom: -50px;
+}
+
 #sub-footer {
     //Instead of the line below you could use @include text-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     text-shadow: none;
     color: $color_wild_sand_approx;
     padding: 0;
-    padding-top: 30px;
-    margin: 20px 0 0;
+    margin: 0 0 0;
     p {
         margin: 0;
         padding: 0;

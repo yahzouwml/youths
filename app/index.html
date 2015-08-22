@@ -13,6 +13,7 @@
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
     <link href='/bower_components/textAngular/dist/textAngular.css' rel='stylesheet' />
+    <link href='/bower_components/fullpage.js/jquery.fullpage.css' rel='stylesheet' />
     <link href='/plugin/lobibox/css/lobibox.css' rel="stylesheet" />
     <link href="/plugin/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="/plugin/flexslider/flexslider.css" rel="stylesheet" />
@@ -25,7 +26,7 @@
     <div id="wrapper">
         <!-- start header -->
         <header>
-            <div class="navbar navbar-default navbar-static-top">
+            <div class="navbar navbar-default navbar-static-top" ng-class="{'navbar-t': $state.is('main')}">
                 <div class="container">
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,7 +43,7 @@
                                 <a href="#/nav">任意门</a>
                             </li>
                             <!-- <li><a href="#/home/portfolio">投资组合</a></li> -->
-                            <li><a href="#/blog">博客</a></li>
+                            <li><a href="#/blog">趣博客</a></li>
                             <!--                             <li><a href="#/home/contact">联系我们</a></li>
  -->
                             <li ng-if='currentUser == null'><a ng-click="showModal('#loginRegister')">注册/登录</a></li>
@@ -56,44 +57,34 @@
                     </div>
                 </div>
             </div>
+            <div class="banner" ng-if="$state.is('main')">
+                <div class="container b-search text-center">
+                    <h1>发现有趣的事</h1>
+                    <input type="text" placeholder="去搜索">
+                </div>
+            </div>
         </header>
-        <div class="content" ui-view>
+        <div ng-class="{'content': !$state.is('main'),'content2': $state.is('main')}" ui-view>
         </div>
         <footer>
-            <div class="container">
+            <div class="container" id="first-footer">
                 <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-9">
                         <div class="widget">
-                            <h5 class="widgetheading">Youths站群</h5>
-                            <ul class="link-list">
-                                <li>正在更新中</li>
+                            <h5 class="widgetheading">标签云</h5>
+                            <ul class="tags">
+                                <li><a href="#">网页设计</a></li>
+                                <li><a href="#">技术</a></li>
+                                <li><a href="#">网络</a></li>
+                                <li><a href="#">旅行</a></li>
+                                <li><a href="#">开发</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="widget">
-                            <h5 class="widgetheading">微信公众平台</h5>
-                            <div class="flickr_badge">
-                            </div>
+                            <h5 class="widgetheading">关注我们</h5>
                             <img src="/img/weixin.jpg" class="weixin" />
-                            <div class="clear">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget">
-                            <h5 class="widgetheading">新浪微博</h5>
-                            <div class="flickr_badge">
-                            </div>
-                            <img src="/img/weibo.png" class="weixin" />
-                            <div class="clear">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget">
-                            <h5 class="widgetheading">支付宝捐助</h5>
-                            <img src="/img/zhi.png" class="weixin" />
                             </p>
                         </div>
                     </div>
@@ -102,34 +93,28 @@
             <div id="sub-footer">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-12">
                             <div class="copyright">
                                 <p>
-                                    <span>&copy;2014 Youths网络科技</span>
-                                    <!-- <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://"); document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));</script> -->
+                                    <span>&copy;2014-2015 Youths</span>
+                                    <script type="text/javascript">
+                                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+                                    </script>
                                 </p>
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <ul class="social-network">
-                                <li><a href="#" data-placement="top" title="Email:sunxiao53283713@gmail.com"><i class="fa fa-info"></i></a></li>
-                                <li><a href="https://github.com/TNT-Likely" data-placement="top" title="github"><i class="fa fa-github"></i></a></li>
-                                <!-- @*<li><a href="#" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" data-placement="top" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#" data-placement="top" title="Google plus"><i class="fa fa-google-plus"></i></a></li>*@ -->
-                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
     </div>
+    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
     <!-- importjs -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/plugin/jquery.easing.1.3.js"></script>
+    <script src="/bower_components/fullpage.js/jquery.fullpage.min.js"></script>
     <script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
     <script src="/plugin/fancybox/jquery.fancybox-media.js"></script>
     <script src="/plugin/google-code-prettify/prettify.js"></script>
@@ -139,6 +124,7 @@
     <script src="/plugin/animate.js"></script>
     <script src="/plugin/custom.js"></script>
     <script src="/plugin/lobibox/js/notifications.js"></script>
+    <script src="/js/ui/ui.js"></script>
     <!-- build:js js/bower.min.js -->
     <script src="/bower_components/angular/angular.js"></script>
     <script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>

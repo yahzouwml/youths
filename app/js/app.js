@@ -1,15 +1,23 @@
 "use strict";
 
 var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
-    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver) {
+    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
-            errorMessages['required'] = '不能为空';
+            errorMessages['required'] = '输入点什么吧...';
             errorMessages['email'] = '请输入有效的邮箱地址 ';
             errorMessages['minlength'] = '请至少输入{0}个字符';
             errorMessages['maxlength'] = '请至多输入{0}个字符';
             errorMessages['url'] = '请输入一个有效的网址，例如：http(s)://www.google.com'
         });
+        $rootScope.imgServer = 'http://localhost:3010/'
+
+        $rootScope.$state = $state;
+        $rootScope.$stateParams = $stateParams;
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            console.log('change start from:' + angular.toJson(fromState))
+            console.log('change start to:' + angular.toJson(toState))
+        })
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 

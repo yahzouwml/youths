@@ -6,7 +6,7 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
 
 
     $scope.register = function() {
-        AuthService.register($scope.userR.email, $scope.userR.password)
+        AuthService.register($scope.userR.email, $scope.userR.password,$scope.userR.username)
             .then(
                 function(response) {
                     console.log(response);

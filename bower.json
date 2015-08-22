@@ -22,6 +22,7 @@
     "angular-cookie": "~4.0.9",
     "textAngular": "~1.4.3",
     "angular-ui-router": "~0.2.15",
-    "ngImgCrop": "~0.3.2"
+    "ngImgCrop": "~0.3.2",
+    "fullpage.js": "~2.6.9"
   }
 }

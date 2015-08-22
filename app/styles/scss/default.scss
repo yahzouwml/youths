@@ -2,6 +2,7 @@
 $c_main: #59b0ff;
 $c_green:#5bbf5a;
 $c_grey: #edece4;
+$c_l_grey:#f0f0ff;
 a {
     color: $c_main;
     &:hover {
@@ -175,8 +176,9 @@ input[type="text"] {
 }
 
 .weixin {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
 }
 
 .tc {
@@ -379,7 +381,9 @@ input:focus {
 }
 
 .widget ul.tags li a:hover {
-    background: $c_main;
+    background: #fff;
+    color: $c_main;
+    border-color: $c_main;
 }
 
 .recent-post .text h5 a:hover {
@@ -554,8 +558,105 @@ img-crop {
     height: 200px;
 }
 
-.avatar{
-    border-radius:5px;
-    height:200px;
-    width:180px;
+.avatar {
+    border-radius: 5px;
+    height: 230px;
+    width: 230px;
+    margin-left: 15px;
+}
+
+%navbar-a {
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .3);
+}
+
+header {
+    .navbar {
+        transition: 1s;
+    }
+    .navbar-t {
+        background-color: transparent;
+        .dropdown-menu {
+            background-color: transparent;
+        }
+        .open a:focus,
+        .open a:hover {
+            background-color: transparent !important;
+        }
+        li.active a {
+            background-color: transparent !important;
+        }
+        .nav li a {
+            color: #fff;
+        }
+        .navbar-brand {
+            color: #fff !important;
+        }
+    }
+    .navbar-a1 {
+        @extend %navbar-a;
+        margin-top: 110px;
+    }
+    .navbar-a2 {
+        @extend %navbar-a
+    }
+}
+
+.banner {
+    width: 100%;
+    min-height: 500px;
+    margin-top: -110px;
+    background: url(../../img/home-bg.jpg) no-repeat;
+    background-size: cover;
+}
+
+.b-search {
+    h1 {
+        color: #fff;
+        margin-bottom: 50px;
+    }
+    input {
+        padding-left: 20px;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        background-color: transparent;
+        height: 50px;
+        width: 420px;
+    }
+}
+
+.content2 {}
+
+[class^='intr-'] {
+    padding: 30px 0;
+    .h2 {
+        color: $c_green;
+        margin-bottom: 20px;
+    }
+}
+
+.intr-1 {
+    background-color: #fff;
+}
+
+.intr-2 {
+    background-color: $c_l_grey;
+}
+
+#loginRegister {
+    form {
+        margin-left: -55px;
+    }
+    .col-md-6 {
+        padding: 0 5px;
+    }
+    .modal-body {
+        padding: 50px 50px 20px 50px;
+        h4 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    }
 }
