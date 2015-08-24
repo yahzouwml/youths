@@ -1,4 +1,8 @@
 //colors
+$c_main: #59b0ff;
+$c_green:#5bbf5a;
+$c_grey: #edece4;
+$c_l_grey:#f0f0ff;
 $white: #fff;
 $color_wild_sand_approx: #f5f5f5;
 $black_15: rgba(0, 0, 0, .15);
@@ -1530,7 +1534,7 @@ article {
                 margin: 0 5px 15px 0;
                 display: inline-block;
                 a {
-                    transition:0.5s;
+                    transition: 0.5s;
                     background: transparent;
                     color: #fff;
                     border: 1px solid;
@@ -1540,6 +1544,22 @@ article {
                         background: #fff;
                         text-decoration: none;
                         color: $white;
+                    }
+                }
+            }
+        }
+        &.tags2 {
+            li {
+                a {
+                    border-radius:15px;
+                    background: #fff;
+                    color: $c_green;
+                    border-color: transparent !important;
+                    &:hover,
+                    &.active {
+                        background: $c_green !important;
+                        border-color: transparent !important;
+                        color: $white !important;
                     }
                 }
             }

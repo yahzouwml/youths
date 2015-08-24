@@ -4,14 +4,27 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
         $rootScope.currentUser = ipCookie('currentUser')
     }
 
+    $scope.emailAfter = [{
+            name: '@qq.com'
+        }, {
+            name: '@163.com'
+        }, {
+            name: '@126.com'
+        }, {
+            name: '@outlook.com'
+        }, {
+            name: '@gmail.com'
+        },
+
+    ];
 
     $scope.register = function() {
-        AuthService.register($scope.userR.email, $scope.userR.password,$scope.userR.username)
+        AuthService.register($scope.userR.email, $scope.userR.password, $scope.userR.username)
             .then(
                 function(response) {
                     console.log(response);
                     $scope.userR = {};
-                    $scope.successAfter($scope.form.register,"注册成功,请登录邮箱验证")
+                    $scope.successAfter($scope.form.register, "注册成功,请登录邮箱验证")
                 },
                 function(err) {
                     console.log(err)
@@ -24,6 +37,15 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
             );
     }
 
+    $scope.checkUsername = function() {
+        User.exists({
+            username: $scope.userR.username
+        }).$promise.then(function(response) {
+            console.log(response)
+        }, function(err) {
+            console.log(err)
+        })
+    }
     $scope.login = function() {
         AuthService.login($scope.userL.email, $scope.userL.password)
             .then(

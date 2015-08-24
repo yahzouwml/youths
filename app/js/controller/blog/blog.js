@@ -1,48 +1,40 @@
-app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog', function($rootScope, $scope, $q, BlogType, Blog) {
+app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', function($rootScope, $scope, $q, Blog, Tag) {
     $scope.blog = {}
     $scope.form = {}
 
-    $scope.getBlogType = function() {
-        BlogType.find({
-            filter: {
-                include: 'blogs'
+    $scope.getBlog = function(id) {
+        var options = {}
+        if (id == 'new') {
+            options = {
+                filter: {
+                    include: ['comments', 'user'],
+                    order: 'created DESC',
+                    limit: 10
+                }
             }
-        }).$promise.then(function(response) {
+        } else if (id == 'hot') {
+            options = {
+                filter: {
+                    include: ['comments', 'user'],
+                    order: 'click DESC',
+                    limit: 10
+                }
+            }
+        } else {
+           
+        }
+        Blog.find(options).$promise.then(function(response) {
             console.log(response)
-            $scope.BlogType = response
-            $scope.blog.BlogType = angular.fromJson(response)[0]
+            $scope.Blog = response
         })
     }
 
-    $scope.addBlog = function() {
-        Blog.create({
-            title: $scope.blog.title,
-            blogTypeId: $scope.blog.blogType.id,
-            userId: $rootScope.currentUser.id,
-            content: $scope.blog.content,
-            click: 0
-        }).$promise.then(
-            function(response) {
-                console.log(response)
-                $scope.blog = {}
-                $scope.successAfter($scope.form.form1, '添加博客成功')
-                $scope.getBlog()
-            },
-            function(err) {
-                console.log(err)
-                $scope.notify('error', '添加博客失败')
-            }
-        )
-    }
-    $scope.getBlog = function() {
-        Blog.find({
-            filter: {
-                include: ['blogType', 'comments', 'user'],
-                order: 'created DESC'
-            }
-        }).$promise.then(function(response) {
+    $scope.getTag = function() {
+        Tag.find().$promise.then(function(response) {
             console.log(response)
-            $scope.Blog = response
+            $scope.Tag = response
+        }, function(err) {
+            console.log(err)
         })
     }
 

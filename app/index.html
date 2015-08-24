@@ -14,9 +14,11 @@
     <link href="/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
     <link href='/bower_components/textAngular/dist/textAngular.css' rel='stylesheet' />
     <link href='/bower_components/fullpage.js/jquery.fullpage.css' rel='stylesheet' />
+    <link href='/bower_components/angular-ui-select/dist/select.min.css' rel='stylesheet' />
     <link href='/plugin/lobibox/css/lobibox.css' rel="stylesheet" />
     <link href="/plugin/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="/plugin/flexslider/flexslider.css" rel="stylesheet" />
+    <link href="/plugin/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
     <link href="/styles/css/style.css" rel="stylesheet" />
     <!-- Theme skin -->
     <link href="/styles/css/default.css" rel="stylesheet" />
@@ -97,10 +99,10 @@
                             <div class="copyright">
                                 <p>
                                     <span>&copy;2014-2015 Youths</span>
-                                    <script type="text/javascript">
-                                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-                                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
-                                    </script>
+                                    // <script type="text/javascript">
+                                    // var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                                    // document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+                                    // </script>
                                 </p>
                             </div>
                         </div>
@@ -124,13 +126,16 @@
     <script src="/plugin/animate.js"></script>
     <script src="/plugin/custom.js"></script>
     <script src="/plugin/lobibox/js/notifications.js"></script>
+    <script src="/plugin/selectize/js/standalone/selectize.js"></script>
     <script src="/js/ui/ui.js"></script>
     <!-- build:js js/bower.min.js -->
     <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.min.js"></script>
     <script src='/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
     <script src='/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
     <script src='/bower_components/textAngular/dist/textAngular.min.js'></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-ui-select/dist/select.min.js"></script>
     <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
     <script src="/bower_components/socket.io-client/socket.io.js"></script>
@@ -149,6 +154,7 @@
     <!-- controller  -->
     <script src="/js/controller/main.js"></script>
     <script src="/js/controller/blog/blog.js"></script>
+    <script src="/js/controller/blog/addEdit.js"></script>
     <script src="/js/controller/blog/detail.js"></script>
     <script src="/js/controller/nav/nav.js"></script>
     <script src="/js/controller/account/center.js"></script>

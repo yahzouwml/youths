@@ -4,7 +4,7 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
     Blog.findById({
         id: $scope.params.id,
         filter: {
-            include: ['blogType', {
+            include: [{
                 'comments': ['commentLikes', 'user', {
                     'replies': ['replyLikes', 'user']
                 }]
@@ -83,8 +83,8 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
         html += '                          </div>'
         aim.append(html)
         console.log(aim.parent('div').find('.bottom:eq(0)'))
-        aim.parents('.comment-item').find("a:eq(0)").html('<i class="fa fa-comments"></i>('+aim.parents('.comment-item').find(".reply-item").length+")")
-        //aim.parent('div').find('.bottom:eq(0)').children("a:eq(0)").text("(" + aim.parent('div').find('.bottom:eq(0)').children("a").length + ")")
+        aim.parents('.comment-item').find("a:eq(0)").html('<i class="fa fa-comments"></i>(' + aim.parents('.comment-item').find(".reply-item").length + ")")
+            //aim.parent('div').find('.bottom:eq(0)').children("a:eq(0)").text("(" + aim.parent('div').find('.bottom:eq(0)').children("a").length + ")")
     }
 
     $scope.showReplyInput = function($event, id) {

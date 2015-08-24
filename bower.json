@@ -23,6 +23,8 @@
     "textAngular": "~1.4.3",
     "angular-ui-router": "~0.2.15",
     "ngImgCrop": "~0.3.2",
-    "fullpage.js": "~2.6.9"
+    "fullpage.js": "~2.6.9",
+    "angular-ui-select": "~0.12.1",
+    "angular-sanitize": "~1.4.4"
   }
 }

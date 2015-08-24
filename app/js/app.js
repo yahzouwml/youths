@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ui.select', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -17,6 +17,10 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'i
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             console.log('change start from:' + angular.toJson(fromState))
             console.log('change start to:' + angular.toJson(toState))
+            $("body").animate({
+                scrollTop: 0
+            }, 200);
+            $("header .navbar").removeClass('navbar-a1 navbar-a2')
         })
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -32,6 +36,16 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'i
                 url: "/blog",
                 templateUrl: "/views/blog/blog.html",
                 controller: "blogCtrl"
+            })
+            .state('blog.add', {
+                url: "/add",
+                templateUrl: "/views/blog/addEdit.html",
+                controller: "addEditCtrl"
+            })
+            .state('blog.edit', {
+                url: "/edit/:id",
+                templateUrl: "/views/blog/addEdit.html",
+                controller: "addEditCtrl"
             })
             .state('blog.Detail', {
                 url: "/detail/:id",
@@ -71,7 +85,10 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'i
                         LoopBackAuth.clearUser();
                         LoopBackAuth.clearStorage();
                         $location.nextAfterLogin = $location.path();
-                        $location.path('/login');
+                        Lobibox.notify('error', {
+                            msg: '请先登录'
+                        })
+                        $('#loginRegister').modal()
                     }
                     if (rejection.data) {
                         switch (rejection.data.error.code) {
@@ -104,4 +121,8 @@ var app = angular.module('global', ['ui.router', 'ui.bootstrap', 'ngImgCrop', 'i
 
         // Change the URL where to access the LoopBack REST API server
         LoopBackResourceProvider.setUrlBase('http://localhost:3010/api');
+    })
+    .config(function(uiSelectConfig) {
+        uiSelectConfig.theme = 'bootstrap';
+
     })
