@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $('#fullpage').fullpage();
     $('.banner').height(document.body.clientHeight)
     $('.b-search').css({
         paddingTop: (document.body.clientHeight - 420) / 2
