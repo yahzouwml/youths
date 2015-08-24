@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ui.select', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
+var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
     .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams) {
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -121,8 +121,4 @@ var app = angular.module('global', ['ui.router', 'ui.select', 'ngSanitize', 'ui.
 
         // Change the URL where to access the LoopBack REST API server
         LoopBackResourceProvider.setUrlBase('http://localhost:3010/api');
-    })
-    .config(function(uiSelectConfig) {
-        uiSelectConfig.theme = 'bootstrap';
-
     })
