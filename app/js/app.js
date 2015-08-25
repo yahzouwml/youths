@@ -19,7 +19,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
             console.log('change start to:' + angular.toJson(toState))
             $("body").animate({
                 scrollTop: 0
-            }, 200);
+            }, 1000);
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
         })
     }])
