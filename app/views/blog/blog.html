@@ -27,6 +27,7 @@
                     <a href="#/blog/detail/{{i.id}}" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>
                 </div>
             </article>
+            <label id="loading" class="label label-success">{{ none ? '没有更多了':'正在加载...'}}</label>
         </div>
         <div class="col-lg-4" ng-init="getBlog('new')">
             <aside class="right-sidebar">

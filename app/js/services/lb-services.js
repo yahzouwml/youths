@@ -5436,12 +5436,6 @@ module.factory(
           url: urlBase + "/blogTypes/change-stream",
           method: "POST"
         },
-
-        // INTERNAL. Use Blog.blogType() instead.
-        "::get::blog::blogType": {
-          url: urlBase + "/blogs/:id/blogType",
-          method: "GET"
-        },
       }
     );
 
@@ -5908,16 +5902,91 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Blog.blogType() instead.
-        "prototype$__get__blogType": {
-          url: urlBase + "/blogs/:id/blogType",
-          method: "GET"
-        },
-
         // INTERNAL. Use Blog.user() instead.
         "prototype$__get__user": {
           url: urlBase + "/blogs/:id/user",
           method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tags.findById() instead.
+        "prototype$__findById__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tags.destroyById() instead.
+        "prototype$__destroyById__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.updateById() instead.
+        "prototype$__updateById__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tags.link() instead.
+        "prototype$__link__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tags.unlink() instead.
+        "prototype$__unlink__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.exists() instead.
+        "prototype$__exists__tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.findById() instead.
+        "prototype$__findById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.destroyById() instead.
+        "prototype$__destroyById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.updateById() instead.
+        "prototype$__updateById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "PUT"
         },
 
         // INTERNAL. Use Blog.comments.findById() instead.
@@ -5945,6 +6014,56 @@ module.factory(
           },
           url: urlBase + "/blogs/:id/comments/:fk",
           method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tags() instead.
+        "prototype$__get__tags": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tags",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tags.create() instead.
+        "prototype$__create__tags": {
+          url: urlBase + "/blogs/:id/tags",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tags.destroyAll() instead.
+        "prototype$__delete__tags": {
+          url: urlBase + "/blogs/:id/tags",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.count() instead.
+        "prototype$__count__tags": {
+          url: urlBase + "/blogs/:id/tags/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tagRelations() instead.
+        "prototype$__get__tagRelations": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.create() instead.
+        "prototype$__create__tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.destroyAll() instead.
+        "prototype$__delete__tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.count() instead.
+        "prototype$__count__tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations/count",
+          method: "GET"
         },
 
         // INTERNAL. Use Blog.comments() instead.
@@ -6508,6 +6627,104 @@ module.factory(
           url: urlBase + "/blogTypes/:id/blogs/count",
           method: "GET"
         },
+
+        // INTERNAL. Use Tag.blogs.findById() instead.
+        "::findById::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.blogs.destroyById() instead.
+        "::destroyById::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.updateById() instead.
+        "::updateById::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.blogs.link() instead.
+        "::link::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.blogs.unlink() instead.
+        "::unlink::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.exists() instead.
+        "::exists::tag::blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Tag.blogs() instead.
+        "::get::tag::blogs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/blogs",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.blogs.create() instead.
+        "::create::tag::blogs": {
+          url: urlBase + "/tags/:id/blogs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.blogs.createMany() instead.
+        "::createMany::tag::blogs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/blogs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.blogs.destroyAll() instead.
+        "::delete::tag::blogs": {
+          url: urlBase + "/tags/:id/blogs",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.count() instead.
+        "::count::tag::blogs": {
+          url: urlBase + "/tags/:id/blogs/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use TagRelation.blog() instead.
+        "::get::tagRelation::blog": {
+          url: urlBase + "/tagRelations/:id/blog",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Comment.blog() instead.
+        "::get::comment::blog": {
+          url: urlBase + "/comments/:id/blog",
+          method: "GET"
+        },
       }
     );
 
@@ -6647,42 +6864,6 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Blog#blogType
-         * @methodOf lbServices.Blog
-         *
-         * @description
-         *
-         * Fetches belongsTo relation blogType.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         *  - `refresh` – `{boolean=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `BlogType` object.)
-         * </em>
-         */
-        R.blogType = function() {
-          var TargetResource = $injector.get("BlogType");
-          var action = TargetResource["::get::blog::blogType"];
-          return action.apply(R, arguments);
-        };
-
-        /**
-         * @ngdoc method
          * @name lbServices.Blog#user
          * @methodOf lbServices.Blog
          *
@@ -6714,6 +6895,717 @@ module.factory(
         R.user = function() {
           var TargetResource = $injector.get("User");
           var action = TargetResource["::get::blog::user"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Blog.tags
+     * @header lbServices.Blog.tags
+     * @object
+     * @description
+     *
+     * The object `Blog.tags` groups methods
+     * manipulating `Tag` instances related to `Blog`.
+     *
+     * Call {@link lbServices.Blog#tags Blog.tags()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog#tags
+         * @methodOf lbServices.Blog
+         *
+         * @description
+         *
+         * Queries tags of blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::get::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#count
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Counts tags of blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.tags.count = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::count::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#create
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Creates a new instance in tags of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.create = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::create::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#createMany
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Creates a new instance in tags of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.createMany = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::createMany::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#destroyAll
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Deletes all tags of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tags.destroyAll = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::delete::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#destroyById
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Delete a related item by id for tags.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tags.destroyById = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::destroyById::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#exists
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Check the existence of tags relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.exists = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::exists::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#findById
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Find a related item by id for tags.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.findById = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::findById::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#link
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Add a related item by id for tags.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.link = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::link::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#unlink
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Remove the tags relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tags.unlink = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::unlink::blog::tags"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tags#updateById
+         * @methodOf lbServices.Blog.tags
+         *
+         * @description
+         *
+         * Update a related item by id for tags.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tags
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tags.updateById = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::updateById::blog::tags"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Blog.tagRelations
+     * @header lbServices.Blog.tagRelations
+     * @object
+     * @description
+     *
+     * The object `Blog.tagRelations` groups methods
+     * manipulating `TagRelation` instances related to `Blog`.
+     *
+     * Call {@link lbServices.Blog#tagRelations Blog.tagRelations()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog#tagRelations
+         * @methodOf lbServices.Blog
+         *
+         * @description
+         *
+         * Queries tagRelations of blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::get::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#count
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Counts tagRelations of blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.tagRelations.count = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::count::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#create
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Creates a new instance in tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.create = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::create::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#createMany
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Creates a new instance in tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.createMany = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::createMany::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#destroyAll
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Deletes all tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tagRelations.destroyAll = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::delete::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#destroyById
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Delete a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tagRelations.destroyById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::destroyById::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#findById
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Find a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.findById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::findById::blog::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Blog.tagRelations#updateById
+         * @methodOf lbServices.Blog.tagRelations
+         *
+         * @description
+         *
+         * Update a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.updateById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::updateById::blog::tagRelations"];
           return action.apply(R, arguments);
         };
     /**
@@ -7045,6 +7937,137 @@ module.factory(
       urlBase + "/tags/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use Tag.blogs.findById() instead.
+        "prototype$__findById__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.blogs.destroyById() instead.
+        "prototype$__destroyById__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.updateById() instead.
+        "prototype$__updateById__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.blogs.link() instead.
+        "prototype$__link__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.blogs.unlink() instead.
+        "prototype$__unlink__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.exists() instead.
+        "prototype$__exists__blogs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/blogs/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.findById() instead.
+        "prototype$__findById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.destroyById() instead.
+        "prototype$__destroyById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.updateById() instead.
+        "prototype$__updateById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.blogs() instead.
+        "prototype$__get__blogs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/blogs",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.blogs.create() instead.
+        "prototype$__create__blogs": {
+          url: urlBase + "/tags/:id/blogs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.blogs.destroyAll() instead.
+        "prototype$__delete__blogs": {
+          url: urlBase + "/tags/:id/blogs",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.blogs.count() instead.
+        "prototype$__count__blogs": {
+          url: urlBase + "/tags/:id/blogs/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations() instead.
+        "prototype$__get__tagRelations": {
+          isArray: true,
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.create() instead.
+        "prototype$__create__tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.destroyAll() instead.
+        "prototype$__delete__tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.count() instead.
+        "prototype$__count__tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations/count",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -7464,6 +8487,98 @@ module.factory(
           url: urlBase + "/tags/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use Blog.tags.findById() instead.
+        "::findById::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tags.destroyById() instead.
+        "::destroyById::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.updateById() instead.
+        "::updateById::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tags.link() instead.
+        "::link::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tags.unlink() instead.
+        "::unlink::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.exists() instead.
+        "::exists::blog::tags": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tags/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Blog.tags() instead.
+        "::get::blog::tags": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tags",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tags.create() instead.
+        "::create::blog::tags": {
+          url: urlBase + "/blogs/:id/tags",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tags.createMany() instead.
+        "::createMany::blog::tags": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tags",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tags.destroyAll() instead.
+        "::delete::blog::tags": {
+          url: urlBase + "/blogs/:id/tags",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tags.count() instead.
+        "::count::blog::tags": {
+          url: urlBase + "/blogs/:id/tags/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use TagRelation.tag() instead.
+        "::get::tagRelation::tag": {
+          url: urlBase + "/tagRelations/:id/tag",
+          method: "GET"
+        },
       }
     );
 
@@ -7600,6 +8715,717 @@ module.factory(
     */
     R.modelName = "Tag";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Tag.blogs
+     * @header lbServices.Tag.blogs
+     * @object
+     * @description
+     *
+     * The object `Tag.blogs` groups methods
+     * manipulating `Blog` instances related to `Tag`.
+     *
+     * Call {@link lbServices.Tag#blogs Tag.blogs()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag#blogs
+         * @methodOf lbServices.Tag
+         *
+         * @description
+         *
+         * Queries blogs of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::get::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#count
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Counts blogs of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.blogs.count = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::count::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#create
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Creates a new instance in blogs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.create = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::create::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#createMany
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Creates a new instance in blogs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.createMany = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::createMany::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#destroyAll
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Deletes all blogs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.blogs.destroyAll = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::delete::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#destroyById
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Delete a related item by id for blogs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.blogs.destroyById = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::destroyById::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#exists
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Check the existence of blogs relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.exists = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::exists::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#findById
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Find a related item by id for blogs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.findById = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::findById::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#link
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Add a related item by id for blogs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.link = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::link::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#unlink
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Remove the blogs relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.blogs.unlink = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::unlink::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.blogs#updateById
+         * @methodOf lbServices.Tag.blogs
+         *
+         * @description
+         *
+         * Update a related item by id for blogs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for blogs
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blogs.updateById = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::updateById::tag::blogs"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name lbServices.Tag.tagRelations
+     * @header lbServices.Tag.tagRelations
+     * @object
+     * @description
+     *
+     * The object `Tag.tagRelations` groups methods
+     * manipulating `TagRelation` instances related to `Tag`.
+     *
+     * Call {@link lbServices.Tag#tagRelations Tag.tagRelations()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag#tagRelations
+         * @methodOf lbServices.Tag
+         *
+         * @description
+         *
+         * Queries tagRelations of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::get::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#count
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Counts tagRelations of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.tagRelations.count = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::count::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#create
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Creates a new instance in tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.create = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::create::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#createMany
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Creates a new instance in tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.createMany = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::createMany::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#destroyAll
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Deletes all tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tagRelations.destroyAll = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::delete::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#destroyById
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Delete a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tagRelations.destroyById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::destroyById::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#findById
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Find a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.findById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::findById::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.tagRelations#updateById
+         * @methodOf lbServices.Tag.tagRelations
+         *
+         * @description
+         *
+         * Update a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.updateById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::updateById::tag::tagRelations"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -7628,6 +9454,18 @@ module.factory(
       urlBase + "/tagRelations/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use TagRelation.tag() instead.
+        "prototype$__get__tag": {
+          url: urlBase + "/tagRelations/:id/tag",
+          method: "GET"
+        },
+
+        // INTERNAL. Use TagRelation.blog() instead.
+        "prototype$__get__blog": {
+          url: urlBase + "/tagRelations/:id/blog",
+          method: "GET"
+        },
 
         /**
          * @ngdoc method
@@ -8047,6 +9885,124 @@ module.factory(
           url: urlBase + "/tagRelations/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use Blog.tagRelations.findById() instead.
+        "::findById::blog::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.destroyById() instead.
+        "::destroyById::blog::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.updateById() instead.
+        "::updateById::blog::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/blogs/:id/tagRelations/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Blog.tagRelations() instead.
+        "::get::blog::tagRelations": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.create() instead.
+        "::create::blog::tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.createMany() instead.
+        "::createMany::blog::tagRelations": {
+          isArray: true,
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.destroyAll() instead.
+        "::delete::blog::tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Blog.tagRelations.count() instead.
+        "::count::blog::tagRelations": {
+          url: urlBase + "/blogs/:id/tagRelations/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.findById() instead.
+        "::findById::tag::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.destroyById() instead.
+        "::destroyById::tag::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.updateById() instead.
+        "::updateById::tag::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/tagRelations/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.tagRelations() instead.
+        "::get::tag::tagRelations": {
+          isArray: true,
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.create() instead.
+        "::create::tag::tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.createMany() instead.
+        "::createMany::tag::tagRelations": {
+          isArray: true,
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.destroyAll() instead.
+        "::delete::tag::tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.tagRelations.count() instead.
+        "::count::tag::tagRelations": {
+          url: urlBase + "/tags/:id/tagRelations/count",
+          method: "GET"
+        },
       }
     );
 
@@ -8184,6 +10140,78 @@ module.factory(
     R.modelName = "TagRelation";
 
 
+        /**
+         * @ngdoc method
+         * @name lbServices.TagRelation#tag
+         * @methodOf lbServices.TagRelation
+         *
+         * @description
+         *
+         * Fetches belongsTo relation tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Tag` object.)
+         * </em>
+         */
+        R.tag = function() {
+          var TargetResource = $injector.get("Tag");
+          var action = TargetResource["::get::tagRelation::tag"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.TagRelation#blog
+         * @methodOf lbServices.TagRelation
+         *
+         * @description
+         *
+         * Fetches belongsTo relation blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blog = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::get::tagRelation::blog"];
+          return action.apply(R, arguments);
+        };
+
     return R;
   }]);
 
@@ -8211,6 +10239,12 @@ module.factory(
       urlBase + "/comments/:id",
       { 'id': '@id' },
       {
+
+        // INTERNAL. Use Comment.blog() instead.
+        "prototype$__get__blog": {
+          url: urlBase + "/comments/:id/blog",
+          method: "GET"
+        },
 
         // INTERNAL. Use Comment.user() instead.
         "prototype$__get__user": {
@@ -8994,6 +11028,42 @@ module.factory(
     */
     R.modelName = "Comment";
 
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Comment#blog
+         * @methodOf lbServices.Comment
+         *
+         * @description
+         *
+         * Fetches belongsTo relation blog.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Blog` object.)
+         * </em>
+         */
+        R.blog = function() {
+          var TargetResource = $injector.get("Blog");
+          var action = TargetResource["::get::comment::blog"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
@@ -12698,7 +14768,7 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `greeting` – `{string=}` - 
+         *  - `result` – `{boolean=}` - 
          */
         "upload": {
           url: urlBase + "/files/upload",
