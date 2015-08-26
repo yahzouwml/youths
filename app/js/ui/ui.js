@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $('.banner').height(document.body.clientHeight)
+    $('.banner').height($(window).height())
     $('.b-search').css({
-        paddingTop: (document.body.clientHeight - 420) / 2
+        paddingTop: ($(window).height() - 420) / 2
     })
     $(window).scroll(function() {
         if ($('.banner').length > 0) {
