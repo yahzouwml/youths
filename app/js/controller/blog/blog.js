@@ -57,6 +57,9 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', functio
             if (response.length == 0) {
                 $scope.none = true
             } else {
+                if (response.length < 10) {
+                    $scope.none = true
+                }
                 $scope.Blog = response
             }
         }, function(err) {

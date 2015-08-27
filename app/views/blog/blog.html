@@ -3,8 +3,8 @@
         <div class="col-lg-8" ui-view>
             <div class="widget" ng-init="getTag()">
                 <ul class="tags tags2">
-                    <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new')">最新</a></li>
-                    <li><a href="javascipt:void(0)" ng-click="getBlog('hot')">热门</a></li>
+                    <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new',0)">最新</a></li>
+                    <li><a href="javascipt:void(0)" ng-click="getBlog('hot',0)">热门</a></li>
                     <li ng-repeat="i in Tag"><a href='javascipt:void(0)' ng-click="getBlog(i.id)">{{i.name}}</a></li>
                 </ul>
             </div>
@@ -29,7 +29,7 @@
             </article>
             <label id="loading" class="label label-success">{{ none ? '没有更多了':'正在加载...'}}</label>
         </div>
-        <div class="col-lg-4" ng-init="getBlog('new')">
+        <div class="col-lg-4" ng-init="getBlog('new',0)">
             <aside class="right-sidebar">
                 <div class="widget">
                     <form class="form-search">
