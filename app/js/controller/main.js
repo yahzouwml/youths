@@ -1,4 +1,14 @@
 app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', 'User', function($rootScope, $scope, ipCookie, AuthService, User) {
+    _.containsUser = function(obj, key, id) {
+        return !_.isEmpty(obj) && _.every(obj, key, id)
+    }
+
+    $scope.toggle = function(target) {
+        $(target).siblings('.hide-list').fadeOut()
+        $(target).slideToggle()
+    }
+
+    $rootScope._ = _
     if ($rootScope.currentUser == null) {
         console.log(ipCookie('currentUser'))
         $rootScope.currentUser = ipCookie('currentUser')
@@ -101,4 +111,33 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
         form.$setPristine()
         $scope.notify('success', message)
     }
+
+    window._bd_share_config = {
+        "common": {
+            "bdSnsKey": {},
+            "bdText": "Youths,发现有趣的事",
+            "bdUrl": "http://youths.cc/",
+            "bdMini": "2",
+            "bdMiniList": false,
+            "bdPic": "",
+            "bdStyle": "1",
+            "bdSize": "24",
+            "onBeforeClick": function(cmd, config) {
+                config.bdText = $rootScope.bdText
+                config.bdUrl = $rootScope.bdUrl
+                alert(angular.toJson(config))
+                return config
+            }
+        },
+        "share": {},
+        "image": {
+            "viewList": ["tsina", "qzone", "tqq", "renren", "weixin"],
+            "viewText": "分享到：",
+            "viewSize": "16"
+        },
+        "selectShare": {
+            "bdContainerClass": null,
+            "bdSelectMiniList": ["tsina", "qzone", "tqq", "renren", "weixin"]
+        }
+    };
 }])

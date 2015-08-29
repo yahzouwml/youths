@@ -5,14 +5,11 @@ $c_grey: #edece4;
 $c_l_grey: #f0f0ff;
 a {
     color: $c_main;
-    &:hover {
-        color: $c_main;
-    }
-    &:focus {
-        color: $c_main;
-    }
+    &:hover,
+    &:focus,
     &:active {
         color: $c_main;
+        text-decoration: none;
     }
     &.thumbnail:hover {
         border: 1px solid $c_main;
@@ -657,6 +654,55 @@ header {
         h4 {
             margin-bottom: 30px;
             text-align: center;
+        }
+    }
+}
+
+.article {
+    background: $c_grey !important;
+    .left {
+        img {
+            width: 64px;
+            heigth: 64px;
+            margin-bottom: 20px;
+        }
+    }
+    .right {
+        background: $white;
+        padding: 20px 20px 0;
+        border: 1px solid $c_grey;
+        [class*="col-sm-"] {
+            padding: 5px 20px 5px 0;
+        }
+        .hide-list {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding: 10px 20px;
+            background: $c_l_grey;
+            clear: both;
+            ul {
+                margin: 0;
+                li {
+                    border-bottom: 1px solid $c_green;
+                    &:last-child {
+                        border: 0;
+                    }
+                }
+            }
+            img {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        [class*="like-"] {}
+    }
+    .bottom {
+        a,
+        span {
+            padding: 0 10px;
+        }
+        a span {
+            padding: 0;
         }
     }
 }

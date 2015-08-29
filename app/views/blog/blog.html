@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-8" ui-view>
+        <div class="col-lg-10" id="blog" ui-view>
             <div class="widget" ng-init="getTag()">
                 <ul class="tags tags2">
                     <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new')">最新</a></li>
@@ -8,32 +8,68 @@
                     <li ng-repeat="i in Tag"><a href='javascipt:void(0)' ng-click="getBlog(i.id)">{{i.name}}</a></li>
                 </ul>
             </div>
-            <article ng-repeat="i in Blog">
-                <div class="post-quote">
-                    <div class="post-heading">
-                        <h3><a href="#/home/blogDetail/{{i.id}}">{{i.title}}</a></h3>
-                    </div>
-                    <blockquote ng-bind-html="i.content | htmlToPlaintext:50">
-                        <i class="icon-quote-left"></i>
-                    </blockquote>
+            <article class="article clearfix article-{{i.id}}" ng-repeat="i in Blog">
+                <div class="left col-sm-2">
+                    <img ng-src="{{storgeServer+i.user.avatar}}" alt="" onError="this.src='/img/avatar.png'">
+                    <br/>
+                    <a for="" class="label-orange-o" ng-show="(i.userId != currentUser.id) && !_.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="focusUser($event,i.userId)">关注</a>
+                    <a for="" class="label-orange" ng-show="(i.userId != currentUser.id) && _.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="disfocusUser($event,i.userId)">已关注</a>
                 </div>
-                <div class="bottom-article">
-                    <ul class="meta-post">
-                        <li><i class="icon-calendar"></i>{{i.created | date:'medium'}}</li>
-                        <li><i class="icon-user"></i>{{!!i.user.username ? i.user.username:i.user.email}}</li>
-                        <li><i class="icon-folder-open"></i><a href="javascipt:void(0)">{{i.blogType.name}}阅读</a></li>
-                        <li><i class="icon-comments"></i><a href="javascipt:void(0)">{{i.comments.length}}评论</a></li>
-                    </ul>
-                    <a href="#/blog/detail/{{i.id}}" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>
+                <div class="right col-sm-8 article-right-{{i.id}}">
+                    <p>
+                        <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.created | date:'yyyy-MM-dd'}}</span>
+                    </p>
+                    <img class="thumb col-sm-4" src="/img/blog-default.jpg" alt="" />
+                    <div class="col-sm-8">
+                        <h4><a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a></h4>
+                        <blockquote>
+                            {{ i.content | htmlToPlaintext:200 }}
+                        </blockquote>
+                    </div>
+                    <div class="bottom col-sm-12">
+                        <div class="tags col-sm-5 "><i class="fa fa-tags"></i>&nbsp;&nbsp;<span ng-repeat="j in i.tags">{{j.name}},</span>&nbsp;&nbsp;</div>
+                        <a class="text-grey" ng-click="toggle('.like-'+i.id)">热度(<span>{{i.blogLikeUsers.length}}</span>)</a>
+                        <a class="text-grey" ng-click="toggle('.comment-'+i.id)">评论({{i.comments.length}})</a>
+                        <span class="text-grey">阅读({{i.click}})</span>
+                        <a class="text-grey" ng-click="share('.article-right-'+i.id,(i.content | htmlToPlaintext:200),mainServer+'blog/detail/'+i.id)">分享</a>
+                        <a class="text-red" ng-show="!_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="likeBlog($event,i.id)"><i class="fa fa-heart-o"></i></a>
+                        <a class="text-red" ng-show="_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="dislikeBlog($event,i.id)"><i class="fa fa-heart"></i></a>
+                    </div>
+                    <div class="like-{{i.id}} hidden2 hide-list">
+                        <ul class="list-unstyled">
+                            <li ng-repeat="k in i.blogLikeUsers">
+                                <a href=""><img ng-src="{{storgeServer+k.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
+                                <a href="">&nbsp;&nbsp;{{k.username}}</a>&nbsp;&nbsp;喜欢了这篇文章
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="comment-{{i.id}} hidden2 hide-list">
+                        <ul class="list-unstyled">
+                            <li ng-repeat="k in i.comments">
+                                <a href=""><img ng-src="{{storgeServer+k.user.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
+                                <a href="">&nbsp;&nbsp;{{k.user.username}}</a>&nbsp;&nbsp;{{k.content}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </article>
+            <div class="bdsharebuttonbox hidden2 hide-list">
+                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+                <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+                <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+                <a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a>
+                <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+            </div>
             <label id="loading" class="label label-success center-block">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
         </div>
-        <div class="col-lg-4" ng-init="getBlog('new')">
+        <div class="col-lg-2" ng-init="getBlog('new')">
             <aside class="right-sidebar">
                 <div class="widget">
                     <form class="form-search">
-                        <a class="btn btn-green animated infinite bounce" href="#/blog/add">发表博客</a>
+                        <a class="btn btn-orange" href="#/blog/add">发表博客</a>
                     </form>
                 </div>
             </aside>
