@@ -1,7 +1,20 @@
 "use strict";
 
 var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular'])
-    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams) {
+    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http) {
+        $rootScope.config = {}
+        $http.get('../config/config.json').success(function(response) {
+            if (!response.isRelease) {
+                $rootScope.mainServer = response.mainServer.env
+                $rootScope.storgeServer = response.storgeServer.env
+                $rootScope.apiServer = response.apiServer.env
+            } else {
+                $rootScope.mainServer = response.mainServer
+                $rootScope.storgeServer = response.storgeServer
+                $rootScope.apiServer = response.apiServer
+            }
+        });
+
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
             errorMessages['required'] = '输入点什么吧...';
@@ -10,7 +23,6 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
             errorMessages['maxlength'] = '请至多输入{0}个字符';
             errorMessages['url'] = '请输入一个有效的网址，例如：http(s)://www.google.com'
         });
-        $rootScope.imgServer = 'http://localhost:3010/'
 
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;

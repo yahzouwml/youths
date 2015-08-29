@@ -1,9 +1,21 @@
-app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filter', function($rootScope, $scope, $q, Blog, Tag, $filter) {
+app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User', '$filter', function($rootScope, $scope, $q, Blog, Tag, User, $filter) {
     $scope.blog = {}
     $scope.form = {}
     $scope.id = ''
     $scope.none = false
     $scope.loading = false
+    var a = []
+
+    $scope.share = function(target, bdText, bdUrl) {
+        if ($(target).find('.bdsharebuttonbox').length > 0) {
+            $(target).find('.hide-list:not(.bdsharebuttonbox)').fadeOut()
+            $(target).find('.bdsharebuttonbox').slideToggle()
+        } else {
+            $rootScope.bdText = bdText
+            $rootScope.bdUrl = bdUrl
+            $('.bdsharebuttonbox.hidden2').fadeIn().appendTo($(target))
+        }
+    }
 
     $(window).scroll(function(event) {
         var height = $('#loading').offset().top
@@ -17,7 +29,7 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
 
     $scope.getBlog = function(id) {
         $scope.loading = true
-        var pageIndex = $(".col-lg-8 article").length / 5
+        var pageIndex = $("#blog article").length / 5
         if ($scope.id != id) {
             pageIndex = 0
             $scope.none = false
@@ -34,7 +46,11 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
             }
             options = {
                 filter: {
-                    include: ['comments', 'user'],
+                    include: [{
+                        'user': ['followUsers']
+                    }, {
+                        'comments': ['user']
+                    }, 'tags', 'blogLikeUsers'],
                     order: sort + ' DESC',
                     limit: 5,
                     skip: pageIndex * 5
@@ -45,7 +61,11 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
             var promise = Tag.blogs({
                 id: id,
                 filter: {
-                    include: ['user', 'comments'],
+                    include: [{
+                        'user': ['followUsers']
+                    }, {
+                        'comments': ['user']
+                    }, 'tags', 'blogLikeUsers'],
                     order: 'click DESC',
                     limit: 5,
                     skip: pageIndex * 5
@@ -53,10 +73,6 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
             }).$promise
         }
         promise.then(function(response) {
-            $('.tags2 a').click(function() {
-                $('.col-lg-8 .active').removeClass('active')
-                $(this).addClass('active')
-            });
             console.log(response)
             $scope.loading = false
             if (response.length < 5) {
@@ -65,39 +81,11 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
             if (pageIndex == 0) {
                 $scope.Blog = response
             } else {
-                $scope.insertBlog(response)
+                $scope.Blog = $scope.Blog.concat(response)
             }
         }, function(err) {
             console.log(err)
         })
-    }
-
-    $scope.insertBlog = function(data) {
-        var html = '';
-        for (i = 0; i < data.length; i++) {
-            html += '<article>'
-            html += '    <div class="post-quote">'
-            html += '       <div class="post-heading">'
-            html += '            <h3><a href="#/home/blogDetail/' + data[i].id + '">' + data[i].title + '</a></h3>'
-            html += '        </div>'
-            html += '        <blockquote ng-bind-html="i.content | htmlToPlaintext:50">'
-            html += $filter('htmlToPlaintext')(data[i].content, 50)
-            html += '        </blockquote>'
-            html += '    </div>'
-            html += '    <div class="bottom-article">'
-            html += '        <ul class="meta-post">'
-            html += '             <li><i class="icon-calendar"></i>' + $filter('date')(data[i].created, 'medium') + '</li>'
-            html += '            <li><i class="icon-user"></i>' + data[i].username + '</li>'
-            html += '            <li><i class="icon-folder-open"></i><a href="javascipt:void(0)">' + data[i].click + '阅读</a></li>'
-            html += '            <li><i class="icon-comments"></i><a href="javascipt:void(0)">' + data[i].comments.length + '评论</a></li>'
-            html += '        </ul>'
-            html += '        <a href="#/blog/detail/' + data[i].id + '" class="pull-right">继续阅读<i class="icon-angle-right"></i></a>'
-            html += '    </div>'
-            html += '</article>'
-        }
-
-        $(".col-lg-8 article:last").after(html)
-
     }
 
     $scope.getTag = function() {
@@ -109,4 +97,69 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', '$filte
         })
     }
 
+    $scope.likeBlog = function($event, blogId) {
+        var target = $($event.currentTarget)
+        Blog.blogLikes.create({
+            id: blogId
+        }, {
+            blogId: blogId,
+            userId: $rootScope.currentUser.id
+        }).$promise.then(function(response) {
+            console.log(response)
+            target.addClass('ng-hide')
+            target.siblings('.ng-hide').removeClass('ng-hide')
+            target.siblings('a:eq(0)').find('span:eq(0)').text(parseInt(target.siblings('a:eq(0)').find('span:eq(0)').text()) + 1)
+        }, function(err) {
+            console.log(err)
+        })
+    }
+
+    $scope.dislikeBlog = function($event, blogId) {
+        var target = $($event.currentTarget)
+        Blog.blogLikes.destroyById({
+            id: blogId
+        }, {
+            blogId: blogId,
+            userId: $rootScope.currentUser.id
+        }).$promise.then(function(response) {
+            console.log(response)
+            target.addClass('ng-hide')
+            target.siblings('.ng-hide').removeClass('ng-hide')
+            target.siblings('a:eq(0)').find('span:eq(0)').text(parseInt(target.siblings('a:eq(0)').find('span:eq(0)').text()) - 1)
+        }, function(err) {
+            console.log(err)
+        })
+    }
+
+    $scope.focusUser = function($event, focusUserId) {
+        var target = $($event.currentTarget)
+        User.focusUsers.create({
+            id: $rootScope.currentUser.id
+        }, {
+            focusUserId: focusUserId,
+            userId: $rootScope.currentUser.id
+        }).$promise.then(function(response) {
+            console.log(response)
+            target.addClass('ng-hide')
+            target.siblings('.ng-hide').removeClass('ng-hide')
+        }, function(err) {
+            console.log(err)
+        })
+    }
+
+    $scope.disfocusUser = function($event, focusUserId) {
+        var target = $($event.currentTarget)
+        User.focusUsers.destroyById({
+            id: $rootScope.currentUser.id
+        }, {
+            focusUserId: focusUserId,
+            userId: $rootScope.currentUser.id
+        }).$promise.then(function(response) {
+            console.log(response)
+            target.addClass('ng-hide')
+            target.siblings('.ng-hide').removeClass('ng-hide')
+        }, function(err) {
+            console.log(err)
+        })
+    }
 }])

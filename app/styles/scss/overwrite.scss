@@ -1,40 +1,40 @@
+@import 'animate';
 //colors
 $c_main: #59b0ff;
-$c_green:#5bbf5a;
 $c_grey: #edece4;
 $c_l_grey:#f0f0ff;
 $white: #fff;
 $color_gray_nurse_approx: #e9e9e9;
-$color_tuatara_approx: #353535;
+$c_inverse: #353535;
 $color_alabaster_approx: #fbfbfb;
 $color_mountain_mist_approx: #919191;
 $color_nobel_approx: #b3b3b3;
 $color_pumice_approx: #cacaca;
-$color_night_rider_approx: #1c0113;
-$color_asphalt_approx: #170110;
-$color_breaker_bay_approx: #5e9fa3;
-$color_horizon_approx: #569498;
-$color_genoa_approx: #11766d;
-$color_corn_approx: #f0b300;
-$color_galliano_approx: #e2a900;
-$color_tamarillo_approx: #a40b0b;
-$color_sangria_approx: #990909;
-$color_fuscous_gray_approx: #505050;
-$color_bahama_blue_approx: #0a6d9b;
-$color_venice_blue_approx: #085e86;
-$color_ripe_lemon_approx: #efd70c;
-$color_barberry_approx: #e4ce11;
-$color_milano_red_approx: #cf1a07;
-$color_flamingo_approx: #ef5523;
-$color_shocking_pink_approx: #c81dbe;
-$color_violet_eggplant_approx: #be1ab4;
-$color_vida_loca_approx: #5bbf5a;
-$color_vida_loca_approx: #5bbf5a;
-$color_la_palma_approx: #3f8d15;
-$color_redwood_approx: #5c2009;
-$color_indian_tan_approx: #531d08;
-$color_rose_approx: #f8127f;
-$color_rangoon_green_approx: #18191a;
+$c_primary: #1c0113;
+$c_primary_hover: #170110;
+$c_info: #5e9fa3;
+$c_info_hover: #569498;
+$c_success: #11766d;
+$c_warning: #f0b300;
+$c_warning_hover: #e2a900;
+$c_danger: #a40b0b;
+$c_danger_hover: #990909;
+$c_inverse_hover: #505050;
+$c_blue: #0a6d9b;
+$c_blue_hover: #085e86;
+$c_yellow: #efd70c;
+$c_yellow_hover: #e4ce11;
+$c_red: #cf1a07;
+$c_orange: #ef5523;
+$c_purple: #c81dbe;
+$c_purple_hover: #be1ab4;
+$c_green: #5bbf5a;
+$c_green: #5bbf5a;
+$c_green_hover: #3f8d15;
+$c_brown: #5c2009;
+$c_brown_hover: #531d08;
+$c_pink: #f8127f;
+$c_dark: #18191a;
 $color_mine_shaft_approx: #333333;
 $color_wild_sand_approx: #f5f5f5;
 $color_mercury_approx: #e6e6e6;
@@ -51,6 +51,59 @@ $color_quill_gray_approx: #d5d5d5;
 $font_0: Open Sans;
 $font_1: Arial;
 $font_2: sans-serif;
+//label
+$colors: ( primary: #1c0113, info: #5e9fa3, success: #5bbf5a, warning: #f0b300, danger: #a40b0b, blue: #59b0ff, yellow: #efd70c, red: #cf1a07, orange: #ef5523, purple: #c81dbe, green: #5bbf5a, brown: #5c2009, pink: #f8127f, dark: #18191a, grey:#656565);
+@each $key,
+$value in $colors {
+    .label-#{$key}-o {
+        color: $value;
+        padding: 2px 5px;
+        border: 1px solid $value;
+        border-radius: 5px;
+        &[href] {
+            &:hover,
+            &:focus {
+                color: lighten($value, 10%);
+            }
+        }
+    }
+    .text-#{$key} {
+        color: $value;
+        &:hover {
+            color: $value;
+        }
+    }
+    .btn-#{$key} {
+        border: 1px solid $value;
+        color: #fff;
+        background: $value;
+        transition: all .3s ease-out;
+        &:hover,
+        &:focus,
+        &:active {
+            // box-shadow: 1px 1px 1px #888888;
+            // background: darken($value, 10%);
+            color: #fff;
+            animation: bounce 0.5s;
+        }
+    }
+    .btn-#{$key}-o {
+        border: 1px solid #fff;
+        color: $value;
+        background: #fff;
+        &:hover,
+        &:focus,
+        &:active {
+            background: lighten(#fff, 10%);
+            color: $value;
+        }
+    }
+} 
+
+.hidden2 {
+    display: none;
+}
+
 //@extend-elements
 //original selectors
 //ul.inline > li, ol.inline > li
@@ -73,9 +126,9 @@ $font_2: sans-serif;
 //original selectors
 //.btn-theme:hover, .btn-theme:focus, .btn-theme:active
 %extend_3 {
-    background: $color_rangoon_green_approx;
+    background: $c_dark;
     color: $white;
-    border: 1px solid $color_rangoon_green_approx;
+    border: 1px solid $c_dark;
 }
 
 //original selectors
@@ -194,7 +247,7 @@ label {
     font-size: 13px;
     font-weight: normal;
     font-weight: bold;
-    color: $color_tuatara_approx;
+    color: $c_inverse;
 }
 
 input {
@@ -913,215 +966,6 @@ dd {
     border-radius: 12px;
 }
 
-.btn-primary {
-    outline: 0;
-    background: $color_night_rider_approx;
-    &:hover {
-        background: $color_asphalt_approx;
-    }
-}
-
-.btn-info {
-    background: $color_breaker_bay_approx;
-    &:hover {
-        background: $color_horizon_approx;
-    }
-}
-
-.btn-success {
-    background: $color_genoa_approx;
-    &:hover {
-        background: $color_genoa_approx;
-    }
-}
-
-.btn-warning {
-    background: $color_corn_approx;
-    &:hover {
-        background: $color_galliano_approx;
-    }
-}
-
-.btn-danger {
-    background: $color_tamarillo_approx;
-    &:hover {
-        background: $color_sangria_approx;
-    }
-}
-
-.btn-inverse {
-    background: $color_tuatara_approx;
-    &:hover {
-        background: $color_fuscous_gray_approx;
-    }
-}
-
-.btn-blue {
-    border: 1px solid $color_bahama_blue_approx;
-    color: $white;
-    background: $color_bahama_blue_approx;
-    &:hover {
-        background: $color_venice_blue_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_venice_blue_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_venice_blue_approx;
-        color: $white;
-    }
-}
-
-.btn-yellow {
-    border: 1px solid $color_ripe_lemon_approx;
-    color: $white;
-    background: $color_ripe_lemon_approx;
-    &:hover {
-        background: $color_barberry_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_barberry_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_barberry_approx;
-        color: $white;
-    }
-}
-
-.btn-red {
-    border: 1px solid $color_milano_red_approx;
-    color: $white;
-    background: $color_milano_red_approx;
-    &:hover {
-        background: $color_milano_red_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_milano_red_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_milano_red_approx;
-        color: $white;
-    }
-}
-
-.btn-orange {
-    border: 1px solid $color_flamingo_approx;
-    color: $white;
-    background: $color_flamingo_approx;
-    &:hover {
-        background: $color_flamingo_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_flamingo_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_flamingo_approx;
-        color: $white;
-    }
-}
-
-.btn-purple {
-    border: 1px solid $color_shocking_pink_approx;
-    color: $white;
-    background: $color_shocking_pink_approx;
-    &:hover {
-        background: $color_violet_eggplant_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_violet_eggplant_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_violet_eggplant_approx;
-        color: $white;
-    }
-}
-
-.btn-green {
-    border: 1px solid $color_vida_loca_approx;
-    color: $white;
-    background: $color_vida_loca_approx;
-    &:hover {
-        background: $color_la_palma_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_la_palma_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_la_palma_approx;
-        color: $white;
-    }
-}
-
-.btn-brown {
-    border: 1px solid $color_redwood_approx;
-    color: $white;
-    background: $color_redwood_approx;
-    &:hover {
-        background: $color_indian_tan_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_indian_tan_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_indian_tan_approx;
-        color: $white;
-    }
-}
-
-.btn-pink {
-    border: 1px solid $color_rose_approx;
-    color: $white;
-    background: $color_rose_approx;
-    &:hover {
-        background: $color_rose_approx;
-        color: $white;
-    }
-    &:focus {
-        background: $color_rose_approx;
-        color: $white;
-    }
-    &:active {
-        background: $color_rose_approx;
-        color: $white;
-    }
-}
-
-.btn-dark {
-    border: 1px solid $color_rangoon_green_approx;
-    color: $white;
-    background: $color_rangoon_green_approx;
-    &:hover {
-        color: $white;
-    }
-}
-
-.btn-theme {
-    color: $white;
-    &:hover {
-        @extend %extend_3;
-    }
-    &:focus {
-        @extend %extend_3;
-    }
-    &:active {
-        @extend %extend_3;
-    }
-}
-
 .alert {
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
@@ -1385,12 +1229,6 @@ dd {
         padding: 0 10px;
         margin: 10px 0;
     }
-}
-
-.label {
-    padding: 5px 10px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .badge {
@@ -1797,36 +1635,4 @@ a.btn {
     border: none;
     border-bottom: none;
     padding: 0;
-}
-
-.text-blue {
-    color: $color_bahama_blue_approx;
-}
-
-.text-yellow {
-    color: $color_ripe_lemon_approx;
-}
-
-.text-red {
-    color: $color_milano_red_approx;
-}
-
-.text-orange {
-    color: $color_flamingo_approx;
-}
-
-.text-purple {
-    color: $color_shocking_pink_approx;
-}
-
-.text-green {
-    color: $color_vida_loca_approx;
-}
-
-.text-brown {
-    color: $color_redwood_approx;
-}
-
-.text-pink {
-    color: $color_rose_approx;
 }
