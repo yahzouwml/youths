@@ -98,6 +98,7 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
     }
 
     $scope.likeBlog = function($event, blogId) {
+        $scope.checkLogin()
         var target = $($event.currentTarget)
         Blog.blogLikes.create({
             id: blogId

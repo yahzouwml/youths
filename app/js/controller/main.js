@@ -1,6 +1,6 @@
 app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', 'User', function($rootScope, $scope, ipCookie, AuthService, User) {
     _.containsUser = function(obj, key, id) {
-        return !_.isEmpty(obj) && _.every(obj, key, id)
+        return !id ? false : !_.isEmpty(obj) && _.every(obj, key, id)
     }
 
     $scope.toggle = function(target) {
@@ -125,7 +125,6 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
             "onBeforeClick": function(cmd, config) {
                 config.bdText = $rootScope.bdText
                 config.bdUrl = $rootScope.bdUrl
-                alert(angular.toJson(config))
                 return config
             }
         },

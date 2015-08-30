@@ -98,10 +98,16 @@ $value in $colors {
             color: $value;
         }
     }
-} 
+}
 
 .hidden2 {
     display: none;
+}
+
+img,
+li,
+a {
+    border-radius: .25em;
 }
 
 //@extend-elements

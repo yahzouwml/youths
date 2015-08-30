@@ -92,24 +92,22 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
             return {
                 responseError: function(rejection) {
                     var message = ''
-                    if (rejection.status == 401) {
-                        //Now clearing the loopback values from client browser for safe logout...
-                        LoopBackAuth.clearUser();
-                        LoopBackAuth.clearStorage();
-                        $location.nextAfterLogin = $location.path();
-                        Lobibox.notify('error', {
-                            msg: '请先登录'
-                        })
-                        $('#loginRegister').modal()
-                    }
                     if (rejection.data) {
-                        switch (rejection.data.error.code) {
-                            case 'LOGIN_FAILED_EMAIL_NOT_VERIFIED':
-                                message = '邮箱尚未验证'
-                                break;
-                            case 'LOGIN_FAILED':
-                                message = '邮箱或密码错误'
-                                break;
+                        if (rejection.status == 401) {
+                            switch (rejection.data.error.code) {
+                                case 'LOGIN_FAILED_EMAIL_NOT_VERIFIED':
+                                    message = '邮箱尚未验证'
+                                    break;
+                                case 'LOGIN_FAILED':
+                                    message = '邮箱或密码错误'
+                                    break;
+                                default:
+                                    message = '请先登录'
+                                    LoopBackAuth.clearUser();
+                                    LoopBackAuth.clearStorage();
+                                    $location.nextAfterLogin = $location.path();
+                                    $('#loginRegister').modal()
+                            }
                         }
                     }
                     if (message != '') {

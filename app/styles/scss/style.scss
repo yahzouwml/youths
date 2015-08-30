@@ -1538,7 +1538,8 @@ article {
                     color: #fff;
                     border: 1px solid;
                     padding: 5px 10px;
-                    border-radius: 5px;
+                    border-radius: .25em;
+                    ;
                     &:hover {
                         background: #fff;
                         text-decoration: none;
@@ -1548,9 +1549,10 @@ article {
             }
         }
         &.tags2 {
+            display: table;
+            margin: 0 auto;
             li {
                 a {
-                    border-radius:15px;
                     background: #fff;
                     color: $c_green;
                     border-color: transparent !important;
