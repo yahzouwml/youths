@@ -10,7 +10,7 @@
             </div>
             <article class="article clearfix article-{{i.id}}" ng-repeat="i in Blog">
                 <div class="left col-sm-2">
-                    <img ng-src="{{storgeServer+i.user.avatar}}" alt="" onError="this.src='/img/avatar.png'">
+                    <img ng-src="{{storageServer+i.user.avatar}}" alt="" onError="this.src='/img/avatar.png'">
                     <br/>
                     <a for="" class="label-orange-o" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && !_.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="focusUser($event,i.userId)">关注</a>
                     <a for="" class="label-orange" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && _.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="disfocusUser($event,i.userId)">已关注</a>
@@ -38,7 +38,7 @@
                     <div class="like-{{i.id}} hidden2 hide-list">
                         <ul class="list-unstyled">
                             <li ng-repeat="k in i.blogLikeUsers">
-                                <a href=""><img ng-src="{{storgeServer+k.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
+                                <a href=""><img ng-src="{{storageServer+k.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
                                 <a href="">&nbsp;&nbsp;{{k.username}}</a>&nbsp;&nbsp;喜欢了这篇文章
                             </li>
                         </ul>
@@ -46,7 +46,7 @@
                     <div class="comment-{{i.id}} hidden2 hide-list">
                         <ul class="list-unstyled">
                             <li ng-repeat="k in i.comments">
-                                <a href=""><img ng-src="{{storgeServer+k.user.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
+                                <a href=""><img ng-src="{{storageServer+k.user.avatar}}" alt="" onError="this.src='/img/avatar.png'"></a>
                                 <a href="">&nbsp;&nbsp;{{k.user.username}}</a>&nbsp;&nbsp;{{k.content}}
                             </li>
                         </ul>

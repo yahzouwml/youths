@@ -6,11 +6,11 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
         $http.get('../config/config.json').success(function(response) {
             if (!response.isRelease) {
                 $rootScope.mainServer = response.mainServer.env
-                $rootScope.storgeServer = response.storgeServer.env
+                $rootScope.storageServer = response.storageServer.env
                 $rootScope.apiServer = response.apiServer.env
             } else {
                 $rootScope.mainServer = response.mainServer
-                $rootScope.storgeServer = response.storgeServer
+                $rootScope.storageServer = response.storageServer
                 $rootScope.apiServer = response.apiServer
             }
         });
@@ -103,9 +103,6 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
                                     break;
                                 default:
                                     message = '请先登录'
-                                    LoopBackAuth.clearUser();
-                                    LoopBackAuth.clearStorage();
-                                    $location.nextAfterLogin = $location.path();
                                     $('#loginRegister').modal()
                             }
                         }

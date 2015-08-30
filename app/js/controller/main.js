@@ -68,7 +68,8 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
                     $rootScope.currentUser = {
                         id: response.user.id,
                         tokenId: response.id,
-                        email: response.user.email
+                        email: response.user.email,
+                        username: response.user.username
                     }
                     ipCookie('currentUser', $rootScope.currentUser, {
                         expires: 7
