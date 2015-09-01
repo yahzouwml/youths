@@ -20,7 +20,7 @@
                         <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.created | date:'yyyy-MM-dd'}}</span>
                     </p>
                     <div class="col-sm-12">
-                        <img class="thumb" src="/img/blog-default.jpg" alt="" />
+                        <img class="thumb" ng-src="{{i.content | thumb}}" alt="" />
                         <h4><a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a></h4>
                         <blockquote>
                             {{ i.content | htmlToPlaintext:200 }}
