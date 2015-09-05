@@ -4,7 +4,7 @@ var $ = require('gulp-load-plugins')({
     replaceString: /^gulp(-|\.)/,
 });
 // development task
-gulp.task('serve', ['sass'], function() {
+gulp.task('serve', ['sass', 'config'], function() {
 
     $.browserSync.init({
         notify: false,
@@ -54,17 +54,17 @@ gulp.task('config', function() {
 
 });
 
-gulp.task('cssmin', ['sass'], function() {
-    return gulp.src('app/styles/css/*.css')
+gulp.task('cssmin', function() {
+    return gulp.src('dist/.tmp/*.css')
         .pipe($.cssmin())
-        .pipe($.concat('all.min.css'))
         .pipe($.rev())
         .pipe(gulp.dest('dist/styles'))
         .pipe($.rev.manifest({
-            base: 'dist',
+            base: 'revFile',
+            path: "dist/rev-manifest.json",
             merge: true
         }))
-        .pipe(gulp.dest('dist/styles'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('imagemin', function() {
@@ -80,41 +80,58 @@ gulp.task('imagemin', function() {
         .pipe($.rev())
         .pipe(gulp.dest('dist/img'))
         .pipe($.rev.manifest({
+            base: 'revFile',
+            path: "dist/rev-manifest.json",
             merge: true
         }))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('uglify', function() {
-    return gulp.src('app/js/**/*.js')
+    return gulp.src('dist/.tmp/*.js')
         .pipe($.uglify())
-        // .pipe($.sourcemaps.init())
-        .pipe($.concat('angular.min.js'))
-        // .pipe($.sourcemaps.write())
         .pipe($.rev())
         .pipe(gulp.dest('dist/js'))
         .pipe($.rev.manifest({
+            base: 'revFile',
+            path: "dist/rev-manifest.json",
             merge: true
         }))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('useref', function() {
-    var manifest = gulp.src("dist/rev-manifest.json");
     var assets = $.useref.assets();
 
     return gulp.src('app/**/*.html')
         .pipe(assets)
         .pipe(assets.restore())
         .pipe($.useref())
+        .pipe(gulp.dest('dist'))
+});
+
+gulp.task('replace', function() {
+    var manifest = gulp.src("dist/rev-manifest.json");
+
+    function replaceJsIfMap(filename) {
+        if (filename.indexOf('.tmp') > -1) {
+            return filename.replace('.tmp', '');
+        }
+        return filename;
+    }
+
+    return gulp.src(['dist/**/*.html'])
         .pipe($.revReplace({
-            manifest: manifest
+            manifest: manifest,
+            modifyUnreved: replaceJsIfMap,
+            modifyReved: replaceJsIfMap
         }))
         .pipe(gulp.dest('dist'))
-        .pipe($.htmlmin({
-            collapseWhitespace: true
-        }))
-        .pipe(gulp.dest('dist'));
+        // return gulp.src(['dist/*.html'])
+        //     .pipe($.revReplace({
+        //         manifest: manifest
+        //     }))
+        //     .pipe(gulp.dest('dist'))
 });
 
 gulp.task('import', function() {
@@ -124,9 +141,13 @@ gulp.task('import', function() {
 
 gulp.task('del', function() {
     $.del(['dist/**/*'], function(err, paths) {
-        console.log('delete success');
+        console.log('delete dist directory success');
+    });
+    $.del(['.tmp/**/*'], function(err, paths) {
+        console.log('delete .tmp directory success');
     });
 });
 
+var gulpsync = require('gulp-sync')(gulp);
 gulp.task('default', ['serve']);
-gulp.task('release', ['del', 'import', 'useref', 'cssmin', 'imagemin', 'uglify']);
+gulp.task('release', gulpsync.sync(['del', 'import', 'sass', 'useref', 'cssmin', 'uglify', 'imagemin', 'replace']));
