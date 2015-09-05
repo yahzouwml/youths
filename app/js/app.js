@@ -1,19 +1,10 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular','angularFileUpload','permission'])
-    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http) {
-        $rootScope.config = {}
-        $http.get('../config/config.json').success(function(response) {
-            if (!response.isRelease) {
-                $rootScope.mainServer = response.mainServer.env
-                $rootScope.storageServer = response.storageServer.env
-                $rootScope.apiServer = response.apiServer.env
-            } else {
-                $rootScope.mainServer = response.mainServer
-                $rootScope.storageServer = response.storageServer
-                $rootScope.apiServer = response.apiServer
-            }
-        });
+var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular', 'angularFileUpload', 'permission','envconfig'])
+    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http','ENV', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http,ENV) {
+        $rootScope.mainServer = ENV.mainServer
+        $rootScope.storageServer = ENV.storageServer
+        $rootScope.apiServer = ENV.apiServer
 
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {

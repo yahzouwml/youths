@@ -10,9 +10,10 @@
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
     "gulp-htmlmin": "^1.1.3",
-    "gulp-imagemin": "^2.0.0",
     "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.0.0",
     "gulp-load-plugins": "^0.10.0",
+    "gulp-ng-constant": "^0.3.0",
     "gulp-rev": "^5.1.0",
     "gulp-rev-css-url": "^0.1.0",
     "gulp-rev-replace": "^0.4.1",
@@ -22,6 +23,7 @@
     "gulp-useref": "^1.3.0",
     "gulp-util": "^3.0.6",
     "path": "^0.11.14",
-    "wiredep": "^3.0.0-beta"
+    "wiredep": "^3.0.0-beta",
+    "yargs": "^3.24.0"
   }
 }

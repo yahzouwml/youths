@@ -3,8 +3,6 @@ var $ = require('gulp-load-plugins')({
     pattern: ['*'],
     replaceString: /^gulp(-|\.)/,
 });
-var revReplace = require('gulp-rev-replace');
-var rev = require('gulp-rev');
 // development task
 gulp.task('serve', ['sass'], function() {
 
@@ -42,6 +40,20 @@ gulp.task('sass', function() {
 });
 
 //release task
+gulp.task('config', function() {
+    var argv = require('yargs').argv
+    var config = require('./config.json')
+    return $.ngConstant({
+            name: 'envconfig',
+            constants: {
+                'ENV': config[argv.env || 'local']
+            },
+            stream: true
+        })
+        .pipe(gulp.dest('app/js'));
+
+});
+
 gulp.task('cssmin', ['sass'], function() {
     return gulp.src('app/styles/css/*.css')
         .pipe($.cssmin())
@@ -95,7 +107,7 @@ gulp.task('useref', function() {
         .pipe(assets)
         .pipe(assets.restore())
         .pipe($.useref())
-        .pipe(revReplace({
+        .pipe($.revReplace({
             manifest: manifest
         }))
         .pipe(gulp.dest('dist'))

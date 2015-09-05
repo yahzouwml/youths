@@ -1,9 +1,0 @@
-{
-    "mainServer": "http://localhost:7000/",
-    "mainServer.env": "http://youths.cc/",
-    "storageServer": "http://localhost:3010/",
-    "storageServer.env": "http://api.youths.cc/",
-    "apiServer": "http://localhost:3010/",
-    "apiServer.env": "http://api.youths.cc/",
-    "isRelease": "0"
-}
