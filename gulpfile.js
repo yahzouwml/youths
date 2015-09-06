@@ -3,6 +3,7 @@ var $ = require('gulp-load-plugins')({
     pattern: ['*'],
     replaceString: /^gulp(-|\.)/,
 });
+var runSequence = require('run-sequence');
 // development task
 gulp.task('serve', ['sass', 'config'], function() {
 
@@ -21,21 +22,30 @@ gulp.task('serve', ['sass', 'config'], function() {
 
     gulp.watch("app/styles/scss/*.scss", ['sass']);
     gulp.watch(['app/**/*.html', 'app/js/**/*.js', 'app/styles/css/**/*.css']).on('change', $.browserSync.reload);
-    // gulp.watch(['app/*.html']).on('change', $.browserSync.reload());
-    // gulp.watch(['app/styles/css/**/*.css']).on('change', $.browserSync.reload());
-    // gulp.watch(['app/js/**/*.js']).on('change', $.browserSync.reload());
+});
+
+gulp.task('serve:r', function() {
+    $.browserSync.init({
+        notify: false,
+        open: "local",
+        host: "youths.com",
+        port: 8000,
+        server: {
+            baseDir: ['dist']
+        }
+    });
 });
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    $.del(['app/styles/css/**/*'], function(err, paths) {
+    $.del(['app/styles/*.css'], function(err, paths) {
         console.log('delete css floder success');
     })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.sourcemaps.write())
-        .pipe(gulp.dest("app/styles/css"))
+        .pipe(gulp.dest("app/styles"))
         .pipe($.browserSync.stream());
 });
 
@@ -55,7 +65,7 @@ gulp.task('config', function() {
 });
 
 gulp.task('cssmin', function() {
-    return gulp.src('dist/.tmp/*.css')
+    return gulp.src('dist/styles/*.css')
         .pipe($.cssmin())
         .pipe($.rev())
         .pipe(gulp.dest('dist/styles'))
@@ -88,7 +98,7 @@ gulp.task('imagemin', function() {
 });
 
 gulp.task('uglify', function() {
-    return gulp.src('dist/.tmp/*.js')
+    return gulp.src('dist/js/*.js')
         .pipe($.uglify())
         .pipe($.rev())
         .pipe(gulp.dest('dist/js'))
@@ -101,53 +111,58 @@ gulp.task('uglify', function() {
 });
 
 gulp.task('useref', function() {
-    var assets = $.useref.assets();
+    var assets = $.useref.assets({
+        searchPath: ['./']
+    });
 
     return gulp.src('app/**/*.html')
         .pipe(assets)
+        .pipe($.if('*.css', $.cssmin()))
+        .pipe($.if('*.js', $.uglify()))
+        .pipe($.rev())
+        .pipe(gulp.dest('dist'))
+        .pipe($.rev.manifest({
+            base: 'revFile',
+            path: "dist/rev-manifest.json",
+            merge: true
+        }))
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe(gulp.dest('dist'))
 });
 
-gulp.task('replace', function() {
+gulp.task('replaceCss', function() {
     var manifest = gulp.src("dist/rev-manifest.json");
+    return gulp.src(['dist/styles/*.css'])
+        .pipe($.revReplace({
+            manifest: manifest
+        }))
+        .pipe(gulp.dest('dist/styles'))
+});
 
-    function replaceJsIfMap(filename) {
-        if (filename.indexOf('.tmp') > -1) {
-            return filename.replace('.tmp', '');
-        }
-        return filename;
-    }
-
+gulp.task('replaceHtml', function() {
+    var manifest = gulp.src("dist/rev-manifest.json");
     return gulp.src(['dist/**/*.html'])
         .pipe($.revReplace({
-            manifest: manifest,
-            modifyUnreved: replaceJsIfMap,
-            modifyReved: replaceJsIfMap
+            manifest: manifest
         }))
         .pipe(gulp.dest('dist'))
-        // return gulp.src(['dist/*.html'])
-        //     .pipe($.revReplace({
-        //         manifest: manifest
-        //     }))
-        //     .pipe(gulp.dest('dist'))
 });
 
 gulp.task('import', function() {
-    return gulp.src('app/styles/fonts/**/*')
+    return gulp.src(['app/styles/fonts/**/*', 'bower_components/font-awesome/fonts/**/*'])
         .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('del', function() {
-    $.del(['dist/**/*'], function(err, paths) {
+    $.del(['dist/**'], {
+        force: true
+    }, function(err, paths) {
         console.log('delete dist directory success');
-    });
-    $.del(['.tmp/**/*'], function(err, paths) {
-        console.log('delete .tmp directory success');
     });
 });
 
-var gulpsync = require('gulp-sync')(gulp);
 gulp.task('default', ['serve']);
-gulp.task('release', gulpsync.sync(['del', 'import', 'sass', 'useref', 'cssmin', 'uglify', 'imagemin', 'replace']));
+gulp.task('release', function(callback) {
+    runSequence('del', 'import', 'sass', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', callback)
+});
