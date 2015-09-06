@@ -1,7 +1,7 @@
 "use strict";
 
-var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular', 'angularFileUpload', 'permission','envconfig'])
-    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http','ENV', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http,ENV) {
+var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'textAngular', 'angularFileUpload', 'permission', 'envconfig'])
+    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http', 'ENV', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http, ENV) {
         $rootScope.mainServer = ENV.mainServer
         $rootScope.storageServer = ENV.storageServer
         $rootScope.apiServer = ENV.apiServer
@@ -32,48 +32,48 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
         $stateProvider
             .state('main', {
                 url: "/",
-                templateUrl: "/views/main.html",
+                templateUrl: "views/main.html",
                 controller: "mainCtrl"
             })
             .state('blog', {
                 url: "/blog",
-                templateUrl: "/views/blog/blog.html",
+                templateUrl: "views/blog/blog.html",
                 controller: "blogCtrl"
             })
             .state('blog.add', {
                 url: "/add",
-                templateUrl: "/views/blog/addEdit.html",
+                templateUrl: "views/blog/addEdit.html",
                 controller: "addEditCtrl"
             })
             .state('blog.edit', {
                 url: "/edit/:id",
-                templateUrl: "/views/blog/addEdit.html",
+                templateUrl: "views/blog/addEdit.html",
                 controller: "addEditCtrl"
             })
             .state('blog.Detail', {
                 url: "/detail/:id",
-                templateUrl: "/views/blog/detail.html",
+                templateUrl: "views/blog/detail.html",
                 controller: "blogDetailCtrl"
             })
             .state('nav', {
                 url: "/nav",
-                templateUrl: "/views/nav/nav.html",
+                templateUrl: "views/nav/nav.html",
                 controller: "navCtrl"
             })
             .state('account', {
                 url: "/account",
-                templateUrl: "/views/account/center.html",
+                templateUrl: "views/account/center.html",
                 controller: "accountCenterCtrl"
             })
             .state('account.myBlog', {
                 url: "/myBlog",
                 controller: "myBlogCtrl",
-                templateUrl: "/views/account/myBlog.html"
+                templateUrl: "views/account/myBlog.html"
             })
             .state('account.settings', {
                 url: "/settings",
                 controller: "settingsCtrl",
-                templateUrl: "/views/account/settings.html"
+                templateUrl: "views/account/settings.html"
             });
 
         $urlRouterProvider.otherwise('/');
@@ -119,4 +119,4 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
 
         // Change the URL where to access the LoopBack REST API server
         LoopBackResourceProvider.setUrlBase('http://localhost:3010/api');
-    })
+    });

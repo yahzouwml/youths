@@ -53,4 +53,4 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
             }
         )
     }
-}])
+}]);

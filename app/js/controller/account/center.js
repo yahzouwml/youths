@@ -11,4 +11,4 @@ app.controller('accountCenterCtrl', ['$rootScope', '$scope', '$q', 'User', 'ipCo
             $scope.checkLogin()
         })
     }
-}])
+}]);

@@ -1,7 +1,8 @@
 /bower_components
+/app/js/constants.js
+/app/styles/*.css
 /app/styles/css
 npm-debug.log
-/app/styles/*.css
 /node_modules
 /.idea
 /dist

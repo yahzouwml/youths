@@ -163,4 +163,4 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
             console.log(err)
         })
     }
-}])
+}]);

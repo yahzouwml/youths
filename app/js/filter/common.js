@@ -13,4 +13,4 @@ app
 
             return imgSrc;
         };
-    })
+    });

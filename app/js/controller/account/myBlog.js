@@ -19,4 +19,4 @@ app.controller('myBlogCtrl', ['$rootScope', '$scope', '$q', 'Blog', function($ro
     $scope.pageChanged = function() {
         $log.log('Page changed to: ' + $scope.currentPage);
     };
-}])
+}]);

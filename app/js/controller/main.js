@@ -140,4 +140,4 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
             "bdSelectMiniList": ["tsina", "qzone", "tqq", "renren", "weixin"]
         }
     };
-}])
+}]);

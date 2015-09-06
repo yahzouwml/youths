@@ -64,19 +64,6 @@ gulp.task('config', function() {
 
 });
 
-gulp.task('cssmin', function() {
-    return gulp.src('dist/styles/*.css')
-        .pipe($.cssmin())
-        .pipe($.rev())
-        .pipe(gulp.dest('dist/styles'))
-        .pipe($.rev.manifest({
-            base: 'revFile',
-            path: "dist/rev-manifest.json",
-            merge: true
-        }))
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('imagemin', function() {
     return gulp.src('app/img/**/*')
         .pipe($.imagemin({
@@ -97,28 +84,17 @@ gulp.task('imagemin', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('uglify', function() {
-    return gulp.src('dist/js/*.js')
-        .pipe($.uglify())
-        .pipe($.rev())
-        .pipe(gulp.dest('dist/js'))
-        .pipe($.rev.manifest({
-            base: 'revFile',
-            path: "dist/rev-manifest.json",
-            merge: true
-        }))
-        .pipe(gulp.dest('dist'));
-});
-
 gulp.task('useref', function() {
     var assets = $.useref.assets({
-        searchPath: ['./']
+        searchPath: ['./', './app/']
     });
 
     return gulp.src('app/**/*.html')
         .pipe(assets)
         .pipe($.if('*.css', $.cssmin()))
-        .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.js', $.uglify({
+            mangle: false
+        })))
         .pipe($.rev())
         .pipe(gulp.dest('dist'))
         .pipe($.rev.manifest({
@@ -164,5 +140,5 @@ gulp.task('del', function() {
 
 gulp.task('default', ['serve']);
 gulp.task('release', function(callback) {
-    runSequence('del', 'import', 'sass', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', callback)
+    runSequence('del', 'import', 'sass', 'config', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', callback)
 });

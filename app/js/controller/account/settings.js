@@ -51,4 +51,4 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'File', 'C
         //     console.log(err)
         // })
     }
-}])
+}]);

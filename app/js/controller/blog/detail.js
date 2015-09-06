@@ -103,4 +103,4 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
         var aim = angular.element($event.currentTarget).parent('.bottom').parent('div').children('.reply')
         aim.toggle()
     }
-}])
+}]);
