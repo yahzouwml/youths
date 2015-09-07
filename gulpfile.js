@@ -4,6 +4,7 @@ var $ = require('gulp-load-plugins')({
     replaceString: /^gulp(-|\.)/,
 });
 var runSequence = require('run-sequence');
+var pngquant = require('imagemin-pngquant');
 // development task
 gulp.task('serve', ['sass', 'config'], function() {
 
@@ -80,7 +81,7 @@ gulp.task('imagemin', function() {
             svgoPlugins: [{
                 removeViewBox: false
             }],
-           // use: [$.pngquant()]
+            use: [pngquant()]
         }))
         .pipe($.rev())
         .pipe(gulp.dest('dist/img'))
