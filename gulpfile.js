@@ -40,12 +40,13 @@ gulp.task('serve:r', function() {
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
     $.del(['app/styles/*.css'], function(err, paths) {
-        console.log('delete css floder success');
+        console.log('delete css success');
     })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.sourcemaps.write())
+        .pipe($.autoprefixer())
         .pipe(gulp.dest("app/styles"))
         .pipe($.browserSync.stream());
 });
@@ -100,7 +101,7 @@ gulp.task('useref', function() {
 
     return gulp.src('app/**/*.html')
         .pipe(assets)
-        .pipe($.if('*.css', $.cssmin()))
+        .pipe($.if('*.css', $.csso()))
         .pipe($.if('*.js', $.uglify({
             mangle: false
         })))
