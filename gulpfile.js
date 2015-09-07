@@ -63,6 +63,14 @@ gulp.task('config', function() {
         .pipe(gulp.dest('app/js'));
 
 });
+gulp.task('htmlmin', function() {
+    return gulp.src('dist/**/*.html')
+        .pipe($.htmlmin({
+            collapseWhitespace: true,
+            removeComments: true
+        }))
+        .pipe(gulp.dest('dist'));
+});
 
 gulp.task('imagemin', function() {
     return gulp.src('app/img/**/*')
@@ -72,7 +80,7 @@ gulp.task('imagemin', function() {
             svgoPlugins: [{
                 removeViewBox: false
             }],
-            // use: [pngquant()]
+           // use: [$.pngquant()]
         }))
         .pipe($.rev())
         .pipe(gulp.dest('dist/img'))
@@ -126,12 +134,14 @@ gulp.task('replaceHtml', function() {
 });
 
 gulp.task('import', function() {
-    return gulp.src(['app/styles/fonts/**/*', 'bower_components/font-awesome/fonts/**/*'])
+    gulp.src(['app/plugin/lobibox/sounds/**'])
+        .pipe(gulp.dest('dist/plugin/lobibox/sounds'))
+    gulp.src(['app/styles/fonts/**/*', 'bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap/fonts/**/*'])
         .pipe(gulp.dest('dist/fonts'));
 });
 
 gulp.task('del', function() {
-    $.del(['dist/**'], {
+    $.del.sync(['dist/**'], {
         force: true
     }, function(err, paths) {
         console.log('delete dist directory success');
@@ -140,5 +150,5 @@ gulp.task('del', function() {
 
 gulp.task('default', ['serve']);
 gulp.task('release', function(callback) {
-    runSequence('del', 'import', 'sass', 'config', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', callback)
+    runSequence('del', 'import', 'sass', 'config', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', 'htmlmin', callback)
 });
