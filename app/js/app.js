@@ -26,12 +26,12 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
         })
 
-        window.onresize, window.onload = function(event) {
+        $(window).bind('resize load', function() {
             angular.element('.banner').height($(window).height())
             angular.element('.b-search').css({
                 paddingTop: ($(window).height() - 220) / 2
             })
-        }
+        })
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
