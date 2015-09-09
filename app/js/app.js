@@ -100,7 +100,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
                                     message = '邮箱或密码错误'
                                     break;
                                 default:
-                                    message = '请先登录'
+                                    message = ''
                                     $('#loginRegister').modal()
                             }
                         }

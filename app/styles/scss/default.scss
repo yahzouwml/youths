@@ -562,6 +562,11 @@ img-crop {
     width: 230px;
     height: 230px;
     border-radius: 5px;
+    &-s {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
 }
 
 %navbar-a {
@@ -721,4 +726,11 @@ header {
     height: 50px;
     display: inline-block;
     padding: 0 30px;
+}
+
+.selectize-input {
+    border: 0;
+    &.focus {
+        box-shadow: none;
+    }
 }

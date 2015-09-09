@@ -1,53 +1,15 @@
 <article>
-    <form name="form.form1" class="form-horizontal" novalidate="novalidate" ng-submit="addBlog()">
+    <form name="form.form1" novalidate="novalidate" ng-submit="addBlog()">
         <div class="form-group">
-            <label for="recipient-name" class="control-label col-sm-2">标题:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" ng-model="blog.title" required maxlength="30">
-            </div>
+            <input type="text" class="form-control input-lg input-n" ng-model="blog.title" required maxlength="30" placeholder="无标题文章">
         </div>
         <div class="form-group">
-            <label for="recipient-name" class="control-label col-sm-2">标签:</label>
-            <div class="col-sm-10">
-                <input type="text" id="input-tags" class="demo-default" ng-model="selectTag" required>
-            </div>
+            <input type="text" id="input-tags" class="form-control input-lg input-n" ng-model="selectTag" required placeholder="选择相关的标签">
         </div>
         <div class="form-group">
-            <label for="recipient-name" class="control-label col-sm-2 ">内容:</label>
-            <div class="col-sm-10">
-                <!-- <div text-angular ng-model="blog.content" minlength="10"></div> -->
-                <div id="edit"></div>
-                <script>
-                $(function() {
-                    $('#edit').editable({
-                        inlineMode: false,
-                        height: 500,
-                        buttons: [
-                            'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', 'color', 'formatBlock', 'blockStyle', 'inlineStyle', 'align', 'insertOrderedList', 'insertUnorderedList', 'outdent', 'indent', 'selectAll', 'createLink', 'insertImage', 'insertVideo', 'table', 'undo', 'redo', 'html', 'save', 'insertHorizontalRule', 'uploadFile', 'removeFormat', 'fullscreen'
-                        ],
-                        placeholder: '输入点什么吧...',
-                        colors: [
-                            '#15E67F', '#E3DE8C', '#D8A076', '#D83762', '#76B6D8', 'REMOVE',
-                            '#1C7A90', '#249CB8', '#4ABED9', '#FBD75B', '#FBE571', '#FFFFFF'
-                        ],
-                        colorsStep: 10,
-                        customButtons: {
-                            clear: {
-                                title: 'Clear HTML',
-                                icon: {
-                                    type: 'txt',
-                                    value: 'x'
-                                },
-                                callback: function() {
-                                    this.setHTML('');
-                                    this.focus();
-                                },
-                                refresh: function() {}
-                            }
-                        }
-                    })
-                });
-                </script>
+            <!-- <div text-angular ng-model="blog.content" minlength="10"></div> -->
+            <div id="edit" ng-model="blog.content" minlength="10">
+                <h1>写点什么吧...</h1>
             </div>
         </div>
         <div class="form-group text-center">

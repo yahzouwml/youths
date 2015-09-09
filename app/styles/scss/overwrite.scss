@@ -269,6 +269,14 @@ input {
         //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 0 0 0 0;
     }
+    &.input-n {
+        border: 0;
+        box-shadow: none;
+        &:focus {
+            box-shadow: none;
+            border-color: transparent !important;
+        }
+    }
 }
 
 button {

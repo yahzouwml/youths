@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-10" id="blog" ui-view>
-            <div class="widget" ng-init="getTag()">
+        <div class="col-lg-12" id="blog" ui-view>
+            <div class="widget" ng-init="getTag();getBlog('new')">
                 <ul class="tags tags2">
                     <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new')">最新</a></li>
                     <li><a href="javascipt:void(0)" ng-click="getBlog('hot');change(this)">热门</a></li>
@@ -20,7 +20,7 @@
                         <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.created | date:'yyyy-MM-dd'}}</span>
                     </p>
                     <div class="col-sm-12">
-                        <img class="thumb" ng-src="{{i.content | thumb}}" alt="" error='/img/blog-default.jpg'/>
+                        <img class="thumb" ng-src="{{i.content | thumb}}" alt="" error='/img/blog-default.jpg' />
                         <h4><a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a></h4>
                         <blockquote>
                             {{ i.content | htmlToPlaintext:200 }}
@@ -64,15 +64,6 @@
                 <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
             </div>
             <label id="loading" class="label label-success col-sm-offset-5">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
-        </div>
-        <div class="col-lg-2" ng-init="getBlog('new')">
-            <aside class="right-sidebar">
-                <div class="widget">
-                    <form class="form-search">
-                        <a class="btn btn-orange" href="#/blog/add">发表博客</a>
-                    </form>
-                </div>
-            </aside>
         </div>
     </div>
 </div>
