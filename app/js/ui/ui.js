@@ -1,9 +1,4 @@
 $(document).ready(function() {
-    $('.banner').height($(window).height())
-    $('.b-search').css({
-        paddingTop: ($(window).height() - 220) / 2
-    })
-
     $(window).scroll(function() {
         if ($('.banner').length > 0) {
             if ($(window).scrollTop() > 110) {
