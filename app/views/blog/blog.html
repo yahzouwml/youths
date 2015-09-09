@@ -10,7 +10,7 @@
             </div>
             <article class="article clearfix article-{{i.id}}" ng-repeat="i in Blog">
                 <div class="left col-sm-2">
-                    <img ng-src="{{storageServer+i.user.avatar}}" alt="" onError="this.src='/img/avatar.png'">
+                    <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png'>
                     <br/>
                     <a for="" class="label-orange-o" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && !_.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="focusUser($event,i.userId)">关注</a>
                     <a for="" class="label-orange" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && _.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="disfocusUser($event,i.userId)">已关注</a>
@@ -20,7 +20,7 @@
                         <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.created | date:'yyyy-MM-dd'}}</span>
                     </p>
                     <div class="col-sm-12">
-                        <img class="thumb" ng-src="{{i.content | thumb}}" alt="" />
+                        <img class="thumb" ng-src="{{i.content | thumb}}" alt="" error='/img/blog-default.jpg'/>
                         <h4><a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a></h4>
                         <blockquote>
                             {{ i.content | htmlToPlaintext:200 }}
