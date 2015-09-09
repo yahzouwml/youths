@@ -25,6 +25,13 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
             }, 1000);
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
         })
+
+        window.onresize, window.onload = function(event) {
+            angular.element('.banner').height($(window).height())
+            angular.element('.b-search').css({
+                paddingTop: ($(window).height() - 220) / 2
+            })
+        }
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
@@ -112,7 +119,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }])
-    .config(['ENV','LoopBackResourceProvider',function(ENV,LoopBackResourceProvider) {
+    .config(['ENV', 'LoopBackResourceProvider', function(ENV, LoopBackResourceProvider) {
 
         // Use a custom auth header instead of the default 'Authorization'
         LoopBackResourceProvider.setAuthHeader('X-Access-Token');
