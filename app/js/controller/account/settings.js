@@ -1,9 +1,10 @@
-app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'File', 'Container', '$http', function($rootScope, $scope, $q, User, File, Container, $http) {
+app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'StorageService', '$http', function($rootScope, $scope, $q, User, StorageService, $http) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
 
     var handleFileSelect = function(evt) {
         var file = evt.currentTarget.files[0];
+        $scope.file = file
         var reader = new FileReader();
         reader.onload = function(evt) {
             $scope.$apply(function($scope) {
@@ -15,40 +16,24 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'File', 'C
     angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
     $scope.upload = function() {
-        $http.defaults.headers.post = {
-            'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryWv8KW6UcwcBVA7a1'
-        }
         console.log($scope.myCroppedImage)
-        var fd = new FormData();
-        fd.append('url', $scope.myCroppedImage);
-        Container.upload({
-            container: "avatar"
-        }, {
-
-        }).$promise.then(function(response) {
+        StorageService.upload($scope.myCroppedImage, 'avatar', $rootScope.currentUser.id + ".png")
+            .success(function(response) {
                 console.log(response)
-            },
-            function(err) {
+                var time = (new Date()).toLocaleString()
+                console.log(time);
+                $scope.$parent.User.avatar = $rootScope.currentUser.id + ".png?date=" + time
+                User.prototype$updateAttributes({
+                    id: $rootScope.currentUser.id
+                }, $scope.$parent.User).$promise.then(function(response) {
+                    console.log(response)
+                    $scope.notify('success', '头像上传成功')
+                }, function(err) {
+                    console.log(err)
+                })
+            })
+            .error(function(err) {
                 console.log(err)
             })
-
-        // File.upload({
-        //     url: $scope.myCroppedImage,
-        //     fileDir: 'client/storage/',
-        //     fileName: $rootScope.currentUser.id + ".png"
-        // }).$promise.then(function(response) {
-        //     console.log(response)
-        //     $scope.$parent.User.avatar = 'storage/'+$rootScope.currentUser.id + ".png"
-        //     User.prototype$updateAttributes({
-        //         id: $rootScope.currentUser.id
-        //     }, $scope.$parent.User).$promise.then(function(response) {
-        //         console.log(response)
-        //         $scope.notify('success', '头像上传成功')
-        //     }, function(err) {
-        //         console.log(err)
-        //     })
-        // }, function(err) {
-        //     console.log(err)
-        // })
     }
 }]);
