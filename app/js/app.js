@@ -20,13 +20,13 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ui.bootstrap', '
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             console.log('change start from:' + angular.toJson(fromState))
             console.log('change start to:' + angular.toJson(toState))
-            $("body").animate({
+            angular.element('body').animate({
                 scrollTop: 0
             }, 1000);
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
         })
 
-        $(window).bind('resize load', function() {
+        angular.element(window).bind('resize load', function() {
             angular.element('.banner').height($(window).height())
             angular.element('.b-search').css({
                 paddingTop: ($(window).height() - 220) / 2
