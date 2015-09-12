@@ -103,7 +103,10 @@ gulp.task('useref', function() {
         .pipe(assets)
         .pipe($.if('*.css', $.csso()))
         .pipe($.if('*.js', $.uglify({
-            mangle: false
+            mangle: false,
+            compress: {
+                pure_funcs: ['console.log', '$log.info']
+            }
         })))
         .pipe($.rev())
         .pipe(gulp.dest('dist'))
