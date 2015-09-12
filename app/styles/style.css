@@ -30,7 +30,8 @@ h1, h2, h3, h4, h5, h6 {
 .item-thumbs:hover .hover-wrap, .item-thumbs.active .hover-wrap {
   opacity: 1;
   filter: alpha(opacity=100);
-  transform: rotateY(0deg) scale(1, 1); }
+  -webkit-transform: rotateY(0deg) scale(1, 1);
+          transform: rotateY(0deg) scale(1, 1); }
 
 #bottom .widget .widgetheading span, footer .widget .widgetheading span, aside .widget .widgetheading span {
   position: absolute;
@@ -140,34 +141,45 @@ header .navbar {
 header .navbar-default {
   background-color: #fff; }
   header .navbar-default .navbar-nav > .open > a {
-    transition: all 0.3s ease; }
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease; }
     header .navbar-default .navbar-nav > .open > a:hover {
-      transition: all 0.3s ease; }
+      -webkit-transition: all 0.3s ease;
+              transition: all 0.3s ease; }
     header .navbar-default .navbar-nav > .open > a:focus {
-      transition: all 0.3s ease; }
+      -webkit-transition: all 0.3s ease;
+              transition: all 0.3s ease; }
 
 header .nav li a:hover {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li a:focus {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li a.dropdown-toggle:hover {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li a.dropdown-toggle:focus {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li.active a {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
   header .nav li.active a:hover {
-    transition: all 0.3s ease; }
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease; }
 
 header .nav li.active ul.dropdown-menu li a:hover {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li.active ul.dropdown-menu li.active a {
-  transition: all 0.3s ease; }
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease; }
 
 header .nav li .dropdown-menu {
   padding: 0; }
@@ -195,7 +207,8 @@ header .navbar-nav > li {
     margin-left: 2px;
     line-height: 30px;
     font-weight: 700;
-    transition: all 0.3s ease; }
+    -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease; }
 
 header ul.nav li {
   border: none;
@@ -633,8 +646,10 @@ form#commentform textarea {
     height: 100%;
     opacity: 0;
     filter: alpha(opacity=0);
-    transition: all 450ms ease-out 0s;
-    transform: rotateY(180deg) scale(0.5, 0.5); }
+    -webkit-transition: all 450ms ease-out 0s;
+            transition: all 450ms ease-out 0s;
+    -webkit-transform: rotateY(180deg) scale(0.5, 0.5);
+            transform: rotateY(180deg) scale(0.5, 0.5); }
     .item-thumbs .hover-wrap .overlay-img {
       position: absolute;
       width: 50%;
@@ -938,7 +953,8 @@ article {
   margin-bottom: 20px; }
   .post-image img:hover {
     box-shadow: 0 0 2px #999;
-    transition: all 1s ease-in-out; }
+    -webkit-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out; }
 
 .post-quote {
   margin-bottom: 20px; }
@@ -1037,7 +1053,8 @@ article {
     margin: 0 5px 15px 0;
     display: inline-block; }
     .widget ul.tags li a {
-      transition: 0.5s;
+      -webkit-transition: 0.5s;
+              transition: 0.5s;
       background: transparent;
       color: #fff;
       border: 1px solid;

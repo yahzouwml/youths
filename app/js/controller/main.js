@@ -9,24 +9,11 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
     }
 
     $rootScope._ = _
+    
     if ($rootScope.currentUser == null) {
         console.log(ipCookie('currentUser'))
         $rootScope.currentUser = ipCookie('currentUser')
     }
-
-    $scope.emailAfter = [{
-            name: '@qq.com'
-        }, {
-            name: '@163.com'
-        }, {
-            name: '@126.com'
-        }, {
-            name: '@outlook.com'
-        }, {
-            name: '@gmail.com'
-        },
-
-    ];
 
     $scope.register = function() {
         AuthService.register($scope.userR.email, $scope.userR.password, $scope.userR.username)

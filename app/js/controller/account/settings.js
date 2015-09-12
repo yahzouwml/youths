@@ -20,9 +20,9 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'StorageSe
         StorageService.upload($scope.myCroppedImage, 'avatar', $rootScope.currentUser.id + ".png")
             .success(function(response) {
                 console.log(response)
-                var time = (new Date()).toLocaleString()
+                var time = (new Date()).getTime()
                 console.log(time);
-                $scope.$parent.User.avatar = $rootScope.currentUser.id + ".png?date=" + time
+                $scope.$parent.User.avatar = $rootScope.currentUser.id + ".png?" + time
                 User.prototype$updateAttributes({
                     id: $rootScope.currentUser.id
                 }, $scope.$parent.User).$promise.then(function(response) {

@@ -76,7 +76,8 @@
 
 .flex-viewport {
   max-height: 2000px;
-  transition: all 1s ease; }
+  -webkit-transition: all 1s ease;
+          transition: all 1s ease; }
 
 .flex-caption {
   background: rgba(0, 0, 0, 0.8);
