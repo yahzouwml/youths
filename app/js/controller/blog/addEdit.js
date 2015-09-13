@@ -26,7 +26,7 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
         Blog.create({
             title: $scope.blog.title,
             userId: $rootScope.currentUser.id,
-            content: $scope.blog.content,
+            content: angular.element('#edit').froalaEditor('html.get', true),
             click: 0
         }).$promise.then(
             function(response) {
@@ -60,10 +60,10 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
             height: 500,
             codeBeautifier: true,
             imageUploadMethod: 'POST',
-            imageUploadURL: $rootScope.apiServer + '/containers/blog/upload',
-            imageUploadParams: {
-                name: 'u=' + $rootScope.currentUser.id + "&d=" + (new Date()).toLocaleString() + ".jpg"
-            },
+            // imageUploadURL: $rootScope.apiServer + '/containers/blog/upload',
+            // imageUploadParams: {
+            //     file_name: 'u=' + $rootScope.currentUser.id + "&d=" + (new Date()).toLocaleString() + ".jpg"
+            // },
             codeMirror: {
                 indentWithTabs: true,
                 lineNumbers: true,
@@ -97,7 +97,7 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
             }
         })
         .on('froalaEditor.image.beforeUpload', function(e, editor, images) {
-            console.log(e + "," + editor + "," + images)
+            console.log(e + "," + editor + "," + angular.toJson(images))
         })
         .on('froalaEditor.image.uploaded', function(e, editor, response) {
             console.log(e + "," + editor + "," + response)

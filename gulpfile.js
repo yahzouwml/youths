@@ -3,14 +3,13 @@ var $ = require('gulp-load-plugins')({
     pattern: ['*'],
     replaceString: /^gulp(-|\.)/,
 });
-var runSequence = require('run-sequence');
 var pngquant = require('imagemin-pngquant');
 // development task
 gulp.task('serve', ['sass', 'config'], function() {
 
     $.browserSync.init({
         notify: false,
-        open: "local",
+        open: "external",
         host: "youths.com",
         port: 7000,
         server: {
@@ -28,7 +27,7 @@ gulp.task('serve', ['sass', 'config'], function() {
 gulp.task('serve:r', function() {
     $.browserSync.init({
         notify: false,
-        open: "local",
+        open: "external",
         host: "youths.com",
         port: 8000,
         server: {
@@ -103,7 +102,10 @@ gulp.task('useref', function() {
         .pipe(assets)
         .pipe($.if('*.css', $.csso()))
         .pipe($.if('*.js', $.uglify({
-            mangle: false
+            mangle: false,
+            compress: {
+                pure_funcs: ['console.log', '$log.info']
+            }
         })))
         .pipe($.rev())
         .pipe(gulp.dest('dist'))
@@ -152,5 +154,5 @@ gulp.task('del', function() {
 
 gulp.task('default', ['serve']);
 gulp.task('release', function(callback) {
-    runSequence('del', 'import', 'sass', 'config', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', 'htmlmin', callback)
+    $.runSequence('del', 'import', 'sass', 'config', 'useref', 'imagemin', 'replaceHtml', 'replaceCss', 'htmlmin', callback)
 });
