@@ -1,0 +1,11 @@
+<div class="container">
+    <article ng-init="getZhihuuser()" id="User">
+        <div class="row">
+            <div class="col-xs-3 user-d" ng-repeat="i in Zhihuuser">
+                <a class="savatar" href='{{i.home}}'><img ng-src="{{i.avatar}}" alt="" error='/img/avatar.png'></a>
+                <p>{{i.name}}</p>
+            </div>
+        </div>
+    </article>
+    <label id="loading" class="label label-success col-sm-offset-5">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
+</div>

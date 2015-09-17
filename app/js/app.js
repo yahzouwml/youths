@@ -72,6 +72,11 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 templateUrl: "views/zhihu/zhihu.html",
                 controller: "zhihuCtrl"
             })
+            .state('zhihuuser', {
+                url: "/zhihu/user",
+                templateUrl: "views/zhihu/user.html",
+                controller: "zhihuUserCtrl"
+            })
             .state('account', {
                 url: "/account",
                 templateUrl: "views/account/center.html",

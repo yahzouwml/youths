@@ -10,14 +10,14 @@
             </div>
             <article class="article clearfix article-{{i.id}}" ng-repeat="i in Zhihu">
                 <div class="left col-sm-2">
-                    <a href="{{i.userHome}}"><img ng-src="{{i.userAvatar}}" alt="" error='/img/avatar.png'></a>
+                    <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar}}" alt="" error='/img/avatar.png'></a>
                 </div>
                 <div class="right col-sm-8 article-right-{{i.id}}">
                     <p>
-                        <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.answerTime | date:'yyyy-MM-dd'}}</span>
+                        <a href="{{i.user.home}}">{{i.user.name}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.answerTime | date:'yyyy-MM-dd'}}</span>
                     </p>
                     <div class="col-sm-12">
-                        <h4><a href="javascipt:void(0)" class="text-dark">{{i.question}}</a></h4>
+                        <h4><a href="{{i.question.url}}" class="text-dark">{{i.question.name}}</a></h4>
                         <blockquote ng-bind-html="i.answer">
                         </blockquote>
                     </div>
