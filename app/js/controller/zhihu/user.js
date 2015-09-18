@@ -22,7 +22,7 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
 
         var promise = Zhihuuser.find({
             filter: {
-                order: 'see DESC',
+                order: 'agree DESC',
                 limit: 12,
                 skip: pageIndex * 12
             }
