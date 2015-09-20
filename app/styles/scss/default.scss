@@ -740,3 +740,54 @@ header {
         box-shadow: none;
     }
 }
+
+.u-detail {
+    position: relative;
+    a {
+        color: $c_green;
+    }
+    .u-avatar {
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        float: left;
+    }
+    .u-info {
+        padding-left: 10px;
+        width: 150px;
+        float: right;
+        .i-bio {
+            max-height: 45px;
+            overflow: hidden;
+            display: inline-block;
+        }
+    }
+    .u-extend {
+        position: relative;
+        background: #fff;
+        border: 1px solid $c_main;
+        width: 250px;
+        height: 150px;
+        position: absolute;
+        top: 110px;
+        left: -60px;
+        z-index: 999;
+        padding: 10px 20px;
+        &:before {
+            content: ' ';
+            width: 0;
+            height: 0;
+            margin-left: -25px;
+            border-width: 0 25px 25px;
+            position: absolute;
+            left: 50%;
+            top: -25px;
+            border-color: transparent;
+            border-top-color: $c_main;
+        }
+    }
+    margin-bottom:20px;
+    height:130px;
+}

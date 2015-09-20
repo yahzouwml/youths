@@ -19,4 +19,17 @@ $(document).ready(function() {
         $('#blog .active').removeClass('active')
         $(this).addClass('active')
     });
+
+    $(document).on('mouseover', '.u-avatar', function() {
+        $(this).siblings('.u-extend').fadeIn(500);
+    });
+
+    $(document).on('mouseout', '.u-avatar', function() {
+        $(this).siblings('.u-extend').fadeOut(100);
+    });
+
+    $(document).on('mouseover', '[title!=""]',
+        function() {
+            $(this).tooltip('show');
+        });
 });

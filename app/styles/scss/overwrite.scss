@@ -110,6 +110,19 @@ a {
     border-radius: .25em;
 }
 
+i {
+    font-style: normal;
+}
+
+.tooltip {
+    .tooltip-inner {
+        background: $c_main;
+    }
+    .tooltip-arrow {
+        border-top-color: $c_main !important;
+    }
+}
+
 //@extend-elements
 //original selectors
 //ul.inline > li, ol.inline > li

@@ -15,7 +15,7 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
 
     $scope.getZhihuuser = function() {
         $scope.loading = true
-        var pageIndex = $("#User .user-d").length / 12
+        var pageIndex = $("#User .u-detail").length / 20
         var options = {}
         var promise = {}
         var sort = ''
@@ -23,15 +23,15 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
         var promise = Zhihuuser.find({
             filter: {
                 order: 'agree DESC',
-                limit: 12,
-                skip: pageIndex * 12
+                limit: 20,
+                skip: pageIndex * 20
             }
         }).$promise
 
         promise.then(function(response) {
             console.log(response)
             $scope.loading = false
-            if (response.length < 12) {
+            if (response.length < 20) {
                 $scope.none = true
             }
             if (pageIndex == 0) {
