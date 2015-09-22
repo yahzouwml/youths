@@ -25,5 +25,10 @@
     "path": "^0.11.14",
     "run-sequence": "^1.1.2",
     "yargs": "^3.24.0"
+  },
+  "devDependencies": {
+    "karma": "^0.13.10",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
   }
 }
