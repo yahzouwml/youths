@@ -5,7 +5,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         $rootScope.mainServer = ENV.mainServer
         $rootScope.storageServer = ENV.storageServer
         $rootScope.apiServer = ENV.apiServer
-
+        
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
             errorMessages['required'] = '输入点什么吧...';
@@ -18,19 +18,13 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         $rootScope.$state = $state;
         $rootScope.$stateParams = $stateParams;
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-            console.log('change start from:' + angular.toJson(fromState))
-            console.log('change start to:' + angular.toJson(toState))
+            console.log('change start from:', fromState)
+            console.log('change start to:', toState)
+
             angular.element('body').animate({
                 scrollTop: 0
             }, 1000);
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
-        })
-
-        angular.element(window).bind('resize load', function() {
-            angular.element('.banner').height($(window).height())
-            angular.element('.b-search').css({
-                paddingTop: ($(window).height() - 220) / 2
-            })
         })
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
