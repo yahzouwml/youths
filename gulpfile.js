@@ -104,7 +104,7 @@ gulp.task('useref', function() {
         .pipe($.if('*.js', $.uglify({
             mangle: false,
             compress: {
-                pure_funcs: ['console.log', '$log.info']
+                pure_funcs: ['console.log', 'console.info', 'console.error']
             }
         })))
         .pipe($.rev())
