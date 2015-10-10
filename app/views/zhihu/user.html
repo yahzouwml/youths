@@ -2,129 +2,23 @@
     <article ng-init="getZhihuuser()" id="User">
         <div class="row">
             <div class="panel-body" id="searchPanel">
-                <div class="col-md-12">
-                    <div class="form-group col-md-10">
-                        <input class="form-control input" id="autocomplete" name="name" placeholder="苍井玛丽亚" autocomplete="off"><span class="help-block hidden-xs">搜索方式： 中国、日本、台湾 | 魔羯座 | 丝袜</span></div>
-                    <div class="form-group col-md-2"><a class="btn btn-green accordion-toggle" data-toggle="collapse" data-target="#search_panel" aria-expanded="false" aria-controls="search_panel"><i class="fa fa-angle-double-down"></i>&nbsp;高级检索</a></div>
-                </div>
-                <div class="collapse" id="search_panel">
+                <div class="" id="search_panel">
                     <div class="col-md-12">
-                        <div class="form-group col-md-3">
-                            <label>名字</label>
-                            <input class="form-control input-sm" id="name" name="name" placeholder="女神名号" type="text">
+                        <div class="form-group col-md-3 col-md-offset-3">
+                            <label>Id/简介</label>
+                            <input class="form-control input-sm" id="name" name="name" placeholder="Id/简介" type="text" ng-model='nameOrSio'>
                         </div>
                         <div class="form-group col-md-3">
-                            <label>国家</label>
-                            <select class="form-control input-sm" id="country" name="country">
+                            <label>性别</label>
+                            <select class="form-control input-sm" ng-model='sex'>
                                 <option value=""> --- </option>
-                                <option value="hanguo">韩国</option>
-                                <option value="dalu">中国</option>
-                                <option value="gangtai">台湾</option>
-                                <option value="riben">日本</option>
+                                <option value="true">男</option>
+                                <option value="false">女</option>
                             </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>星座</label>
-                            <select class="form-control input-sm" id="constellation" name="constellation">
-                                <option value=""> --- </option>
-                                <option value="白羊座">白羊座</option>
-                                <option value="金牛座">金牛座</option>
-                                <option value="双子座">双子座</option>
-                                <option value="巨蟹座">巨蟹座</option>
-                                <option value="狮子座">狮子座</option>
-                                <option value="处女座">处女座</option>
-                                <option value="天秤座">天秤座</option>
-                                <option value="天蝎座">天蝎座</option>
-                                <option value="射手座">射手座</option>
-                                <option value="摩羯座">摩羯座</option>
-                                <option value="水瓶座">水瓶座</option>
-                                <option value="双鱼座">双鱼座</option>
-                            </select>
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>血型</label>
-                            <select class="form-control input-sm" id="blood_type" name="blood_type">
-                                <option value=""> -- </option>
-                                <option value="A">A</option>
-                                <option value="B">B</option>
-                                <option value="AB">AB</option>
-                                <option value="O">O</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group col-md-4">
-                            <label>年龄： &nbsp;&nbsp;</label>
-                            <div class="slider slider-horizontal">
-                                <div class="slider-track">
-                                    <div class="slider-selection" style="left: 0%; width: 100%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 0%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 100%;"></div>
-                                </div>
-                                <div id="tooltip" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">17:45</div>
-                                </div>
-                                <div id="tooltip_min" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">17</div>
-                                </div>
-                                <div id="tooltip_max" class="tooltip top" style="top: -30px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">45</div>
-                                </div>
-                                <input class="form-control age-slider" id="age" name="age" type="text" style="display: none;">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>身高： &nbsp;&nbsp;</label>
-                            <div class="slider slider-horizontal">
-                                <div class="slider-track">
-                                    <div class="slider-selection" style="left: 0%; width: 100%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 0%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 100%;"></div>
-                                </div>
-                                <div id="tooltip" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">120:220</div>
-                                </div>
-                                <div id="tooltip_min" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">120</div>
-                                </div>
-                                <div id="tooltip_max" class="tooltip top" style="top: -30px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">220</div>
-                                </div>
-                                <input class="form-control height-slider" id="height" name="height" type="text" style="display: none;">
-                            </div>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>体重： &nbsp;&nbsp;</label>
-                            <div class="slider slider-horizontal">
-                                <div class="slider-track">
-                                    <div class="slider-selection" style="left: 0%; width: 100%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 0%;"></div>
-                                    <div class="slider-handle round" tabindex="0" style="left: 100%;"></div>
-                                </div>
-                                <div id="tooltip" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">40:90</div>
-                                </div>
-                                <div id="tooltip_min" class="tooltip top" style="top: -14px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">40</div>
-                                </div>
-                                <div id="tooltip_max" class="tooltip top" style="top: -30px; left: 0px;">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">90</div>
-                                </div>
-                                <input class="form-control weight-slider" id="weight" name="weight" type="text" style="display: none;">
-                            </div>
                         </div>
                     </div>
                     <div class="col-md-4 col-md-offset-4 text-center">
-                        <input class="btn btn-green" name="" type="submit" value="搜索">
+                        <input class="btn btn-green" name="" type="submit" value="搜索" ng-click="search()">
                     </div>
                 </div>
             </div>
@@ -140,14 +34,15 @@
                 </div>
                 <a class="u-avatar" href='{{i.home}}' target="_blank"><img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png'></a>
                 <div class="u-info">
-                    <a class='u-name' href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;<i class='fa pull-right' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>
+                    <a class='u-name' href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;<i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>
                     <br/>
-                    <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<i title="居住地">{{i.location}}</i>
+                    <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<i title="居住地">{{!!i.location?i.location:'未知'}}</i>
                     <br/>
-                    <i class="fa fa-link"></i>&nbsp;&nbsp;
-                    <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"> <i class="fa fa-weibo"></i></a>
+                    <i class="fa fa-link"></i>
+                    <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i></a>
+                    <i title='社交账号'>{{!i.weibo?'暂无':''}}</i>
                     <br/>
-                    <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;&nbsp;
+                    <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
                     <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
                     <br/>
                     <span class='i-bio' title="{{i.bio}}">{{i.bio}}</span>

@@ -12,10 +12,10 @@ app.controller('zhihuCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', f
             }
         }
     });
-
+    
     $scope.getZhihu = function() {
         $scope.loading = true
-        var pageIndex = $("#blog article").length / 5
+        var pageIndex = $("#zhihu article").length / 9
         var options = {}
         var promise = {}
         var sort = ''
@@ -23,15 +23,15 @@ app.controller('zhihuCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', f
         var promise = Zhihu.find({
             filter: {
                 order: 'count DESC',
-                limit: 5,
-                skip: pageIndex * 5
+                limit: 9,
+                skip: pageIndex * 9
             }
         }).$promise
 
         promise.then(function(response) {
             console.log(response)
             $scope.loading = false
-            if (response.length < 5) {
+            if (response.length < 9) {
                 $scope.none = true
             }
             if (pageIndex == 0) {

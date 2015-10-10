@@ -13,4 +13,9 @@ app
 
             return imgSrc;
         };
+    })
+    .filter('htmlNoImage', function() {
+        return function(text) {
+            return text.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/gi, '')
+        };
     });
