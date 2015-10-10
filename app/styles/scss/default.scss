@@ -741,6 +741,10 @@ header {
     }
 }
 
+#User {
+    background: #edece4;
+}
+
 .u-detail {
     position: relative;
     a {
@@ -761,7 +765,7 @@ header {
         .i-bio {
             max-height: 45px;
             overflow: hidden;
-            display: inline-block;
+            display: block;
         }
     }
     .u-extend {
@@ -788,6 +792,10 @@ header {
             border-top-color: $c_main;
         }
     }
-    margin-bottom:20px;
+    margin:20px 0;
     height:130px;
+}
+
+#searchPanel {
+    background: #fff;
 }

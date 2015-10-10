@@ -10,7 +10,7 @@
             </div>
             <article class="article clearfix article-{{i.id}}" ng-repeat="i in Zhihu">
                 <div class="left col-sm-2">
-                    <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar}}" alt="" error='/img/avatar.png'></a>
+                    <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar | zhihuavatar}}" alt="" error='/img/avatar.png'></a>
                 </div>
                 <div class="right col-sm-8 article-right-{{i.id}}">
                     <p>
