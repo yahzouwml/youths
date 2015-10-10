@@ -5,7 +5,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         $rootScope.mainServer = ENV.mainServer
         $rootScope.storageServer = ENV.storageServer
         $rootScope.apiServer = ENV.apiServer
-        
+
         bootstrap3ElementModifier.enableValidationStateIcons(true);
         defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
             errorMessages['required'] = '输入点什么吧...';
@@ -25,6 +25,22 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 scrollTop: 0
             }, 1000);
             $("header .navbar").removeClass('navbar-a1 navbar-a2')
+        })
+
+        $(window).scroll(function() {
+            if ($state.is('main')) {
+                if ($(window).scrollTop() > 110) {
+                    $("header .navbar").removeClass('navbar-t').addClass('navbar-a1')
+                } else {
+                    $("header .navbar").addClass('navbar-t').removeClass('navbar-a1')
+                }
+            } else {
+                if ($(window).scrollTop() > 110) {
+                    $("header .navbar").addClass('navbar-a2')
+                } else {
+                    $("header .navbar").removeClass('navbar-a2')
+                }
+            }
         })
     }])
     .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -67,7 +83,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 controller: "zhihuCtrl"
             })
             .state('zhihuuser', {
-                url: "/zhihu/user",
+                url: "/zhihu.user",
                 templateUrl: "views/zhihu/user.html",
                 controller: "zhihuUserCtrl"
             })
