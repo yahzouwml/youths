@@ -51,15 +51,13 @@
                             <li>
                                 <a href="#/nav">任意门</a>
                             </li>
-                            <!-- <li><a href="#/home/portfolio">投资组合</a></li> -->
                             <li><a href="#/blog">趣博客</a></li>
-                            <li><a href="#/zhihu" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
+                            <li><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
                                 <ul class="dropdown-menu">
+                                    <li><a href="#/zhihu.article">知乎精选</a></li>
                                     <li><a href="#/zhihu.user">知乎用户</a></li>
                                 </ul>
                             </li>
-                            <!--                             <li><a href="#/home/contact">联系我们</a></li>
- -->
                             <li ng-if='currentUser == null'><a ng-click="showModal('#loginRegister')">注册/登录</a></li>
                             <li ng-if='currentUser != null'>
                                 <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
@@ -187,16 +185,13 @@
     <script src="/js/controller/blog/addEdit.js"></script>
     <script src="/js/controller/blog/detail.js"></script>
     <script src="/js/controller/nav/nav.js"></script>
-    <script src="/js/controller/zhihu/zhihu.js"></script>
+    <script src="/js/controller/zhihu/article.js"></script>
     <script src="/js/controller/zhihu/user.js"></script>
     <script src="/js/controller/account/center.js"></script>
     <script src="/js/controller/account/myBlog.js"></script>
     <script src="/js/controller/account/settings.js"></script>
     <!-- endbuild -->
     <ui></ui>
-    <script>
-    with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-    </script>
 </body>
 
 </html>

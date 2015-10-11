@@ -21,7 +21,6 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
         var height = $('#loading').offset().top
         if (!$scope.none && !$scope.loading) {
             if (height - 440 <= $(window).scrollTop()) {
-                $scope.loading = true
                 $scope.getBlog($scope.id)
             }
         }

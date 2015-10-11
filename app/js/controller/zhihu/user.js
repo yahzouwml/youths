@@ -8,7 +8,6 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
         if (!$scope.none && !$scope.loading) {
             if (height - 440 <= $(window).scrollTop()) {
                 $scope.getZhihuuser()
-                console.log('xxx')
             }
         }
     });
@@ -58,7 +57,6 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
             console.log(response)
             $scope.loading = false
             if (response.length < 20) {
-                console.log('yes')
                 $scope.none = true
             }
             if (pageIndex == 0) {

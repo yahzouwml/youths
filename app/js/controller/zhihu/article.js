@@ -1,4 +1,4 @@
-app.controller('zhihuCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', function($rootScope, $scope, $q, Zhihu, $filter) {
+app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', function($rootScope, $scope, $q, Zhihu, $filter) {
     $scope.Zhihu = {}
     $scope.none = false
     $scope.loading = false
@@ -7,7 +7,6 @@ app.controller('zhihuCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', f
         var height = $('#loading').offset().top
         if (!$scope.none && !$scope.loading) {
             if (height - 440 <= $(window).scrollTop()) {
-                $scope.loading = true
                 $scope.getZhihu()
             }
         }
@@ -18,7 +17,6 @@ app.controller('zhihuCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', f
         var pageIndex = $("#zhihu article").length / 9
         var options = {}
         var promise = {}
-        var sort = ''
 
         var promise = Zhihu.find({
             filter: {

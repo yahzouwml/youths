@@ -77,10 +77,10 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 templateUrl: "views/nav/nav.html",
                 controller: "navCtrl"
             })
-            .state('zhihu', {
-                url: "/zhihu",
-                templateUrl: "views/zhihu/zhihu.html",
-                controller: "zhihuCtrl"
+            .state('zhihuarticle', {
+                url: "/zhihu.article",
+                templateUrl: "views/zhihu/article.html",
+                controller: "zhihuArticleCtrl"
             })
             .state('zhihuuser', {
                 url: "/zhihu.user",

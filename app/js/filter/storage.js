@@ -6,6 +6,7 @@ app
     }])
     .filter('zhihuavatar', ['$rootScope', function($rootScope) {
         return function(fileName) {
+            if (!fileName) return ''
             fileName = fileName.split('/')[2] + "-" + fileName.split('/')[3].replace('_s', '_l')
             return $rootScope.apiServer + '/containers/zhihuuser/download/' + fileName
         }
