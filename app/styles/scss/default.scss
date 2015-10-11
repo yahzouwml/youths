@@ -802,14 +802,13 @@ header {
     }
 }
 
-#zhihu {
-
-}
+#zhihu {}
 
 .zhihu {
     margin-bottom: 0;
     background: #fff !important;
     border-left: 1px solid #eee;
+    border-bottom: 1px solid #eee;
     blockquote {
         overflow: hidden;
         height: 185px;

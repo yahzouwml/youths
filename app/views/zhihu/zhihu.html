@@ -10,12 +10,12 @@
         <div class="col-lg-12" id="zhihu" ui-view>
             <article class="article clearfix article-{{i.id}} col-md-4 zhihu" ng-repeat="i in Zhihu">
                 <p class="topic">
-                    <a ng-repeat="j in i.topic" class="label-green-o" href='{{j.url}}'>{{j.name}}</a>
+                    <a ng-repeat="j in i.topic" class="label-green-o" href='{{j.url}}' target="_blank">{{j.name}}</a>
                 </p>
-                <h4 title="{{i.question.name}}"><a href="{{i.answerUrl.split('answer')[0]}}" class="text-dark">{{i.question.name}}</a></h4>
+                <h4 title="{{i.question.name}}"><a href="{{i.answerUrl.split('answer')[0]}}" class="text-dark" target="_blank">{{i.question.name}}</a></h4>
                 <p>
-                    <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar | zhihuavatar}}" class="avatar_s" alt="" error='/img/avatar.png'></a>&nbsp;&nbsp;.&nbsp;&nbsp;
-                    <a href="{{i.user.home}}">{{!!i.user.name?i.user.name:'佚名'}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;
+                    <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar | zhihuavatar}}" class="avatar_s" alt="" error='/img/avatar.png' target="_blank"></a>&nbsp;&nbsp;.&nbsp;&nbsp;
+                    <a href="{{i.user.home}}" target="_blank">{{!!i.user.name?i.user.name:'佚名'}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;
                     <span class="text-grey">{{i.answerTime | date:'yyyy-MM-dd'}}</span>&nbsp;&nbsp;.&nbsp;&nbsp;
                     <span class="text-grey" title='热度'><i class="fa fa-fire"></i>&nbsp;{{i.count}}</span>
                 </p>
@@ -24,10 +24,10 @@
                     </blockquote>
                 </div>
                 <div class="bottom col-sm-12">
-                    <a href="{{i.answerUrl}}" class="text-green pull-right">阅读原文>></a>
+                    <a href="{{i.answerUrl}}" class="text-green pull-right" target="_blank">阅读原文>></a>
                 </div>
             </article>
-            <label id="loading" class="label label-success col-sm-offset-5" style="margin-top:40px;">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
         </div>
+        <label id="loading" class="label label-success col-sm-offset-5" style="margin-top:40px;">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
     </div>
 </div>
