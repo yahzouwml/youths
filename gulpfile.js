@@ -142,6 +142,8 @@ gulp.task('import', function() {
         .pipe(gulp.dest('dist/plugin/lobibox/sounds'))
     gulp.src(['app/styles/fonts/**/*', 'bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap/fonts/**/*'])
         .pipe(gulp.dest('dist/fonts'));
+    gulp.src(['app/*.pdf'])
+        .pipe(gulp.dest('dist'))
 });
 
 gulp.task('del', function() {
