@@ -1,32 +1,29 @@
-app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', '$q', 'Zhihu', '$filter', function($rootScope, $scope, $q, Zhihu, $filter) {
+app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
     $scope.Zhihu = {}
     $scope.none = false
     $scope.loading = false
 
     $(window).scroll(function(event) {
-        var height = $('#loading').offset().top
         if (!$scope.none && !$scope.loading) {
-            if (height - 440 <= $(window).scrollTop()) {
-                $scope.getZhihu()
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                if ($state.is('zhihuarticle')) {
+                    $scope.getZhihu()
+                }
             }
         }
     });
-    
+
     $scope.getZhihu = function() {
         $scope.loading = true
         var pageIndex = $("#zhihu article").length / 9
         var options = {}
         var promise = {}
 
-        var promise = Zhihu.find({
-            filter: {
-                order: 'count DESC',
-                limit: 9,
-                skip: pageIndex * 9
-            }
-        }).$promise
-
-        promise.then(function(response) {
+        apiServices.zhihuFind({
+            order: 'count DESC',
+            limit: 9,
+            skip: pageIndex * 9
+        }).then(function(response) {
             console.log(response)
             $scope.loading = false
             if (response.length < 9) {

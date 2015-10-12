@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12" ng-init="getNavType()">
+            <div class="row">
+                <div class="col-md-10 col-offset-1">
+                    <form name="form.form1" class="form-horizontal" novalidate="novalidate" ng-submit="addNav()">
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3">网站名称:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="nav.name" required maxlength="20">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 ">网站地址:</label>
+                            <div class="col-sm-9">
+                                <input type="url" class="form-control" ng-model="nav.url" required ng-maxlength="30">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3">网站分类:</label>
+                            <div class="col-sm-9">
+                                 <input type="text" id="input-tags" class="form-control input-lg input-n" ng-model="selectTag" required placeholder="选择相关的标签">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3">网站图片:</label>
+                            <div class="col-sm-9">
+                                <input type="url" class="form-control" ng-model="nav.img" required ng-maxlength="60">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="control-label col-sm-3 ">网址描述:</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" ng-model="nav.describe" ng-minlength="50" ng-maxlength="100" required>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button class="btn btn-green btn-submit">提交</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

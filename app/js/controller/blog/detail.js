@@ -1,7 +1,7 @@
-app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog', '$stateParams', 'Comment', 'Reply', '$filter', function($rootScope, $scope, $q, BlogType, Blog, $stateParams, Comment, Reply, $filter) {
+app.controller('blogDetailCtrl', ['$rootScope', '$scope', 'apiServices', '$stateParams', '$filter', function($rootScope, $scope, apiServices, $stateParams, $filter) {
     $scope.params = $stateParams
     console.log($scope.params)
-    Blog.findById({
+    apiServices.blogFindById({
         id: $scope.params.id,
         filter: {
             include: [{
@@ -10,7 +10,7 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
                 }]
             }]
         }
-    }).$promise.then(function(response) {
+    }).then(function(response) {
         console.log(response)
         $scope.blog = response
     })
@@ -19,11 +19,11 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
         if (!$scope.checkLogin()) {
             return
         }
-        Comment.create({
+        apiServices.commentCreate({
             blogId: $scope.blog.id,
             content: $scope.commentContent,
             userId: $rootScope.currentUser.id
-        }).$promise.then(
+        }).then(
             function(response) {
                 console.log(response)
                 $scope.commentContent = ''
@@ -56,11 +56,11 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blo
         if (!$scope.checkLogin()) {
             return
         }
-        Reply.create({
+        apiServices.replyCreate({
             commentId: $scope.commentId,
             content: $scope.ReplyContent,
             userId: $rootScope.currentUser.id
-        }).$promise.then(
+        }).then(
             function(response) {
                 console.log(response)
                 $scope.ReplyContent = ''

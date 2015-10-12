@@ -1,8 +1,10 @@
-app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog', 'Tag', 'TagRelation', function($rootScope, $scope, $q, BlogType, Blog, Tag, TagRelation) {
+app.controller('addEditCtrl', ['$rootScope', '$scope', 'apiServices', function($rootScope, $scope, apiServices) {
     var args = []
-    Tag.find({
-        filter: {}
-    }).$promise.then(function(response) {
+    apiServices.tagFind({
+        where: {
+            type: 'blog'
+        }
+    }).then(function(response) {
         console.log(response)
         $('#input-tags').selectize({
             persist: false,
@@ -23,7 +25,7 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
     })
 
     $scope.addBlog = function() {
-        Blog.create({
+        apiServices.blogCreate({
             title: $scope.blog.title,
             userId: $rootScope.currentUser.id,
             content: angular.element('#edit').froalaEditor('html.get', true),
@@ -36,10 +38,11 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', '$q', 'BlogType', 'Blog',
                 for (i = 0; i < args.length; i++) {
                     tagRelations.push({
                         tagId: args[i],
-                        blogId: response.id
+                        otherId: response.id,
+                        type: 'blog'
                     })
                 }
-                TagRelation.createMany(tagRelations).$promise.then(function(response) {
+                apiServices.tagreleationCreateMany(tagRelations).then(function(response) {
                     console.log(response)
                     $scope.blog = {}
                     $scope.successAfter($scope.form.form1, '添加博客成功')

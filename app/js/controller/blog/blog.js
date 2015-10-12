@@ -1,4 +1,4 @@
-app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User', '$filter', function($rootScope, $scope, $q, Blog, Tag, User, $filter) {
+app.controller('blogCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
     $scope.blog = {}
     $scope.form = {}
     $scope.id = ''
@@ -18,10 +18,11 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
     }
 
     $(window).scroll(function(event) {
-        var height = $('#loading').offset().top
         if (!$scope.none && !$scope.loading) {
-            if (height - 440 <= $(window).scrollTop()) {
-                $scope.getBlog($scope.id)
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                if ($state.is('blog')) {
+                    $scope.getBlog($scope.id)
+                }
             }
         }
     });
@@ -34,44 +35,27 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
             $scope.none = false
         }
         $scope.id = id
-        var options = {}
-        var promise = {}
-        var sort = ''
-        if (id == 'new' || id == 'hot') {
-            if (id == 'new') {
-                sort = 'created'
-            } else {
-                sort = 'click'
-            }
-            options = {
-                filter: {
-                    include: [{
-                        'user': ['followUsers']
-                    }, {
-                        'comments': ['user']
-                    }, 'tags', 'blogLikeUsers'],
-                    order: sort + ' DESC',
-                    limit: 5,
-                    skip: pageIndex * 5
-                }
-            }
-            var promise = Blog.find(options).$promise
-        } else {
-            var promise = Tag.blogs({
-                id: id,
-                filter: {
-                    include: [{
-                        'user': ['followUsers']
-                    }, {
-                        'comments': ['user']
-                    }, 'tags', 'blogLikeUsers'],
-                    order: 'click DESC',
-                    limit: 5,
-                    skip: pageIndex * 5
-                }
-            }).$promise
+        var options = {
+            include: [{
+                'user': ['followUsers']
+            }, {
+                'comments': ['user']
+            }, 'tags', 'blogLikeUsers'],
+            limit: 5,
+            skip: pageIndex * 5
         }
-        promise.then(function(response) {
+
+        if (id == 'new') {
+            options.sort = 'created DESC'
+        } else if (id == 'hot') {
+            options.sort = 'click DESC'
+        } else {
+            options.where = {
+                tagId: $scope.id
+            }
+        }
+
+        apiServices.blogFind(options).then(function(response) {
             console.log(response)
             $scope.loading = false
             if (response.length < 5) {
@@ -88,7 +72,11 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
     }
 
     $scope.getTag = function() {
-        Tag.find().$promise.then(function(response) {
+        apiServices.tagFind({
+            where: {
+                type: 'blog'
+            }
+        }).then(function(response) {
             console.log(response)
             $scope.Tag = response
         }, function(err) {
@@ -99,12 +87,12 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
     $scope.likeBlog = function($event, blogId) {
         $scope.checkLogin()
         var target = $($event.currentTarget)
-        Blog.blogLikes.create({
+        apiServices.blogLike({
             id: blogId
         }, {
             blogId: blogId,
             userId: $rootScope.currentUser.id
-        }).$promise.then(function(response) {
+        }).then(function(response) {
             console.log(response)
             target.addClass('ng-hide')
             target.siblings('.ng-hide').removeClass('ng-hide')
@@ -116,7 +104,7 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
 
     $scope.dislikeBlog = function($event, blogId) {
         var target = $($event.currentTarget)
-        Blog.blogLikes.destroyById({
+        apiServices.blogDislike({
             id: blogId
         }, {
             blogId: blogId,
@@ -133,12 +121,12 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
 
     $scope.focusUser = function($event, focusUserId) {
         var target = $($event.currentTarget)
-        User.focusUsers.create({
+        apiServices.userFocus({
             id: $rootScope.currentUser.id
         }, {
             focusUserId: focusUserId,
             userId: $rootScope.currentUser.id
-        }).$promise.then(function(response) {
+        }).then(function(response) {
             console.log(response)
             target.addClass('ng-hide')
             target.siblings('.ng-hide').removeClass('ng-hide')
@@ -149,12 +137,12 @@ app.controller('blogCtrl', ['$rootScope', '$scope', '$q', 'Blog', 'Tag', 'User',
 
     $scope.disfocusUser = function($event, focusUserId) {
         var target = $($event.currentTarget)
-        User.focusUsers.destroyById({
+        apiServices.userDisfocus({
             id: $rootScope.currentUser.id
         }, {
             focusUserId: focusUserId,
             userId: $rootScope.currentUser.id
-        }).$promise.then(function(response) {
+        }).then(function(response) {
             console.log(response)
             target.addClass('ng-hide')
             target.siblings('.ng-hide').removeClass('ng-hide')

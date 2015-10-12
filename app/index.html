@@ -63,6 +63,7 @@
                                 <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
+                                    <li><a href="#/nav.add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;推酷站</a></li>
                                     <li><a href="#/account"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
                                     <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;登出</a></li>
                                 </ul>
@@ -174,8 +175,9 @@
     <script src="/js/filter/storage.js"></script>
     <!-- service -->
     <script src="/js/services/lb-services.js"></script>
+    <script src="/js/services/api-services.js"></script>
     <script src="/js/services/auth.js"></script>
-    <script src="/js/services/storage.js"></script>
+    <script src="/js/services/storage-services.js"></script>
     <!-- directive -->
     <script src="/js/directive/storage.js"></script>
     <script src="/js/directive/ui.js"></script>
@@ -185,6 +187,7 @@
     <script src="/js/controller/blog/addEdit.js"></script>
     <script src="/js/controller/blog/detail.js"></script>
     <script src="/js/controller/nav/nav.js"></script>
+    <script src="/js/controller/nav/add.js"></script>
     <script src="/js/controller/zhihu/article.js"></script>
     <script src="/js/controller/zhihu/user.js"></script>
     <script src="/js/controller/account/center.js"></script>

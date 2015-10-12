@@ -1,4 +1,4 @@
-app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'StorageService', '$http', function($rootScope, $scope, $q, User, StorageService, $http) {
+app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageServices', '$http', function($rootScope, $scope, $q, User, storageServices, $http) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
 
@@ -17,7 +17,7 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'StorageSe
 
     $scope.upload = function() {
         console.log($scope.myCroppedImage)
-        StorageService.upload($scope.myCroppedImage, 'avatar', $rootScope.currentUser.id + ".png")
+        storageServices.upload($scope.myCroppedImage, 'avatar', $rootScope.currentUser.id + ".png")
             .success(function(response) {
                 console.log(response)
                 var time = (new Date()).getTime()

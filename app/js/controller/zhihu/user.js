@@ -1,13 +1,14 @@
-app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$filter', function($rootScope, $scope, $q, Zhihuuser, $filter) {
+app.controller('zhihuUserCtrl', ['$rootScope', '$scope', 'apiServices', '$filter', '$state', function($rootScope, $scope, apiServices, $filter, $state) {
     $scope.Zhihuuser = {}
     $scope.none = false
     $scope.loading = false
 
     $(window).scroll(function(event) {
-        var height = $('#loading').offset().top
         if (!$scope.none && !$scope.loading) {
-            if (height - 440 <= $(window).scrollTop()) {
-                $scope.getZhihuuser()
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                if ($state.is('zhihuuser')) {
+                    $scope.getZhihuuser()
+                }
             }
         }
     });
@@ -49,11 +50,7 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', '$q', 'Zhihuuser', '$fi
                 }
             })
         }
-        var promise = Zhihuuser.find({
-            filter: options
-        }).$promise
-
-        promise.then(function(response) {
+        apiServices.zhihuuserFind(options).then(function(response) {
             console.log(response)
             $scope.loading = false
             if (response.length < 20) {
