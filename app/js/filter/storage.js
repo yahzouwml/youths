@@ -4,6 +4,11 @@ app
             return $rootScope.apiServer + '/containers/' + containerName + '/download/' + fileName
         }
     }])
+    .filter('avatar', ['$rootScope', function($rootScope) {
+        return function(fileName, containerName) {
+            return $rootScope.apiServer + '/containers/avatar/download/' + fileName
+        }
+    }])
     .filter('zhihuavatar', ['$rootScope', function($rootScope) {
         return function(fileName) {
             if (!fileName) return ''

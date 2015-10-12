@@ -45,6 +45,7 @@ app.controller('navAddCtrl', ['$rootScope', '$scope', 'apiServices', function($r
                     apiServices.tagreleationCreateMany(tagRelations).then(function(response) {
                         console.log(response)
                         $scope.nav = {}
+                        $('#input-tags').clear()
                         $scope.form.form1.$setPristine();
                         $scope.notify('success', '添加网址成功')
                     }, function(err) {

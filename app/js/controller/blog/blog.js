@@ -117,7 +117,7 @@ app.controller('blogCtrl', ['$rootScope', '$scope', 'apiServices', '$state', fun
         }, {
             blogId: blogId,
             userId: $rootScope.currentUser.id
-        }).$promise.then(function(response) {
+        }).then(function(response) {
             console.log(response)
             target.addClass('ng-hide')
             target.siblings('.ng-hide').removeClass('ng-hide')

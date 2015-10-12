@@ -1,4 +1,4 @@
-app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageServices', '$http', function($rootScope, $scope, $q, User, storageServices, $http) {
+app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageServices', '$http', 'ipCookie', function($rootScope, $scope, $q, User, storageServices, $http, ipCookie) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
 
@@ -26,6 +26,7 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageSe
                 User.prototype$updateAttributes({
                     id: $rootScope.currentUser.id
                 }, $scope.$parent.User).$promise.then(function(response) {
+                    $rootScope.currentUser.avatar = ipCookie('currentUser').avatar = $rootScope.currentUser.id + ".png?" + time
                     console.log(response)
                     $scope.notify('success', '头像上传成功')
                 }, function(err) {

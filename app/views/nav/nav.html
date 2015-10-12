@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-lg-12" ng-init="getNav()">
+        <div class="col-lg-12" ng-init="getNav('all')">
             <ul class="portfolio-categ filter">
                 <li class="all active"><a href="javascipt:void(0)" ng-click="getNav('all')">所有</a></li>
                 <li ng-repeat="i in tag"><a href="javascipt:void(0)" title="{{i.name}}" ng-click="getNav(i.id)">{{i.name}}</a></li>
@@ -12,12 +12,14 @@
             </div>
             <div class="row">
                 <section id="projects">
-                    <ul id="Nav" class="portfolio ITNav">
+                    <ul id="Nav" class="portfolio ITNav list-unstyled">
                         <li class="items col-lg-3" ng-repeat="i in Nav">
-                            <h4>{{i.name}}</h4>
-                            <a ng-href="{{i.url}}" target="_blank"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'">
-                            </a>
-                            <p class="describe">{{i.describe}}</p>
+                            <div class="items-inner">
+                                <h4>{{i.name}}</h4>
+                                <a ng-href="{{i.url}}" target="_blank"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'">
+                                </a>
+                                <p class="describe" title="{{i.describe}}">{{i.describe}}</p>
+                            </div>
                         </li>
                     </ul>
                 </section>

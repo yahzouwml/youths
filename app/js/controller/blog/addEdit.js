@@ -28,7 +28,7 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', 'apiServices', function($
         apiServices.blogCreate({
             title: $scope.blog.title,
             userId: $rootScope.currentUser.id,
-            content: angular.element('#edit').froalaEditor('html.get', true),
+            content: $('#edit').froalaEditor('html.get', true),
             click: 0
         }).then(
             function(response) {

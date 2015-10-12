@@ -28,13 +28,14 @@ app.controller('navCtrl', ['$rootScope', '$scope', 'apiServices', '$state', func
         }
         $scope.id = id
         $scope.loading = true
+
+        var pageIndex = $("#Nav li").length / 12
         var options = {
             limit: 12,
             skip: pageIndex * 12
         }
-        var pageIndex = $("#Nav li").length / 12
         var promise = null
-        if (!!id) {
+        if (id != 'all') {
             promise = apiServices.tagFindNavs({
                 id: id
             }, {

@@ -75,7 +75,7 @@ $value in $colors {
     }
     .btn-#{$key} {
         border: 1px solid $value;
-        color: #fff;
+        color: #fff !important;
         background: $value;
         transition: all .3s ease-out;
         &:hover,
@@ -83,7 +83,7 @@ $value in $colors {
         &:active {
             // box-shadow: 1px 1px 1px #888888;
             // background: darken($value, 10%);
-            color: #fff;
+            color: #fff !important;
             // animation: bounce 0.5s;
         }
     }

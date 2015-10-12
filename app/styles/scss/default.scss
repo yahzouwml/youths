@@ -493,6 +493,7 @@ a:hover {
 }
 
 .comment {
+    margin-top: 150px;
     padding: 10px;
     border: 1px solid $c_grey;
     .comment-content {
@@ -823,5 +824,17 @@ header {
     h4 {
         height: 20px;
         overflow: hidden;
+    }
+}
+
+.items {
+    padding: 5px 5px;
+    .items-inner {
+        padding: 5px;
+        transition: all easeout .3;
+        background: #fff;
+        &:hover {
+            box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
+        }
     }
 }

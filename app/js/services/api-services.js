@@ -55,12 +55,12 @@ app.service('apiServices', ['$q', '$http', 'Nav', 'Tag', 'Zhihu', 'Zhihuuser', '
         return Blog.findById(options).$promise
     }
 
-    this.blogLike = function(options) {
-        return Blog.blogLikes.create(options).$promise
+    this.blogLike = function(options1, options2) {
+        return Blog.blogLikes.create(options1, options2).$promise
     }
 
-    this.blogDislike = function(options) {
-        return Blog.blogLikes.destroyById(options).$promise
+    this.blogDislike = function(options1, options2) {
+        return Blog.blogLikes.destroyById(options1, options2).$promise
     }
 
     //model blog operation
