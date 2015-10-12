@@ -724,9 +724,55 @@ module.factory(
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Nav.navTypes() instead.
-        "prototype$__get__navTypes": {
-          url: urlBase + "/navs/:id/navTypes",
+        // INTERNAL. Use Nav.tagRelations.findById() instead.
+        "prototype$__findById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.destroyById() instead.
+        "prototype$__destroyById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.updateById() instead.
+        "prototype$__updateById__tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Nav.tagRelations() instead.
+        "prototype$__get__tagRelations": {
+          isArray: true,
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.create() instead.
+        "prototype$__create__tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.destroyAll() instead.
+        "prototype$__delete__tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.count() instead.
+        "prototype$__count__tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations/count",
           method: "GET"
         },
 
@@ -1148,6 +1194,98 @@ module.factory(
           url: urlBase + "/navs/change-stream",
           method: "POST"
         },
+
+        // INTERNAL. Use Tag.navs.findById() instead.
+        "::findById::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.navs.destroyById() instead.
+        "::destroyById::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.updateById() instead.
+        "::updateById::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.navs.link() instead.
+        "::link::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.navs.unlink() instead.
+        "::unlink::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.exists() instead.
+        "::exists::tag::navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "HEAD"
+        },
+
+        // INTERNAL. Use Tag.navs() instead.
+        "::get::tag::navs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/navs",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.navs.create() instead.
+        "::create::tag::navs": {
+          url: urlBase + "/tags/:id/navs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.navs.createMany() instead.
+        "::createMany::tag::navs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/navs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.navs.destroyAll() instead.
+        "::delete::tag::navs": {
+          url: urlBase + "/tags/:id/navs",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.count() instead.
+        "::count::tag::navs": {
+          url: urlBase + "/tags/:id/navs/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use TagRelation.nav() instead.
+        "::get::tagRelation::nav": {
+          url: urlBase + "/tagRelations/:id/nav",
+          method: "GET"
+        },
       }
     );
 
@@ -1284,394 +1422,69 @@ module.factory(
     */
     R.modelName = "Nav";
 
+    /**
+     * @ngdoc object
+     * @name lbServices.Nav.tagRelations
+     * @header lbServices.Nav.tagRelations
+     * @object
+     * @description
+     *
+     * The object `Nav.tagRelations` groups methods
+     * manipulating `TagRelation` instances related to `Nav`.
+     *
+     * Call {@link lbServices.Nav#tagRelations Nav.tagRelations()}
+     * to query all related instances.
+     */
+
 
         /**
          * @ngdoc method
-         * @name lbServices.Nav#navTypes
+         * @name lbServices.Nav#tagRelations
          * @methodOf lbServices.Nav
          *
          * @description
          *
-         * Fetches belongsTo relation navTypes.
+         * Queries tagRelations of nav.
          *
          * @param {Object=} parameters Request parameters.
          *
          *  - `id` – `{*}` - PersistedModel id
          *
-         *  - `refresh` – `{boolean=}` - 
+         *  - `filter` – `{object=}` - 
          *
-         * @param {function(Object,Object)=} successCb
+         * @param {function(Array.<Object>,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
          *
          * @param {function(Object)=} errorCb Error callback with one argument:
          *   `httpResponse`.
          *
-         * @returns {Object} An empty reference that will be
+         * @returns {Array.<Object>} An empty reference that will be
          *   populated with the actual data once the response is returned
          *   from the server.
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
+         * This usually means the response is a `TagRelation` object.)
          * </em>
          */
-        R.navTypes = function() {
-          var TargetResource = $injector.get("NavType");
-          var action = TargetResource["::get::nav::navTypes"];
+        R.tagRelations = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::get::nav::tagRelations"];
           return action.apply(R, arguments);
         };
 
-    return R;
-  }]);
-
-/**
- * @ngdoc object
- * @name lbServices.NavType
- * @header lbServices.NavType
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `NavType` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-module.factory(
-  "NavType",
-  ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
-    var R = Resource(
-      urlBase + "/navTypes/:id",
-      { 'id': '@id' },
-      {
-
         /**
          * @ngdoc method
-         * @name lbServices.NavType#create
-         * @methodOf lbServices.NavType
+         * @name lbServices.Nav.tagRelations#count
+         * @methodOf lbServices.Nav.tagRelations
          *
          * @description
          *
-         * Create a new instance of the model and persist it into the data source.
+         * Counts tagRelations of nav.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "create": {
-          url: urlBase + "/navTypes",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#createMany
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "createMany": {
-          isArray: true,
-          url: urlBase + "/navTypes",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#upsert
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Update an existing model instance or insert a new one into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "upsert": {
-          url: urlBase + "/navTypes",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#exists
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Check whether a model instance exists in the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `exists` – `{boolean=}` - 
-         */
-        "exists": {
-          url: urlBase + "/navTypes/:id/exists",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#findById
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Find a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         *  - `filter` – `{object=}` - Filter defining fields and include
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "findById": {
-          url: urlBase + "/navTypes/:id",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#find
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Find all instances of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "find": {
-          isArray: true,
-          url: urlBase + "/navTypes",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#findOne
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Find first instance of the model matched by filter from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
-         * </em>
-         */
-        "findOne": {
-          url: urlBase + "/navTypes/findOne",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#updateAll
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        "updateAll": {
-          url: urlBase + "/navTypes/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#deleteById
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        "deleteById": {
-          url: urlBase + "/navTypes/:id",
-          method: "DELETE"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#count
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Count instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
+         *  - `id` – `{*}` - PersistedModel id
          *
          *  - `where` – `{object=}` - Criteria to match model instances
          *
@@ -1689,19 +1502,20 @@ module.factory(
          *
          *  - `count` – `{number=}` - 
          */
-        "count": {
-          url: urlBase + "/navTypes/count",
-          method: "GET"
-        },
+        R.tagRelations.count = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::count::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name lbServices.NavType#prototype$updateAttributes
-         * @methodOf lbServices.NavType
+         * @name lbServices.Nav.tagRelations#create
+         * @methodOf lbServices.Nav.tagRelations
          *
          * @description
          *
-         * Update attributes for a model instance and persist it into the data source.
+         * Creates a new instance in tagRelations of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -1723,31 +1537,65 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
+         * This usually means the response is a `TagRelation` object.)
          * </em>
          */
-        "prototype$updateAttributes": {
-          url: urlBase + "/navTypes/:id",
-          method: "PUT"
-        },
+        R.tagRelations.create = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::create::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name lbServices.NavType#createChangeStream
-         * @methodOf lbServices.NavType
+         * @name lbServices.Nav.tagRelations#createMany
+         * @methodOf lbServices.Nav.tagRelations
          *
          * @description
          *
-         * Create a change stream.
+         * Creates a new instance in tagRelations of this model.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.createMany = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::createMany::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Nav.tagRelations#destroyAll
+         * @methodOf lbServices.Nav.tagRelations
+         *
+         * @description
+         *
+         * Deletes all tagRelations of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1759,38 +1607,97 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * Data properties:
-         *
-         *  - `changes` – `{ReadableStream=}` - 
+         * This method returns no data.
          */
-        "createChangeStream": {
-          url: urlBase + "/navTypes/change-stream",
-          method: "POST"
-        },
-
-        // INTERNAL. Use Nav.navTypes() instead.
-        "::get::nav::navTypes": {
-          url: urlBase + "/navs/:id/navTypes",
-          method: "GET"
-        },
-      }
-    );
-
-
+        R.tagRelations.destroyAll = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::delete::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
 
         /**
          * @ngdoc method
-         * @name lbServices.NavType#updateOrCreate
-         * @methodOf lbServices.NavType
+         * @name lbServices.Nav.tagRelations#destroyById
+         * @methodOf lbServices.Nav.tagRelations
          *
          * @description
          *
-         * Update an existing model instance or insert a new one into the data source.
+         * Delete a related item by id for tagRelations.
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.tagRelations.destroyById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::destroyById::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Nav.tagRelations#findById
+         * @methodOf lbServices.Nav.tagRelations
+         *
+         * @description
+         *
+         * Find a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `TagRelation` object.)
+         * </em>
+         */
+        R.tagRelations.findById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::findById::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Nav.tagRelations#updateById
+         * @methodOf lbServices.Nav.tagRelations
+         *
+         * @description
+         *
+         * Update a related item by id for tagRelations.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for tagRelations
          *
          * @param {Object} postData Request data.
          *
@@ -1808,107 +1715,14 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `NavType` object.)
+         * This usually means the response is a `TagRelation` object.)
          * </em>
          */
-        R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#update
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R["update"] = R["updateAll"];
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#destroyById
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R["destroyById"] = R["deleteById"];
-
-        /**
-         * @ngdoc method
-         * @name lbServices.NavType#removeById
-         * @methodOf lbServices.NavType
-         *
-         * @description
-         *
-         * Delete a model instance by id from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - Model id
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * This method returns no data.
-         */
-        R["removeById"] = R["deleteById"];
-
-
-    /**
-    * @ngdoc property
-    * @name lbServices.NavType#modelName
-    * @propertyOf lbServices.NavType
-    * @description
-    * The name of the model represented by this $resource,
-    * i.e. `NavType`.
-    */
-    R.modelName = "NavType";
-
+        R.tagRelations.updateById = function() {
+          var TargetResource = $injector.get("TagRelation");
+          var action = TargetResource["::updateById::nav::tagRelations"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -9653,6 +9467,60 @@ module.factory(
           method: "PUT"
         },
 
+        // INTERNAL. Use Tag.navs.findById() instead.
+        "prototype$__findById__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.navs.destroyById() instead.
+        "prototype$__destroyById__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.updateById() instead.
+        "prototype$__updateById__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.navs.link() instead.
+        "prototype$__link__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Tag.navs.unlink() instead.
+        "prototype$__unlink__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.exists() instead.
+        "prototype$__exists__navs": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/tags/:id/navs/rel/:fk",
+          method: "HEAD"
+        },
+
         // INTERNAL. Use Tag.blogs() instead.
         "prototype$__get__blogs": {
           isArray: true,
@@ -9700,6 +9568,31 @@ module.factory(
         // INTERNAL. Use Tag.tagRelations.count() instead.
         "prototype$__count__tagRelations": {
           url: urlBase + "/tags/:id/tagRelations/count",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.navs() instead.
+        "prototype$__get__navs": {
+          isArray: true,
+          url: urlBase + "/tags/:id/navs",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Tag.navs.create() instead.
+        "prototype$__create__navs": {
+          url: urlBase + "/tags/:id/navs",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Tag.navs.destroyAll() instead.
+        "prototype$__delete__navs": {
+          url: urlBase + "/tags/:id/navs",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Tag.navs.count() instead.
+        "prototype$__count__navs": {
+          url: urlBase + "/tags/:id/navs/count",
           method: "GET"
         },
 
@@ -11060,6 +10953,416 @@ module.factory(
           var action = TargetResource["::updateById::tag::tagRelations"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name lbServices.Tag.navs
+     * @header lbServices.Tag.navs
+     * @object
+     * @description
+     *
+     * The object `Tag.navs` groups methods
+     * manipulating `Nav` instances related to `Tag`.
+     *
+     * Call {@link lbServices.Tag#navs Tag.navs()}
+     * to query all related instances.
+     */
+
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag#navs
+         * @methodOf lbServices.Tag
+         *
+         * @description
+         *
+         * Queries navs of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `filter` – `{object=}` - 
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::get::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#count
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Counts navs of tag.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `where` – `{object=}` - Criteria to match model instances
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `count` – `{number=}` - 
+         */
+        R.navs.count = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::count::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#create
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Creates a new instance in navs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.create = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::create::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#createMany
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Creates a new instance in navs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Array.<Object>,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Array.<Object>} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.createMany = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::createMany::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#destroyAll
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Deletes all navs of this model.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.navs.destroyAll = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::delete::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#destroyById
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Delete a related item by id for navs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.navs.destroyById = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::destroyById::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#exists
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Check the existence of navs relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.exists = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::exists::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#findById
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Find a related item by id for navs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.findById = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::findById::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#link
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Add a related item by id for navs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.link = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::link::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#unlink
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Remove the navs relation to an item by id.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * This method returns no data.
+         */
+        R.navs.unlink = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::unlink::tag::navs"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Tag.navs#updateById
+         * @methodOf lbServices.Tag.navs
+         *
+         * @description
+         *
+         * Update a related item by id for navs.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `fk` – `{*}` - Foreign key for navs
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.navs.updateById = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::updateById::tag::navs"];
+          return action.apply(R, arguments);
+        };
 
     return R;
   }]);
@@ -11098,6 +11401,12 @@ module.factory(
         // INTERNAL. Use TagRelation.blog() instead.
         "prototype$__get__blog": {
           url: urlBase + "/tagRelations/:id/blog",
+          method: "GET"
+        },
+
+        // INTERNAL. Use TagRelation.nav() instead.
+        "prototype$__get__nav": {
+          url: urlBase + "/tagRelations/:id/nav",
           method: "GET"
         },
 
@@ -11520,6 +11829,65 @@ module.factory(
           method: "POST"
         },
 
+        // INTERNAL. Use Nav.tagRelations.findById() instead.
+        "::findById::nav::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.destroyById() instead.
+        "::destroyById::nav::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.updateById() instead.
+        "::updateById::nav::tagRelations": {
+          params: {
+          'fk': '@fk'
+          },
+          url: urlBase + "/navs/:id/tagRelations/:fk",
+          method: "PUT"
+        },
+
+        // INTERNAL. Use Nav.tagRelations() instead.
+        "::get::nav::tagRelations": {
+          isArray: true,
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "GET"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.create() instead.
+        "::create::nav::tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.createMany() instead.
+        "::createMany::nav::tagRelations": {
+          isArray: true,
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "POST"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.destroyAll() instead.
+        "::delete::nav::tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations",
+          method: "DELETE"
+        },
+
+        // INTERNAL. Use Nav.tagRelations.count() instead.
+        "::count::nav::tagRelations": {
+          url: urlBase + "/navs/:id/tagRelations/count",
+          method: "GET"
+        },
+
         // INTERNAL. Use Blog.tagRelations.findById() instead.
         "::findById::blog::tagRelations": {
           params: {
@@ -11843,6 +12211,42 @@ module.factory(
         R.blog = function() {
           var TargetResource = $injector.get("Blog");
           var action = TargetResource["::get::tagRelation::blog"];
+          return action.apply(R, arguments);
+        };
+
+        /**
+         * @ngdoc method
+         * @name lbServices.TagRelation#nav
+         * @methodOf lbServices.TagRelation
+         *
+         * @description
+         *
+         * Fetches belongsTo relation nav.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `refresh` – `{boolean=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nav` object.)
+         * </em>
+         */
+        R.nav = function() {
+          var TargetResource = $injector.get("Nav");
+          var action = TargetResource["::get::tagRelation::nav"];
           return action.apply(R, arguments);
         };
 

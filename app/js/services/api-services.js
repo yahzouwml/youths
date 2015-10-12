@@ -18,6 +18,14 @@ app.service('apiServices', ['$q', '$http', 'Nav', 'Tag', 'Zhihu', 'Zhihuuser', '
         }).$promise
     }
 
+    this.tagFindBlogs = function(options) {
+        return Tag.blogs(options).$promise
+    }
+
+    this.tagFindNavs = function(options) {
+        return Tag.navs(options).$promise
+    }
+
     //model zhihu operation
     this.zhihuFind = function(options) {
         return Zhihu.find({

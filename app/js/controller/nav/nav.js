@@ -1,15 +1,59 @@
-app.controller('navCtrl', ['$rootScope', '$scope', 'apiServices', function($rootScope, $scope, apiServices) {
+app.controller('navCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
     $scope.nav = {}
     $scope.form = {}
+    $scope.none = false
+    $scope.loading = false
 
-    $scope.getNav = function() {
-        apiServices.navFind().then(function(response) {
-            console.log(response)
-            $scope.Nav = response
-        })
-    }
+    $(window).scroll(function(event) {
+        if (!$scope.none && !$scope.loading) {
+            if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+                if ($state.is('nav')) {
+                    $scope.getNav($scope.id)
+                }
+            }
+        }
+    });
 
-    $scope.change = function(id) {
+    apiServices.tagFind({
+        where: {
+            type: 'nav'
+        }
+    }).then(function(response) {
+        $scope.tag = response
+    })
+
+    $scope.getNav = function(id) {
+        if (id != $scope.id) {
+            $("#Nav li").remove()
+        }
         $scope.id = id
+        $scope.loading = true
+        var options = {
+            limit: 12,
+            skip: pageIndex * 12
+        }
+        var pageIndex = $("#Nav li").length / 12
+        var promise = null
+        if (!!id) {
+            promise = apiServices.tagFindNavs({
+                id: id
+            }, {
+                filter: options
+            })
+        } else {
+            promise = apiServices.navFind(options)
+        }
+        promise.then(function(response) {
+            console.log(response)
+            $scope.loading = false
+            if (response.length < 12) {
+                $scope.none = true
+            }
+            if (pageIndex == 0) {
+                $scope.Nav = response
+            } else {
+                $scope.Nav = $scope.Nav.concat(response)
+            }
+        })
     }
 }]);

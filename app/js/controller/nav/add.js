@@ -24,28 +24,38 @@ app.controller('navAddCtrl', ['$rootScope', '$scope', 'apiServices', function($r
     })
 
     $scope.addNav = function() {
-        var data = {
-            name: $scope.nav.name,
-            url: $scope.nav.url,
-            navTypeId: $scope.nav.navType.id,
-            img: $scope.nav.img,
-            describe: $scope.nav.describe
-        }
 
-        apiServices.navCreate(data).then(
-            function(response) {
-                console.log(response)
-                $scope.nav = {}
-                $scope.form.form1.$setPristine()
-                $scope.notify('success', '添加网址成功')
-                $scope.getNav()
-            },
-            function(err) {
-                console.log(err)
-                $scope.notify('error', '添加网址失败')
+        apiServices.navCreate({
+                name: $scope.nav.name,
+                url: $scope.nav.url,
+                img: $scope.nav.img,
+                describe: $scope.nav.describe
+            })
+            .then(function(response) {
+                    console.log(response)
+                    args = $scope.selectTag.split(',')
+                    var tagRelations = new Array()
+                    for (i = 0; i < args.length; i++) {
+                        tagRelations.push({
+                            tagId: args[i],
+                            otherId: response.id,
+                            type: 'nav'
+                        })
+                    }
+                    apiServices.tagreleationCreateMany(tagRelations).then(function(response) {
+                        console.log(response)
+                        $scope.nav = {}
+                        $scope.form.form1.$setPristine();
+                        $scope.notify('success', '添加网址成功')
+                    }, function(err) {
+                        console.log(err)
+                    })
+                },
+                function(err) {
+                    console.log(err)
+                    $scope.notify('error', '添加网址失败')
+                })
 
-            }
-        )
     }
 
 }])

@@ -44,18 +44,26 @@ app.controller('blogCtrl', ['$rootScope', '$scope', 'apiServices', '$state', fun
             limit: 5,
             skip: pageIndex * 5
         }
-
-        if (id == 'new') {
-            options.sort = 'created DESC'
-        } else if (id == 'hot') {
-            options.sort = 'click DESC'
+        var promise = null
+        if (id == 'new' || id == 'hot') {
+            if (id == 'new') {
+                options.sort = 'created DESC'
+            } else {
+                options.sort = 'click DESC'
+            }
+            promise = apiServices.blogFind(options)
         } else {
             options.where = {
                 tagId: $scope.id
             }
+            promise = apiServices.tagFindBlogs({
+                id: $scope.id
+            }, {
+                filter: options
+            })
         }
 
-        apiServices.blogFind(options).then(function(response) {
+        promise.then(function(response) {
             console.log(response)
             $scope.loading = false
             if (response.length < 5) {

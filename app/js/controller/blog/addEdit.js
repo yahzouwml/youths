@@ -30,7 +30,7 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', 'apiServices', function($
             userId: $rootScope.currentUser.id,
             content: angular.element('#edit').froalaEditor('html.get', true),
             click: 0
-        }).$promise.then(
+        }).then(
             function(response) {
                 console.log(response)
                 args = $scope.selectTag.split(',')
