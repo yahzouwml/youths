@@ -5,7 +5,7 @@ var $ = require('gulp-load-plugins')({
 });
 var pngquant = require('imagemin-pngquant');
 // development task
-gulp.task('serve', ['sass', 'config'], function() {
+gulp.task('serve', ['sass', 'config', 'babel'], function() {
 
     $.browserSync.init({
         notify: false,
@@ -19,16 +19,16 @@ gulp.task('serve', ['sass', 'config'], function() {
         }
     });
 
-    gulp.watch("app/styles/scss/*.scss", ['sass']);
-    gulp.watch(['app/**/*.html', 'app/js/**/*.js', 'app/styles/css/**/*.css']).on('change', $.browserSync.reload);
+    gulp.watch("app/styles/scss/*.scss", ['sassChange']);
+    gulp.watch("app/js/**/*.js", ['jsChange']);
+    gulp.watch(['app/**/*.html', 'app/scripts/**/*.js', 'app/styles/css/**/*.css']).on('change', $.browserSync.reload);
 });
 
 gulp.task('serve:r', function() {
     $.browserSync.init({
         notify: false,
         open: "external",
-        host: "dev.youths.cc",
-        port: 8000,
+        port: 7000,
         server: {
             baseDir: ['dist']
         }
@@ -38,7 +38,7 @@ gulp.task('serve:r', function() {
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
     $.del(['app/styles/*.css'], function(err, paths) {
-        console.log('delete css success');
+        console.log('delete style floder all css success');
     })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
@@ -48,6 +48,35 @@ gulp.task('sass', function() {
         .pipe(gulp.dest("app/styles"))
         .pipe($.browserSync.stream());
 });
+
+gulp.task('sassChange', function() {
+    return gulp.src("app/styles/scss/*.scss")
+        .pipe($.changed('app/styles'))
+        .pipe($.sourcemaps.init())
+        .pipe($.sass().on('error', $.sass.logError))
+        .pipe($.sourcemaps.write())
+        .pipe($.autoprefixer())
+        .pipe(gulp.dest("app/styles"))
+        .pipe($.browserSync.stream());
+});
+
+
+gulp.task('babel', function() {
+    $.del(['app/scripts/*.js'], function(err, paths) {
+        console.log('delete scripts floder all js success');
+    })
+    return gulp.src("app/js/**/*.js")
+        .pipe($.babel())
+        .pipe(gulp.dest('app/scripts'))
+})
+
+gulp.task('jsChange', function() {
+    return gulp.src("app/js/**/*.js")
+        .pipe($.changed('app/scripts'))
+        .pipe($.babel())
+        .pipe(gulp.dest('app/scripts'))
+        .pipe($.browserSync.stream());
+})
 
 //release task
 gulp.task('config', function() {
@@ -100,6 +129,7 @@ gulp.task('useref', function() {
     return gulp.src('app/**/*.html')
         .pipe(assets)
         .pipe($.if('*.css', $.csso()))
+        .pipe($.if('*.js', $.babel()))
         .pipe($.if('*.js', $.uglify({
             mangle: false,
             compress: {
