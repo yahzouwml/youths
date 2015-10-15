@@ -24,8 +24,8 @@ $(document).ready(function() {
         $(this).siblings('.u-extend').fadeOut(100);
     });
 
-    $(document).on('mouseover', '[title!=""]',
-        function() {
-            $(this).tooltip('show');
-        });
+    $(document).on('mouseover', '[title!=""]', function() {
+        $(this).tooltip('show');
+    });
+
 });
