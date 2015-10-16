@@ -1,8 +1,3 @@
-//colors
-$c_main: #59b0ff;
-$c_green: #5bbf5a;
-$c_grey: #edece4;
-$c_l_grey: #f0f0ff;
 a {
     color: $c_main;
     &:hover,
@@ -83,6 +78,9 @@ ul {
         }
         > a:focus {
             background-color: $c_main;
+        }
+        a {
+            width: 100%;
         }
     }
     > .active > a {
@@ -175,7 +173,6 @@ input[type='text'] {
 .weixin {
     width: 100px;
     height: 100px;
-    border-radius: 5px;
 }
 
 .tc {
@@ -486,7 +483,6 @@ a:hover {
     margin: 10px 0;
     padding: 10px 20px;
     border: 1px solid $c_grey;
-    border-radius: 3px;
     .middle {
         padding: 10px 0;
     }
@@ -516,7 +512,6 @@ a:hover {
     background-color: $c_grey;
     .container {
         padding-top: 20px;
-        border-radius: 5px;
     }
     article {
         padding: 20px;
@@ -562,7 +557,6 @@ img-crop {
 .avatar {
     width: 230px;
     height: 230px;
-    border-radius: 5px;
     &-s {
         width: 30px;
         height: 30px;
@@ -612,7 +606,7 @@ header {
 .banner {
     width: 100%;
     min-height: 500px;
-    margin-top: -110px;
+    margin-top: -112px;
     background: url(../img/home-bg.jpg) no-repeat;
     background-size: cover;
 }
@@ -627,7 +621,6 @@ header {
         height: 50px;
         padding-left: 20px;
         border: 1px solid #fff;
-        border-radius: 10px;
         background-color: transparent;
     }
 }

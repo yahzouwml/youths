@@ -37,14 +37,11 @@ gulp.task('serve:r', function() {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task('sass', function() {
-    $.del(['app/styles/*.css'], function(err, paths) {
-        console.log('delete style floder all css success');
-    })
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
-        .pipe($.sourcemaps.write())
         .pipe($.autoprefixer())
+        .pipe($.sourcemaps.write())
         .pipe(gulp.dest("app/styles"))
         .pipe($.browserSync.stream());
 });

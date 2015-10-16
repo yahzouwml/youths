@@ -1,64 +1,12 @@
-//colors
-$c_main: #59b0ff;
-$c_grey: #edece4;
-$c_l_grey:#f0f0ff;
-$white: #fff;
-$color_gray_nurse_approx: #e9e9e9;
-$c_inverse: #353535;
-$color_alabaster_approx: #fbfbfb;
-$color_mountain_mist_approx: #919191;
-$color_nobel_approx: #b3b3b3;
-$color_pumice_approx: #cacaca;
-$c_primary: #1c0113;
-$c_primary_hover: #170110;
-$c_info: #5e9fa3;
-$c_info_hover: #569498;
-$c_success: #11766d;
-$c_warning: #f0b300;
-$c_warning_hover: #e2a900;
-$c_danger: #a40b0b;
-$c_danger_hover: #990909;
-$c_inverse_hover: #505050;
-$c_blue: #0a6d9b;
-$c_blue_hover: #085e86;
-$c_yellow: #efd70c;
-$c_yellow_hover: #e4ce11;
-$c_red: #cf1a07;
-$c_orange: #ef5523;
-$c_purple: #c81dbe;
-$c_purple_hover: #be1ab4;
-$c_green: #5bbf5a;
-$c_green: #5bbf5a;
-$c_green_hover: #3f8d15;
-$c_brown: #5c2009;
-$c_brown_hover: #531d08;
-$c_pink: #f8127f;
-$c_dark: #18191a;
-$color_mine_shaft_approx: #333333;
-$color_wild_sand_approx: #f5f5f5;
-$color_mercury_approx: #e6e6e6;
-$color_heavy_metal_approx: #2d2d2d;
-$color_woodsmoke_approx: #0e0f0f;
-$color_cod_gray_approx: #060606;
-$color_alto_approx: #dddddd;
-$cod_gray: #0b0b0b;
-$color_boulder_approx: #797979;
-$wild_sand: #f4f4f4;
-$color_cararra_approx: #ececec;
-$color_quill_gray_approx: #d5d5d5;
-//fonts
-$font_0: Open Sans;
-$font_1: Arial;
-$font_2: sans-serif;
-//label
-$colors: ( primary: #1c0113, info: #5e9fa3, success: #5bbf5a, warning: #f0b300, danger: #a40b0b, blue: #59b0ff, yellow: #efd70c, red: #cf1a07, orange: #ef5523, purple: #c81dbe, green: #5bbf5a, brown: #5c2009, pink: #f8127f, dark: #18191a, grey:#656565);
+.label,.btn,[class*='input']{
+    border-radius:0;
+}
 @each $key,
 $value in $colors {
     .label-#{$key}-o {
         color: $value;
         padding: 2px 5px;
         border: 1px solid $value;
-        border-radius: 5px;
         &[href] {
             &:hover,
             &:focus {
@@ -106,7 +54,6 @@ $value in $colors {
 img,
 li,
 a {
-    border-radius: .25em;
 }
 
 i {
@@ -241,20 +188,12 @@ i {
 }
 
 .img-rounded {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 code {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 pre {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 blockquote {
@@ -278,8 +217,6 @@ input {
     }
     &.search-query {
         margin-bottom: 0;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     &.input-n {
         border: 0;
@@ -310,10 +247,6 @@ select {
     color: $color_mountain_mist_approx;
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: inset 0 1px 3px $color_pumice_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
 }
 
 textarea {
@@ -321,8 +254,6 @@ textarea {
     font-weight: normal;
     font-family: $font_0, $font_1, $font_2;
     font-size: 13px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -330,8 +261,6 @@ textarea {
 }
 
 input[type="text"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -339,8 +268,6 @@ input[type="text"] {
 }
 
 input[type="password"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -348,8 +275,6 @@ input[type="password"] {
 }
 
 input[type="datetime"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -357,8 +282,6 @@ input[type="datetime"] {
 }
 
 input[type="datetime-local"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -366,8 +289,6 @@ input[type="datetime-local"] {
 }
 
 input[type="date"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -375,8 +296,6 @@ input[type="date"] {
 }
 
 input[type="month"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -384,8 +303,6 @@ input[type="month"] {
 }
 
 input[type="time"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -393,8 +310,6 @@ input[type="time"] {
 }
 
 input[type="week"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -402,8 +317,6 @@ input[type="week"] {
 }
 
 input[type="number"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -411,8 +324,6 @@ input[type="number"] {
 }
 
 input[type="email"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -420,8 +331,6 @@ input[type="email"] {
 }
 
 input[type="url"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -429,8 +338,6 @@ input[type="url"] {
 }
 
 input[type="search"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -438,8 +345,6 @@ input[type="search"] {
 }
 
 input[type="tel"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -447,8 +352,6 @@ input[type="tel"] {
 }
 
 input[type="color"] {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -456,8 +359,6 @@ input[type="color"] {
 }
 
 .uneditable-input {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     &:focus {
         outline: 0;
         outline: thin dotted \9;
@@ -466,148 +367,84 @@ input[type="color"] {
 
 .input-append {
     input {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
         + .btn-group .btn:last-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
     }
     select {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
         + .btn-group .btn:last-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
     }
     .uneditable-input {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
         + .btn-group .btn:last-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
     }
     .add-on:last-child {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     .btn:last-child {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     .btn-group:last-child > .dropdown-toggle {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
 }
 
 .input-prepend {
     input {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     select {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     .uneditable-input {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     &.input-append {
         input {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0;
             + .btn-group .btn {
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
         }
         select {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0;
             + .btn-group .btn {
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
         }
         .uneditable-input {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0;
             + .btn-group .btn {
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
         }
         .add-on {
             &:first-child {
                 margin-right: -1px;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
             &:last-child {
                 margin-left: -1px;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
         }
         .btn {
             &:first-child {
                 margin-right: -1px;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
             &:last-child {
                 margin-left: -1px;
-                //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                border-radius: 0 0 0 0;
             }
         }
     }
     .add-on:first-child {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     .btn:first-child {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
 }
 
 .form-search {
     .input-append {
         .search-query {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
         .btn {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
     }
     .input-prepend {
         .search-query {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
         .btn {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 0 0;
         }
     }
 }
 
 .table-bordered {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0 0 0 0;
     thead {
         &:first-child tr:first-child > th {
             &:first-child {
@@ -711,8 +548,6 @@ input[type="color"] {
 .dropdown-menu {
     *border-right-width: 0;
     *border-bottom-width: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     li {
         margin: 0;
         padding: 0;
@@ -764,14 +599,10 @@ input[type="color"] {
 
 .dropdown-submenu {
     > .dropdown-menu {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     &.pull-left > .dropdown-menu {
         left: -100%;
         margin-left: 10px;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 0 0;
     }
     &:hover > a {
         @extend %extend_7;
@@ -781,8 +612,6 @@ input[type="color"] {
 .typeahead {
     z-index: 1051;
     margin-top: 2px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 ul {
@@ -884,18 +713,12 @@ dd {
 }
 
 .well {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .well-large {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .well-small {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .btn {
@@ -909,8 +732,6 @@ dd {
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     outline: 0;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
     &:focus {
         outline: 0;
     }
@@ -934,8 +755,6 @@ dd {
         border: none;
         *border: 0;
         border-color: none;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px;
         //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
         box-shadow: none;
     }
@@ -944,57 +763,35 @@ dd {
 .btn-medium {
     padding: 6px 15px;
     font-size: 13px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
     &.btn-mini {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 10px;
     }
     &.btn-small {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 11px;
     }
     &.btn-rounded {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 16px;
     }
 }
 
 .btn-large {
     font-size: 14px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
     &.btn-rounded {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 24px;
     }
 }
 
 .btn-small {
     font-size: 11px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .btn-mini {
     font-size: 10px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .btn-square {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
 }
 
 .btn-rounded {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 12px;
 }
 
 .alert {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .nav-tabs {
@@ -1002,8 +799,6 @@ dd {
     margin: 0;
     > {
         li > a {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 2px 2px 0 0;
             margin-right: -1px;
             outline: 0;
             font-size: 13px;
@@ -1020,8 +815,6 @@ dd {
         }
     }
     .dropdown-menu {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 0 2px 2px;
     }
     &.nav-stacked > li {
         &:first-child > a {
@@ -1041,12 +834,8 @@ dd {
 
 .nav-pills {
     .dropdown-menu {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px;
     }
     > li > a {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px;
     }
 }
 
@@ -1056,8 +845,6 @@ dd {
         border: none;
     }
     > .nav-tabs > li > a {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px 0 0 2px;
     }
 }
 
@@ -1074,8 +861,6 @@ dd {
     }
     > .nav-tabs > li > a {
         margin-left: -1px;
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 0 2px 2px 0;
     }
 }
 
@@ -1088,8 +873,6 @@ dd {
     background-repeat: none;
     border: none;
     border-top: 1px solid $color_heavy_metal_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
     filter: none;
     *zoom: 1;
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
@@ -1123,8 +906,6 @@ dd {
                     }
                 }
                 .dropdown-menu.pull-right .dropdown-menu {
-                    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-                    border-radius: 2px 0 2px 2px;
                 }
             }
             .active > a {
@@ -1144,8 +925,6 @@ dd {
         left: 0;
     }
     .pull-right > li > .dropdown-menu .dropdown-menu {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px 0 2px 2px;
     }
 }
 
@@ -1167,8 +946,6 @@ dd {
     margin: 0;
     list-style: none;
     background: none;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     > {
         li {
             display: inline-block;
@@ -1190,42 +967,29 @@ dd {
 }
 
 .modal {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 5px;
 }
 
 .modal-header {
     background-color: $c_l_grey;
-    border-radius: 5px 5px 0 0;
 }
 
 .modal-title {}
 
 .modal-footer {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0 0 5px 5px;
 }
 
 .tooltip-inner {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .popover {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .popover-title {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px 2px 0 0;
 }
 
 .thumbnail {
     background: $color_alabaster_approx;
     border: 1px solid $color_quill_gray_approx;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     p {
@@ -1259,13 +1023,9 @@ dd {
 
 .badge {
     padding: 5px 10px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .progress {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .bar {
@@ -1325,8 +1085,6 @@ dd {
 .accordion-group {
     background: none;
     border: none;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     margin-bottom: 5px;
 }
 
@@ -1366,25 +1124,17 @@ dd {
 }
 
 .carousel-control {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .hero-unit {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .img-circle.bordered {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 500px;
     background-color: $white;
     border: 1px solid $color_gray_nurse_approx;
 }
 
 .dropup .dropdown-submenu > .dropdown-menu {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0 0 0 0;
 }
 
 a.btn {
@@ -1438,22 +1188,14 @@ a.btn {
 .btn-group-vertical > {
     .btn {
         &:first-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 2px 2px 0 0;
         }
         &:last-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 2px 2px;
         }
     }
     .btn-large {
         &:first-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 2px 2px 0 0;
         }
         &:last-child {
-            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-            border-radius: 0 0 2px 2px;
         }
     }
 }
@@ -1463,8 +1205,6 @@ a.btn {
 }
 
 .tabs-below > .nav-tabs > li > a {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0 0 2px 2px;
 }
 
 .navbar-inverse .navbar-inner {
@@ -1472,8 +1212,6 @@ a.btn {
 }
 
 .navbar-search .search-query {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 .nav-collapse .nav > li > .dropdown-menu {
@@ -1486,8 +1224,6 @@ a.btn {
 }
 
 .pagination ul {
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 0;
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
     > {
@@ -1640,12 +1376,8 @@ a.btn {
 
 .pager li > {
     a {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px;
     }
     span {
-        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-        border-radius: 2px;
     }
 }
 
