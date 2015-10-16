@@ -88,3 +88,14 @@ app
             }
         }
     })
+    .directive('dh', function() {
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                attrs.start = parseInt(attrs.start) || 1
+                attrs.multiple = parseInt(attrs.multiple) || 100
+                    // console.info(attrs, attrs.start, attrs.multiple)
+                element.height(Math.floor((Math.random() * attrs.multiple) + attrs.start))
+            }
+        }
+    })

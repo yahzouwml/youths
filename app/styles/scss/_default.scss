@@ -804,14 +804,22 @@ header {
 
 #zhihu {}
 
+.grid-item {
+    width: 350px;
+}
+
+.grid-item--width2 {
+    width: 400px;
+}
+
 .zhihu {
-    margin-bottom: 0;
+    margin: 0 10px 10px 0;
     background: #fff !important;
     border-left: 1px solid #eee;
     border-bottom: 1px solid #eee;
     blockquote {
         overflow: hidden;
-        height: 185px;
+        // max-height:455px;
     }
     .topic {
         a {
@@ -824,6 +832,10 @@ header {
     h4 {
         height: 20px;
         overflow: hidden;
+    }
+    width:366px;
+    &:hover {
+        animation: pulse 0.5s;
     }
 }
 

@@ -34,6 +34,10 @@ app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', 'apiServices', '$sta
             } else {
                 $scope.Zhihu = $scope.Zhihu.concat(response)
             }
+
+            $('#zhihu').masonry({
+                itemSelector:'.zhihu'
+            });
         }, function(err) {
             console.log(err)
         })

@@ -19,9 +19,9 @@ gulp.task('serve', ['sass', 'config', 'babel'], function() {
         }
     });
 
-    gulp.watch("app/styles/scss/*.scss", ['sassChange']);
+    gulp.watch("app/styles/scss/*.scss", ['sass']);
     gulp.watch("app/js/**/*.js", ['jsChange']);
-    gulp.watch(['app/**/*.html', 'app/scripts/**/*.js', 'app/styles/css/**/*.css']).on('change', $.browserSync.reload);
+    gulp.watch(['app/**/*.html', 'app/scripts/**/*.js', 'app/styles/**/*.css']).on('change', $.browserSync.reload);
 });
 
 gulp.task('serve:r', function() {
@@ -48,18 +48,6 @@ gulp.task('sass', function() {
         .pipe(gulp.dest("app/styles"))
         .pipe($.browserSync.stream());
 });
-
-gulp.task('sassChange', function() {
-    return gulp.src("app/styles/scss/*.scss")
-        .pipe($.changed('app/styles'))
-        .pipe($.sourcemaps.init())
-        .pipe($.sass().on('error', $.sass.logError))
-        .pipe($.sourcemaps.write())
-        .pipe($.autoprefixer())
-        .pipe(gulp.dest("app/styles"))
-        .pipe($.browserSync.stream());
-});
-
 
 gulp.task('babel', function() {
     $.del(['app/scripts/*.js'], function(err, paths) {
@@ -169,7 +157,7 @@ gulp.task('replaceHtml', function() {
 gulp.task('import', function() {
     gulp.src(['app/plugin/lobibox/sounds/**'])
         .pipe(gulp.dest('dist/plugin/lobibox/sounds'))
-    gulp.src(['app/styles/fonts/**/*', 'bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap/fonts/**/*'])
+    gulp.src(['bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap/fonts/**/*'])
         .pipe(gulp.dest('dist/fonts'));
     gulp.src(['app/*.pdf'])
         .pipe(gulp.dest('dist'))
