@@ -1,4 +1,4 @@
-app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
+app.controller('zhihuArticleCtrl', function($rootScope, $scope, apiServices, $state) {
     $scope.Zhihu = {}
     $scope.none = false
     $scope.loading = false
@@ -36,11 +36,11 @@ app.controller('zhihuArticleCtrl', ['$rootScope', '$scope', 'apiServices', '$sta
             }
 
             $('#zhihu').masonry({
-                itemSelector:'.zhihu'
+                itemSelector: '.zhihu'
             });
         }, function(err) {
             console.log(err)
         })
     }
 
-}]);
+});

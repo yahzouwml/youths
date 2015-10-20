@@ -1,4 +1,4 @@
-app.controller('addEditCtrl', ['$rootScope', '$scope', 'apiServices', function($rootScope, $scope, apiServices) {
+app.controller('addEditCtrl', function($rootScope, $scope, apiServices) {
     var args = []
     apiServices.tagFind({
         where: {
@@ -105,4 +105,4 @@ app.controller('addEditCtrl', ['$rootScope', '$scope', 'apiServices', function($
         .on('froalaEditor.image.uploaded', function(e, editor, response) {
             console.log(e + "," + editor + "," + response)
         })
-}]);
+});

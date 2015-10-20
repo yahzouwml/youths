@@ -1,4 +1,4 @@
-app.controller('zhihuUserCtrl', ['$rootScope', '$scope', 'apiServices', '$filter', '$state', function($rootScope, $scope, apiServices, $filter, $state) {
+app.controller('zhihuUserCtrl', function($rootScope, $scope, apiServices, $filter, $state) {
     $scope.Zhihuuser = {}
     $scope.none = false
     $scope.loading = false
@@ -66,4 +66,4 @@ app.controller('zhihuUserCtrl', ['$rootScope', '$scope', 'apiServices', '$filter
         })
     }
 
-}]);
+});

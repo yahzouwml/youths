@@ -1,4 +1,4 @@
-app.controller('blogDetailCtrl', ['$rootScope', '$scope', 'apiServices', '$stateParams', '$filter', function($rootScope, $scope, apiServices, $stateParams, $filter) {
+app.controller('blogDetailCtrl', function($rootScope, $scope, apiServices, $stateParams, $filter) {
     $scope.params = $stateParams
     console.log($scope.params)
     apiServices.blogFindById({
@@ -74,4 +74,4 @@ app.controller('blogDetailCtrl', ['$rootScope', '$scope', 'apiServices', '$state
         var aim = angular.element($event.currentTarget).parent('.bottom').parent('div').children('.reply')
         aim.toggle()
     }
-}]);
+});

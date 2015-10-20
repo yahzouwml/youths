@@ -1,4 +1,4 @@
-app.controller('navAddCtrl', ['$rootScope', '$scope', 'apiServices', function($rootScope, $scope, apiServices) {
+app.controller('navAddCtrl', function($rootScope, $scope, apiServices) {
     apiServices.tagFind({
         where: {
             type: 'nav'
@@ -58,5 +58,4 @@ app.controller('navAddCtrl', ['$rootScope', '$scope', 'apiServices', function($r
                 })
 
     }
-
-}])
+})

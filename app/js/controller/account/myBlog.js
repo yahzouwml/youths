@@ -1,4 +1,4 @@
-app.controller('myBlogCtrl', ['$rootScope', '$scope', '$q', 'Blog', function($rootScope, $scope, $q, Blog) {
+app.controller('myBlogCtrl', function($rootScope, $scope, $q, Blog) {
     $scope.currentPage = 1;
 
     $scope.getMyBlog = function(pagenum) {
@@ -7,10 +7,10 @@ app.controller('myBlogCtrl', ['$rootScope', '$scope', '$q', 'Blog', function($ro
                 where: {
                     userId: $rootScope.currentUser.id
                 },
-                include: ['blogType', 'user','comments']
+                include: ['blogType', 'user', 'comments']
             }
         }).$promise.then(function(response) {
-        	console.log(response)
+            console.log(response)
             $scope.myBlog = response
             $scope.totalItems = response.length
         })
@@ -19,4 +19,4 @@ app.controller('myBlogCtrl', ['$rootScope', '$scope', '$q', 'Blog', function($ro
     $scope.pageChanged = function() {
         $log.log('Page changed to: ' + $scope.currentPage);
     };
-}]);
+});

@@ -1,4 +1,4 @@
-app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageServices', '$http', 'ipCookie', function($rootScope, $scope, $q, User, storageServices, $http, ipCookie) {
+app.controller('settingsCtrl', function($rootScope, $scope, $q, User, storageServices, $http, ipCookie) {
     $scope.myImage = '';
     $scope.myCroppedImage = '';
 
@@ -37,4 +37,4 @@ app.controller('settingsCtrl', ['$rootScope', '$scope', '$q', 'User', 'storageSe
                 console.log(err)
             })
     }
-}]);
+});

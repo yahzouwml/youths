@@ -1,7 +1,7 @@
 "use strict";
 
 var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'angular-loading-bar', 'wu.masonry', 'envconfig'])
-    .run(['$rootScope', '$location', '$log', 'bootstrap3ElementModifier', 'defaultErrorMessageResolver', '$state', '$stateParams', '$http', 'ENV', function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http, ENV) {
+    .run(function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http, ENV) {
         $rootScope.mainServer = ENV.mainServer
         $rootScope.storageServer = ENV.storageServer
         $rootScope.apiServer = ENV.apiServer
@@ -42,75 +42,111 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 }
             }
         })
-    }])
-    .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+    })
+    .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
         $locationProvider.html5Mode(false);
         $stateProvider
             .state('main', {
                 url: "/",
                 templateUrl: "views/main.html",
-                controller: "mainCtrl"
+                controller: "mainCtrl",
+                data: {
+                    pageTitle: ''
+                }
             })
             .state('blog', {
                 url: "/blog",
                 templateUrl: "views/blog/blog.html",
-                controller: "blogCtrl"
+                controller: "blogCtrl",
+                data: {
+                    pageTitle: '趣博客'
+                }
             })
             .state('blog.add', {
                 url: "/add",
                 templateUrl: "views/blog/addEdit.html",
-                controller: "addEditCtrl"
+                controller: "addEditCtrl",
+                data: {
+                    pageTitle: '写文章'
+                }
             })
             .state('blog.edit', {
                 url: "/edit/:id",
                 templateUrl: "views/blog/addEdit.html",
-                controller: "addEditCtrl"
+                controller: "addEditCtrl",
+                data: {
+                    pageTitle: '改文章'
+                }
             })
             .state('blog.Detail', {
                 url: "/detail/:id",
                 templateUrl: "views/blog/detail.html",
-                controller: "blogDetailCtrl"
+                controller: "blogDetailCtrl",
+                data: {
+                    pageTitle: '文章详情'
+                }
             })
             .state('nav', {
                 url: "/nav",
                 templateUrl: "views/nav/nav.html",
-                controller: "navCtrl"
+                controller: "navCtrl",
+                data: {
+                    pageTitle: '酷站'
+                }
             })
             .state('navadd', {
                 url: "/nav.add",
                 templateUrl: "views/nav/add.html",
-                controller: "navAddCtrl"
+                controller: "navAddCtrl",
+                data: {
+                    pageTitle: '添加酷站'
+                }
             })
             .state('zhihuarticle', {
                 url: "/zhihu.article",
                 templateUrl: "views/zhihu/article.html",
-                controller: "zhihuArticleCtrl"
+                controller: "zhihuArticleCtrl",
+                data: {
+                    pageTitle: '知乎文章精选'
+                }
             })
             .state('zhihuuser', {
                 url: "/zhihu.user",
                 templateUrl: "views/zhihu/user.html",
-                controller: "zhihuUserCtrl"
+                controller: "zhihuUserCtrl",
+                data: {
+                    pageTitle: '知乎用户、知乎妹子'
+                }
             })
             .state('account', {
                 url: "/account",
                 templateUrl: "views/account/center.html",
-                controller: "accountCenterCtrl"
+                controller: "accountCenterCtrl",
+                data: {
+                    pageTitle: '个人账户'
+                }
             })
             .state('account.myBlog', {
                 url: "/myBlog",
                 controller: "myBlogCtrl",
-                templateUrl: "views/account/myBlog.html"
+                templateUrl: "views/account/myBlog.html",
+                data: {
+                    pageTitle: ''
+                }
             })
             .state('account.settings', {
                 url: "/settings",
                 controller: "settingsCtrl",
-                templateUrl: "views/account/settings.html"
+                templateUrl: "views/account/settings.html",
+                data: {
+                    pageTitle: '个人设置'
+                }
             });
 
         $urlRouterProvider.otherwise('/');
-    }])
-    .config(['$httpProvider', '$locationProvider', function($httpProvider, $locationProvider) {
+    })
+    .config(function($httpProvider, $locationProvider) {
         $httpProvider.interceptors.push(function($q, $location, LoopBackAuth) {
             return {
                 responseError: function(rejection) {
@@ -139,16 +175,16 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                 }
             }
         })
-    }])
+    })
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }])
-    .config(['ENV', 'LoopBackResourceProvider', function(ENV, LoopBackResourceProvider) {
+    .config(function(ENV, LoopBackResourceProvider) {
 
         // Use a custom auth header instead of the default 'Authorization'
         LoopBackResourceProvider.setAuthHeader('X-Access-Token');
 
         // Change the URL where to access the LoopBack REST API server
         LoopBackResourceProvider.setUrlBase(ENV.apiServer);
-    }]);
+    });

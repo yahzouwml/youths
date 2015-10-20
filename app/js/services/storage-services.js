@@ -1,4 +1,4 @@
-app.service('storageServices', ['User', '$q', '$http', '$rootScope', function(User, $q, $http, $rootScope) {
+app.service('storageServices', function(User, $q, $http, $rootScope) {
     this.dataURItoBlob = function(dataURI) {
         // convert base64/URLEncoded data component to raw binary data held in a string
         var byteString;
@@ -31,4 +31,4 @@ app.service('storageServices', ['User', '$q', '$http', '$rootScope', function(Us
             }
         })
     }
-}]);
+});

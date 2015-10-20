@@ -1,4 +1,4 @@
-app.controller('blogCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
+app.controller('blogCtrl', function($rootScope, $scope, apiServices, $state) {
     $scope.blog = {}
     $scope.form = {}
     $scope.id = ''
@@ -158,4 +158,4 @@ app.controller('blogCtrl', ['$rootScope', '$scope', 'apiServices', '$state', fun
             console.log(err)
         })
     }
-}]);
+});

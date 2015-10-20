@@ -1,4 +1,4 @@
-app.service('apiServices', ['$q', '$http', 'Nav', 'Tag', 'Zhihu', 'Zhihuuser', 'Blog', 'TagRelation', 'User', 'Comment', 'Reply', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog, TagRelation, User, Comment, Reply) {
+app.service('apiServices', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog, TagRelation, User, Comment, Reply) {
 
     //model nav operation
     this.navCreate = function(options) {
@@ -86,4 +86,4 @@ app.service('apiServices', ['$q', '$http', 'Nav', 'Tag', 'Zhihu', 'Zhihuuser', '
     this.replyCreate = function(options) {
         return Reply.create(options).$promise
     }
-}])
+})

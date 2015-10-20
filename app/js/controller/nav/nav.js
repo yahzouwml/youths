@@ -1,4 +1,4 @@
-app.controller('navCtrl', ['$rootScope', '$scope', 'apiServices', '$state', function($rootScope, $scope, apiServices, $state) {
+app.controller('navCtrl', function($rootScope, $scope, apiServices, $state) {
     $scope.nav = {}
     $scope.form = {}
     $scope.none = false
@@ -57,4 +57,4 @@ app.controller('navCtrl', ['$rootScope', '$scope', 'apiServices', '$state', func
             }
         })
     }
-}]);
+});

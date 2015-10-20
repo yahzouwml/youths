@@ -1,4 +1,4 @@
-app.controller('accountCenterCtrl', ['$rootScope', '$scope', '$q', 'User', 'ipCookie', function($rootScope, $scope, $q, User, ipCookie) {
+app.controller('accountCenterCtrl', function($rootScope, $scope, $q, User, ipCookie) {
     $scope.getUser = function() {
         User.findById({
             id: $rootScope.currentUser.id
@@ -11,4 +11,4 @@ app.controller('accountCenterCtrl', ['$rootScope', '$scope', '$q', 'User', 'ipCo
             $scope.checkLogin()
         })
     }
-}]);
+});

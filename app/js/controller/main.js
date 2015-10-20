@@ -1,4 +1,4 @@
-app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', 'User', function($rootScope, $scope, ipCookie, AuthService, User) {
+app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, User) {
     _.containsUser = function(obj, key, id) {
         return !id ? false : !_.isEmpty(obj) && _.every(obj, key, id)
     }
@@ -9,7 +9,7 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
     }
 
     $rootScope._ = _
-    
+
     if ($rootScope.currentUser == null) {
         console.log(ipCookie('currentUser'))
         $rootScope.currentUser = ipCookie('currentUser')
@@ -128,4 +128,4 @@ app.controller('mainCtrl', ['$rootScope', '$scope', 'ipCookie', 'AuthService', '
             "bdSelectMiniList": ["tsina", "qzone", "tqq", "renren", "weixin"]
         }
     };
-}]);
+});

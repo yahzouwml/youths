@@ -1,4 +1,4 @@
-app.factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
+app.factory('AuthService', function(User, $q,
     $rootScope) {
     function login(email, password) {
         return User
@@ -30,4 +30,4 @@ app.factory('AuthService', ['User', '$q', '$rootScope', function(User, $q,
         logout: logout,
         register: register
     };
-}]);
+});
