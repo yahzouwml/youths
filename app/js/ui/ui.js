@@ -27,5 +27,4 @@ $(document).ready(function() {
     $(document).on('mouseover', '[title!=""]', function() {
         $(this).tooltip('show');
     });
-
 });
