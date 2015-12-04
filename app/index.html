@@ -4,14 +4,12 @@
 <head>
   <meta charset="utf-8">
   <title page-title>Youths | Do Interest Things</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="description" content="Youths,Do Interest Things.Youths,活力web倡导者，" />
   <meta name="keywords" content="Youths,Do Interest Things.Youths,活力web倡导者，Youths 寻找志同道合的年青人.知乎精选、知乎用户、知乎妹子、it站导航" />
   <link href="img/Youths.ico" rel="shortcut icon" />
   <!-- import css -->
   <!-- build:css styles/youths.min.css -->
-  <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
-  <link href="/bower_components/angular-loading-bar/build/loading-bar.css" rel="stylesheet" />
   <link href='/bower_components/font-awesome/css/font-awesome.css' rel='stylesheet' />
   <link href='/plugin/froala_editor/css/froala_editor.css' rel='stylesheet' />
   <link href='/plugin/froala_editor/css/froala_style.css' rel='stylesheet' />
@@ -54,7 +52,8 @@
                   <li><a href="#/zhihu.user">知乎用户</a></li>
                 </ul>
               </li>
-              <li ng-if='currentUser == null'><a ng-click="showModal('#loginRegister')">注册/登录</a></li>
+              <li ng-if='currentUser == null'><a ng-click="showModal('#Register')">注册</a></li>
+              <li ng-if='currentUser == null'><a ng-click="showModal('#Login')">登录</a></li>
               <li ng-if='currentUser != null'>
                 <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
                 <ul class="dropdown-menu">
@@ -107,7 +106,7 @@
             <div class="col-lg-12">
               <div class="copyright">
                 <p>
-                  <span>&copy;2014-2015 Youths</span>
+                  <span ng-class="col-xs-12">&copy;2014-2015 Youths</span>
                   <script type="text/javascript">
                   var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
                   document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
@@ -124,7 +123,7 @@
   <!-- importjs -->
   <!-- build:js js/youths.min.js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
   <script src="/bower_components/angular/angular.js"></script>
   <script src="/bower_components/lodash/lodash.js"></script>
   <script src="/bower_components/masonry/dist/masonry.pkgd.js"></script>
@@ -134,7 +133,6 @@
   <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.js"></script>
   <script src="/bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
-  <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
   <script src="/bower_components/angular-cookie/angular-cookie.js"></script>
   <script src="/bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
   <!-- endbuild -->

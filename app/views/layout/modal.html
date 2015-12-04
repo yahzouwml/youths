@@ -1,103 +1,116 @@
 <div class="modal fade" id="forgetPassword">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">忘记密码</h4>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">忘记密码</h4>
+      </div>
+      <div class="modal-body">
+        <form name="form.reset" class="form-horizontal" novalidate="novalidate" ng-submit="forgetPassword()">
+          <div class="form-group">
+            <label for="recipient-name" class="control-label col-md-2">邮箱:</label>
+            <div class="col-md-10">
+              <input type="email" class="form-control" ng-model="email" required>
             </div>
-            <div class="modal-body">
-                <form name="form.reset" class="form-horizontal" novalidate="novalidate" ng-submit="forgetPassword()">
-                    <div class="form-group">
-                        <label for="recipient-name" class="control-label col-sm-3">邮箱:</label>
-                        <div class="col-sm-9">
-                            <input type="email" class="form-control" ng-model="email" required>
-                        </div>
-                    </div>
-                    <div class="form-group text-center">
-                        <button class="btn btn-green btn-submit">提交</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<div class="modal fade" id="loginRegister">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">登录</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4>注册新用户</h4>
-                        <form name="form.register" class="form-horizontal" novalidate="novalidate" ng-submit="register()">
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label col-sm-3">用户名:</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" placeholder="字母、数字等，用户名唯一" ng-model="userR.username" required ng-maxlength="12" ng-blur="checkUsername()">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label col-sm-3">邮箱:</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" placeholder="admin@youths.cc" ng-model="userR.email" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label col-sm-3 ">密码:</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" placeholder="6至16位字符" ng-model="userR.password" ng-minlength="6" ng-maxlength="16" required>
-                                </div>
-                            </div>
-                            <div class="form-group text-center">
-                                <button class="btn btn-green btn-submit">注册</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-6 right-sidebar">
-                        <h4>用户登录</h4>
-                        <form name="form.login" class="form-horizontal" novalidate="novalidate" ng-submit="login()">
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label col-sm-3">邮箱:</label>
-                                <div class="col-sm-9">
-                                    <input type="email" class="form-control" placeholder="admin@youths.cc" ng-model="userL.email" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="control-label col-sm-3 ">密码:</label>
-                                <div class="col-sm-9">
-                                    <input type="password" class="form-control" placeholder="6至16位字符" ng-model="userL.password" ng-minlength="6" ng-maxlength="16" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-6 col-sm-offset-3">
-                                    <input type="checkbox"> 记住登录状态
-                                </label>
-                                <div class="col-md-3">
-                                    <button class="btn btn-green btn-submit pull-right">登录</button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-md-9 col-md-offset-3">
-                                    快速登录&nbsp;
-                                    <a class="label label-info"><i class="fa fa-qq"></i></a>
-                                    <a class="label label-success"><i class="fa fa-weixin"></i></a>
-                                    <a class="label label-warning"><i class="fa fa-weibo"></i></a>
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
-            <div class="row text-center">
-                <a ng-click="showModal('#forgetPassword')" class="text-success">忘记密码</a>
-            </div>
-        </div>
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary btn-submit">提交</button>
+          </div>
+        </form>
+      </div>
     </div>
     <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<div class="modal fade" id="Register">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">注册</h4>
+      </div>
+      <div class="modal-body row">
+        <div class=" col-xs-12">
+          <form name="form.register" class="form-horizontal" novalidate="novalidate" ng-submit="register()">
+            <div class="form-group">
+              <label for="recipient-name" class="control-label col-md-2">用户名:</label>
+              <div class="col-md-10">
+                <input type="text" class="form-control" placeholder="字母、数字等，用户名唯一" ng-model="userR.username" required ng-maxlength="12" ng-blur="checkUsername()">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label col-md-2">邮箱:</label>
+              <div class="col-md-10">
+                <input type="email" class="form-control" placeholder="admin@youths.cc" ng-model="userR.email" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="recipient-name" class="control-label col-md-2 ">密码:</label>
+              <div class="col-md-10">
+                <input type="password" class="form-control" placeholder="6至16位字符" ng-model="userR.password" ng-minlength="6" ng-maxlength="16" required>
+              </div>
+            </div>
+            <div class="form-group text-center">
+              <button class="btn btn-primary btn-submit">注册
+                <spinner></spinner>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</div>
+<div class="modal fade" id="Login">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center">登录</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class=" col-xs-12">
+            <form name="form.login" class="form-horizontal" novalidate="novalidate" ng-submit="login()">
+              <div class="form-group">
+                <label for="recipient-name" class="control-label col-md-2">邮箱:</label>
+                <div class="col-md-10">
+                  <input type="email" class="form-control" placeholder="admin@youths.cc" ng-model="userL.email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="recipient-name" class="control-label col-md-2 ">密码:</label>
+                <div class="col-md-10">
+                  <input type="password" class="form-control" placeholder="6至16位字符" ng-model="userL.password" ng-minlength="6" ng-maxlength="16" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-6 col-xs-12 col-md-offset-2">
+                  <input type="checkbox"> 记住登录状态
+                </label>
+                <div class="col-md-3">
+                  <button class="btn btn-primary btn-submit pull-right">登录<spinner></spinner></button>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-md-10 col-md-offset-2 col-xs-12">
+                  快速登录&nbsp;
+                  <a class="label label-info"><i class="fa fa-qq"></i></a>
+                  <a class="label label-success"><i class="fa fa-weixin"></i></a>
+                  <a class="label label-warning"><i class="fa fa-weibo"></i></a>
+              </div>
+          </div>
+          </form>
+        </div>
+      </div>
+      <div class="row text-center">
+        <a ng-click="showModal('#forgetPassword')" class="text-success">忘记密码</a>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content -->
 </div>
 <!-- /.modal-dialog -->
 </div>

@@ -1,30 +1,28 @@
 <div class="container">
-    <div class="row">
-        <div class="col-lg-12" ng-init="getNav('all')">
-            <ul class="portfolio-categ filter">
-                <li class="all active"><a href="javascipt:void(0)" ng-click="getNav('all')">所有</a></li>
-                <li ng-repeat="i in tag"><a href="javascipt:void(0)" title="{{i.name}}" ng-click="getNav(i.id)">{{i.name}}</a></li>
-                <li>
-                    <a class="btn btn-green" href='#/nav.add'>添加网站</a>
-                </li>
-            </ul>
-            <div class="clearfix">
+  <div class="row" ng-init="getNav('all')">
+    <div class="col-md-12 col-xs-12">
+      <ul class="portfolio-categ filter">
+        <li class="all active"><a href="javascipt:void(0)" ng-click="getNav('all')">所有</a></li>
+        <li ng-repeat="i in tag"><a href="javascipt:void(0)" title="{{i.name}}" ng-click="getNav(i.id)">{{i.name}}</a></li>
+        <li>
+          <a class="btn btn-primary" href='#/nav.add'>添加网站</a>
+        </li>
+      </ul>
+      <div class="clearfix">
+      </div>
+      <section id="projects">
+        <ul id="Nav" class="portfolio ITNav list-unstyled">
+          <li class="items col-lg-3" ng-repeat="i in Nav">
+            <div class="items-inner">
+              <h4>{{i.name}}</h4>
+              <a ng-href="{{i.url}}" target="_blank"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'">
+              </a>
+              <p class="describe" title="{{i.describe}}">{{i.describe}}</p>
             </div>
-            <div class="row">
-                <section id="projects">
-                    <ul id="Nav" class="portfolio ITNav list-unstyled">
-                        <li class="items col-lg-3" ng-repeat="i in Nav">
-                            <div class="items-inner">
-                                <h4>{{i.name}}</h4>
-                                <a ng-href="{{i.url}}" target="_blank"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'">
-                                </a>
-                                <p class="describe" title="{{i.describe}}">{{i.describe}}</p>
-                            </div>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-            <label id="loading" class="label label-success col-sm-offset-5" style="margin-top:40px;">{{ none ? '没有更多了':'正在加载'}}<i class='fa fa-spinner fa-pulse' ng-if='!none'></i></label>
-        </div>
+          </li>
+        </ul>
+      </section>
+       <progress></progress>
     </div>
+  </div>
 </div>

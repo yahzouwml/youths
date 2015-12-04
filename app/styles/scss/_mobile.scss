@@ -1,0 +1,29 @@
+@media(max-width:$screen-sm-min) {
+    #Login,#Register {
+        .btn {
+            width: 100%;
+        }
+    }
+    #loading {
+        display: block;
+    }
+    .article {
+        .right {
+            padding: 10px;
+        }
+    }
+    .items {
+        padding: 0;
+    }
+    .u-detail {
+        .u-avatar {
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .u-info {
+            text-align: left;
+        }
+    }
+}

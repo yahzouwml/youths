@@ -1,173 +1,173 @@
 a {
-    color: $c_main;
+    color: $brand-primary;
     &:hover,
     &:focus,
     &:active {
         text-decoration: none;
-        color: $c_main;
+        color: $brand-primary;
     }
     &.thumbnail:hover {
-        border: 1px solid $c_main;
+        border: 1px solid $brand-primary;
     }
 }
 
 footer {
-    background: $c_main;
+    background: $brand-primary;
     a.text-link {
-        color: $c_main;
+        color: $brand-primary;
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
 }
 
 strike {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .post-meta {
-    border-top: 4px solid $c_main;
+    border-top: 4px solid $brand-primary;
     span a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
     .comments a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
 }
 
 ul {
     &.meta-post li a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
     &.cat li a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
     &.recent li h6 a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
     &.portfolio-categ li {
         &.active a {
-            color: $c_main;
+            color: $brand-primary;
             &:hover {
-                color: $c_main;
+                color: $brand-primary;
             }
         }
         a:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
     &.related-post li h4 a:hover {
-        color: $c_main;
+        color: $brand-primary;
     }
     &.clients li:hover {
-        border: 4px solid $c_main;
+        border: 4px solid $brand-primary;
     }
 }
 
 .validation {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .dropdown-menu {
     li {
         &:hover {
-            background-color: $c_main;
+            background-color: $brand-primary;
         }
         a:hover {
-            background-color: $c_main;
+            background-color: $brand-primary;
         }
         > a:focus {
-            background-color: $c_main;
+            background-color: $brand-primary;
         }
         a {
             width: 100%;
         }
     }
     > .active > a {
-        color: $c_main;
+        color: $brand-primary;
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
     .active > a {
-        background-color: $c_main;
+        background-color: $brand-primary;
         &:hover {
-            background-color: $c_main;
+            background-color: $brand-primary;
         }
     }
 }
 
 .custom-carousel-nav {
     &.right:hover {
-        background-color: $c_main;
+        background-color: $brand-primary;
     }
     &.left:hover {
-        background-color: $c_main;
+        background-color: $brand-primary;
     }
 }
 
 .breadcrumb {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 input[type='text'] {
     &:focus {
-        border-color: $c_main;
+        border-color: $brand-primary;
     }
     &.search-form:focus {
-        border: 1px solid $c_main;
+        border: 1px solid $brand-primary;
     }
 }
 
 #sendmessage {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .pullquote-left {
-    border-left: 5px solid $c_main;
+    border-left: 5px solid $brand-primary;
 }
 
 .pullquote-right {
-    border-right: 5px solid $c_main;
+    border-right: 5px solid $brand-primary;
 }
 
 .box-bottom {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 .btn-dark {
     &:hover {
-        border: 1px solid $c_main;
-        background: $c_main;
+        border: 1px solid $brand-primary;
+        background: $brand-primary;
     }
     &:focus {
-        border: 1px solid $c_main;
-        background: $c_main;
+        border: 1px solid $brand-primary;
+        background: $brand-primary;
     }
     &:active {
-        border: 1px solid $c_main;
-        background: $c_main;
+        border: 1px solid $brand-primary;
+        background: $brand-primary;
     }
 }
 
 .btn-theme {
-    border: 1px solid $c_main;
-    background: $c_main;
+    border: 1px solid $brand-primary;
+    background: $brand-primary;
 }
 
 .nivo-caption {
-    border-bottom: $c_main 5px solid;
+    border-bottom: $brand-primary 5px solid;
 }
 
 .caption {
-    border-bottom: $c_main 5px solid;
+    border-bottom: $brand-primary 5px solid;
 }
 
 #sub-footer {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 .weixin {
@@ -180,67 +180,67 @@ input[type='text'] {
 }
 
 span.highlight {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 article .post-heading h3 a:hover {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .navbar .nav > {
     .active > a {
-        color: $c_main;
+        color: $brand-primary;
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
     li > a {
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
 }
 
 .navbar-brand span {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 header .nav li {
     a {
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
         &.dropdown-toggle {
             &:hover {
-                color: $c_main;
+                color: $brand-primary;
             }
             &:focus {
-                color: $c_main;
+                color: $brand-primary;
             }
         }
     }
     &.active {
         a {
-            color: $c_main;
+            color: $brand-primary;
             &:hover {
-                color: $c_main;
+                color: $brand-primary;
             }
         }
         ul.dropdown-menu li {
             a:hover {
-                color: $c_main;
+                color: $brand-primary;
             }
             &.active a {
-                color: $c_main;
+                color: $brand-primary;
             }
         }
     }
@@ -248,201 +248,201 @@ header .nav li {
 
 .navbar-default .navbar-nav > {
     .active > a {
-        color: $c_main;
+        color: $brand-primary;
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
     .open > a {
-        color: $c_main;
+        color: $brand-primary;
         &:hover {
-            color: $c_main;
+            color: $brand-primary;
         }
         &:focus {
-            color: $c_main;
+            color: $brand-primary;
         }
     }
 }
 
 .dropdown-submenu:hover > a {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .pagination ul > {
     .active > {
         a {
-            background-color: $c_main;
+            background-color: $brand-primary;
             &:hover {
-                background-color: $c_main;
+                background-color: $brand-primary;
             }
         }
         span {
-            background-color: $c_main;
+            background-color: $brand-primary;
         }
     }
     li.active > {
         a {
-            border: 1px solid $c_main;
+            border: 1px solid $brand-primary;
         }
         span {
-            border: 1px solid $c_main;
+            border: 1px solid $brand-primary;
         }
     }
 }
 
 .flex-control-nav li a {
     &:hover {
-        background-color: $c_main;
+        background-color: $brand-primary;
     }
     &.active {
-        background-color: $c_main;
+        background-color: $brand-primary;
     }
 }
 
 textarea:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='password']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='datetime']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='datetime-local']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='date']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='month']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='time']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='week']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='number']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='email']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='url']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='search']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='tel']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input[type='color']:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 .uneditable-input:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 input:focus {
-    border-color: $c_main;
+    border-color: $brand-primary;
 }
 
 .cta-text h2 span {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .modal.styled .modal-header {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .widget ul.tags li a:hover {
-    color: $c_main;
-    border-color: $c_main;
+    color: $brand-primary;
+    border-color: $brand-primary;
     background: #fff;
 }
 
 .recent-post .text h5 a:hover {
-    color: $c_main;
+    color: $brand-primary;
 }
 
 .pricing-box-alt.special .pricing-heading {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 .item-thumbs .hover-wrap .overlay-img-thumb {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 #pagination a:hover {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 .pricing-box.special .pricing-offer {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 .icon-square:hover {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .icon-rounded:hover {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .icon-circled:hover {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 [class^='icon-'].active {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 [class*=' icon-'].active {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .fancybox-close:hover {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .fancybox-nav:hover span {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 .da-slide .da-link:hover {
-    border: 4px solid $c_main;
-    background: $c_main;
+    border: 4px solid $brand-primary;
+    background: $brand-primary;
 }
 
 .da-dots span {
-    background: $c_main;
+    background: $brand-primary;
 }
 
 #featured .flexslider .slide-caption {
-    border-left: 5px solid $c_main;
+    border-left: 5px solid $brand-primary;
 }
 
 .nivo-directionNav a:hover {
-    background-color: $c_main;
+    background-color: $brand-primary;
 }
 
 $white: #fff;
@@ -450,7 +450,7 @@ $white: #fff;
     h4 {
         margin: 15px 0;
         text-align: center;
-        color: $c_main;
+        color: $brand-primary;
     }
     img {
         margin: 10px 0;
@@ -514,7 +514,9 @@ a:hover {
         padding-top: 20px;
     }
     article {
-        padding: 20px;
+        @media(min-width: $screen-sm-min) {
+            padding: 20px;
+        }
         background: $white;
     }
 }
@@ -577,6 +579,14 @@ header {
     }
     .navbar-t {
         background-color: transparent;
+        @media(min-width: $screen-sm-min) {
+            .navbar-brand {
+                color: #fff !important;
+            }
+            .nav li a {
+                color: #fff;
+            }
+        }
         .dropdown-menu {
             background-color: transparent;
         }
@@ -587,12 +597,6 @@ header {
         li.active a {
             background-color: transparent !important;
         }
-        .nav li a {
-            color: #fff;
-        }
-        .navbar-brand {
-            color: #fff !important;
-        }
     }
     .navbar-a1 {
         margin-top: 110px;
@@ -600,6 +604,15 @@ header {
     }
     .navbar-a2 {
         @extend %navbar-a;
+    }
+    @media(max-width:$screen-sm-min) {
+        .dropdown-menu {
+            a {
+                height: 30px !important;
+                padding-top: 10px !important;
+                padding-bottom: 10px !important;
+            }
+        }
     }
 }
 
@@ -628,7 +641,7 @@ header {
     padding: 30px 0;
     .h2 {
         margin-bottom: 20px;
-        color: $c_green;
+        color: $brand-success;
     }
 }
 
@@ -641,8 +654,10 @@ header {
 }
 
 #loginRegister {
-    form {
-        margin-left: -55px;
+    @media(min-width: $screen-sm-min) {
+        form {
+            margin-left: -55px;
+        }
     }
     .col-md-6 {
         padding: 0 5px;
@@ -670,7 +685,7 @@ header {
         padding: 20px 20px 0;
         border: 1px solid $c_grey;
         background: $white;
-        [class*='col-sm-'] {
+        [class*='col-md-'] {
             padding: 5px 20px 5px 0;
         }
         .hide-list {
@@ -682,7 +697,7 @@ header {
             ul {
                 margin: 0;
                 li {
-                    border-bottom: 1px solid $c_green;
+                    border-bottom: 1px solid $brand-success;
                     &:last-child {
                         border: 0;
                     }
@@ -737,7 +752,7 @@ header {
     height: 130px;
     margin: 20px 0;
     a {
-        color: $c_green;
+        color: $brand-success;
     }
     .u-avatar {
         float: left;
@@ -748,9 +763,8 @@ header {
         }
     }
     .u-info {
-        float: right;
-        width: 150px;
         padding-left: 10px;
+        float: right;
         .i-bio {
             display: block;
             overflow: hidden;
@@ -886,3 +900,4 @@ header {
     -moz-transform: translate3d(100px, 0, 0);
     transform: translate3d(100px, 0, 0);
 }
+

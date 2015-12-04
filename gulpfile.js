@@ -21,7 +21,7 @@ gulp.task('serve', ['sass', 'config'], function() {
     });
 
     gulp.watch("app/styles/scss/*.scss", ['sass']);
-    gulp.watch(['app/**/*.html', 'app/scripts/**/*.js', 'app/styles/**/*.css']).on('change', $.browserSync.reload);
+    gulp.watch(['app/**/*.html', 'app/js/**/*.js', 'app/styles/**/*.css']).on('change', $.browserSync.reload);
 });
 
 gulp.task('serve:r', function() {
@@ -40,7 +40,7 @@ gulp.task('serve:r', function() {
 gulp.task('sass', function() {
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
-        .pipe($.sass().on('error', $.sass.logError))
+        .pipe($.sass({includePaths:['bower_components/bootstrap-sass/assets/stylesheets']}).on('error', $.sass.logError))
         .pipe($.autoprefixer())
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest("app/styles"))
@@ -137,7 +137,7 @@ gulp.task('replaceHtml', function() {
 gulp.task('import', function() {
     gulp.src(['app/plugin/lobibox/sounds/**'])
         .pipe(gulp.dest('dist/plugin/lobibox/sounds'))
-    gulp.src(['bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap/fonts/**/*'])
+    gulp.src(['bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*'])
         .pipe(gulp.dest('dist/fonts'));
     gulp.src(['app/*.pdf'])
         .pipe(gulp.dest('dist'))

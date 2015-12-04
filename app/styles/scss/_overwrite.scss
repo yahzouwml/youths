@@ -1,6 +1,19 @@
-.label,.btn,[class*='input']{
-    border-radius:0;
+.label,
+.btn,
+[class*='input'] {
+    border-radius: 0;
 }
+
+[class*='col-xs-'],
+[class*='col-sm-'],
+[class*='col-md-'],
+[class*='col-lg-'] {
+    @media(max-width: $screen-sm-min) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
 @each $key,
 $value in $colors {
     .label-#{$key}-o {
@@ -51,10 +64,17 @@ $value in $colors {
     display: none;
 }
 
+img {
+    max-width: 100%;
+}
+
+.modal-content {
+    border-radius: 0 !important;
+}
+
 img,
 li,
-a {
-}
+a {}
 
 i {
     font-style: normal;
@@ -62,10 +82,10 @@ i {
 
 .tooltip {
     .tooltip-inner {
-        background: $c_main;
+        background: $brand-primary;
     }
     .tooltip-arrow {
-        border-top-color: $c_main !important;
+        border-top-color: $brand-primary !important;
     }
 }
 
@@ -187,14 +207,11 @@ i {
     box-shadow: none;
 }
 
-.img-rounded {
-}
+.img-rounded {}
 
-code {
-}
+code {}
 
-pre {
-}
+pre {}
 
 blockquote {
     margin: 0 0 20px;
@@ -367,44 +384,32 @@ input[type="color"] {
 
 .input-append {
     input {
-        + .btn-group .btn:last-child {
-        }
+        + .btn-group .btn:last-child {}
     }
     select {
-        + .btn-group .btn:last-child {
-        }
+        + .btn-group .btn:last-child {}
     }
     .uneditable-input {
-        + .btn-group .btn:last-child {
-        }
+        + .btn-group .btn:last-child {}
     }
-    .add-on:last-child {
-    }
-    .btn:last-child {
-    }
-    .btn-group:last-child > .dropdown-toggle {
-    }
+    .add-on:last-child {}
+    .btn:last-child {}
+    .btn-group:last-child > .dropdown-toggle {}
 }
 
 .input-prepend {
-    input {
-    }
-    select {
-    }
-    .uneditable-input {
-    }
+    input {}
+    select {}
+    .uneditable-input {}
     &.input-append {
         input {
-            + .btn-group .btn {
-            }
+            + .btn-group .btn {}
         }
         select {
-            + .btn-group .btn {
-            }
+            + .btn-group .btn {}
         }
         .uneditable-input {
-            + .btn-group .btn {
-            }
+            + .btn-group .btn {}
         }
         .add-on {
             &:first-child {
@@ -423,24 +428,18 @@ input[type="color"] {
             }
         }
     }
-    .add-on:first-child {
-    }
-    .btn:first-child {
-    }
+    .add-on:first-child {}
+    .btn:first-child {}
 }
 
 .form-search {
     .input-append {
-        .search-query {
-        }
-        .btn {
-        }
+        .search-query {}
+        .btn {}
     }
     .input-prepend {
-        .search-query {
-        }
-        .btn {
-        }
+        .search-query {}
+        .btn {}
     }
 }
 
@@ -598,8 +597,7 @@ input[type="color"] {
 }
 
 .dropdown-submenu {
-    > .dropdown-menu {
-    }
+    > .dropdown-menu {}
     &.pull-left > .dropdown-menu {
         left: -100%;
         margin-left: 10px;
@@ -712,14 +710,11 @@ dd {
     position: relative;
 }
 
-.well {
-}
+.well {}
 
-.well-large {
-}
+.well-large {}
 
-.well-small {
-}
+.well-small {}
 
 .btn {
     font-size: 12px;
@@ -763,18 +758,14 @@ dd {
 .btn-medium {
     padding: 6px 15px;
     font-size: 13px;
-    &.btn-mini {
-    }
-    &.btn-small {
-    }
-    &.btn-rounded {
-    }
+    &.btn-mini {}
+    &.btn-small {}
+    &.btn-rounded {}
 }
 
 .btn-large {
     font-size: 14px;
-    &.btn-rounded {
-    }
+    &.btn-rounded {}
 }
 
 .btn-small {
@@ -785,14 +776,11 @@ dd {
     font-size: 10px;
 }
 
-.btn-square {
-}
+.btn-square {}
 
-.btn-rounded {
-}
+.btn-rounded {}
 
-.alert {
-}
+.alert {}
 
 .nav-tabs {
     border-bottom: none;
@@ -814,8 +802,7 @@ dd {
             }
         }
     }
-    .dropdown-menu {
-    }
+    .dropdown-menu {}
     &.nav-stacked > li {
         &:first-child > a {
             //Instead of the line below you could use @include border-top-right-radius($radius)
@@ -833,10 +820,8 @@ dd {
 }
 
 .nav-pills {
-    .dropdown-menu {
-    }
-    > li > a {
-    }
+    .dropdown-menu {}
+    > li > a {}
 }
 
 .tabs-left {
@@ -844,8 +829,7 @@ dd {
         margin-right: 0;
         border: none;
     }
-    > .nav-tabs > li > a {
-    }
+    > .nav-tabs > li > a {}
 }
 
 .tabs-right {
@@ -905,8 +889,7 @@ dd {
                         @extend %extend_5;
                     }
                 }
-                .dropdown-menu.pull-right .dropdown-menu {
-                }
+                .dropdown-menu.pull-right .dropdown-menu {}
             }
             .active > a {
                 @extend %extend_6;
@@ -924,8 +907,7 @@ dd {
         z-index: 99999;
         left: 0;
     }
-    .pull-right > li > .dropdown-menu .dropdown-menu {
-    }
+    .pull-right > li > .dropdown-menu .dropdown-menu {}
 }
 
 .nav-header {
@@ -966,26 +948,19 @@ dd {
     float: right;
 }
 
-.modal {
-}
+.modal {}
 
-.modal-header {
-    background-color: $c_l_grey;
-}
+.modal-header {}
 
 .modal-title {}
 
-.modal-footer {
-}
+.modal-footer {}
 
-.tooltip-inner {
-}
+.tooltip-inner {}
 
-.popover {
-}
+.popover {}
 
-.popover-title {
-}
+.popover-title {}
 
 .thumbnail {
     background: $color_alabaster_approx;
@@ -1025,8 +1000,7 @@ dd {
     padding: 5px 10px;
 }
 
-.progress {
-}
+.progress {}
 
 .bar {
     &.bar90 {
@@ -1123,19 +1097,16 @@ dd {
     border-bottom: 1px solid $color_gray_nurse_approx;
 }
 
-.carousel-control {
-}
+.carousel-control {}
 
-.hero-unit {
-}
+.hero-unit {}
 
 .img-circle.bordered {
     background-color: $white;
     border: 1px solid $color_gray_nurse_approx;
 }
 
-.dropup .dropdown-submenu > .dropdown-menu {
-}
+.dropup .dropdown-submenu > .dropdown-menu {}
 
 a.btn {
     outline: 0;
@@ -1187,16 +1158,12 @@ a.btn {
 
 .btn-group-vertical > {
     .btn {
-        &:first-child {
-        }
-        &:last-child {
-        }
+        &:first-child {}
+        &:last-child {}
     }
     .btn-large {
-        &:first-child {
-        }
-        &:last-child {
-        }
+        &:first-child {}
+        &:last-child {}
     }
 }
 
@@ -1204,15 +1171,13 @@ a.btn {
     color: $white;
 }
 
-.tabs-below > .nav-tabs > li > a {
-}
+.tabs-below > .nav-tabs > li > a {}
 
 .navbar-inverse .navbar-inner {
     @extend %extend_4;
 }
 
-.navbar-search .search-query {
-}
+.navbar-search .search-query {}
 
 .nav-collapse .nav > li > .dropdown-menu {
     &:before {
@@ -1375,10 +1340,8 @@ a.btn {
 }
 
 .pager li > {
-    a {
-    }
-    span {
-    }
+    a {}
+    span {}
 }
 
 .tab-content > .tab-pane {

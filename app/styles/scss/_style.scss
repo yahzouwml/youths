@@ -154,7 +154,12 @@ h6 {
 }
 
 .container {
-    padding: 0 20px;
+    @media(min-width: $screen-sm-min) {
+        padding: 0 20px;
+    }
+    @media(max-width: $screen-sm-min) {
+        padding: 0 10px;
+    }
     position: relative;
 }
 
@@ -414,8 +419,8 @@ header {
         a:hover {
             color: $white !important;
         }
-        &:hover{
-            background:$c_main !important;
+        &:hover {
+            background: $brand-primary !important;
         }
     }
     .dropdown i {
@@ -984,6 +989,7 @@ blockquote {
     color: $color_delta_approx;
     line-height: 1.6em;
     border: none;
+    overflow: hidden;
     cite {
         display: block;
         font-size: 12px;
@@ -1498,11 +1504,11 @@ article {
             li {
                 a {
                     background: #fff;
-                    color: $c_green;
+                    color: $brand-success;
                     border-color: transparent !important;
                     &:hover,
                     &.active {
-                        background: $c_green !important;
+                        background: $brand-success !important;
                         border-color: transparent !important;
                         color: $white !important;
                     }
@@ -1982,4 +1988,10 @@ select.selectmenu {
 .demoinline p {
     display: inline;
     margin-right: 20px;
+}
+
+#Nav {
+    @media(max-width: $screen-sm-min) {
+        margin-left: 0;
+    }
 }

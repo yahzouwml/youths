@@ -1,0 +1,94 @@
+//notice overwrite
+.lobibox-notify {
+    &.lobibox-notify-error {
+        border-color: $brand-danger;
+        background-color: $brand-danger;
+        color: #fff;
+        &:hover {
+            background-color: #ca2121;
+            border-color: $brand-danger-hover;
+        }
+    }
+    &.lobibox-notify-success {
+        border-color: $brand-success;
+        background-color: $brand-success;
+        color: #fff;
+        &:hover {
+            background-color: #29b87e;
+            border-color: $brand-success-hover;
+        }
+    }
+    &.lobibox-notify-warning {
+        border-color: $brand-warning;
+        background-color: $brand-warning;
+        color: #fff;
+        &:hover {
+            background-color: $brand-warning-hover;
+            border-color: #fff;
+        }
+    }
+    &.lobibox-notify-info {
+        border-color: $brand-info;
+        background-color: $brand-info;
+        color: #fff;
+        &:hover {
+            background-color: $brand-info-hover;
+            border-color: #fff;
+        }
+    }
+}
+
+//spinner overwrite
+.spinner {
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    font-size: 10px;
+    &.spinner2 {
+        display: inline-block;
+        margin: 0;
+        height: 15px;
+    }
+    > div {
+        background-color: $white;
+        height: 100%;
+        width: 6px;
+        display: inline-block;
+        animation: sk-stretchdelay 1.2s infinite ease-in-out;
+    }
+    .rect2 {
+        animation-delay: -1.1s;
+    }
+    .rect3 {
+        animation-delay: -1.0s;
+    }
+    .rect4 {
+        animation-delay: -0.9s;
+    }
+    .rect5 {
+        animation-delay: -0.8s;
+    }
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0% {}
+    40% {}
+    100% {}
+    20% {}
+}
+
+@keyframes sk-stretchdelay {
+    0% {
+        transform: scaleY(0.4);
+    }
+    40% {
+        transform: scaleY(0.4);
+    }
+    100% {
+        transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1.0);
+    }
+}
