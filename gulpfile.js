@@ -137,7 +137,7 @@ gulp.task('replaceHtml', function() {
 gulp.task('import', function() {
     gulp.src(['app/plugin/lobibox/sounds/**'])
         .pipe(gulp.dest('dist/plugin/lobibox/sounds'))
-    gulp.src(['bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap-sass/assets/fonts/bootstrap/**/*'])
+    gulp.src(['bower_components/font-awesome/fonts/**/*', 'bower_components/bootstrap-sass/assets/fonts/**/*'])
         .pipe(gulp.dest('dist/fonts'));
     gulp.src(['app/*.pdf'])
         .pipe(gulp.dest('dist'))
