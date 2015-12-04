@@ -517,7 +517,6 @@ a:hover {
         @media(min-width: $screen-sm-min) {
             padding: 20px;
         }
-        background: $white;
     }
 }
 
@@ -685,9 +684,6 @@ header {
         padding: 20px 20px 0;
         border: 1px solid $c_grey;
         background: $white;
-        [class*='col-md-'] {
-            padding: 5px 20px 5px 0;
-        }
         .hide-list {
             clear: both;
             margin-right: -20px;
@@ -711,12 +707,6 @@ header {
     }
     h4 {
         margin-top: 0;
-    }
-    .thumb {
-        float: left;
-        width: 160px;
-        height: 160px;
-        margin-right: 20px;
     }
     .bottom {
         a,
@@ -794,10 +784,6 @@ header {
             border-color: transparent transparent #fff transparent;
         }
     }
-}
-
-#searchPanel {
-    background: #fff;
 }
 
 .avatar_ {
@@ -900,4 +886,3 @@ header {
     -moz-transform: translate3d(100px, 0, 0);
     transform: translate3d(100px, 0, 0);
 }
-

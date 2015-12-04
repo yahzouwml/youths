@@ -9,31 +9,31 @@
                 </ul>
             </div>
             <article class="article clearfix article-{{i.id}}" ng-repeat="i in Blog">
-                <div class="left col-md-2">
+                <div class="left col-md-2 hidden-xs">
                     <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png'>
                     <br/>
                     <a for="" class="label-orange-o" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && !_.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="focusUser($event,i.userId)">关注</a>
                     <a for="" class="label-orange" ng-show="(i.userId != currentUser.id) && (currentUser!=null) && _.containsUser(i.user.followUsers,'userId',currentUser.id)" ng-click="disfocusUser($event,i.userId)">已关注</a>
                 </div>
                 <div class="right col-md-8 col-xs-12 article-right-{{i.id}}">
-                    <p>
+                    <p class="col-xs-12">
                         <a>{{i.user.username}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;<span class="text-grey">{{i.created | date:'yyyy-MM-dd'}}</span>
                     </p>
                     <div class="col-md-12">
                         <img class="thumb" ng-src="{{i.content | thumb}}" alt="" error='/img/blog-default.jpg' />
                         <h4><a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a></h4>
-                        <blockquote>
+                        <blockquote class="col-xs-12">
                             {{ i.content | htmlToPlaintext:200 }}
                         </blockquote>
                     </div>
                     <div class="bottom col-md-12 col-xs-12">
-                        <div class="tags col-md-5 "><i class="fa fa-tags"></i>&nbsp;&nbsp;<span ng-repeat="j in i.tags">{{j.name}},</span>&nbsp;</div>
-                        <a class="text-grey" ng-click="toggle('.like-'+i.id)">热度(<span>{{i.blogLikeUsers.length}}</span>)</a>
-                        <a class="text-grey" ng-click="toggle('.comment-'+i.id)">评论({{i.comments.length}})</a>
-                        <span class="text-grey">阅读({{i.click}})</span>
-                        <a class="text-grey" ng-click="share('.article-right-'+i.id,(i.content | htmlToPlaintext:200),mainServer+'blog/detail/'+i.id)">分享</a>
-                        <a class="text-red" ng-show="!_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="likeBlog($event,i.id)"><i class="fa fa-heart-o"></i></a>
-                        <a class="text-red" ng-show="_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="dislikeBlog($event,i.id)"><i class="fa fa-heart"></i></a>
+                        <div class="tags col-md-5 col-xs-12 " ng-if="i.tags.length!=0"><i class="fa fa-tags"></i>&nbsp;&nbsp;<span ng-repeat="j in i.tags">{{j.name}},</span>&nbsp;</div>
+                        <a class="text-grey col-xs-4" ng-click="toggle('.like-'+i.id)">热度(<span>{{i.blogLikeUsers.length}}</span>)</a>
+                        <a class="text-grey  col-xs-4" ng-click="toggle('.comment-'+i.id)">评论({{i.comments.length}})</a>
+                        <span class="text-grey  col-xs-4">阅读({{i.click}})</span>
+                        <a class="text-grey  col-xs-4" ng-click="share('.article-right-'+i.id,(i.content | htmlToPlaintext:200),mainServer+'blog/detail/'+i.id)">分享</a>
+                        <a class="text-red  col-xs-4" ng-show="!_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="likeBlog($event,i.id)"><i class="fa fa-heart-o"></i></a>
+                        <a class="text-red  col-xs-4" ng-show="_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="dislikeBlog($event,i.id)"><i class="fa fa-heart"></i></a>
                     </div>
                     <div class="like-{{i.id}} hidden2 hide-list">
                         <ul class="list-unstyled">
@@ -53,20 +53,7 @@
                     </div>
                 </div>
             </article>
-            <div class="bdsharebuttonbox hidden2 hide-list">
-                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
-                <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
-                <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
-                <a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享"></a>
-                <a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a>
-            </div>
-            <script>
-            with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
-            </script>
-             <progress></progress>
+            <progress></progress>
         </div>
     </div>
 </div>

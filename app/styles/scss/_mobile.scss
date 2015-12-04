@@ -1,16 +1,15 @@
 @media(max-width:$screen-sm-min) {
-    #Login,#Register {
+    #Login,
+    #Register {
         .btn {
             width: 100%;
+        }
+        input {
+            // height: 44px;
         }
     }
     #loading {
         display: block;
-    }
-    .article {
-        .right {
-            padding: 10px;
-        }
     }
     .items {
         padding: 0;
@@ -24,6 +23,41 @@
         }
         .u-info {
             text-align: left;
+        }
+    }
+    .article {
+        margin-bottom: 10px;
+        .thumb {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .right {
+            padding: 5px 0px;
+            [class*='col-'] {
+                padding: 5px;
+            }
+            p {
+                padding-left: 10px !important;
+            }
+        }
+    }
+    .zhihu {
+        width: 100%;
+        margin-left: -10px;
+        background-color: transparent !important;
+        padding: 0 10px;
+        .zhihu-content {
+            background-color: #fff;
+            padding: 10px 5px;
+            p {
+                padding-left: 5px;
+            }
+        }
+        .bottom {
+            display: inline;
+        }
+        blockquote {
+            margin-right: 0 !important;
         }
     }
 }

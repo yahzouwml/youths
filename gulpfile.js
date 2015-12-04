@@ -15,13 +15,14 @@ gulp.task('serve', ['sass', 'config'], function() {
         server: {
             baseDir: ['app'],
             routes: {
-                '/bower_components': 'bower_components'
+                '/bower_components': 'bower_components',
+                '/fonts': "bower_components/bootstrap-sass/assets/fonts"
             }
         }
     });
 
     gulp.watch("app/styles/scss/*.scss", ['sass']);
-    gulp.watch(['app/**/*.html', 'app/js/**/*.js', 'app/styles/**/*.css']).on('change', $.browserSync.reload);
+    gulp.watch(['app/**/*.html', 'app/js/**/*.js']).on('change', $.browserSync.reload);
 });
 
 gulp.task('serve:r', function() {
@@ -40,7 +41,9 @@ gulp.task('serve:r', function() {
 gulp.task('sass', function() {
     return gulp.src("app/styles/scss/*.scss")
         .pipe($.sourcemaps.init())
-        .pipe($.sass({includePaths:['bower_components/bootstrap-sass/assets/stylesheets']}).on('error', $.sass.logError))
+        .pipe($.sass({
+            includePaths: ['bower_components/bootstrap-sass/assets/stylesheets']
+        }).on('error', $.sass.logError))
         .pipe($.autoprefixer())
         .pipe($.sourcemaps.write())
         .pipe(gulp.dest("app/styles"))

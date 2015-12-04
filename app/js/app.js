@@ -1,7 +1,7 @@
 "use strict";
 
 var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipCookie', 'lbServices', 'jcs-autoValidate', 'wu.masonry', 'envconfig'])
-  .run(function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http, ENV) {
+  .run(function($rootScope, $location, $log, bootstrap3ElementModifier, defaultErrorMessageResolver, $state, $stateParams, $http, $window, ENV) {
     $rootScope.mainServer = ENV.mainServer
     $rootScope.storageServer = ENV.storageServer
     $rootScope.apiServer = ENV.apiServer
@@ -16,7 +16,6 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
     });
 
     $rootScope.$state = $state;
-    $rootScope.$stateParams = $stateParams;
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
       console.log('change start from:', fromState)
       console.log('change start to:', toState)
@@ -26,7 +25,6 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
       }, 1000);
       $("header .navbar").removeClass('navbar-a1 navbar-a2')
     })
-
     $(window).scroll(function() {
       if ($state.is('main')) {
         if ($(window).scrollTop() > 110) {
@@ -175,7 +173,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
                   break;
                 default:
                   message = '';
-                  $('#loginRegister').modal();
+                  $('#Login').modal();
               }
             }
           }

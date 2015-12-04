@@ -1,33 +1,35 @@
 <div class="container">
-  <div class="row">
-    <div class="widget" ng-init="getZhihu()">
-      <ul class="tags tags2">
-        <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new')">最新</a></li>
-        <li><a href="javascipt:void(0)" ng-click="getBlog('hot');change(this)">热门</a></li>
-        <li ng-repeat="i in Tag"><a href='javascipt:void(0)' ng-click="getBlog(i.id)">{{i.name}}</a></li>
-      </ul>
+    <div class="row">
+        <div class="widget" ng-init="getZhihu()">
+            <ul class="tags tags2">
+                <li><a href="javascipt:void(0)" class="active" ng-click="getBlog('new')">最新</a></li>
+                <li><a href="javascipt:void(0)" ng-click="getBlog('hot');change(this)">热门</a></li>
+                <li ng-repeat="i in Tag"><a href='javascipt:void(0)' ng-click="getBlog(i.id)">{{i.name}}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12" masonry id="zhihu">
+            <article class="clearfix zhihu masonry-brick" ng-repeat="i in Zhihu">
+                <div class="zhihu-content">
+                    <p class="topic">
+                        <a ng-repeat="j in i.topic" class="label-success-o" href='{{j.url}}' target="_blank">{{j.name}}</a>
+                    </p>
+                    <h4 title="{{i.question.name}}"><a href="{{i.answerUrl.split('answer')[0]}}" class="text-dark" target="_blank">{{i.question.name}}</a></h4>
+                    <p>
+                        <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar | zhihuavatar}}" class="avatar_s" alt="" error='/img/avatar.png' target="_blank"></a>&nbsp;&nbsp;.&nbsp;&nbsp;
+                        <a href="{{i.user.home}}" target="_blank">{{!!i.user.name?i.user.name:'佚名'}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;
+                        <span class="text-grey">{{i.answerTime | date:'yyyy-MM-dd'}}</span>&nbsp;&nbsp;.&nbsp;&nbsp;
+                        <span class="text-grey" title='热度'><i class="fa fa-fire"></i>&nbsp;{{i.count}}</span>
+                    </p>
+                    <div class="col-md-12">
+                        <blockquote ng-bind-html="i.answer | htmlNoImage" class="text-dark" dh start='50' multiple='200'>
+                        </blockquote>
+                    </div>
+                    <div class="bottom col-md-12">
+                        <a href="{{i.answerUrl}}" class="text-green pull-right" target="_blank">阅读原文>></a>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <progress style="margin-left: 10px;margin-right: 10px;"></progress>
     </div>
-    <masonry class="col-lg-12" id="zhihu">
-      <article class="clearfix zhihu masonry-brick" ng-repeat="i in Zhihu">
-        <p class="topic">
-          <a ng-repeat="j in i.topic" class="label-green-o" href='{{j.url}}' target="_blank">{{j.name}}</a>
-        </p>
-        <h4 title="{{i.question.name}}"><a href="{{i.answerUrl.split('answer')[0]}}" class="text-dark" target="_blank">{{i.question.name}}</a></h4>
-        <p>
-          <a href="{{i.user.home}}"><img ng-src="{{i.user.sAvatar | zhihuavatar}}" class="avatar_s" alt="" error='/img/avatar.png' target="_blank"></a>&nbsp;&nbsp;.&nbsp;&nbsp;
-          <a href="{{i.user.home}}" target="_blank">{{!!i.user.name?i.user.name:'佚名'}}</a>&nbsp;&nbsp;.&nbsp;&nbsp;
-          <span class="text-grey">{{i.answerTime | date:'yyyy-MM-dd'}}</span>&nbsp;&nbsp;.&nbsp;&nbsp;
-          <span class="text-grey" title='热度'><i class="fa fa-fire"></i>&nbsp;{{i.count}}</span>
-        </p>
-        <div class="col-sm-12">
-          <blockquote ng-bind-html="i.answer | htmlNoImage" class="text-dark" dh start='50' multiple='200'>
-          </blockquote>
-        </div>
-        <div class="bottom col-sm-12">
-          <a href="{{i.answerUrl}}" class="text-green pull-right" target="_blank">阅读原文>></a>
-        </div>
-      </article>
-    </masonry>
-    <progress></progress>
-  </div>
 </div>
