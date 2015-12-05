@@ -27,13 +27,13 @@
                         </blockquote>
                     </div>
                     <div class="bottom col-md-12 col-xs-12">
-                        <div class="tags col-md-5 col-xs-12 " ng-if="i.tags.length!=0"><i class="fa fa-tags"></i>&nbsp;&nbsp;<span ng-repeat="j in i.tags">{{j.name}},</span>&nbsp;</div>
-                        <a class="text-grey col-xs-4" ng-click="toggle('.like-'+i.id)">热度(<span>{{i.blogLikeUsers.length}}</span>)</a>
-                        <a class="text-grey  col-xs-4" ng-click="toggle('.comment-'+i.id)">评论({{i.comments.length}})</a>
-                        <span class="text-grey  col-xs-4">阅读({{i.click}})</span>
-                        <a class="text-grey  col-xs-4" ng-click="share('.article-right-'+i.id,(i.content | htmlToPlaintext:200),mainServer+'blog/detail/'+i.id)">分享</a>
-                        <a class="text-red  col-xs-4" ng-show="!_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="likeBlog($event,i.id)"><i class="fa fa-heart-o"></i></a>
-                        <a class="text-red  col-xs-4" ng-show="_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="dislikeBlog($event,i.id)"><i class="fa fa-heart"></i></a>
+                        <div class="tags col-md-12 col-xs-12 " ng-if="i.tags.length!=0"><i class="fa fa-tags"></i>&nbsp;&nbsp;<span ng-repeat="j in i.tags">{{j.name}},</span>&nbsp;</div>
+                        <a class="text-grey col-md-2 col-xs-4" ng-click="toggle('.like-'+i.id)">热度(<span>{{i.blogLikeUsers.length}}</span>)</a>
+                        <a class="text-grey  col-md-2 col-xs-4" ng-click="toggle('.comment-'+i.id)">评论({{i.comments.length}})</a>
+                        <span class="text-grey  col-md-2 col-xs-4">阅读({{i.click}})</span>
+                        <a class="text-grey  col-md-2 col-xs-4" ng-click="share('.article-right-'+i.id,(i.content | htmlToPlaintext:200),mainServer+'blog/detail/'+i.id)">分享</a>
+                        <a class="text-red  col-md-2 col-xs-4" ng-show="!_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="likeBlog($event,i.id)"><i class="fa fa-heart-o"></i></a>
+                        <a class="text-red  col-md-2 col-xs-4" ng-show="_.containsUser(i.blogLikeUsers,'id',currentUser.id)" ng-click="dislikeBlog($event,i.id)"><i class="fa fa-heart"></i></a>
                     </div>
                     <div class="like-{{i.id}} hidden2 hide-list">
                         <ul class="list-unstyled">

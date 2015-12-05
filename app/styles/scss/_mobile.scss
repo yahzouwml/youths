@@ -1,63 +1,67 @@
 @media(max-width:$screen-sm-min) {
-    #Login,
-    #Register {
-        .btn {
-            width: 100%;
-        }
-        input {
-            // height: 44px;
-        }
+  #Login,
+  #Register {
+    .btn {
+      width: 100%;
     }
-    #loading {
+    input {
+      // height: 44px;
+    }
+  }
+  #loading {
+    display: block;
+  }
+  .items {
+    padding: 0;
+  }
+  .u-detail {
+    .u-avatar {
+      img {
         display: block;
+        margin: 0 auto;
+      }
     }
-    .items {
-        padding: 0;
+    .u-info {
+      text-align: left;
     }
-    .u-detail {
-        .u-avatar {
-            img {
-                display: block;
-                margin: 0 auto;
-            }
-        }
-        .u-info {
-            text-align: left;
-        }
+  }
+  .article {
+    margin-bottom: 10px;
+    .thumb {
+      width: 100%;
+      margin-bottom: 10px;
     }
-    .article {
-        margin-bottom: 10px;
-        .thumb {
-            width: 100%;
-            margin-bottom: 10px;
-        }
-        .right {
-            padding: 5px 0px;
-            [class*='col-'] {
-                padding: 5px;
-            }
-            p {
-                padding-left: 10px !important;
-            }
-        }
+    .right {
+      padding: 5px 0px;
+      [class*='col-'] {
+        padding: 5px;
+      }
+      p {
+        padding-left: 10px !important;
+      }
     }
-    .zhihu {
-        width: 100%;
-        margin-left: -10px;
-        background-color: transparent !important;
-        padding: 0 10px;
-        .zhihu-content {
-            background-color: #fff;
-            padding: 10px 5px;
-            p {
-                padding-left: 5px;
-            }
-        }
-        .bottom {
-            display: inline;
-        }
-        blockquote {
-            margin-right: 0 !important;
-        }
+  }
+  .zhihu {
+    width: 100%;
+    margin-left: -10px;
+    background-color: transparent !important;
+    padding: 0 10px;
+    .zhihu-content {
+      background-color: #fff;
+      padding: 10px 5px;
+      p {
+        padding-left: 5px;
+      }
     }
+    .bottom {
+      display: inline;
+    }
+    blockquote {
+      margin-right: 0 !important;
+    }
+  }
+  .mlr10 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }
