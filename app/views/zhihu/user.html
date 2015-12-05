@@ -19,33 +19,32 @@
         <input class="btn btn-primary" name="" type="submit" value="搜索" ng-click="search()">
       </div>
     </div>
-  </article>
-  <div class="row">
-    <div class="col-xs-12 col-md-3 u-detail" ng-repeat="i in Zhihuuser">
-      <div class="u-extend hidden-xs" style="display:none">
-        <i class="fa fa-briefcase"></i>&nbsp;{{i.bussiness}} &nbsp;&nbsp;&nbsp;
-        <i class="fa fa-eye"></i>&nbsp;{{i.see}}
-        <br/>
-        <br/>关注了&nbsp;{{i.focus}}&nbsp;人&nbsp;&nbsp;&nbsp;被&nbsp;{{i.follow}}人关注
-        <br/>关注了&nbsp;{{i.focusTopics}}&nbsp;个话题
-      </div>
-      <a class="u-avatar col-xs-6" href='{{i.home}}' target="_blank"><img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png'></a>
-      <div class="u-info col-xs-6">
-        <a class='u-name' href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;<i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>
-        <br/>
-        <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<i title="居住地">{{!!i.location?i.location:'未知'}}</i>
-        <br/>
-        <i class="fa fa-link"></i>
-        <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i></a>
-        <i title='社交账号'>{{!i.weibo?'暂无':''}}</i>
-        <br/>
-        <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
-        <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
-        <br/>
-        <span class='i-bio' title="{{i.bio}}">{{i.bio}}</span>
+    <div class="row">
+      <div class="col-xs-12 col-md-3 u-detail" ng-repeat="i in Zhihuuser">
+        <div class="u-extend hidden-xs" style="display:none">
+          <i class="fa fa-briefcase"></i>&nbsp;{{i.bussiness}} &nbsp;&nbsp;&nbsp;
+          <i class="fa fa-eye"></i>&nbsp;{{i.see}}
+          <br/>
+          <br/>关注了&nbsp;{{i.focus}}&nbsp;人&nbsp;&nbsp;&nbsp;被&nbsp;{{i.follow}}人关注
+          <br/>关注了&nbsp;{{i.focusTopics}}&nbsp;个话题
+        </div>
+        <a class="u-avatar col-xs-6" href='{{i.home}}' target="_blank"><img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png'></a>
+        <div class="u-info col-xs-6">
+          <a class='u-name' href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;<i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>
+          <br/>
+          <i class="fa fa-map-marker"></i>&nbsp;&nbsp;<i title="居住地">{{!!i.location?i.location:'未知'}}</i>
+          <br/>
+          <i class="fa fa-link"></i>
+          <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i></a>
+          <i title='社交账号'>{{!i.weibo?'暂无':''}}</i>
+          <br/>
+          <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
+          <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
+          <br/>
+          <span class='i-bio' title="{{i.bio}}">{{i.bio}}</span>
+        </div>
       </div>
     </div>
-  </div>
   </article>
   <progress></progress>
 </div>
