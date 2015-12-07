@@ -2,197 +2,227 @@
 <html ng-app="global">
 
 <head>
-    <meta charset="utf-8">
-    <title page-title>Youths | Do Interest Things</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-    <meta name="description" content="Youths,Do Interest Things.Youths,活力web倡导者，" />
-    <meta name="keywords" content="Youths,Do Interest Things.Youths,活力web倡导者，Youths 寻找志同道合的年青人.知乎精选、知乎用户、知乎妹子、it站导航" />
-    <link href="img/Youths.ico" rel="shortcut icon" />
-    <!-- import css -->
-    <!-- build:css styles/youths.min.css -->
-    <link href='/bower_components/font-awesome/css/font-awesome.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/froala_editor.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/froala_style.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/image.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/colors.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/fullscreen.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/table.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/code_view.css' rel='stylesheet' />
-    <link href='/plugin/froala_editor/css/plugins/emoticons.css' rel='stylesheet' />
-    <link href='/plugin/lobibox/css/lobibox.css' rel="stylesheet" />
-    <link href="/plugin/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
-    <link href="/styles/youths.css" rel="stylesheet" />
-    <!-- endbuild -->
+  <meta charset="utf-8">
+  <title page-title>Youths | Do Interest Things</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="description" content="Youths,Do Interest Things.Youths,活力web倡导者，" />
+  <meta name="keywords" content="Youths,Do Interest Things.Youths,活力web倡导者，Youths 寻找志同道合的年青人.知乎精选、知乎用户、知乎妹子、it站导航" />
+  <link href="img/Youths.ico" rel="shortcut icon" />
+  <!-- import css -->
+  <!-- build:css styles/youths.min.css -->
+  <link href='/bower_components/font-awesome/css/font-awesome.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/froala_editor.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/froala_style.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/image.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/colors.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/fullscreen.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/table.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/code_view.css' rel='stylesheet' />
+  <link href='/plugin/froala_editor/css/plugins/emoticons.css' rel='stylesheet' />
+  <link href='/plugin/lobibox/css/lobibox.css' rel="stylesheet" />
+  <link href="/plugin/selectize/css/selectize.bootstrap3.css" rel="stylesheet" />
+  <link href="/styles/youths.css" rel="stylesheet" />
+  <!-- endbuild -->
 </head>
 
 <body ng-controller="mainCtrl">
-    <div id="wrapper" ui-view-container>
-        <!-- start header -->
-        <header>
-            <div class="navbar navbar-default navbar-static-top {{$state.is('main')}}" ng-class="{'navbar-t': $state.is('main')}">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#/"><span>Y</span>ouths</a>
-                    </div>
-                    <div class="navbar-collapse collapse ">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#/">首页</a></li>
-                            <li>
-                                <a href="#/nav">任意门</a>
-                            </li>
-                            <li><a href="#/blog">趣博客</a></li>
-                            <li><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#/zhihu.article">知乎精选</a></li>
-                                    <li><a href="#/zhihu.user">知乎用户</a></li>
-                                </ul>
-                            </li>
-                            <li ng-if='currentUser == null'><a ng-click="showModal('#Register')">注册</a></li>
-                            <li ng-if='currentUser == null'><a ng-click="showModal('#Login')">登录</a></li>
-                            <li ng-if='currentUser != null'>
-                                <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
-                                    <li><a href="#/nav.add"><i class="fa fa-plus"></i>&nbsp;&nbsp;推酷站</a></li>
-                                    <li><a href="#/account"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
-                                    <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;登出</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="banner" ng-show="$state.is('main')">
-                <div class="container b-search text-center">
-                    <h1>发现有趣的事</h1>
-                    <input type="text" placeholder="去搜索" class="col-md-4 col-md-offset-4 col-xs-12">
-                </div>
-            </div>
-        </header>
-        <div ng-class="{'content': !$state.is('main'),'content2': $state.is('main')}" ui-view>
+  <div id="wrapper" ui-view-container>
+    <!-- start header -->
+    <header>
+      <div class="navbar navbar-default navbar-static-top {{$state.is('main')}}" ng-class="{'navbar-t': $state.is('main')}">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/"><span>Y</span>ouths</a>
+          </div>
+          <div class="navbar-collapse collapse ">
+            <ul class="nav navbar-nav">
+              <li><a href="#/">首页</a></li>
+              <li>
+                <a href="#/nav">任意门</a>
+              </li>
+              <li><a href="#/blog">趣博客</a></li>
+              <li><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
+                <ul class="dropdown-menu">
+                  <li><a href="#/zhihu.article">知乎精选</a></li>
+                  <li><a href="#/zhihu.user">知乎用户</a></li>
+                </ul>
+              </li>
+              <li ng-if='currentUser == null'><a ng-click="showModal('#Register')">注册</a></li>
+              <li ng-if='currentUser == null'><a ng-click="showModal('#Login')">登录</a></li>
+              <li ng-if='currentUser != null'>
+                <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
+                  <li><a href="#/nav.add"><i class="fa fa-plus"></i>&nbsp;&nbsp;推酷站</a></li>
+                  <li><a href="#/account"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
+                  <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;登出</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
-        <footer>
-            <div class="container" id="first-footer">
-                <div class="row">
-                    <div class="col-lg-9">
-                        <div class="widget">
-                            <h5 class="widgetheading">标签云</h5>
-                            <ul class="tags">
-                                <li><a href="#">网页设计</a></li>
-                                <li><a href="#">技术</a></li>
-                                <li><a href="#">网络</a></li>
-                                <li><a href="#">旅行</a></li>
-                                <li><a href="#">开发</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="widget">
-                            <h5 class="widgetheading">关注我们</h5>
-                            <img src="img/weixin.jpg" class="weixin" />
-                            </p>
-                        </div>
-                    </div>
-                </div>
+      </div>
+      <div class="banner" ng-show="$state.is('main')">
+        <div class="container b-search text-center">
+          <h1>发现有趣的事</h1>
+          <input type="text" placeholder="去搜索" class="col-md-4 col-md-offset-4 col-xs-12" ng-model="keywords" ng-change="search()">
+          <div class="col-md-4 col-md-offset-4 col-xs-12 searchResult" ng-if="!!keywords">
+            <h5>任意门</h5>
+            <div ng-repeat="i in search.nav" class="searchList">
+              <a ng-href="{{i.url}}" target="_blank" title="{{i.describe}}"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'" class="avatar-s">&nbsp;{{i.name}}
+              </a>
             </div>
-            <div id="sub-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="copyright">
-                                <p>
-                                    <span ng-class="col-xs-12">&copy;2014-2015 Youths</span>
-                                    <script type="text/javascript">
-                                    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-                                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
-                                    </script>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <p ng-if="search.nav.length==0 || !search.nav">暂无搜索结果</p>
+            <h5>博客</h5>
+            <div ng-repeat="i in search.blog" class="searchList">
+              <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png' class="avatar-s" title="{{i.user.username}}">&nbsp;<a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a>
             </div>
-        </footer>
+            <p ng-if="search.blog.length==0 || !search.blog">暂无搜索结果</p>
+            <h5>知乎</h5>
+            <div ng-repeat="i in search.zhihu" class="searchList">
+            </div>
+            <p ng-if="search.zhihu.length==0 || !search.zhihu">暂无搜索结果</p>
+            <h5>知乎用户</h5>
+            <div ng-repeat="i in search.zhihuuser" class="searchList">
+              <img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png' class="avatar-s">&nbsp;
+              <a title="{{i.bio}}" href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;
+              <i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>&nbsp;
+              <i class="fa fa-map-marker" ng-if="!!i.location">&nbsp;</i><i title="居住地" ng-if="!!i.location">{{i.location}}</i>
+              <i class="fa fa-link" ng-if="!!i.weibo">&nbsp;</i>
+              <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+              <i title='社交账号' ng-if="!!i.weibo">{{i.weibo}}</i>
+              <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
+              <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
+            </div>
+            <p ng-if="search.zhihuuser.length==0 || !search.zhihuuser">暂无搜索结果</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div ng-class="{'content': !$state.is('main'),'content2': $state.is('main')}" ui-view>
     </div>
-    <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
-    <!-- importjs -->
-    <!-- build:js js/youths.min.js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/lodash/lodash.js"></script>
-    <script src="/bower_components/masonry/dist/masonry.pkgd.js"></script>
-    <script src="/bower_components/imagesloaded/imagesloaded.pkgd.js"></script>
-    <script src="/bower_components/angular-masonry/angular-masonry.js"></script>
-    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="/bower_components/angular-resource/angular-resource.js"></script>
-    <script src="/bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
-    <script src="/bower_components/angular-cookie/angular-cookie.js"></script>
-    <script src="/bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
-    <!-- endbuild -->
-    <!-- build:js js/plugin.min.js -->
-    <script src="/plugin/jquery.easing.1.3.js"></script>
-    <script src="/plugin/froala_editor/js/froala_editor.min.js"></script>
-    <script src="/plugin/froala_editor/js/languages/zh_cn.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/image.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/colors.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/font_family.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/font_size.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/fullscreen.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/save.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/table.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/video.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/url.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/link.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/align.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/code_view.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/emoticons.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/paragraph_format.min.js"></script>
-    <script src="/plugin/froala_editor/js/plugins/paragraph_style.min.js"></script>
-    <script src="/plugin/animate.js"></script>
-    <script src="/plugin/custom.js"></script>
-    <script src="/plugin/lobibox/js/notifications.js"></script>
-    <script src="/plugin/selectize/js/standalone/selectize.js"></script>
-    <!-- endbuild -->
-    <!-- build:js js/angular.min.js -->
-    <!-- config -->
-    <script src="/js/constants.js"></script>
-    <!-- ui -->
-    <script src="/js/extend.js"></script>
-    <script src="/js/ui/ui.js"></script>
-    <!-- angular entrance -->
-    <script src="/js/app.js"></script>
-    <!-- filter -->
-    <script src="/js/filter/common.js"></script>
-    <script src="/js/filter/storage.js"></script>
-    <!-- service -->
-    <script src="/js/services/lb-services.js"></script>
-    <script src="/js/services/api-services.js"></script>
-    <script src="/js/services/auth.js"></script>
-    <script src="/js/services/storage-services.js"></script>
-    <!-- directive -->
-    <script src="/js/directive/storage.js"></script>
-    <script src="/js/directive/ui.js"></script>
-    <!-- controller  -->
-    <script src="/js/controller/main.js"></script>
-    <script src="/js/controller/blog/blog.js"></script>
-    <script src="/js/controller/blog/addEdit.js"></script>
-    <script src="/js/controller/blog/detail.js"></script>
-    <script src="/js/controller/nav/nav.js"></script>
-    <script src="/js/controller/nav/add.js"></script>
-    <script src="/js/controller/zhihu/article.js"></script>
-    <script src="/js/controller/zhihu/user.js"></script>
-    <script src="/js/controller/account/center.js"></script>
-    <script src="/js/controller/account/myBlog.js"></script>
-    <script src="/js/controller/account/settings.js"></script>
-    <!-- endbuild -->
-    <ui></ui>
+    <footer>
+      <div class="container" id="first-footer">
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="widget">
+              <h5 class="widgetheading">标签云</h5>
+              <ul class="tags">
+                <li><a href="#">网页设计</a></li>
+                <li><a href="#">技术</a></li>
+                <li><a href="#">网络</a></li>
+                <li><a href="#">旅行</a></li>
+                <li><a href="#">开发</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="widget">
+              <h5 class="widgetheading">关注我们</h5>
+              <img src="img/weixin.jpg" class="weixin" />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="sub-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="copyright">
+                <p>
+                  <span ng-class="col-xs-12">&copy;2014-2015 Youths</span>
+                  <script type="text/javascript">
+                  var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                  document.write(unescape("%3Cspan id='cnzz_stat_icon_1253446574'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s6.cnzz.com/z_stat.php%3Fid%3D1253446574%26online%3D1%26show%3Dline' type='text/javascript'%3E%3C/script%3E"));
+                  </script>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+  <!-- importjs -->
+  <!-- build:js js/youths.min.js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/bower_components/angular/angular.js"></script>
+  <script src="/bower_components/lodash/lodash.js"></script>
+  <script src="/bower_components/masonry/dist/masonry.pkgd.js"></script>
+  <script src="/bower_components/imagesloaded/imagesloaded.pkgd.js"></script>
+  <script src="/bower_components/angular-masonry/angular-masonry.js"></script>
+  <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
+  <script src="/bower_components/angular-cookie/angular-cookie.js"></script>
+  <script src="/bower_components/ngImgCrop/compile/minified/ng-img-crop.js"></script>
+  <!-- endbuild -->
+  <!-- build:js js/plugin.min.js -->
+  <script src="/plugin/jquery.easing.1.3.js"></script>
+  <script src="/plugin/froala_editor/js/froala_editor.min.js"></script>
+  <script src="/plugin/froala_editor/js/languages/zh_cn.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/image.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/colors.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/font_family.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/font_size.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/fullscreen.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/save.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/table.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/video.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/url.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/link.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/align.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/code_view.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/emoticons.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/paragraph_format.min.js"></script>
+  <script src="/plugin/froala_editor/js/plugins/paragraph_style.min.js"></script>
+  <script src="/plugin/animate.js"></script>
+  <script src="/plugin/custom.js"></script>
+  <script src="/plugin/lobibox/js/notifications.js"></script>
+  <script src="/plugin/selectize/js/standalone/selectize.js"></script>
+  <!-- endbuild -->
+  <!-- build:js js/angular.min.js -->
+  <!-- config -->
+  <script src="/js/constants.js"></script>
+  <!-- ui -->
+  <script src="/js/extend.js"></script>
+  <script src="/js/ui/ui.js"></script>
+  <!-- angular entrance -->
+  <script src="/js/app.js"></script>
+  <!-- filter -->
+  <script src="/js/filter/common.js"></script>
+  <script src="/js/filter/storage.js"></script>
+  <!-- service -->
+  <script src="/js/services/lb-services.js"></script>
+  <script src="/js/services/api-services.js"></script>
+  <script src="/js/services/auth.js"></script>
+  <script src="/js/services/storage-services.js"></script>
+  <!-- directive -->
+  <script src="/js/directive/storage.js"></script>
+  <script src="/js/directive/ui.js"></script>
+  <!-- controller  -->
+  <script src="/js/controller/main.js"></script>
+  <script src="/js/controller/blog/blog.js"></script>
+  <script src="/js/controller/blog/addEdit.js"></script>
+  <script src="/js/controller/blog/detail.js"></script>
+  <script src="/js/controller/nav/nav.js"></script>
+  <script src="/js/controller/nav/add.js"></script>
+  <script src="/js/controller/zhihu/article.js"></script>
+  <script src="/js/controller/zhihu/user.js"></script>
+  <script src="/js/controller/account/center.js"></script>
+  <script src="/js/controller/account/myBlog.js"></script>
+  <script src="/js/controller/account/settings.js"></script>
+  <!-- endbuild -->
+  <ui></ui>
 </body>
 
 </html>
