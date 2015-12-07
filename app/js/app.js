@@ -17,29 +17,14 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
 
     $rootScope.$state = $state;
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
-        console.log('change start from:', fromState)
-        console.log('change start to:', toState)
+      console.log('change start from:', fromState)
+      console.log('change start to:', toState)
 
-        angular.element('body').animate({
-          scrollTop: 0
-        }, 1000);
-        $("header .navbar").removeClass('navbar-a1 navbar-a2')
-      })
-      // $(window).scroll(function() {
-      //   if ($state.is('main')) {
-      //     if ($(window).scrollTop() > 110) {
-      //       $("header .navbar").removeClass('navbar-t').addClass('navbar-a1')
-      //     } else {
-      //       $("header .navbar").addClass('navbar-t').removeClass('navbar-a1')
-      //     }
-      //   } else {
-      //     if ($(window).scrollTop() > 110) {
-      //       $("header .navbar").addClass('navbar-a2')
-      //     } else {
-      //       $("header .navbar").removeClass('navbar-a2')
-      //     }
-      //   }
-      // })
+      angular.element('body').animate({
+        scrollTop: 0
+      }, 1000);
+      $("header .navbar").removeClass('navbar-a1 navbar-a2')
+    })
   })
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
