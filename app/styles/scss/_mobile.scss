@@ -1,67 +1,93 @@
 @media(max-width:$screen-sm-min) {
-  #Login,
-  #Register {
-    .btn {
-      width: 100%;
+    .navbar-collapse {
+        &.in {
+            background-color: #fff;
+        }
     }
-    input {
-      // height: 44px;
+    #Login,
+    #Register {
+        .btn {
+            width: 100%;
+        }
+        input {
+            // height: 44px;
+        }
     }
-  }
-  #loading {
-    display: block;
-  }
-  .items {
-    padding: 0;
-  }
-  .u-detail {
-    .u-avatar {
-      img {
+    #loading {
         display: block;
-        margin: 0 auto;
-      }
     }
-    .u-info {
-      text-align: left;
+    .items {
+        padding: 0;
     }
-  }
-  .article {
-    margin-bottom: 10px;
-    .thumb {
-      width: 100%;
-      margin-bottom: 10px;
+    .u-detail {
+        .u-avatar {
+            img {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .u-info {
+            text-align: left;
+        }
     }
-    .right {
-      padding: 5px 0px;
-      [class*='col-'] {
-        padding: 5px;
-      }
-      p {
-        padding-left: 10px !important;
-      }
+    .article {
+        margin-bottom: 10px;
+        .thumb {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .right {
+            padding: 5px 0px;
+            [class*='col-'] {
+                padding: 5px;
+            }
+            p {
+                padding-left: 10px !important;
+            }
+        }
     }
-  }
-  .zhihu {
-    width: 100%;
-    margin-left: -10px;
-    background-color: transparent !important;
-    padding: 0 10px;
-    .zhihu-content {
-      background-color: #fff;
-      padding: 10px 5px;
-      p {
-        padding-left: 5px;
-      }
+    .zhihu {
+        width: 100%;
+        margin-left: -10px;
+        background-color: transparent !important;
+        padding: 0 10px;
+        .zhihu-content {
+            background-color: #fff;
+            padding: 10px 5px;
+            p {
+                padding-left: 5px;
+            }
+        }
+        .bottom {
+            display: inline;
+        }
+        blockquote {
+            margin-right: 0 !important;
+        }
     }
-    .bottom {
-      display: inline;
+    .mlr10 {
+        margin-left: 10px;
+        margin-right: 10px;
     }
-    blockquote {
-      margin-right: 0 !important;
+    header {
+        .nav {
+            li {
+                &.open {
+                    margin-bottom: 25px;
+                    ul {
+                        li:last-child {
+                            a {
+                                margin-bottom: -25px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
-  .mlr10 {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
+    .scrollup {
+        width: 50px;
+        height: 50px;
+        font-size: 30px;
+    }
 }

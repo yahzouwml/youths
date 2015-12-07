@@ -1624,7 +1624,7 @@ article {
     height: 32px;
     bottom: 0;
     right: 20px;
-    background: $color_log_cabin_approx;
+    background: lighten($brand-primary, 10%);
 }
 
 .absolute {
