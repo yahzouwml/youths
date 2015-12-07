@@ -26,7 +26,12 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, U
         function(err) {
           console.log(err)
           if (err.status == '422') {
-            $scope.notify('warning', "邮箱已存在")
+            if (err.data.error.message.indexOf('User already exists') > -1) {
+              $scope.notify('warning', "用户名已存在")
+            } else if (err.data.error.message.indexOf('Email already exists') > -1) {
+              $scope.notify('warning', "邮箱已存在")
+            }
+
           } else {
             $scope.notify('error', "注册失败")
           }
