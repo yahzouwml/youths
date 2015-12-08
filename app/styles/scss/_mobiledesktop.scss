@@ -13,6 +13,10 @@
     }
 }
 
+.emptyPage {
+    background-color: #fff;
+}
+
 .lobibox-notify {
     &.lobibox-notify-error {
         border-color: $brand-danger;

@@ -125,6 +125,22 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         data: {
           pageTitle: '个人设置'
         }
+      })
+      .state('confirm', {
+        url: "/confirm?&uid&token",
+        controller: "confirmCtrl",
+        templateUrl: "views/user/confirm.html",
+        data: {
+          pageTitle: '验证邮箱'
+        }
+      })
+      .state('resetpassword', {
+        url: "/reset.password/:uid/:token",
+        controller: "resetPasswordCtrl",
+        templateUrl: "views/user/reset-password.html",
+        data: {
+          pageTitle: '重置密码'
+        }
       });
 
     $urlRouterProvider.otherwise('/');
