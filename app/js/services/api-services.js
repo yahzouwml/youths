@@ -69,6 +69,31 @@ app.service('apiServices', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog,
   }
 
   //model user operation
+  this.login = function(email, password) {
+    return User
+      .login({
+        email: email,
+        password: password
+      })
+      .$promise
+  }
+
+  this.logout = function() {
+    return User
+      .logout()
+      .$promise
+  }
+
+  this.register = function(email, password, username) {
+    return User
+      .create({
+        email: email,
+        password: password,
+        username: username
+      })
+      .$promise;
+  }
+
   this.changePassword = function(options) {
     return User.changePassword(options).$promise
   }

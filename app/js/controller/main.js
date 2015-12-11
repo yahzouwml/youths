@@ -1,4 +1,4 @@
-app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, User, apiServices) {
+app.controller('mainCtrl', function($rootScope, $scope, ipCookie, User, apiServices) {
   _.containsUser = function(obj, key, id) {
     return !id ? false : !_.isEmpty(obj) && _.every(obj, key, id)
   }
@@ -16,7 +16,7 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, U
   }
 
   $scope.register = function() {
-    AuthService.register($scope.userR.email, $scope.userR.password, $scope.userR.username)
+    apiServices.register($scope.userR.email, $scope.userR.password, $scope.userR.username)
       .then(
         function(response) {
           console.log(response);
@@ -49,7 +49,7 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, U
     })
   }
   $scope.login = function() {
-    AuthService.login($scope.userL.email, $scope.userL.password)
+    apiServices.login($scope.userL.email, $scope.userL.password)
       .then(
         function(response) {
           console.log(response);
@@ -78,7 +78,7 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, AuthService, U
   }
 
   $scope.logout = function() {
-    AuthService.logout().then(function(response) {
+    apiServices.logout().then(function(response) {
       $rootScope.currentUser = null
       ipCookie.remove('currentUser')
     })
