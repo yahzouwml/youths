@@ -40,6 +40,12 @@ app.service('apiServices', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog,
     }).$promise
   }
 
+  this.zhihuuserCount = function(options) {
+    return Zhihuuser.count({
+      filter: options
+    }).$promise
+  }
+
   //model blog operation
   this.blogCreate = function(options) {
     return Blog.create(options).$promise
