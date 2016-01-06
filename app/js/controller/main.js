@@ -89,6 +89,8 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, User, apiServi
       email: $scope.email
     }).$promise.then(function(response) {
       console.log(response)
+      $scope.closeModal('#forgetPassword')
+      $scope.notify('success', '重置邮件已发送成功')
     })
   }
 
