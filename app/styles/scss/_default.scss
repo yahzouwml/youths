@@ -578,14 +578,6 @@ header {
     }
     .navbar-t {
         background-color: transparent;
-        @media(min-width: $screen-sm-min) {
-            .navbar-brand {
-                color: #fff !important;
-            }
-            .nav li a {
-                color: #fff;
-            }
-        }
         .dropdown-menu {
             background-color: transparent;
         }
@@ -618,7 +610,7 @@ header {
 .banner {
     width: 100%;
     min-height: 500px;
-    margin-top: -112px;
+    margin-top: -72px;
     background: url(../img/home-bg.jpg) no-repeat;
     background-size: cover;
 }
@@ -626,7 +618,7 @@ header {
 .b-search {
     h1 {
         margin-bottom: 50px;
-        color: #fff;
+        // color: $brand-primary;
     }
     input {
         height: 50px;
@@ -651,7 +643,7 @@ header {
 }
 
 .intr-2 {
-    background-color: $c_l_grey;
+    background-color: $c_grey;
 }
 
 #loginRegister {
