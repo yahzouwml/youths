@@ -74,7 +74,7 @@
           <div class="col-md-4 col-md-offset-4 col-xs-12 searchResult" ng-if="!!keywords">
             <h5>任意门</h5>
             <div ng-repeat="i in search.nav" class="searchList">
-              <a ng-href="{{i.url}}" target="_blank" title="{{i.describe}}"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/works/6.jpg'" class="avatar-s">&nbsp;{{i.name}}
+              <a ng-href="{{i.url}}" target="_blank" title="{{i.describe}}"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/home-bg.jpg'" class="avatar-s">&nbsp;{{i.name}}
               </a>
             </div>
             <p ng-if="search.nav.length==0 || !search.nav">暂无搜索结果</p>

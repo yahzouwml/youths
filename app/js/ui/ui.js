@@ -24,7 +24,7 @@ $(document).ready(function() {
     $(this).siblings('.u-extend').fadeOut(100);
   });
 
-  $(document).on('mouseover', '[title!=""]', function() {
+  $(document).on('mouseover', '[data-hook="tooltip"]', function() {
     $(this).tooltip('show');
   });
 });
