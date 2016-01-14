@@ -1,4 +1,26 @@
 //notice overwrite
+.bg-white {
+    background-color: #fff;
+}
+
+.searchResult {
+    background: #fff;
+    text-align: left;
+    .searchList {
+        overflow: hidden;
+        height: 40px;
+        padding: 5px 0;
+    }
+    p {
+        font-size: 10px;
+        padding-left: 15px;
+    }
+}
+
+.emptyPage {
+    background-color: #fff;
+}
+
 .lobibox-notify {
     &.lobibox-notify-error {
         border-color: $brand-danger;

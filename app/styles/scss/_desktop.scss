@@ -1,25 +1,25 @@
 @media(min-width:$screen-sm-min) {
-    .u-detail {
-        .u-info {
-            width: 150px;
-            margin-left: -30px;
-        }
-        [class*='col-xs'] {
-            padding: 0;
-        }
-        padding:0;
+  .u-detail {
+    .u-info {
+      width: 150px;
+      margin-left: -30px;
     }
-    .aticle {
-        .thumb {
-            float: left;
-            width: 160px;
-            height: 160px;
-            margin-right: 20px;
-        }
-        .right {
-            [class*='col-md-'] {
-                padding: 5px 20px 5px 0;
-            }
-        }
+    [class*='col-xs'] {
+      padding: 0;
     }
+    padding:0;
+  }
+  .article {
+    .thumb {
+      float: left;
+      width: 160px;
+      height: 160px;
+      margin-right: 20px;
+    }
+    .right {
+      [class*='col-md-'] {
+        padding: 5px 20px 5px 0;
+      }
+    }
+  }
 }

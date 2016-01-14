@@ -5,6 +5,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
     $rootScope.mainServer = ENV.mainServer
     $rootScope.storageServer = ENV.storageServer
     $rootScope.apiServer = ENV.apiServer
+    $rootScope.apiHost = ENV.apiHost
 
     bootstrap3ElementModifier.enableValidationStateIcons(true);
     defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -24,21 +25,6 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         scrollTop: 0
       }, 1000);
       $("header .navbar").removeClass('navbar-a1 navbar-a2')
-    })
-    $(window).scroll(function() {
-      if ($state.is('main')) {
-        if ($(window).scrollTop() > 110) {
-          $("header .navbar").removeClass('navbar-t').addClass('navbar-a1')
-        } else {
-          $("header .navbar").addClass('navbar-t').removeClass('navbar-a1')
-        }
-      } else {
-        if ($(window).scrollTop() > 110) {
-          $("header .navbar").addClass('navbar-a2')
-        } else {
-          $("header .navbar").removeClass('navbar-a2')
-        }
-      }
     })
   })
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -61,24 +47,24 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
           pageTitle: '趣博客'
         }
       })
-      .state('blog.add', {
-        url: "/add",
+      .state('blogadd', {
+        url: "/blog/add",
         templateUrl: "views/blog/addEdit.html",
         controller: "addEditCtrl",
         data: {
           pageTitle: '写文章'
         }
       })
-      .state('blog.edit', {
-        url: "/edit/:id",
+      .state('blogedit', {
+        url: "/blog/edit/:id",
         templateUrl: "views/blog/addEdit.html",
         controller: "addEditCtrl",
         data: {
           pageTitle: '改文章'
         }
       })
-      .state('blog.Detail', {
-        url: "/detail/:id",
+      .state('blogDetail', {
+        url: "/blog/detail/:id",
         templateUrl: "views/blog/detail.html",
         controller: "blogDetailCtrl",
         data: {
@@ -139,6 +125,22 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
         templateUrl: "views/account/settings.html",
         data: {
           pageTitle: '个人设置'
+        }
+      })
+      .state('confirm', {
+        url: "/confirm?&uid&token",
+        controller: "confirmCtrl",
+        templateUrl: "views/user/confirm.html",
+        data: {
+          pageTitle: '验证邮箱'
+        }
+      })
+      .state('resetpassword', {
+        url: "/reset.password/:uid/:token",
+        controller: "resetPasswordCtrl",
+        templateUrl: "views/user/reset-password.html",
+        data: {
+          pageTitle: '重置密码'
         }
       });
 

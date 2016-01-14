@@ -250,7 +250,6 @@ img {
 header {
     .navbar {
         margin-bottom: 0;
-        min-height: 100px;
     }
     .navbar-default {
         background-color: $white;
@@ -330,8 +329,13 @@ header {
         margin-right: 0;
     }
     .navbar-nav > li {
-        padding-bottom: 30px;
-        padding-top: 30px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        transition: .3 ease-out;
+        &:hover {
+            border-top: 3px solid $brand-primary;
+            padding-top: 7px;
+        }
         > a {
             padding-bottom: 6px;
             padding-top: 5px;
@@ -399,7 +403,7 @@ header {
     font-weight: 700;
     line-height: 1em;
     letter-spacing: -1px;
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 0 0 0 15px;
 }
 
@@ -1624,7 +1628,7 @@ article {
     height: 32px;
     bottom: 0;
     right: 20px;
-    background: $color_log_cabin_approx;
+    background: lighten($brand-primary, 10%);
 }
 
 .absolute {
@@ -1741,7 +1745,7 @@ article {
         border-bottom: none;
     }
     .navbar-header {
-        margin-top: 20px;
+        margin-top: 10px;
         border-bottom: none;
     }
     .navbar-nav {
