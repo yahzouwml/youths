@@ -5,6 +5,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
     $rootScope.mainServer = ENV.mainServer
     $rootScope.storageServer = ENV.storageServer
     $rootScope.apiServer = ENV.apiServer
+    $rootScope.apiHost = ENV.apiHost
 
     bootstrap3ElementModifier.enableValidationStateIcons(true);
     defaultErrorMessageResolver.getErrorMessages().then(function(errorMessages) {
@@ -46,24 +47,24 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
           pageTitle: '趣博客'
         }
       })
-      .state('blog.add', {
-        url: "/add",
+      .state('blogadd', {
+        url: "/blog/add",
         templateUrl: "views/blog/addEdit.html",
         controller: "addEditCtrl",
         data: {
           pageTitle: '写文章'
         }
       })
-      .state('blog.edit', {
-        url: "/edit/:id",
+      .state('blogedit', {
+        url: "/blog/edit/:id",
         templateUrl: "views/blog/addEdit.html",
         controller: "addEditCtrl",
         data: {
           pageTitle: '改文章'
         }
       })
-      .state('blog.Detail', {
-        url: "/detail/:id",
+      .state('blogDetail', {
+        url: "/blog/detail/:id",
         templateUrl: "views/blog/detail.html",
         controller: "blogDetailCtrl",
         data: {

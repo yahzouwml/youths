@@ -1,31 +1,31 @@
-<div class="container" ng-init="getUser()">
-    <div class="row">
-        <div class="col-md-3">
-            <article>
-                <img ng-src="{{User.avatar | storage:'avatar'}}" alt="" class="avatar">
-                <hr />
-                <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-user-md"></i>{{User.username}}</li>
-                    <li><i class="fa-li fa fa-envelope-o"></i>{{User.email}}</li>
-                    <li><i class="fa-li fa fa-registered"></i>{{User.created | date:'longDate'}}</li>
-                </ul>
-            </article>
-        </div>
-        <div class="col-md-9">
-            <article class="right-sidebar">
-                <div class="top">
-                    <ul class="nav navbar-nav">
-<!--                         <li><a ui-sref="account.myBlog">博客</a></li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <article>
+        <img ng-src="{{User.avatar | storage:'avatar'}}" alt="" class="avatar">
+        <hr />
+        <ul class="fa-ul">
+          <li><i class="fa-li fa fa-user-md"></i>{{User.username}}</li>
+          <li><i class="fa-li fa fa-envelope-o"></i>{{User.email}}</li>
+          <li><i class="fa-li fa fa-registered"></i>{{User.created | date:'longDate'}}</li>
+        </ul>
+      </article>
+    </div>
+    <div class="col-md-9">
+      <article class="right-sidebar">
+        <div class="top">
+          <ul class="nav navbar-nav">
+            <!--                         <li><a ui-sref="account.myBlog">博客</a></li>
                         <li><a href="">导航</a></li>
                         <li><a href="">评论</a></li>
                         <li><a href="">回复</a></li> -->
-                        <li><a ui-sref="account.settings">设置</a></li>
-                    </ul>
-                </div>
-                <div ui-view class="clear">
-                    aas
-                </div>
-            </article>
+            <li><a ui-sref="account.settings">设置</a></li>
+          </ul>
         </div>
+        <div ui-view class="clear">
+          aas
+        </div>
+      </article>
     </div>
+  </div>
 </div>

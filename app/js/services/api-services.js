@@ -49,6 +49,10 @@ app.service('apiServices', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog,
     return Blog.create(options).$promise
   }
 
+  this.blogUpdateById = function(options1, options2) {
+    return Blog.prototype$updateAttributes(options1, options2).$promise
+  }
+
   this.blogFind = function(options) {
     return Blog.find({
       filter: options
@@ -67,10 +71,19 @@ app.service('apiServices', function($q, $http, Nav, Tag, Zhihu, Zhihuuser, Blog,
     return Blog.blogLikes.destroyById(options1, options2).$promise
   }
 
-  //model blog operation
+  //model tagreleation operation
   this.tagreleationCreateMany = function(options) {
     return TagRelation.createMany(options).$promise
   }
+
+  this.tagreleationDestoryAll = function(options) {
+    return Blog.tagRelations.destroyAll()({
+      where: {
+        or: options
+      }
+    }).$promise
+  }
+
 
   //model user operation
   this.login = function(email, password) {

@@ -1,11 +1,31 @@
-app.controller('addEditCtrl', function($rootScope, $scope, apiServices) {
+app.controller('addEditCtrl', function($rootScope, $scope, apiServices, $stateParams) {
+  var editor = angular.element('#edit')
+  var selectEditTag = ''
+  if (!!$stateParams.id) {
+    apiServices.blogFindById({
+      id: $stateParams.id,
+      filter: {
+        include: [{
+          'comments': ['commentLikes', 'user', {
+            'replies': ['replyLikes', 'user']
+          }]
+        }, 'tagRelations']
+      }
+    }).then(function(response) {
+      console.log(response)
+      $scope.blog = response
+      editor.froalaEditor('html.set', response.content);
+      selectEditTag = $scope.selectTag = setTags($scope.blog.tagRelations)
+      $scope.$broadcast('loaded')
+    })
+  }
+
   var args = []
   apiServices.tagFind({
     where: {
       type: 'blog'
     }
-  }).then(function(response) {
-    console.log(response)
+  }).then(function(data) {
     $('#input-tags').selectize({
       persist: false,
       createOnBlur: true,
@@ -14,37 +34,89 @@ app.controller('addEditCtrl', function($rootScope, $scope, apiServices) {
       valueField: 'id',
       labelField: 'name',
       searchField: 'name',
-      options: response,
+      options: data,
       sortField: {
         field: 'name',
         direction: 'asc'
       }
-    });
+    })
   }, function(err) {
     console.log(err)
   })
 
   $scope.addBlog = function() {
+    if (!!$stateParams.id) {
+      console.log(getAddTags(), getDeleteTags())
+      edit()
+    } else {
+      create()
+    }
+  }
+
+  function setTags(tagRelations) {
+    var string = ''
+    for (var i in tagRelations) {
+      string += tagRelations[i].tagId + ','
+    }
+    return string
+  }
+
+  function getTags(blogId) {
+    var args = $scope.selectTag.split(',')
+    var tagRelations = new Array()
+    for (var i in args) {
+      tagRelations.push({
+        tagId: args[i],
+        otherId: blogId,
+        type: 'blog'
+      })
+    }
+    return tagRelations
+  }
+
+
+  function getAddTags() {
+    var args = $scope.selectTag.split(',')
+    var tagRelations = new Array()
+    for (var i in args) {
+      if (selectEditTag.indexOf(args[i]) > -1) continue;
+      tagRelations.push({
+        tagId: args[i],
+        otherId: $stateParams.id,
+        type: 'blog'
+      })
+    }
+    return tagRelations
+  }
+
+
+  function getDeleteTags(blogId) {
+    var args = $scope.blog.tagRelations
+    var tagRelations = new Array()
+    for (var i in args) {
+      if ($scope.selectTag.indexOf(args[i].tagId) > -1) continue;
+      tagRelations.push({
+        id: args[i].id
+      })
+    }
+    return tagRelations
+  }
+
+
+  function create() {
     apiServices.blogCreate({
       title: $scope.blog.title,
       userId: $rootScope.currentUser.id,
-      content: $('#edit').froalaEditor('html.get', true),
+      content: editor.froalaEditor('html.get', true),
       click: 0
     }).then(
       function(response) {
         console.log(response)
-        args = $scope.selectTag.split(',')
-        var tagRelations = new Array()
-        for (i = 0; i < args.length; i++) {
-          tagRelations.push({
-            tagId: args[i],
-            otherId: response.id,
-            type: 'blog'
-          })
-        }
-        apiServices.tagreleationCreateMany(tagRelations).then(function(response) {
+        apiServices.tagreleationCreateMany(getTags()).then(function(response) {
           console.log(response)
           $scope.blog = {}
+          $scope.selectTag = ''
+          editor.froalaEditor('html.set', '');
           $scope.successAfter($scope.form.form1, '添加博客成功')
         }, function(err) {
           console.log(err)
@@ -57,17 +129,43 @@ app.controller('addEditCtrl', function($rootScope, $scope, apiServices) {
     )
   }
 
-  angular.element('#edit').froalaEditor({
+  function edit() {
+    apiServices.blogUpdateById({
+      id: $stateParams.id
+    }, {
+      title: $scope.blog.title,
+      content: editor.froalaEditor('html.get', true)
+    }).then(function(data) {
+      $scope.blog = {}
+      $scope.selectTag = ''
+      editor.froalaEditor('html.set', '')
+      $scope.successAfter($scope.form.form1, '修改博客成功')
+        // apiServices.tagreleationDestoryAll(getDeleteTags()).then(function(data) {
+        //   console.log(data)
+        // }, function(err) {
+        //   console.log(err)
+        // })
+        // apiServices.tagreleationCreateMany(getAddTags()).then(function(response) {
+        //   console.log(response)
+        //   $scope.blog = {}
+        //   $scope.selectTag = ''
+        //   $scope.successAfter($scope.form.form1, '修改博客成功')
+        // }, function(err) {
+        //   console.log(err)
+        // })
+    })
+  }
+
+  editor.froalaEditor({
       inlineMode: false,
       language: 'zh_cn',
       height: 500,
       codeBeautifier: true,
       imageUploadMethod: 'POST',
-      imageUploadURL: 'http://localhost:3010/upload',
+      imageUploadURL: $rootScope.apiHost + '/upload',
       imageUploadParams: {
-        getFilename: 'u=' + $rootScope.currentUser.id + "&d=" + (new Date()).toLocaleString() + ".jpg",
-        containerName:'blog',
-        userId:'xxxx'
+        containerName: 'blog',
+        userId: $rootScope.currentUser.id
       },
       codeMirror: {
         indentWithTabs: true,
