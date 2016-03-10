@@ -169,6 +169,7 @@ input[type='text'] {
 
 #sub-footer {
   background: $brand-primary;
+  padding: 15px 0;
 }
 
 .weixin {
@@ -509,7 +510,6 @@ a:hover {
 }
 
 .content {
-  padding: 20px 0;
   background-color: $c_grey;
   .container {
     padding-top: 20px;

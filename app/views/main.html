@@ -36,34 +36,8 @@
 </div>
 <div class="intr-2 container-fixed">
   <div class="container">
-    <div class="row">
-      <div class="col-md-6"><img src="/img/intr_1.png" alt=""></div>
-      <div class="col-md-6">
-        <h2>标签云</h2>
-        <p>发现你喜欢的内容</p>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="intr-1 container-fixed">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2>任意门</h2>
-        <p>发现有用的网站</p>
-      </div>
-      <div class="col-md-6"><img src="/img/intr_2.png" alt=""></div>
-    </div>
-  </div>
-</div>
-<div class="intr-2 container-fixed">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6"><img src="/img/intr_3.png" alt=""></div>
-      <div class="col-md-6">
-        <h2>趣博客</h2>
-        <p>发现有趣的博客</p>
-      </div>
+    <div class="row text-center">
+      <a class="tag" ng-repeat="i in tags">{{i.name}}</a>
     </div>
   </div>
 </div>

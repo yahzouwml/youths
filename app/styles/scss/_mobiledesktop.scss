@@ -63,6 +63,20 @@
   }
 }
 
+.tag {
+  font-size: 20px;
+  margin: 20px;
+  display: inline-block;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transition: easy .3s;
+  &:hover {
+    background-color: $brand-primary;
+    color: #fff;
+  }
+}
+
 //spinner overwrite
 .spinner {
   margin: 0 auto;
