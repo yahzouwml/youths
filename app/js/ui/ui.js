@@ -1,9 +1,9 @@
 $(document).ready(function() {
   var bg = function() {
-    $('.banner').height($(window).height())
-    $('.b-search').css({
-      paddingTop: ($(window).height() - 140) / 2
-    })
+    // $('.banner').height($(window).height())
+    // $('.b-search').css({
+    //   paddingTop: ($(window).height() - 140) / 2
+    // })
   }
 
   $(document).on('click', '.tags2 a', function() {

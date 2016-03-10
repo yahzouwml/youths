@@ -29,7 +29,7 @@
   <div id="wrapper" ui-view-container>
     <!-- start header -->
     <header>
-      <div class="navbar navbar-default navbar-static-top {{$state.is('main')}}" ng-class="{'navbar-t': $state.is('main')}">
+      <div class="navbar navbar-default navbar-static-top {{$state.is('main')}}">
         <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -41,12 +41,12 @@
           </div>
           <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-              <li><a href="#/">首页</a></li>
-              <li>
+              <li ng-class="{current:isCurrent('main')}"><a href="#/">首页</a></li>
+              <li ng-class="{current:isCurrent('nav')}">
                 <a href="#/nav">任意门</a>
               </li>
-              <li><a href="#/blog">趣博客</a></li>
-              <li><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
+              <li ng-class="{current:isCurrent('blog')}"><a href="#/blog">趣博客</a></li>
+              <li ng-class="{current:isCurrent('zhihu')}"><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
                 <ul class="dropdown-menu">
                   <li><a href="#/zhihu.article">知乎精选</a></li>
                   <li><a href="#/zhihu.user">知乎用户</a></li>
@@ -54,7 +54,7 @@
               </li>
               <li ng-if='currentUser == null'><a ng-click="showModal('#Register')">注册</a></li>
               <li ng-if='currentUser == null'><a ng-click="showModal('#Login')">登录</a></li>
-              <li ng-if='currentUser != null'>
+              <li ng-if='currentUser != null' ng-class="{current:isCurrent('user')}">
                 <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
@@ -67,44 +67,8 @@
           </div>
         </div>
       </div>
-      <div class="banner" ng-show="$state.is('main')">
-        <div class="container b-search text-center">
-          <h1>发现有趣的事</h1>
-          <input type="text" placeholder="去搜索" class="col-md-4 col-md-offset-4 col-xs-12" ng-model="keywords" ng-change="search()">
-          <div class="col-md-4 col-md-offset-4 col-xs-12 searchResult" ng-if="!!keywords">
-            <h5>任意门</h5>
-            <div ng-repeat="i in search.nav" class="searchList">
-              <a ng-href="{{i.url}}" target="_blank" title="{{i.describe}}"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/home-bg.jpg'" class="avatar-s">&nbsp;{{i.name}}
-              </a>
-            </div>
-            <p ng-if="search.nav.length==0 || !search.nav">暂无搜索结果</p>
-            <h5>博客</h5>
-            <div ng-repeat="i in search.blog" class="searchList">
-              <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png' class="avatar-s" title="{{i.user.username}}">&nbsp;<a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a>
-            </div>
-            <p ng-if="search.blog.length==0 || !search.blog">暂无搜索结果</p>
-            <h5>知乎</h5>
-            <div ng-repeat="i in search.zhihu" class="searchList">
-            </div>
-            <p ng-if="search.zhihu.length==0 || !search.zhihu">暂无搜索结果</p>
-            <h5>知乎用户</h5>
-            <div ng-repeat="i in search.zhihuuser" class="searchList">
-              <img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png' class="avatar-s">&nbsp;
-              <a title="{{i.bio}}" href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;
-              <i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>&nbsp;
-              <i class="fa fa-map-marker" ng-if="!!i.location">&nbsp;</i><i title="居住地" ng-if="!!i.location">{{i.location}}</i>
-              <i class="fa fa-link" ng-if="!!i.weibo">&nbsp;</i>
-              <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
-              <i title='社交账号' ng-if="!!i.weibo">{{i.weibo}}</i>
-              <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
-              <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
-            </div>
-            <p ng-if="search.zhihuuser.length==0 || !search.zhihuuser">暂无搜索结果</p>
-          </div>
-        </div>
-      </div>
     </header>
-    <div ng-class="{'content': !$state.is('main'),'content2': $state.is('main')}" ui-view>
+    <div class="content" ui-view>
     </div>
     <footer>
       <div class="container" id="first-footer">
