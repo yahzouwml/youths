@@ -165,7 +165,8 @@ app.controller('addEditCtrl', function($rootScope, $scope, apiServices, $statePa
       imageUploadURL: $rootScope.apiHost + '/upload',
       imageUploadParams: {
         containerName: 'blog',
-        userId: $rootScope.currentUser.id
+        userId: $rootScope.currentUser.id,
+        securityLevel: 1
       },
       codeMirror: {
         indentWithTabs: true,

@@ -18,18 +18,22 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
 
     $rootScope.$state = $state;
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+      console.log('state', $state);
       console.log('change start from:', fromState)
       console.log('change start to:', toState)
 
       angular.element('body').animate({
         scrollTop: 0
       }, 1000);
-      $("header .navbar").removeClass('navbar-a1 navbar-a2')
     })
+
+    $rootScope.isCurrent = function(url) {
+      return $state.current.name.indexOf(url) > -1
+    }
   })
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
     $stateProvider
       .state('main', {
         url: "/",

@@ -1,882 +1,881 @@
 a {
+  color: $brand-primary;
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
     color: $brand-primary;
-    &:hover,
-    &:focus,
-    &:active {
-        text-decoration: none;
-        color: $brand-primary;
-    }
-    &.thumbnail:hover {
-        border: 1px solid $brand-primary;
-    }
+  }
+  &.thumbnail:hover {
+    border: 1px solid $brand-primary;
+  }
 }
 
 footer {
-    background: $brand-primary;
-    a.text-link {
-        color: $brand-primary;
-        &:hover {
-            color: $brand-primary;
-        }
+  background: $brand-primary;
+  a.text-link {
+    color: $brand-primary;
+    &:hover {
+      color: $brand-primary;
     }
+  }
 }
 
 strike {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .post-meta {
-    border-top: 4px solid $brand-primary;
-    span a:hover {
-        color: $brand-primary;
-    }
-    .comments a:hover {
-        color: $brand-primary;
-    }
+  border-top: 4px solid $brand-primary;
+  span a:hover {
+    color: $brand-primary;
+  }
+  .comments a:hover {
+    color: $brand-primary;
+  }
 }
 
 ul {
-    &.meta-post li a:hover {
+  &.meta-post li a:hover {
+    color: $brand-primary;
+  }
+  &.cat li a:hover {
+    color: $brand-primary;
+  }
+  &.recent li h6 a:hover {
+    color: $brand-primary;
+  }
+  &.portfolio-categ li {
+    &.active a {
+      color: $brand-primary;
+      &:hover {
         color: $brand-primary;
+      }
     }
-    &.cat li a:hover {
-        color: $brand-primary;
+    a:hover {
+      color: $brand-primary;
     }
-    &.recent li h6 a:hover {
-        color: $brand-primary;
-    }
-    &.portfolio-categ li {
-        &.active a {
-            color: $brand-primary;
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-        a:hover {
-            color: $brand-primary;
-        }
-    }
-    &.related-post li h4 a:hover {
-        color: $brand-primary;
-    }
-    &.clients li:hover {
-        border: 4px solid $brand-primary;
-    }
+  }
+  &.related-post li h4 a:hover {
+    color: $brand-primary;
+  }
+  &.clients li:hover {
+    border: 4px solid $brand-primary;
+  }
 }
 
 .validation {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .dropdown-menu {
-    li {
-        &:hover {
-            background-color: $brand-primary;
-        }
-        a:hover {
-            background-color: $brand-primary;
-        }
-        > a:focus {
-            background-color: $brand-primary;
-        }
-        a {
-            width: 100%;
-        }
+  li {
+    &:hover {
+      background-color: $brand-primary;
     }
-    > .active > a {
-        color: $brand-primary;
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
+    a:hover {
+      background-color: $brand-primary;
     }
-    .active > a {
-        background-color: $brand-primary;
-        &:hover {
-            background-color: $brand-primary;
-        }
+    > a:focus {
+      background-color: $brand-primary;
     }
+    a {
+      width: 100%;
+    }
+  }
+  > .active > a {
+    color: $brand-primary;
+    &:hover {
+      color: $brand-primary;
+    }
+    &:focus {
+      color: $brand-primary;
+    }
+  }
+  .active > a {
+    background-color: $brand-primary;
+    &:hover {
+      background-color: $brand-primary;
+    }
+  }
 }
 
 .custom-carousel-nav {
-    &.right:hover {
-        background-color: $brand-primary;
-    }
-    &.left:hover {
-        background-color: $brand-primary;
-    }
+  &.right:hover {
+    background-color: $brand-primary;
+  }
+  &.left:hover {
+    background-color: $brand-primary;
+  }
 }
 
 .breadcrumb {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 input[type='text'] {
-    &:focus {
-        border-color: $brand-primary;
-    }
-    &.search-form:focus {
-        border: 1px solid $brand-primary;
-    }
+  &:focus {
+    border-color: $brand-primary;
+    color: $brand-primary;
+  }
+  &.search-form:focus {
+    border: 1px solid $brand-primary;
+  }
 }
 
 #sendmessage {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .pullquote-left {
-    border-left: 5px solid $brand-primary;
+  border-left: 5px solid $brand-primary;
 }
 
 .pullquote-right {
-    border-right: 5px solid $brand-primary;
+  border-right: 5px solid $brand-primary;
 }
 
 .box-bottom {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 .btn-dark {
-    &:hover {
-        border: 1px solid $brand-primary;
-        background: $brand-primary;
-    }
-    &:focus {
-        border: 1px solid $brand-primary;
-        background: $brand-primary;
-    }
-    &:active {
-        border: 1px solid $brand-primary;
-        background: $brand-primary;
-    }
+  &:hover {
+    border: 1px solid $brand-primary;
+    background: $brand-primary;
+  }
+  &:focus {
+    border: 1px solid $brand-primary;
+    background: $brand-primary;
+  }
+  &:active {
+    border: 1px solid $brand-primary;
+    background: $brand-primary;
+  }
 }
 
 .btn-theme {
-    border: 1px solid $brand-primary;
-    background: $brand-primary;
+  border: 1px solid $brand-primary;
+  background: $brand-primary;
 }
 
 .nivo-caption {
-    border-bottom: $brand-primary 5px solid;
+  border-bottom: $brand-primary 5px solid;
 }
 
 .caption {
-    border-bottom: $brand-primary 5px solid;
+  border-bottom: $brand-primary 5px solid;
 }
 
 #sub-footer {
-    background: $brand-primary;
+  background: $brand-primary;
+  padding: 15px 0;
 }
 
 .weixin {
-    width: 100px;
-    height: 100px;
+  width: 100px;
+  height: 100px;
 }
 
 .tc {
-    text-align: center;
+  text-align: center;
 }
 
 span.highlight {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 article .post-heading h3 a:hover {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .navbar .nav > {
-    .active > a {
-        color: $brand-primary;
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
+  .active > a {
+    color: $brand-primary;
+    &:hover {
+      color: $brand-primary;
     }
-    li > a {
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
+    &:focus {
+      color: $brand-primary;
     }
+  }
+  li > a {
+    &:hover {
+      color: $brand-primary;
+    }
+    &:focus {
+      color: $brand-primary;
+    }
+  }
 }
 
 .navbar-brand span {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 header .nav li {
+  a {
+    &:hover {
+      color: $brand-primary;
+    }
+    &:focus {
+      color: $brand-primary;
+    }
+    &.dropdown-toggle {
+      &:hover {
+        color: $brand-primary;
+      }
+      &:focus {
+        color: $brand-primary;
+      }
+    }
+  }
+  &.active {
     a {
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
-        &.dropdown-toggle {
-            &:hover {
-                color: $brand-primary;
-            }
-            &:focus {
-                color: $brand-primary;
-            }
-        }
+      color: $brand-primary;
+      &:hover {
+        color: $brand-primary;
+      }
     }
-    &.active {
-        a {
-            color: $brand-primary;
-            &:hover {
-                color: $brand-primary;
-            }
-        }
-        ul.dropdown-menu li {
-            a:hover {
-                color: $brand-primary;
-            }
-            &.active a {
-                color: $brand-primary;
-            }
-        }
+    ul.dropdown-menu li {
+      a:hover {
+        color: $brand-primary;
+      }
+      &.active a {
+        color: $brand-primary;
+      }
     }
+  }
 }
 
 .navbar-default .navbar-nav > {
-    .active > a {
-        color: $brand-primary;
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
+  .active > a {
+    color: $brand-primary;
+    &:hover {
+      color: $brand-primary;
     }
-    .open > a {
-        color: $brand-primary;
-        &:hover {
-            color: $brand-primary;
-        }
-        &:focus {
-            color: $brand-primary;
-        }
+    &:focus {
+      color: $brand-primary;
     }
+  }
+  .open > a {
+    color: $brand-primary;
+    &:hover {
+      color: $brand-primary;
+    }
+    &:focus {
+      color: $brand-primary;
+    }
+  }
 }
 
 .dropdown-submenu:hover > a {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .pagination ul > {
-    .active > {
-        a {
-            background-color: $brand-primary;
-            &:hover {
-                background-color: $brand-primary;
-            }
-        }
-        span {
-            background-color: $brand-primary;
-        }
+  .active > {
+    a {
+      background-color: $brand-primary;
+      &:hover {
+        background-color: $brand-primary;
+      }
     }
-    li.active > {
-        a {
-            border: 1px solid $brand-primary;
-        }
-        span {
-            border: 1px solid $brand-primary;
-        }
+    span {
+      background-color: $brand-primary;
     }
+  }
+  li.active > {
+    a {
+      border: 1px solid $brand-primary;
+    }
+    span {
+      border: 1px solid $brand-primary;
+    }
+  }
 }
 
 .flex-control-nav li a {
-    &:hover {
-        background-color: $brand-primary;
-    }
-    &.active {
-        background-color: $brand-primary;
-    }
+  &:hover {
+    background-color: $brand-primary;
+  }
+  &.active {
+    background-color: $brand-primary;
+  }
 }
 
 textarea:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='password']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='datetime']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='datetime-local']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='date']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='month']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='time']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='week']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='number']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='email']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='url']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='search']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='tel']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input[type='color']:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 .uneditable-input:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 input:focus {
-    border-color: $brand-primary;
+  border-color: $brand-primary;
 }
 
 .cta-text h2 span {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .modal.styled .modal-header {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .widget ul.tags li a:hover {
-    color: $brand-primary;
-    border-color: $brand-primary;
-    background: #fff;
+  color: $brand-primary;
+  border-color: $brand-primary;
+  background: #fff;
 }
 
 .recent-post .text h5 a:hover {
-    color: $brand-primary;
+  color: $brand-primary;
 }
 
 .pricing-box-alt.special .pricing-heading {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 .item-thumbs .hover-wrap .overlay-img-thumb {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 #pagination a:hover {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 .pricing-box.special .pricing-offer {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 .icon-square:hover {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .icon-rounded:hover {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .icon-circled:hover {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 [class^='icon-'].active {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 [class*=' icon-'].active {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .fancybox-close:hover {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .fancybox-nav:hover span {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 .da-slide .da-link:hover {
-    border: 4px solid $brand-primary;
-    background: $brand-primary;
+  border: 4px solid $brand-primary;
+  background: $brand-primary;
 }
 
 .da-dots span {
-    background: $brand-primary;
+  background: $brand-primary;
 }
 
 #featured .flexslider .slide-caption {
-    border-left: 5px solid $brand-primary;
+  border-left: 5px solid $brand-primary;
 }
 
 .nivo-directionNav a:hover {
-    background-color: $brand-primary;
+  background-color: $brand-primary;
 }
 
 $white: #fff;
 .ITNav .items {
-    h4 {
-        margin: 15px 0;
-        text-align: center;
-        color: $brand-primary;
-    }
-    img {
-        margin: 10px 0;
-    }
-    p,
-    img {
-        max-width: 100%;
-    }
-    h4,
-    p {
-        word-break: break-all;
-    }
+  h4 {
+    margin: 15px 0;
+    text-align: center;
+    color: $brand-primary;
+  }
+  img {
+    margin: 10px 0;
+  }
+  p,
+  img {
+    max-width: 100%;
+  }
+  h4,
+  p {
+    word-break: break-all;
+  }
 }
 
 .form-horizontal .form-group {
-    margin-right: 0;
-    margin-left: 0;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 textarea {
-    width: 100%;
-    min-height: 80px;
+  width: 100%;
+  min-height: 80px;
 }
 
 a:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 %item {
-    margin: 10px 0;
-    padding: 10px 20px;
-    border: 1px solid $c_grey;
-    .middle {
-        padding: 10px 0;
-    }
+  margin: 10px 0;
+  padding: 10px 20px;
+  border: 1px solid $c_grey;
+  .middle {
+    padding: 10px 0;
+  }
 }
 
 .comment {
-    margin-top: 150px;
-    padding: 10px;
-    border: 1px solid $c_grey;
-    .comment-content {
-        .comment-item {
-            @extend %item;
-        }
+  margin-top: 150px;
+  padding: 10px;
+  border: 1px solid $c_grey;
+  .comment-content {
+    .comment-item {
+      @extend %item;
     }
+  }
 }
 
 .reply {
-    .reply-content {
-        .reply-item {
-            @extend %item;
-        }
+  .reply-content {
+    .reply-item {
+      @extend %item;
     }
+  }
 }
 
 .content {
-    padding: 20px 0;
-    background-color: $c_grey;
-    .container {
-        padding-top: 20px;
+  background-color: $c_grey;
+  .container {
+    padding-top: 20px;
+  }
+  article {
+    @media(min-width: $screen-sm-min) {
+      padding: 20px;
     }
-    article {
-        @media(min-width: $screen-sm-min) {
-            padding: 20px;
-        }
-    }
+  }
 }
 
 .list {
-    li {
-        padding: 5px 0;
-        border-bottom: 1px dashed $c_grey;
-    }
-    .title {
-        display: inline-block;
-        width: 60%;
-    }
+  li {
+    padding: 5px 0;
+    border-bottom: 1px dashed $c_grey;
+  }
+  .title {
+    display: inline-block;
+    width: 60%;
+  }
 }
 
 img-crop {
-    position: relative;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  canvas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
     display: block;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    canvas {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        display: block;
-        // Disable Outline
-        outline: none;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-        /* mobile webkit */
-    }
+    // Disable Outline
+    outline: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    /* mobile webkit */
+  }
 }
 
 .cropArea {
-    overflow: hidden;
-    width: 300px;
-    height: 200px;
+  overflow: hidden;
+  width: 300px;
+  height: 200px;
 }
 
 .avatar {
-    width: 230px;
-    height: 230px;
-    &-s {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-    }
+  width: 230px;
+  height: 230px;
+  &-s {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 }
 
 %navbar-a {
-    position: fixed;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .3);
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .3);
 }
 
 header {
-    .navbar {
-        transition: 1s;
+  .navbar {
+    transition: 1s;
+  }
+  .navbar-t {
+    background-color: transparent;
+    .dropdown-menu {
+      background-color: transparent;
     }
-    .navbar-t {
-        background-color: transparent;
-        .dropdown-menu {
-            background-color: transparent;
-        }
-        .open a:focus,
-        .open a:hover {
-            background-color: transparent !important;
-        }
-        li.active a {
-            background-color: transparent !important;
-        }
+    .open a:focus,
+    .open a:hover {
+      background-color: transparent !important;
     }
-    .navbar-a1 {
-        margin-top: 110px;
-        @extend %navbar-a;
+    li.active a {
+      background-color: transparent !important;
     }
-    .navbar-a2 {
-        @extend %navbar-a;
+  }
+  .navbar-a1 {
+    margin-top: 110px;
+    @extend %navbar-a;
+  }
+  .navbar-a2 {
+    @extend %navbar-a;
+  }
+  @media(max-width:$screen-sm-min) {
+    .dropdown-menu {
+      a {
+        height: 30px !important;
+        padding-top: 10px !important;
+        padding-bottom: 10px !important;
+      }
     }
-    @media(max-width:$screen-sm-min) {
-        .dropdown-menu {
-            a {
-                height: 30px !important;
-                padding-top: 10px !important;
-                padding-bottom: 10px !important;
-            }
-        }
-    }
+  }
 }
 
 .banner {
-    width: 100%;
-    min-height: 500px;
-    margin-top: -72px;
-    background: url(../img/home-bg.jpg) no-repeat;
-    background-size: cover;
+  width: 100%;
+  height: 550px;
+  margin-top: -72px;
+  background: url(../img/home-bg.jpg) no-repeat;
+  background-size: cover;
 }
 
 .b-search {
-    h1 {
-        margin-bottom: 50px;
-        // color: $brand-primary;
-    }
-    input {
-        height: 50px;
-        padding-left: 20px;
-        border: 1px solid #fff;
-        background-color: transparent;
-        color: #fff;
-        font-size: 16px;
-    }
+  position: relative;
+  padding-top: 185px !important;
+  h1 {
+    margin-bottom: 50px;
+    // color: $brand-primary;
+  }
+  input {
+    height: 50px;
+    padding-left: 20px;
+    border: 1px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    font-size: 16px;
+  }
 }
 
 [class^='intr-'] {
-    padding: 30px 0;
-    .h2 {
-        margin-bottom: 20px;
-        color: $brand-success;
-    }
+  padding: 30px 0;
+  .h2 {
+    margin-bottom: 20px;
+    color: $brand-success;
+  }
 }
 
 .intr-1 {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .intr-2 {
-    background-color: $c_grey;
+  background-color: $c_grey;
 }
 
 #loginRegister {
-    @media(min-width: $screen-sm-min) {
-        form {
-            margin-left: -55px;
-        }
+  @media(min-width: $screen-sm-min) {
+    form {
+      margin-left: -55px;
     }
-    .col-md-6 {
-        padding: 0 5px;
+  }
+  .col-md-6 {
+    padding: 0 5px;
+  }
+  .modal-body {
+    padding: 50px 50px 20px 50px;
+    h4 {
+      margin-bottom: 30px;
+      text-align: center;
     }
-    .modal-body {
-        padding: 50px 50px 20px 50px;
-        h4 {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-    }
+  }
 }
 
 .article {
-    background: $c_grey !important;
-    .left {
-        img {
-            width: 64px;
-            height: 64px;
-            margin-bottom: 20px;
-        }
+  background: $c_grey !important;
+  .left {
+    img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 20px;
     }
-    .right {
-        max-width: 100%;
-        padding: 20px 20px 0;
-        border: 1px solid $c_grey;
-        background: $white;
-        .hide-list {
-            clear: both;
-            margin-right: -20px;
-            margin-left: -20px;
-            padding: 10px 20px;
-            background: $c_l_grey;
-            ul {
-                margin: 0;
-                li {
-                    border-bottom: 1px solid $brand-success;
-                    &:last-child {
-                        border: 0;
-                    }
-                }
-            }
-            img {
-                width: 16px;
-                height: 16px;
-            }
+  }
+  .right {
+    max-width: 100%;
+    padding: 20px 20px 0;
+    border: 1px solid $c_grey;
+    background: $white;
+    .hide-list {
+      clear: both;
+      margin-right: -20px;
+      margin-left: -20px;
+      padding: 10px 20px;
+      background: $c_l_grey;
+      ul {
+        margin: 0;
+        li {
+          border-bottom: 1px solid $brand-success;
+          &:last-child {
+            border: 0;
+          }
         }
+      }
+      img {
+        width: 16px;
+        height: 16px;
+      }
     }
-    h4 {
-        margin-top: 0;
+  }
+  h4 {
+    margin-top: 0;
+  }
+  .bottom {
+    a,
+    span {
+      padding: 0 10px;
     }
-    .bottom {
-        a,
-        span {
-            padding: 0 10px;
-        }
-        a span {
-            padding: 0;
-        }
+    a span {
+      padding: 0;
     }
+  }
 }
 
 #loading {
-    line-height: 50px;
-    display: inline-block;
-    height: 50px;
-    padding: 0 30px;
+  line-height: 50px;
+  display: inline-block;
+  height: 50px;
+  padding: 0 30px;
 }
 
 .selectize-input {
-    border: 0;
-    &.focus {
-        box-shadow: none;
-    }
-}
-
-#User {
-    background: #edece4;
+  border: 0;
+  &.focus {
+    box-shadow: none;
+  }
 }
 
 .u-detail {
+  position: relative;
+  height: 130px;
+  margin: 20px 0;
+  a {
+    color: $brand-success;
+  }
+  .u-avatar {
+    float: left;
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+  .u-info {
+    padding-left: 10px;
+    float: right;
+    .i-bio {
+      display: block;
+      overflow: hidden;
+      max-height: 45px;
+    }
+  }
+  .u-extend {
     position: relative;
-    height: 130px;
-    margin: 20px 0;
-    a {
-        color: $brand-success;
+    position: absolute;
+    z-index: 999;
+    top: 110px;
+    left: -60px;
+    width: 250px;
+    height: 150px;
+    padding: 10px 20px;
+    background: #fff;
+    &:before {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      width: 0;
+      height: 0;
+      margin-left: -25px;
+      content: ' ';
+      border-width: 0 25px 25px;
+      border-style: solid;
+      border-color: transparent transparent #fff transparent;
     }
-    .u-avatar {
-        float: left;
-        img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-    }
-    .u-info {
-        padding-left: 10px;
-        float: right;
-        .i-bio {
-            display: block;
-            overflow: hidden;
-            max-height: 45px;
-        }
-    }
-    .u-extend {
-        position: relative;
-        position: absolute;
-        z-index: 999;
-        top: 110px;
-        left: -60px;
-        width: 250px;
-        height: 150px;
-        padding: 10px 20px;
-        background: #fff;
-        &:before {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            width: 0;
-            height: 0;
-            margin-left: -25px;
-            content: ' ';
-            border-width: 0 25px 25px;
-            border-style: solid;
-            border-color: transparent transparent #fff transparent;
-        }
-    }
+  }
 }
 
 .avatar_ {
-    &s {
-        width: 25px;
-        height: 25px;
-        border-radius: 50%;
-    }
+  &s {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+  }
 }
 
 #zhihu {}
 
 .grid-item {
-    width: 350px;
+  width: 350px;
 }
 
 .grid-item--width2 {
-    width: 400px;
+  width: 400px;
 }
 
 .zhihu {
-    margin: 0 10px 10px 0;
-    background: #fff !important;
-    border-left: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    blockquote {
-        overflow: hidden;
-        // max-height:455px;
+  margin: 0 10px 10px 0;
+  background: #fff !important;
+  border-left: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  blockquote {
+    overflow: hidden;
+    // max-height:455px;
+  }
+  .topic {
+    a {
+      margin-right: 5px;
     }
-    .topic {
-        a {
-            margin-right: 5px;
-        }
-        height: 24px;
-        overflow: hidden;
-        padding: 1px;
-    }
-    h4 {
-        height: 20px;
-        overflow: hidden;
-    }
-    width:366px;
-    &:hover {
-        animation: pulse 0.5s;
-    }
+    height: 24px;
+    overflow: hidden;
+    padding: 1px;
+  }
+  h4 {
+    height: 20px;
+    overflow: hidden;
+  }
+  width:366px;
+  &:hover {
+    animation: pulse 0.5s;
+  }
 }
 
 .items {
-    padding: 5px 5px;
-    .items-inner {
-        padding: 5px;
-        transition: all easeout .3;
-        background: #fff;
-        &:hover {
-            box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
-        }
+  padding: 5px 5px;
+  .items-inner {
+    padding: 5px;
+    transition: all easeout .3;
+    background: #fff;
+    &:hover {
+      box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.3);
     }
+  }
 }
 
 .ui-view-container {
-    position: relative;
-    height: 65px;
+  position: relative;
+  height: 65px;
 }
 
 [ui-view].ng-enter,
 [ui-view].ng-leave {
-    position: absolute;
-    left: 0;
-    right: 0;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  -webkit-transition: all .5s ease-in-out;
+  -moz-transition: all .5s ease-in-out;
+  -o-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
 }
 
 [ui-view].ng-enter {
-    opacity: 0;
-    -webkit-transform: scale3d(0.5, 0.5, 0.5);
-    -moz-transform: scale3d(0.5, 0.5, 0.5);
-    transform: scale3d(0.5, 0.5, 0.5);
+  opacity: 0;
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  transform: scale3d(0.5, 0.5, 0.5);
 }
 
 [ui-view].ng-enter-active {
-    opacity: 1;
-    -webkit-transform: scale3d(1, 1, 1);
-    -moz-transform: scale3d(1, 1, 1);
-    transform: scale3d(1, 1, 1);
+  opacity: 1;
+  -webkit-transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
 }
 
 [ui-view].ng-leave {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+  opacity: 1;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 [ui-view].ng-leave-active {
-    opacity: 0;
-    -webkit-transform: translate3d(100px, 0, 0);
-    -moz-transform: translate3d(100px, 0, 0);
-    transform: translate3d(100px, 0, 0);
+  opacity: 0;
+  -webkit-transform: translate3d(100px, 0, 0);
+  -moz-transform: translate3d(100px, 0, 0);
+  transform: translate3d(100px, 0, 0);
 }

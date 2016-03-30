@@ -166,4 +166,12 @@ app.controller('mainCtrl', function($rootScope, $scope, ipCookie, User, apiServi
 
     });
   }
+
+  $scope.getTags = function() {
+    apiServices.tagFind().then(function(resp) {
+      $scope.tags = resp
+    })
+  }
+
+  $scope.getTags()
 });

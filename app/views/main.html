@@ -1,34 +1,43 @@
+<div class="banner">
+  <div class="b-search text-center">
+    <h1>发现有趣的事1</h1>
+    <input type="text" placeholder="去搜索" class="col-md-4 col-md-offset-4 col-xs-12" ng-model="keywords" ng-change="search()">
+    <div class="col-md-4 col-md-offset-4 col-xs-12 searchResult" ng-if="!!keywords">
+      <h5>任意门</h5>
+      <div ng-repeat="i in search.nav" class="searchList">
+        <a ng-href="{{i.url}}" target="_blank" title="{{i.describe}}"><img ng-src="{{i.img}}" alt="{{i.name}}" onError="this.src='/img/home-bg.jpg'" class="avatar-s">&nbsp;{{i.name}}
+        </a>
+      </div>
+      <p ng-if="search.nav.length==0 || !search.nav">暂无搜索结果</p>
+      <h5>博客</h5>
+      <div ng-repeat="i in search.blog" class="searchList">
+        <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png' class="avatar-s" title="{{i.user.username}}">&nbsp;<a href="/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a>
+      </div>
+      <p ng-if="search.blog.length==0 || !search.blog">暂无搜索结果</p>
+      <h5>知乎</h5>
+      <div ng-repeat="i in search.zhihu" class="searchList">
+      </div>
+      <p ng-if="search.zhihu.length==0 || !search.zhihu">暂无搜索结果</p>
+      <h5>知乎用户</h5>
+      <div ng-repeat="i in search.zhihuuser" class="searchList">
+        <img ng-src="{{i.avatar | zhihuavatar}}" alt="" error='/img/avatar.png' class="avatar-s">&nbsp;
+        <a title="{{i.bio}}" href='{{i.home}}' target="_blank">{{i.name}}</a>&nbsp;
+        <i class='fa' ng-class="{'fa-mars':i.sex,'fa-venus':!i.sex}"></i>&nbsp;
+        <i class="fa fa-map-marker" ng-if="!!i.location">&nbsp;</i><i title="居住地" ng-if="!!i.location">{{i.location}}</i>
+        <i class="fa fa-link" ng-if="!!i.weibo">&nbsp;</i>
+        <a href="{{i.weibo}}" class="u-weibo" ng-if="!!i.weibo" target="_blank"><i class="fa fa-weibo"></i>&nbsp;</a>
+        <i title='社交账号' ng-if="!!i.weibo">{{i.weibo}}</i>
+        <i class="fa fa-thumbs-up"></i>&nbsp;<i title="赞同数">{{i.agree}}</i>&nbsp;
+        <i class="fa fa-heart"></i>&nbsp;<i title="感谢数">{{i.thanks}}</i>
+      </div>
+      <p ng-if="search.zhihuuser.length==0 || !search.zhihuuser">暂无搜索结果</p>
+    </div>
+  </div>
+</div>
 <div class="intr-2 container-fixed">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6"><img src="/img/intr_1.png" alt=""></div>
-            <div class="col-md-6">
-                <h2>标签云</h2>
-                <p>发现你喜欢的内容</p>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row text-center">
+      <a class="tag" ng-repeat="i in tags">{{i.name}}</a>
     </div>
+  </div>
 </div>
-<div class="intr-1 container-fixed">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h2>任意门</h2>
-                <p>发现有用的网站</p>
-            </div>
-            <div class="col-md-6"><img src="/img/intr_2.png" alt=""></div>
-        </div>
-    </div>
-</div>
-<div class="intr-2 container-fixed">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6"><img src="/img/intr_3.png" alt=""></div>
-            <div class="col-md-6">
-                <h2>趣博客</h2>
-                <p>发现有趣的博客</p>
-            </div>
-        </div>
-    </div>
-</div>
-    

@@ -1,109 +1,126 @@
 //notice overwrite
 .bg-white {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .searchResult {
-    background: #fff;
-    text-align: left;
-    .searchList {
-        overflow: hidden;
-        height: 40px;
-        padding: 5px 0;
-    }
-    p {
-        font-size: 10px;
-        padding-left: 15px;
-    }
+  z-index: 999;
+  position: absolute;
+  background: #fff;
+  text-align: left;
+  top: 350px;
+  .searchList {
+    overflow: hidden;
+    height: 40px;
+    padding: 5px 0;
+  }
+  p {
+    font-size: 10px;
+    padding-left: 15px;
+  }
 }
 
 .emptyPage {
-    background-color: #fff;
+  background-color: #fff;
 }
 
 .lobibox-notify {
-    &.lobibox-notify-error {
-        border-color: $brand-danger;
-        background-color: $brand-danger;
-        color: #fff;
-        &:hover {
-            background-color: #ca2121;
-            border-color: $brand-danger-hover;
-        }
+  &.lobibox-notify-error {
+    border-color: $brand-danger;
+    background-color: $brand-danger;
+    color: #fff;
+    &:hover {
+      background-color: #ca2121;
+      border-color: $brand-danger-hover;
     }
-    &.lobibox-notify-success {
-        border-color: $brand-success;
-        background-color: $brand-success;
-        color: #fff;
-        &:hover {
-            background-color: #29b87e;
-            border-color: $brand-success-hover;
-        }
+  }
+  &.lobibox-notify-success {
+    border-color: $brand-success;
+    background-color: $brand-success;
+    color: #fff;
+    &:hover {
+      background-color: #29b87e;
+      border-color: $brand-success-hover;
     }
-    &.lobibox-notify-warning {
-        border-color: $brand-warning;
-        background-color: $brand-warning;
-        color: #fff;
-        &:hover {
-            background-color: $brand-warning-hover;
-            border-color: #fff;
-        }
+  }
+  &.lobibox-notify-warning {
+    border-color: $brand-warning;
+    background-color: $brand-warning;
+    color: #fff;
+    &:hover {
+      background-color: $brand-warning-hover;
+      border-color: #fff;
     }
-    &.lobibox-notify-info {
-        border-color: $brand-info;
-        background-color: $brand-info;
-        color: #fff;
-        &:hover {
-            background-color: $brand-info-hover;
-            border-color: #fff;
-        }
+  }
+  &.lobibox-notify-info {
+    border-color: $brand-info;
+    background-color: $brand-info;
+    color: #fff;
+    &:hover {
+      background-color: $brand-info-hover;
+      border-color: #fff;
     }
+  }
+}
+
+.tag {
+  font-size: 20px;
+  margin: 20px;
+  display: inline-block;
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 5px;
+  transition: easy .3s;
+  &:hover {
+    background-color: $brand-primary;
+    color: #fff;
+  }
 }
 
 //spinner overwrite
 .spinner {
-    margin: 0 auto;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    font-size: 10px;
-    &.spinner2 {
-        display: inline-block;
-        margin: 0;
-        height: 15px;
-    }
-    > div {
-        background-color: $white;
-        height: 100%;
-        width: 6px;
-        display: inline-block;
-        animation: sk-stretchdelay 1.2s infinite ease-in-out;
-    }
-    .rect2 {
-        animation-delay: -1.1s;
-    }
-    .rect3 {
-        animation-delay: -1.0s;
-    }
-    .rect4 {
-        animation-delay: -0.9s;
-    }
-    .rect5 {
-        animation-delay: -0.8s;
-    }
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 10px;
+  &.spinner2 {
+    display: inline-block;
+    margin: 0;
+    height: 15px;
+  }
+  > div {
+    background-color: $white;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+  }
+  .rect2 {
+    animation-delay: -1.1s;
+  }
+  .rect3 {
+    animation-delay: -1.0s;
+  }
+  .rect4 {
+    animation-delay: -0.9s;
+  }
+  .rect5 {
+    animation-delay: -0.8s;
+  }
 }
 
 @keyframes sk-stretchdelay {
-    0% {
-        transform: scaleY(0.4);
-    }
-    40% {
-        transform: scaleY(0.4);
-    }
-    100% {
-        transform: scaleY(0.4);
-    }
-    20% {
-        transform: scaleY(1.0);
-    }
+  0% {
+    transform: scaleY(0.4);
+  }
+  40% {
+    transform: scaleY(0.4);
+  }
+  100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1.0);
+  }
 }
