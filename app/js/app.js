@@ -33,7 +33,7 @@ var app = angular.module('global', ['ui.router', 'ngSanitize', 'ngImgCrop', 'ipC
   })
   .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
 
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
     $stateProvider
       .state('main', {
         url: "/",

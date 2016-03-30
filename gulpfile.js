@@ -4,16 +4,20 @@ var $ = require('gulp-load-plugins')({
   replaceString: /^gulp(-|\.)/,
 });
 var pngquant = require('imagemin-pngquant');
+var modRewrite = require('connect-modrewrite');
 // development task
 gulp.task('serve', ['sass', 'config'], function() {
 
   $.browserSync.init({
-    notify: false,
-    open: "external",
-    // host: "dev.youths.cc",
+    open: false,
     port: 7000,
     server: {
       baseDir: ['app'],
+      middleware: [
+        modRewrite([
+          '!\\.\\w+$ /index.html [L]'
+        ])
+      ],
       routes: {
         '/bower_components': 'bower_components',
         '/fonts': "bower_components/bootstrap-sass/assets/fonts"
@@ -27,9 +31,7 @@ gulp.task('serve', ['sass', 'config'], function() {
 
 gulp.task('serve:r', function() {
   $.browserSync.init({
-    notify: false,
     open: "external",
-    // host: "dev.youths.cc",
     port: 7000,
     server: {
       baseDir: ['dist']

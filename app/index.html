@@ -8,6 +8,7 @@
   <meta name="description" content="Youths,Do Interest Things.Youths,活力web倡导者，" />
   <meta name="keywords" content="Youths,Do Interest Things.Youths,活力web倡导者，Youths 寻找志同道合的年青人.知乎精选、知乎用户、知乎妹子、it站导航" />
   <link href="img/Youths.ico" rel="shortcut icon" />
+  <base href="/" />
   <!-- import css -->
   <!-- build:css styles/youths.min.css -->
   <link href='/bower_components/font-awesome/css/font-awesome.css' rel='stylesheet' />
@@ -37,19 +38,19 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#/"><span>Y</span>ouths</a>
+            <a class="navbar-brand" href="/"><span>Y</span>ouths</a>
           </div>
           <div class="navbar-collapse collapse ">
             <ul class="nav navbar-nav">
-              <li ng-class="{current:isCurrent('main')}"><a href="#/">首页</a></li>
+              <li ng-class="{current:isCurrent('main')}"><a href="/">首页</a></li>
               <li ng-class="{current:isCurrent('nav')}">
-                <a href="#/nav">任意门</a>
+                <a href="/nav">任意门</a>
               </li>
-              <li ng-class="{current:isCurrent('blog')}"><a href="#/blog">趣博客</a></li>
+              <li ng-class="{current:isCurrent('blog')}"><a href="/blog">趣博客</a></li>
               <li ng-class="{current:isCurrent('zhihu')}"><a href="javascript:void(0)" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false">看知乎</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#/zhihu.article">知乎精选</a></li>
-                  <li><a href="#/zhihu.user">知乎用户</a></li>
+                  <li><a href="/zhihu.article">知乎精选</a></li>
+                  <li><a href="/zhihu.user">知乎用户</a></li>
                 </ul>
               </li>
               <li ng-if='currentUser == null'><a ng-click="showModal('#Register')">注册</a></li>
@@ -57,9 +58,9 @@
               <li ng-if='currentUser != null' ng-class="{current:isCurrent('user')}">
                 <a href="" class="dropdown-toggle " data-toggle="dropdown" data-hover="dropdown" data-delay="0" data-close-others="false"><img ng-src="{{currentUser.avatar | storage:'avatar'}}" alt="" error="img/avatar.png" class="avatar-s"><b class=" icon-angle-down"></b></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
-                  <li><a href="#/nav.add"><i class="fa fa-plus"></i>&nbsp;&nbsp;推酷站</a></li>
-                  <li><a href="#/account"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
+                  <li><a href="/blog/add"><i class="fa fa-pencil"></i>&nbsp;&nbsp;写文章</a></li>
+                  <li><a href="/nav.add"><i class="fa fa-plus"></i>&nbsp;&nbsp;推酷站</a></li>
+                  <li><a href="/account"><i class="fa fa-user"></i>&nbsp;&nbsp;个人中心</a></li>
                   <li><a href="" ng-click="logout()"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;登出</a></li>
                 </ul>
               </li>
@@ -88,7 +89,7 @@
       </div>
     </footer>
   </div>
-  <a href="#" class="scrollup"><i class="fa fa-angle-up active"></i></a>
+  <a href="" class="scrollup"><i class="fa fa-angle-up active"></i></a>
   <!-- importjs -->
   <!-- build:js js/youths.min.js -->
   <script src="/bower_components/jquery/dist/jquery.js"></script>

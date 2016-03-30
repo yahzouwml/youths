@@ -1,6 +1,6 @@
 <div class="banner">
   <div class="b-search text-center">
-    <h1>发现有趣的事</h1>
+    <h1>发现有趣的事1</h1>
     <input type="text" placeholder="去搜索" class="col-md-4 col-md-offset-4 col-xs-12" ng-model="keywords" ng-change="search()">
     <div class="col-md-4 col-md-offset-4 col-xs-12 searchResult" ng-if="!!keywords">
       <h5>任意门</h5>
@@ -11,7 +11,7 @@
       <p ng-if="search.nav.length==0 || !search.nav">暂无搜索结果</p>
       <h5>博客</h5>
       <div ng-repeat="i in search.blog" class="searchList">
-        <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png' class="avatar-s" title="{{i.user.username}}">&nbsp;<a href="#/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a>
+        <img ng-src="{{i.user.avatar | storage:'avatar'}}" alt="" error='/img/avatar.png' class="avatar-s" title="{{i.user.username}}">&nbsp;<a href="/blog/detail/{{i.id}}" class="text-dark">{{i.title}}</a>
       </div>
       <p ng-if="search.blog.length==0 || !search.blog">暂无搜索结果</p>
       <h5>知乎</h5>
