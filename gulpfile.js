@@ -31,7 +31,7 @@ gulp.task('serve', ['sass', 'config'], function() {
 
 gulp.task('serve:r', function() {
   $.browserSync.init({
-    open: "external",
+    open: false,
     port: 7000,
     server: {
       baseDir: ['dist']
